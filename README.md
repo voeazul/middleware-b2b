@@ -1,6 +1,7 @@
 # Documentação do Barramento B2B
 
-Bem-vindo à documentação centralizada do Barramento B2B! Aqui você encontrará informações importantes para iniciar e utilizar o barramento de forma eficiente. Abaixo estão os tópicos disponíveis:
+Bem-vindo à documentação centralizada do Barramento B2B!
+Aqui você encontrará informações importantes para iniciar e utilizar o barramento de forma eficiente. Abaixo estão os tópicos disponíveis:
 
 ## 🗝️ Solicitação de Subscription Key
 
@@ -10,7 +11,7 @@ Bem-vindo à documentação centralizada do Barramento B2B! Aqui você encontrar
 ## 🐞 Reporte de Issues e Sugestão de Melhorias
 
 - Informe problemas encontrados no barramento ou compartilhe sugestões para melhorias.
-- [Link para o documento completo](./reporte_issues_sugestoes.md)
+- [Link para o documento completo](/docs/pt-br/issues-template/readme.md)
 
 ## 📦 Coleção do Postman
 
@@ -21,7 +22,13 @@ Bem-vindo à documentação centralizada do Barramento B2B! Aqui você encontrar
 
 - Consulte a documentação detalhada das APIs disponíveis no barramento.
 - Aprenda sobre o fluxo de geração de uma reserva e seus principais pontos.
-- [Link para o documento completo](./documentacao_apis_fluxo_reserva.md)
+- [Link para o documento completo](/docs/pt-br/apis-doc/readme.md)
+
+## ❗️ Códigos de Erro e Mensagens
+
+- Encontre todos os códigos de erro e mensagens retornadas pelo barramento.
+- Acesse mensagens negociais e de erro inesperado.
+- [Link para o documento completo](/docs/pt-br/apis-doc/errors-code.md)
 
 ## 🔄 Suporte a Versionamentos das APIs
 
@@ -40,6 +47,17 @@ Bem-vindo à documentação centralizada do Barramento B2B! Aqui você encontrar
 - Siga o passo a passo para iniciar o uso do barramento em ambiente de produção.
 - Aprenda sobre as etapas e requisitos necessários para uma integração bem-sucedida.
 - [Link para o documento completo](./processo_inicio_producao.md)
+
+## 📝 Changelog
+
+- Consulte o histórico de alterações do barramento e suas versões.
+- Acompanhe as novas funcionalidades, correções e melhorias implementadas.
+- [Link para o documento completo](/docs/pt-br/change-log/readme.md)
+
+## ❓ Perguntas Frequentes (FAQ)
+
+- Encontre respostas para perguntas frequentes sobre o uso do barramento.
+- [Link para o documento completo](./faq.md)
 
 ---
 
