@@ -4,19 +4,21 @@ O Barramento B2B tem uma camada de gerenciamento e segurança, chamada API Gatew
 
 ## O que é uma Chave de Assinatura?
 
-Uma Chave de Assinatura, é um identificador exclusivo usado para autenticar as solicitações feitas às APIs. Para cada usuário ou aplicativo que consome uma de nossas APIs é atribuído uma chave de acesso única, que é usada para identificar e autorizar as chamadas.
+Uma Chave de Assinatura é um identificador exclusivo usado para autenticar suas solicitações às APIs. Para cada usuário ou aplicativo que consome nossas APIs recebe uma chave de acesso única, que deve ser utilizada para identificar e autorizar as chamadas.
 Essa chave de assinatura deve ser solicitada no Portal do Desenvolvedor.
 
 ## Acesso ao Portal do Desenvolvedor
 
-O Portal do Desenvolvedor é uma plataforma que permite aos desenvolvedores visualizarem as APIs disponiveis para integração, solicitar e gerenciar chaves de assinaturas, assim como encontrar algumas documentações das APIs e fazer uso de um sandbox para validação de chamadas as APIs.
+Nosso Portal do Desenvolvedor é uma plataforma dinâmica que oferece uma visão completa das APIs disponíveis para integração. Lá, você pode solicitar e gerenciar suas chaves de assinatura, além de encontrar documentações e utilizar um sandbox para testar as chamadas às APIs.
 
-O Portal do Desenvolvedor que estamos utilizando atualmente é o portal fornecido pelo Azure API Management, e pode ser acessado através da URLs abaixo.
+Estamos utilizando o Portal do Desenvolvedor fornecido pelo Azure API Management. Acesse as URLs abaixo para acessar o portal nos ambientes de Homologação e Produção.
 
-[Portal Desenvolvedor ambiente de Homologação](https://apim-stg-us-general.developer.azure-api.net)   
-[Portal Desenvolvedor ambiente de Produção (Disponível em breve)]()
+[Portal Desenvolvedor Ambiente de Homologação (Disponivel em breve)]()   
+[Portal Desenvolvedor Ambiente de Produção (Disponível em breve)]()
 
 ## Como se cadastrar
+
+Siga as etapas abaixo para se cadastrar no Portal do Desenvolvedor:
 
 1. Acesse a URL do Portal do Desenvolvedor para o ambiente desejado.
 2. Clique em "Sign up" na página inicial.
@@ -29,6 +31,8 @@ O Portal do Desenvolvedor que estamos utilizando atualmente é o portal fornecid
 
 ## Solicitando uma Chave de API
 
+Siga as etapas abaixo para solicitar uma chave de assinatura:
+
 1. Faça login no Portal do Desenvolvedor.
 2. Navegue até a seção "Products".
 3. Selecione a API para a qual deseja solicitar uma chave.
@@ -40,6 +44,8 @@ O Portal do Desenvolvedor que estamos utilizando atualmente é o portal fornecid
 8. Após a aprovação, será enviado uma notificação no e-mail utilizado na criação da conta no portal do desenvolvedor.
 
 ## Visualizando uma Chave de Assinatura
+
+Siga as etapas abaixo para visualizar uma chave de assinatura:
 
 1. Faça login no Portal do Desenvolvedor.
 2. Navegue até a seção "Profile".
@@ -55,9 +61,9 @@ Caso seja identificado algum comportamento incomum na utilização das APIs por 
 
 ## Atualizando uma Chave de Assinatura
 
-Em caso de chaves que foram vazadas a pessoas sem autorização, o criador da chave de assinatura poderá regerar a mesma no portal do desenvolvedor, considerando que ao regerar uma chave, a antiga é invalidada imediatamente e perde o acesso as APIs do barramento.
+Se você suspeitar que sua chave de assinatura foi divulgada a pessoas não autorizadas, é possível regerá-la no Portal do Desenvolvedor. Lembre-se de que ao regerar uma chave, a anterior será invalidada imediatamente e perderá o acesso às APIs do barramento.
 
-Regerando uma chave:
+Siga as etapas abaixo para regerar uma chave:
 
 1. Faça login no Portal do Desenvolvedor.
 2. Navegue até a seção "Profile".
@@ -67,3 +73,5 @@ Regerando uma chave:
 6. Após isso é só atualizar a chave nos lugares necessários e utilizar.
 
 ![Regenerate Subscription Key](/docs/assets/subkey-regenerate-key.png)
+
+Agora você está pronto para aproveitar todos os benefícios das nossas APIs. Se tiver alguma dúvida ou precisar de suporte adicional, entre em contato conosco.
