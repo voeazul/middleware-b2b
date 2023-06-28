@@ -1,22 +1,24 @@
 # Solicitação de Chave de Assinatura
 
-O barramento B2B tem uma camada de gerenciamento e segurança, chamada API Gateway, que é uma plataforma onde é possivel gerenciar e proteger as APIs de forma escalável e eficiente. Para ter acesso as nossas APIs você precisa solicitar uma Chave de Assinatura no Portal do Desenvolvedor.
+O Barramento B2B tem uma camada de gerenciamento e segurança, chamada API Gateway, que é uma plataforma onde é possivel gerenciar e proteger as APIs de forma escalável e eficiente. Para ter acesso as nossas APIs você precisa solicitar uma Chave de Assinatura.
 
 ## O que é uma Chave de Assinatura?
 
-Uma Chave de Assinatura, é um identificador exclusivo usado para autenticar as solicitações feitas às APIs. Para cada usuário ou aplicativo que consome uma API de nossas APIs é atribuído a uma chave de acesso única, que é usada para identificar e autorizar as chamadas.
+Uma Chave de Assinatura, é um identificador exclusivo usado para autenticar as solicitações feitas às APIs. Para cada usuário ou aplicativo que consome uma de nossas APIs é atribuído uma chave de acesso única, que é usada para identificar e autorizar as chamadas.
 Essa chave de assinatura deve ser solicitada no Portal do Desenvolvedor.
 
 ## Acesso ao Portal do Desenvolvedor
 
-O Portal do Desenvolvedor que estamos utilizando atualmente é o portal do Azure API Management, pode ser acessado através da URLs abaixo.
+O Portal do Desenvolvedor é uma plataforma que permite aos desenvolvedores visualizarem as APIs disponiveis para integração, solicitar e gerenciar chaves de assinaturas, assim como encontrar algumas documentações das APIs e fazer uso de um sandbox para validação de chamadas as APIs.
+
+O Portal do Desenvolvedor que estamos utilizando atualmente é o portal fornecido pelo Azure API Management, e pode ser acessado através da URLs abaixo.
 
 [Portal Desenvolvedor ambiente de Homologação](https://apim-stg-us-general.developer.azure-api.net)   
-[Portal Desenvolvedor ambiente de Produção](https://apim-stg-us-general.developer.azure-api.net)
+[Portal Desenvolvedor ambiente de Produção (Disponível em breve)]()
 
 ## Como se cadastrar
 
-1. Acesse a URL o Portal do Desenvolvedor do ambiente desejado.
+1. Acesse a URL do Portal do Desenvolvedor para o ambiente desejado.
 2. Clique em "Sign up" na página inicial.
 3. Preencha o formulário de registro com suas informações.
 4. Após o registro, você receberá um e-mail de confirmação.
@@ -30,11 +32,12 @@ O Portal do Desenvolvedor que estamos utilizando atualmente é o portal do Azure
 1. Faça login no Portal do Desenvolvedor.
 2. Navegue até a seção "Products".
 3. Selecione a API para a qual deseja solicitar uma chave.
-4. Filtre pelo produto "Sales B2B - Agency", e após a exibição do mesmo, clique em cima do mesmo.
-5. De um nome para sua subscription, por padrão, deixe o nome da sua subscription com o nome da agência que irá fazer uso da subscription. Exemplo:
-    - azul-viagens
+4. Filtre pelo produto "__Sales B2B - Agency__", e após a exibição, clique em cima do mesmo.
+5. De um nome para sua chave de assinatura, por padrão, deixe o nome da sua chave com o nome da agência de forma que o responsável pela aprovação consiga identificar quem irá fazer uso. Exemplo:
+    - azul-viagens-key
 6. Clique em "Subscribe".
 7. Após isso, é necessário aguardar a aprovação do time Comercial da Azul.
+8. Após a aprovação, será enviado uma notificação no e-mail utilizado na criação da conta no portal do desenvolvedor.
 
 ## Visualizando uma Chave de Assinatura
 
