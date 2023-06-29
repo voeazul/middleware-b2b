@@ -34,13 +34,13 @@ Aqui você encontrará informações importantes para iniciar e utilizar o barra
 
 - Conheça a política de suporte aos versionamentos das APIs do barramento.
 - Saiba até quando será oferecido suporte a manutenções a versões defasadas.
-- [Link para o documento completo](./suporte_versionamento_apis.md)
+- [Link para o documento completo](/docs/pt-br/support-apis/readme.md)
 
 ## ⏱️ Benchmark e Tempo de Resposta
 
 - Acesse informações sobre o desempenho e benchmark das APIs do barramento.
 - Conheça os tempos de resposta esperados para diferentes tipos de chamadas.
-- [Link para o documento completo](./benchmark_tempo_resposta.md)
+- [Link para o documento completo](/docs/pt-br/benchmark/readme.md)
 
 ## 🚀 Processo para Uso do Barramento em Produção
 

@@ -26,7 +26,7 @@ Para obter informações detalhadas sobre os fluxos de reserva, quais APIs chama
 
 ## Lista de Códigos de Erros da API
 
-Se você encontrar algum erro ao utilizar as APIs, consulte a [Lista de Códigos de Erros da API](/docs/pt-br/apis/errors-code.md) para obter informações sobre os códigos de erro, códigos de resposta HTTP e mensagens de erro correspondentes.
+Se você encontrar algum erro ao utilizar as APIs, consulte a [Lista de Códigos de Erros da API](/docs/pt-br/apis-doc/errors-code.md) para obter informações sobre os códigos de erro, códigos de resposta HTTP e mensagens de erro correspondentes.
 
 ---
 
