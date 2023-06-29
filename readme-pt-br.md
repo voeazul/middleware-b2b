@@ -3,9 +3,9 @@
 Bem-vindo à documentação centralizada do Barramento B2B!
 Aqui você encontrará informações importantes para iniciar e utilizar o barramento de forma eficiente. Abaixo estão os tópicos disponíveis:
 
-## 🗝️ Solicitação de Subscription Key
+## 🗝️ Solicitação de Chave de Assinatura
 
-- Saiba como solicitar uma Subscription Key para acessar as APIs do barramento.
+- Saiba como solicitar uma Chave de Assinatura para acessar as APIs do barramento.
 - [Link para o documento completo](/docs/pt-br/subscription-key/readme.md)
 
 ## 🐞 Reporte de Issues e Sugestão de Melhorias

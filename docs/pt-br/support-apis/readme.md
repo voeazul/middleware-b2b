@@ -20,7 +20,7 @@ O número de versão em uma rota pode mudar nas seguintes ocasiões:
 3. **Correções de Bugs**: Quando são realizadas correções de bugs na rota, sem alterar a funcionalidade principal ou a compatibilidade com a versão anterior. Essas correções são destinadas a resolver problemas específicos e não requerem alterações no lado do cliente.
 
 ## Suporte a Versões Anteriores
-Garantimos suporte para versões anteriores por um período determinado, permitindo que os usuários façam a transição para as versões mais recentes. A duração do suporte para uma versão específica pode variar, mas em geral, seguimos a política de manter o suporte por __6 meses__:
+Garantimos suporte para versões anteriores por um período determinado, permitindo que os usuários façam a transição para as versões mais recentes. A duração do suporte para uma versão específica pode variar, mas em geral, seguimos a política de manter o suporte por __12 meses__:
 
 ## APIs Com Novas Versões
 | API                   | Versão | Data Limite de Suporte |
