@@ -35,13 +35,14 @@ Siga as etapas abaixo para solicitar uma chave de assinatura:
 
 1. Faça login no Portal do Desenvolvedor.
 2. Navegue até a seção "Products".
-3. Selecione a API para a qual deseja solicitar uma chave.
-4. Filtre pelo produto "__Sales B2B - Agency__", e após a exibição, clique em cima do mesmo.
-5. De um nome para sua chave de assinatura, por padrão, deixe o nome da sua chave com o nome da agência de forma que o responsável pela aprovação consiga identificar quem irá fazer uso. Exemplo:
+3. Filtre pelo produto "__Sales B2B - Agency__", e após a exibição, clique em cima do mesmo.
+![Passos 2 e 3](/docs/assets/subkey-search-product.png)
+4. De um nome para sua chave de assinatura, por padrão, deixe o nome da sua chave com o nome da agência de forma que o responsável pela aprovação consiga identificar quem irá fazer uso. Exemplo:
     - azul-viagens-key
-6. Clique em "Subscribe".
-7. Após isso, é necessário aguardar a aprovação do time Comercial da Azul.
-8. Após a aprovação, será enviado uma notificação no e-mail utilizado na criação da conta no portal do desenvolvedor.
+5. Clique em "Subscribe".
+![Passos 4 e 5](/docs/assets/subkey-subscribe-product.png)
+6. Após isso, é necessário aguardar a aprovação do time Comercial da Azul.
+7. Após a aprovação, será enviado uma notificação no e-mail utilizado na criação da conta no portal do desenvolvedor.
 
 ## Visualizando uma Chave de Assinatura
 

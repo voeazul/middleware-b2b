@@ -8,7 +8,7 @@ Aqui está a lista das APIs disponíveis e uma breve descrição das APIs dispon
 
 | API   | Descrição                                         |
 |-------|---------------------------------------------------|
-| [Authentication](/docs/pt-br/apis-doc/docs/authentication.md) | Breve descrição da API 1                          |
+| [Authentication](https://apim-test-us-general.developer.azure-api.net/api-details#api=Sales.B2B.Authentication.Api) | Breve descrição da API 1                          |
 | [User]() | Breve descrição da API 2                          |
 | [Shopping]() | Breve descrição da API 3                          |
 | [Organization]() | Breve descrição da API 4                          |

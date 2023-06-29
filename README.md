@@ -57,7 +57,7 @@ Aqui você encontrará informações importantes para iniciar e utilizar o barra
 ## ❓ Perguntas Frequentes (FAQ)
 
 - Encontre respostas para perguntas frequentes sobre o uso do barramento.
-- [Link para o documento completo](./faq.md)
+- [Link para o documento completo](/docs/pt-br/faq/readme.md)
 
 ---
 
