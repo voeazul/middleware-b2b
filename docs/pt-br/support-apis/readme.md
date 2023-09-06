@@ -20,16 +20,7 @@ O número de versão em uma rota pode mudar nas seguintes ocasiões:
 3. **Correções de Bugs**: Quando são realizadas correções de bugs na rota, sem alterar a funcionalidade principal ou a compatibilidade com a versão anterior. Essas correções são destinadas a resolver problemas específicos e não requerem alterações no lado do cliente.
 
 ## Suporte a Versões Anteriores
-Garantimos suporte para versões anteriores por um período determinado, permitindo que os usuários façam a transição para as versões mais recentes. A duração do suporte para uma versão específica pode variar, mas em geral, seguimos a política de manter o suporte por __12 meses__:
-
-## APIs Com Novas Versões
-| API                   | Versão | Data Limite de Suporte |
-|-----------------------|--------|-----------------------|
-| `/api/v1/endpoint`    | 1.0    | 31 de Dezembro de 2023 |
-| `/api/v2/endpoint`    | 2.0    | 31 de Dezembro de 2024 |
-| `/api/v3/endpoint`    | 3.0    | 31 de Dezembro de 2025 |
-
-Após a data limite de suporte para uma versão, recomendamos fortemente que os usuários migrem para a versão mais recente para continuar recebendo suporte e aproveitar as funcionalidades mais recentes.
+Garantimos suporte para versões anteriores por um período determinado, permitindo que os usuários façam a transição para as versões mais recentes. A duração do suporte para uma versão específica pode variar, mas em geral, seguimos a política de manter o suporte por __12 meses__.
 
 ## Notificações de Versões
 Quando uma nova versão da API é lançada ou uma versão antiga atinge a data limite de suporte, notificaremos os usuários por e-mail e por nossa conta no Github. Por e-mail as notificações serão enviadas para o endereço de e-mail associado à chave de assinatura da API e para o contato principal da agência.
