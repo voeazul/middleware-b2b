@@ -16,7 +16,9 @@ Aqui você encontrará informações importantes para iniciar e utilizar o barra
 ## 📦 Coleção do Postman
 
 - Acesse a coleção do Postman com exemplos de chamadas às APIs do barramento.
-- [Link para o documento completo](./colecao_postman.md)
+- [Link para o documento completo](/postman/middleware_b2b-release_golive.postman_collection.json)
+- [Link para variáveis de ambiente de homologação](/postman/env-stg.postman_environment.json)
+- [Link para variáveis de ambiente de produção](/postman/env-prd.postman_environment.json)
 
 ## 📚 Documentação das APIs
 
@@ -40,7 +42,7 @@ Aqui você encontrará informações importantes para iniciar e utilizar o barra
 
 - Acesse informações sobre o desempenho e benchmark das APIs do barramento.
 - Conheça os tempos de resposta esperados para diferentes tipos de chamadas.
-- [Link para o documento completo](/docs/pt-br/benchmark/readme.md)
+- Em breve mais informações.
 
 ## 🚀 Processo para Uso do Barramento em Produção
 
