@@ -14838,9 +14838,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{urlOrderSeat}}/api/v1/order/segments/{{segmentKey}}/seatmap",
+									"raw": "{{urlOrderSeats}}/api/v1/order/segments/{{segmentKey}}/seatmap",
 									"host": [
-										"{{urlOrderSeat}}"
+										"{{urlOrderSeats}}"
 									],
 									"path": [
 										"api",
@@ -14876,9 +14876,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{urlOrderSeat}}/api/v1/order/segments/{{segmentKey}}/passengers/{{passengerKey}}/seats/{{unitKey}}",
+									"raw": "{{urlOrderSeats}}/api/v1/order/segments/{{segmentKey}}/passengers/{{passengerKey}}/seats/{{unitKey}}",
 									"host": [
-										"{{urlOrderSeat}}"
+										"{{urlOrderSeats}}"
 									],
 									"path": [
 										"api",
@@ -15369,9 +15369,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{urlOrderSeat}}/api/v1/order/segments/{{segmentKey}}/seatmap",
+									"raw": "{{urlOrderSeats}}/api/v1/order/segments/{{segmentKey}}/seatmap",
 									"host": [
-										"{{urlOrderSeat}}"
+										"{{urlOrderSeats}}"
 									],
 									"path": [
 										"api",
@@ -15407,9 +15407,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{urlOrderSeat}}/api/v1/order/segments/{{segmentKey}}/passengers/{{passengerKey}}/seats/{{unitKey}}",
+									"raw": "{{urlOrderSeats}}/api/v1/order/segments/{{segmentKey}}/passengers/{{passengerKey}}/seats/{{unitKey}}",
 									"host": [
-										"{{urlOrderSeat}}"
+										"{{urlOrderSeats}}"
 									],
 									"path": [
 										"api",
@@ -15642,9 +15642,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{urlOrderSeat}}/api/v1/order/segments/{{segmentKey}}/passengers/{{passengerKey}}/seats/{{unitKey}}",
+									"raw": "{{urlOrderSeats}}/api/v1/order/segments/{{segmentKey}}/passengers/{{passengerKey}}/seats/{{unitKey}}",
 									"host": [
-										"{{urlOrderSeat}}"
+										"{{urlOrderSeats}}"
 									],
 									"path": [
 										"api",
@@ -16083,9 +16083,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{urlOrderSeat}}/api/v1/order/segments/{{segmentKey}}/seatmap",
+									"raw": "{{urlOrderSeats}}/api/v1/order/segments/{{segmentKey}}/seatmap",
 									"host": [
-										"{{urlOrderSeat}}"
+										"{{urlOrderSeats}}"
 									],
 									"path": [
 										"api",
@@ -16121,9 +16121,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{urlOrderSeat}}/api/v1/order/segments/{{segmentKey}}/passengers/{{passengerKey}}/seats/{{unitKey}}",
+									"raw": "{{urlOrderSeats}}/api/v1/order/segments/{{segmentKey}}/passengers/{{passengerKey}}/seats/{{unitKey}}",
 									"host": [
-										"{{urlOrderSeat}}"
+										"{{urlOrderSeats}}"
 									],
 									"path": [
 										"api",
@@ -16687,9 +16687,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{urlOrderSeat}}/api/v1/order/segments/{{segmentKey}}/seatmap",
+									"raw": "{{urlOrderSeats}}/api/v1/order/segments/{{segmentKey}}/seatmap",
 									"host": [
-										"{{urlOrderSeat}}"
+										"{{urlOrderSeats}}"
 									],
 									"path": [
 										"api",
@@ -16725,9 +16725,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{urlOrderSeat}}/api/v1/order/segments/{{segmentKey}}/passengers/{{passengerKey}}/seats/{{unitKey}}",
+									"raw": "{{urlOrderSeats}}/api/v1/order/segments/{{segmentKey}}/passengers/{{passengerKey}}/seats/{{unitKey}}",
 									"host": [
-										"{{urlOrderSeat}}"
+										"{{urlOrderSeats}}"
 									],
 									"path": [
 										"api",
@@ -28504,9 +28504,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{urlOrderSeat}}/api/v1/order/segments/:segmentKey/seatmap",
+									"raw": "{{urlOrderSeats}}/api/v1/order/segments/:segmentKey/seatmap",
 									"host": [
-										"{{urlOrderSeat}}"
+										"{{urlOrderSeats}}"
 									],
 									"path": [
 										"api",
@@ -28557,9 +28557,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{urlOrderSeat}}/api/v1/order/segments/:segmentKey/passengers/:passengerKey/seats/:unitKey",
+									"raw": "{{urlOrderSeats}}/api/v1/order/segments/:segmentKey/passengers/:passengerKey/seats/:unitKey",
 									"host": [
-										"{{urlOrderSeat}}"
+										"{{urlOrderSeats}}"
 									],
 									"path": [
 										"api",
