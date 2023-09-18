@@ -48,7 +48,7 @@ Aqui você encontrará informações importantes para iniciar e utilizar o barra
 
 - Siga o passo a passo para iniciar o uso do barramento em ambiente de produção.
 - Aprenda sobre as etapas e requisitos necessários para uma integração bem-sucedida.
-- [Link para o documento completo](./processo_inicio_producao.md)
+- [Link para o documento completo](/docs/pt-br/processo-inicio-producao/readme.md)
 
 ## 📝 Changelog
 
