@@ -20,7 +20,7 @@ The following table shows the expected response time benchmark and limit variati
 The following table shows the expected response time benchmark and threshold range for the main APIs in the production environment:
 
 | API | Expected Response Time (ms) | Limit Variation (ms) |
-|-----------------------|------------------------- -------|----------------------|
+|-----------------------|--------------------------------|----------------------|
 | `authentication/api/v1/token` | ? | ? |
 | `user/api/v1/authenticate` | ? | ? |
 | `shopping/api/v1/airsearch` | ? | ? |
