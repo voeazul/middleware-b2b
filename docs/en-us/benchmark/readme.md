@@ -7,7 +7,7 @@ In this section, we present the expected response time benchmark and the limit v
 The following table shows the expected response time benchmark and limit variation for the main APIs in the approval environment:
 
 | API | Expected Response Time (ms) | Limit Variation (ms) |
-|-----------------------|------------------------- -------|----------------------|
+|-----------------------|--------------------------------|----------------------|
 | `authentication/api/v1/token` | ? | ? |
 | `user/api/v1/authenticate` | ? | ? |
 | `shopping/api/v1/airsearch` | ? | ? |
