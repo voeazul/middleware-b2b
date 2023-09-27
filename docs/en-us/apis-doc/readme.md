@@ -7,7 +7,7 @@ Welcome to the Middleware APIs centralized documentation and reservation flow gu
 Here is the list of available APIs and a brief description of the available APIs:
 
 | API | Description |
-|-------|----------------------------------------- ----------|
+|-------|---------------------------------------------------|
 | [Authentication](https://apim-stg-us-general.developer.azure-api.net/api-details#api=Sales.B2B.Authentication.Api) | The Authentication service is responsible for authenticating the B2B Middleware systemic user. Obtaining the token through the Authentication service is mandatory at the beginning of each B2B Middleware session. |
 | [User](https://apim-stg-us-general.developer.azure-api.net/api-details#api=Sales.B2B.User.Api) | The User service is responsible for managing travel agent information logged into the B2B Middleware. |
 | [Shopping](https://apim-stg-us-general.developer.azure-api.net/api-details#api=Sales.B2B.Shopping.Api) | The Shopping service is responsible for providing flight offer search methods through the B2B Middleware and providing all information regarding available offers. |
