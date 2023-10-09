@@ -53,10 +53,10 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-## Environment
+**Environment**
 
-- Environment used: Stage or Production.
-- Source System Language: Python, PHP, C#, etc.
+Environment used: Stage or Production.
+Source System Language: Python, PHP, C#, etc.
 
 **Additional context**
 Add any other context about the problem here.
