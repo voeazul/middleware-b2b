@@ -1,12 +1,19 @@
 # Changelog
 
-## [1.0.0] - 08/01/2023
+## [1.2.0] - 11/08/2023
 
 ### Added
-- Availability of the initial version of the Middleware in production.
-
-### Modified
-- Not applicable.
-
-### Adjusted
-- Not applicable.
+- Reports API
+    - Scheduler
+        - Segments
+        - Sales
+        - Payments
+        - CreditShell
+    - Download
+- Automated Routines
+    - Reports
+        - Segments
+        - Sales
+        - Payments
+        - CreditShell
+    - Data Purge

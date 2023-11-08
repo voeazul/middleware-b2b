@@ -46,7 +46,7 @@ Follow the steps below to request a subscription key:
 
 ## Viewing a Subscription Key
 
-Siga as etapas abaixo para visualizar uma chave de assinatura:
+Follow the steps below to view a subscription key:
 
 1. Log in to the Developer Portal.
 2. Navigate to the "Profile" section.

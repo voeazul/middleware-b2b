@@ -1,12 +1,19 @@
 # Changelog
 
-## [1.0.0] - 01/08/2023
+## [1.2.0] - 08/11/2023
 
 ### Adicionado
-- Disponibilização da versão inicial do barramento em produção.
-
-### Modificado
-- Não se Aplica.
-
-### Corrigido
-- Não se Aplica.
+- API de Relatórios
+    - Agendamentos
+        - Segmentos
+        - Vendas
+        - Pagamentos
+        - CreditShell
+    - Download
+- Rotinas Automatizadas
+    - Geração de Relatórios
+        - Segmentos
+        - Vendas
+        - Pagamentos
+        - CreditShell
+    - Expurgo de Dados
