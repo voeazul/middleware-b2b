@@ -1,12 +1,16 @@
 # Changelog
 
-## [1.0.0] - 01/08/2023
+## [1.1.1] - 01/08/2023
 
 ### Adicionado
-- Disponibilização da versão inicial do barramento em produção.
+- Venda assíncrona de ancillaries
+- Prazos de Hold Customizáveis
+- Gestão de Passageiros.
 
 ### Modificado
-- Não se Aplica.
+- Melhorias no retorno de Mapa de Assentos
+- Melhorias em Change e Cancel
+- Melhorias na Gestão de Usuário
 
 ### Corrigido
-- Não se Aplica.
+- Remoção da obrigatoriedade de middle name na adição de Infants pós criação.
