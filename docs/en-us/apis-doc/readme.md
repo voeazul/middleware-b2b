@@ -22,7 +22,7 @@ Here is the list of available APIs and a brief description of the available APIs
 
 ## How to Make a Reservation Flow
 
-For detailed information about reservation flows, which APIs to call for reservation change, creation and manipulation, see some flow examples from our postman in the [Basic Flows](/postman/middleware_b2b-release_golive.postman_collection.json) section.
+For detailed information about reservation flows, which APIs to call for reservation change, creation and manipulation, see some flow examples from our postman in the [Basic Flows](/postman/middleware_b2b-release_1.2.5.postman_collection.json) section.
 
 ## List of API Error Codes
 

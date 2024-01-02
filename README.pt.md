@@ -16,7 +16,7 @@ Aqui você encontrará informações importantes para iniciar e utilizar o barra
 ## 📦 Coleção do Postman
 
 - Acesse a coleção do Postman com exemplos de chamadas às APIs do barramento.
-- [Link para o documento completo](/postman/middleware_b2b-release_golive.postman_collection.json)
+- [Link para o documento completo](/postman/middleware_b2b-release_1.2.5.postman_collection.json)
 - [Link para variáveis de ambiente de homologação](/postman/env-stg.postman_environment.json)
 - [Link para variáveis de ambiente de produção](/postman/env-prd.postman_environment.json)
 

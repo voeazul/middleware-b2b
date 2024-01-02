@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "fbb9692c-4f4c-4132-aa27-c86db2aa1e60",
+		"_postman_id": "37110869-7ff6-41a2-926f-056ed8430795",
 		"name": "Middleware B2B - Release 1.2.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28520161"
+		"_exporter_id": "29122721",
+		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B~6e005c5d-54ea-4a11-9e9f-ab2adb854162/collection/28520161-37110869-7ff6-41a2-926f-056ed8430795?action=share&source=collection_link&creator=29122721"
 	},
 	"item": [
 		{
@@ -4245,189 +4246,6 @@
 								}
 							},
 							"response": []
-						},
-						{
-							"name": "Credits Report",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);\r",
-											"pm.environment.set(\"creditsReportId\", jsonData.data.report.id);"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"periodCriteria\": {\r\n        \"type\": \"day\",\r\n        \"day\": 23,\r\n        \"week\": null,\r\n        \"month\": 10,\r\n        \"year\": 2023\r\n    },\r\n    \"orderCriteria\": {\r\n        \"type\": \"Organization\",\r\n        \"createdBy\": null\r\n    }\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{urlReports}}/api/v1/orders/reports/credits",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reports",
-										"credits"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Credits Report",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/credits",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reports",
-										":reportId",
-										"credits"
-									],
-									"variable": [
-										{
-											"key": "reportId",
-											"value": "{{creditsReportId}}"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Credits Report",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlReports}}/api/v1/orders/reports/credits",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reports",
-										"credits"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Credits Report by ID",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/credits",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reports",
-										":reportId",
-										"credits"
-									],
-									"variable": [
-										{
-											"key": "reportId",
-											"value": "{{creditsReportId}}"
-										}
-									]
-								}
-							},
-							"response": []
 						}
 					]
 				}
@@ -4847,7 +4665,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"raw": "{\r\n   \"username\": \"20202020WS\",\r\n   \"password\": \"10231023\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4897,8 +4715,8 @@
 										"exec": [
 											"var moment = require('moment');\r",
 											"\r",
-											"pm.environment.set(\"departure_1\", moment().add(7, 'days').format('YYYY-MM-DDT00:00:00'));\r",
-											"pm.environment.set(\"departure_2\", moment().add(14, 'days').format('YYYY-MM-DDT00:00:00'));"
+											"pm.environment.set(\"departure_1\", moment().add(6, 'days').format('YYYY-MM-DDT00:00:00'));\r",
+											"pm.environment.set(\"departure_2\", moment().add(13, 'days').format('YYYY-MM-DDT00:00:00'));"
 										],
 										"type": "text/javascript"
 									}
@@ -4925,7 +4743,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"GRU\",\r\n            \"destination\": \"SDU\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        },\r\n        {\r\n            \"origin\": \"SDU\",\r\n            \"destination\": \"GRU\",\r\n            \"departure\": \"{{departure_2}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
+									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"VCP\",\r\n            \"destination\": \"SDU\",\r\n            \"departure\": \"{{departure_2}}\"\r\n        },\r\n        {\r\n            \"origin\": \"SDU\",\r\n            \"destination\": \"VCP\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4982,7 +4800,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"journeyKey\": \"{{journeyKeyIda}}\",\r\n            \"fareKey\": \"{{fareKeyIda}}\"\r\n        },\r\n        {\r\n            \"journeyKey\": \"{{journeyKeyVolta}}\",\r\n            \"fareKey\": \"{{fareKeyVolta}}\"\r\n        }\r\n    ],\r\n    \"passengers\": [\r\n        {\r\n            \"nationality\": \"BR\",\r\n            \"gender\": \"Female\",\r\n            \"dateOfBirth\": \"1990-01-01T09:35:00\",\r\n            \"phone\": \"(00) 91111-2222\",\r\n            \"email\": \"maria@email.com\",\r\n            \"type\": \"ADT\",\r\n            \"name\": {\r\n                \"first\": \"Maria\",\r\n                \"middle\": \"Silva\",\r\n                \"last\": \"Santos\",\r\n                \"title\": \"MR\",\r\n                \"suffix\": null\r\n            },\r\n            \"travelDocuments\": [\r\n                {\r\n                    \"type\": \"CPF\",\r\n                    \"number\": \"21121121121\",\r\n                    \"birthCountry\": \"BR\",\r\n                    \"issuingCountry\": \"BR\",\r\n                    \"issuedDate\": null,\r\n                    \"expirationDate\": null\r\n                }\r\n            ],\r\n            \"infant\": null,\r\n            \"iropContact\": {\r\n                \"refused\": false,\r\n                \"mobile\": \"(00) 91111-2222\",\r\n                \"email\": \"maria@email.com\"\r\n            }\r\n        }\r\n    ],\r\n    \"contact\": {\r\n        \"address\": {\r\n            \"lineOne\": \"Rua\",\r\n            \"lineTwo\": \"Sete de Setembro\",\r\n            \"lineThree\": \"No. 22\",\r\n            \"country\": \"BR\",\r\n            \"provinceState\": \"SP\",\r\n            \"city\": \"Sao Paulo\",\r\n            \"postalCode\": \"14800-000\"\r\n        },\r\n        \"email\": \"Viagem.Feliz@mail.com.br\",\r\n        \"companyName\": \"Viagem Feliz\",\r\n        \"name\": {\r\n            \"first\": \"Pedro\",\r\n            \"middle\": \"Souza\",\r\n            \"last\": \"Oliveira\",\r\n            \"title\": \"\",\r\n            \"suffix\": \"FO\"\r\n        },\r\n        \"phones\": [\r\n            {\r\n                \"number\": \"(11) 9999-9991\",\r\n                \"type\": \"Home\"\r\n            },\r\n            {\r\n                \"number\": \"(11) 9999-9992\",\r\n                \"type\": \"Fax\"\r\n            }\r\n        ]\r\n    }\r\n}",
+									"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"journeyKey\": \"{{journeyKeyIda}}\",\r\n            \"fareKey\": \"{{fareKeyIda}}\"\r\n        },\r\n        {\r\n            \"journeyKey\": \"{{journeyKeyVolta}}\",\r\n            \"fareKey\": \"{{fareKeyVolta}}\"\r\n        }\r\n    ],\r\n    \"passengers\": [\r\n        {\r\n            \"nationality\": \"BR\",\r\n            \"gender\": \"Female\",\r\n            \"dateOfBirth\": \"1990-01-01T09:35:00\",\r\n            \"phone\": \"(00) 91111-2222\",\r\n            \"email\": \"maria@email.com\",\r\n            \"type\": \"ADT\",\r\n            \"name\": {\r\n                \"first\": \"Maria\",\r\n                \"middle\": \"Silva\",\r\n                \"last\": \"AlertsTST\",\r\n                \"title\": \"MS\",\r\n                \"suffix\": null\r\n            },\r\n            \"travelDocuments\": [\r\n                {\r\n                    \"type\": \"CPF\",\r\n                    \"number\": \"21121121121\",\r\n                    \"birthCountry\": \"BR\",\r\n                    \"issuingCountry\": \"BR\",\r\n                    \"issuedDate\": null,\r\n                    \"expirationDate\": null\r\n                }\r\n            ],\r\n            \"infant\": null,\r\n            \"iropContact\": {\r\n                \"refused\": false,\r\n                \"mobile\": \"(00) 91111-2222\",\r\n                \"email\": \"maria@email.com\"\r\n            }\r\n        }\r\n    ],\r\n    \"contact\": {\r\n        \"address\": {\r\n            \"lineOne\": \"Rua\",\r\n            \"lineTwo\": \"Sete de Setembro\",\r\n            \"lineThree\": \"No. 22\",\r\n            \"country\": \"BR\",\r\n            \"provinceState\": \"SP\",\r\n            \"city\": \"Sao Paulo\",\r\n            \"postalCode\": \"14800-000\"\r\n        },\r\n        \"email\": \"Viagem.Feliz@mail.com.br\",\r\n        \"companyName\": \"Viagem Feliz\",\r\n        \"name\": {\r\n            \"first\": \"Pedro\",\r\n            \"middle\": \"Souza\",\r\n            \"last\": \"Oliveira\",\r\n            \"title\": \"\",\r\n            \"suffix\": \"FO\"\r\n        },\r\n        \"phones\": [\r\n            {\r\n                \"number\": \"(11) 9999-9991\",\r\n                \"type\": \"Home\"\r\n            },\r\n            {\r\n                \"number\": \"(11) 9999-9992\",\r\n                \"type\": \"Fax\"\r\n            }\r\n        ]\r\n    }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
