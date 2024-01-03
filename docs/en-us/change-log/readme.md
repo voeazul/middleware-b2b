@@ -1,19 +1,9 @@
 # Changelog
 
-## [1.2.0] - 11/08/2023
+## [1.3.0] - 01/03/2024
 
 ### Added
-- Reports API
-    - Scheduler
-        - Segments
-        - Sales
-        - Payments
-        - CreditShell
-    - Download
-- Automated Routines
-    - Reports
-        - Segments
-        - Sales
-        - Payments
-        - CreditShell
-    - Data Purge
+- Reaccommodation functionality, including:
+    - Accept,
+    - Change,
+    - Cancel

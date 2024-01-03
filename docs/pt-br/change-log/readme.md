@@ -1,19 +1,9 @@
 # Changelog
 
-## [1.2.0] - 08/11/2023
+## [1.3.0] - 03/01/2024
 
 ### Adicionado
-- API de Relatórios
-    - Agendamentos
-        - Segmentos
-        - Vendas
-        - Pagamentos
-        - CreditShell
-    - Download
-- Rotinas Automatizadas
-    - Geração de Relatórios
-        - Segmentos
-        - Vendas
-        - Pagamentos
-        - CreditShell
-    - Expurgo de Dados
+- Funcionalidade de Reacomodação, incluíndo:
+    - Aceite
+    - Alteração
+    - Cancelamento

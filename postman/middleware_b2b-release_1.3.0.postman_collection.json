@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "37110869-7ff6-41a2-926f-056ed8430795",
-		"name": "Middleware B2B - Release 1.2.0",
+		"_postman_id": "68081c96-90e5-4f93-84da-fb03263818c2",
+		"name": "Middleware B2B - Release 1.3.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "29122721",
-		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B~6e005c5d-54ea-4a11-9e9f-ab2adb854162/collection/28520161-37110869-7ff6-41a2-926f-056ed8430795?action=share&source=collection_link&creator=29122721"
+		"_exporter_id": "23627244",
+		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B~6e005c5d-54ea-4a11-9e9f-ab2adb854162/collection/23627244-68081c96-90e5-4f93-84da-fb03263818c2?action=share&source=collection_link&creator=23627244"
 	},
 	"item": [
 		{
@@ -1900,7 +1900,7 @@
 							"variable": [
 								{
 									"key": "recordLocator",
-									"value": null
+									"value": "{{recordLocator}}"
 								}
 							]
 						}
@@ -4246,6 +4246,624 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Credits Report",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"pm.environment.set(\"creditsReportId\", jsonData.data.report.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"periodCriteria\": {\r\n        \"type\": \"day\",\r\n        \"day\": 23,\r\n        \"week\": null,\r\n        \"month\": 10,\r\n        \"year\": 2023\r\n    },\r\n    \"orderCriteria\": {\r\n        \"type\": \"Organization\",\r\n        \"createdBy\": null\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlReports}}/api/v1/orders/reports/credits",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reports",
+										"credits"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Credits Report",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/credits",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reports",
+										":reportId",
+										"credits"
+									],
+									"variable": [
+										{
+											"key": "reportId",
+											"value": "{{creditsReportId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Credits Report",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlReports}}/api/v1/orders/reports/credits",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reports",
+										"credits"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Credits Report by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/credits",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reports",
+										":reportId",
+										"credits"
+									],
+									"variable": [
+										{
+											"key": "reportId",
+											"value": "{{creditsReportId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Order.Reaccommodation",
+			"item": [
+				{
+					"name": "v1",
+					"item": [
+						{
+							"name": "Summary",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/orders/reaccommodations/summary?type=Organization&departureBegin=2023-12-21&departureEnd=2023-12-24&changeType=1&pageSize=1&page=1",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reaccommodations",
+										"summary"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "Organization"
+										},
+										{
+											"key": "code",
+											"value": "123123123123",
+											"disabled": true
+										},
+										{
+											"key": "departureBegin",
+											"value": "2023-12-21"
+										},
+										{
+											"key": "departureEnd",
+											"value": "2023-12-24"
+										},
+										{
+											"key": "changeType",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "1"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Summary Details",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/orders/reaccommodations/summary/Details?type=Organization&code=12345679&departure=2023-10-26&changeType=Important&pageSize=1&page=1",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reaccommodations",
+										"summary",
+										"Details"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "Organization"
+										},
+										{
+											"key": "code",
+											"value": "12345679"
+										},
+										{
+											"key": "departure",
+											"value": "2023-10-26"
+										},
+										{
+											"key": "changeType",
+											"value": "Important"
+										},
+										{
+											"key": "pageSize",
+											"value": "1"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reaccommodation",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"reaccommodationJourneyKeyIda\", JSON.stringify(response.data.journeys[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"pm.environment.set(\"reaccommodationJourneyDepartureIda\", response.data.journeys[0].from.designator.departure);\r",
+											"\r",
+											"if (response.data.journeys.length > 1)\r",
+											"{\r",
+											"    pm.environment.set(\"reaccommodationJourneyKeyVolta\", JSON.stringify(response.data.journeys[1].key).toString().replace(/['\"]+/g, '')); \r",
+											"    pm.environment.set(\"reaccommodationJourneyDepartureVolta\", response.data.journeys[1].from.designator.departure);\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"reaccommodation"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reaccommodation",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"keys\": [\r\n        \"{{reaccommodationJourneyKeyIda}}\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/accept",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"journeys",
+										"reaccommodation",
+										"accept"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reaccommodation AirSearch",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"reaccommodationNewJourneyKeyIda\", JSON.stringify(response.data.offers[0].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"pm.environment.set(\"reaccommodationNewFareKeyIda\", JSON.stringify(response.data.offers[0].offersAvailableByMarket[0].value[0].fare.key).toString().replace(/['\"]+/g, ''));\r",
+											"\r",
+											"if (response.data.offers.length > 0)\r",
+											"{\r",
+											"    pm.environment.set(\"reaccommodationNewJourneyKeyVolta\", JSON.stringify(response.data.offers[1].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"    pm.environment.set(\"reaccommodationNewFareKeyIda\", JSON.stringify(response.data.offers[1].offersAvailableByMarket[0].value[0].fare.key).toString().replace(/['\"]+/g, ''));\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"journeys\": [\r\n        {\r\n            \"key\": \"{{reaccommodationJourneyKeyIda}}\",\r\n            \"departure\": \"{{reaccommodationJourneyDepartureIda}}\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation/airSearch",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"reaccommodation",
+										"airSearch"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reaccommodation Move",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"currentJourneyKey\": \"{{reaccommodationJourneyKeyIda}}\",\r\n            \"newJourneyKey\": \"{{reaccommodationNewJourneyKeyIda}}\",\r\n            \"newFareKey\": \"{{reaccommodationNewFareKeyIda}}\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/move",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"journeys",
+										"reaccommodation",
+										"move"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reaccommodation Refund",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"keys\": [\r\n        \"{{reaccommodationJourneyKeyIda}}\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/refund",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"journeys",
+										"reaccommodation",
+										"refund"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
@@ -4715,8 +5333,8 @@
 										"exec": [
 											"var moment = require('moment');\r",
 											"\r",
-											"pm.environment.set(\"departure_1\", moment().add(6, 'days').format('YYYY-MM-DDT00:00:00'));\r",
-											"pm.environment.set(\"departure_2\", moment().add(13, 'days').format('YYYY-MM-DDT00:00:00'));"
+											"pm.environment.set(\"departure_1\", moment().add(7, 'days').format('YYYY-MM-DDT00:00:00'));\r",
+											"pm.environment.set(\"departure_2\", moment().add(14, 'days').format('YYYY-MM-DDT00:00:00'));"
 										],
 										"type": "text/javascript"
 									}
@@ -4743,7 +5361,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"VCP\",\r\n            \"destination\": \"SDU\",\r\n            \"departure\": \"{{departure_2}}\"\r\n        },\r\n        {\r\n            \"origin\": \"SDU\",\r\n            \"destination\": \"VCP\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
+									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"GRU\",\r\n            \"destination\": \"SDU\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        },\r\n        {\r\n            \"origin\": \"SDU\",\r\n            \"destination\": \"GRU\",\r\n            \"departure\": \"{{departure_2}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -31189,6 +31807,1899 @@
 										"order",
 										":recordLocator",
 										"checkout"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "64 - Booking Flow | Reaccommodation Full Accept",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - Reaccommodation v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"reaccommodationJourneyKeyIda\", JSON.stringify(response.data.journeys[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"pm.environment.set(\"reaccommodationJourneyDepartureIda\", response.data.journeys[0].from.designator.departure);\r",
+											"\r",
+											"if (response.data.journeys.length > 1)\r",
+											"{\r",
+											"    pm.environment.set(\"reaccommodationJourneyKeyVolta\", JSON.stringify(response.data.journeys[1].key).toString().replace(/['\"]+/g, '')); \r",
+											"    pm.environment.set(\"reaccommodationJourneyDepartureVolta\", response.data.journeys[1].from.designator.departure);\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"reaccommodation"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4 - Reaccommodation v1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"keys\": [\r\n        \"{{reaccommodationJourneyKeyIda}}\",\r\n        \"{{reaccommodationJourneyKeyVolta}}\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/accept",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"journeys",
+										"reaccommodation",
+										"accept"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "65 - Booking Flow | Reaccommodation Partial Accept",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - Reaccommodation v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"for(let i =0; i < response.data.journeys.length; i++){\r",
+											"    if(response.data.journeys[i].changeTypes.length > 0){\r",
+											"        pm.environment.set(\"reaccommodationJourneyKeyIda\", JSON.stringify(response.data.journeys[i].key).toString().replace(/['\"]+/g, ''));\r",
+											"        pm.environment.set(\"reaccommodationJourneyDepartureIda\", response.data.journeys[i].from.designator.departure);\r",
+											"    }\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"reaccommodation"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4 - Reaccommodation v1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"keys\": [\r\n        \"{{reaccommodationJourneyKeyIda}}\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/accept",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"journeys",
+										"reaccommodation",
+										"accept"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "66 - Booking Flow | Reaccommodation Full Move",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - Reaccommodation v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"reaccommodationJourneyKeyIda\", JSON.stringify(response.data.journeys[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"pm.environment.set(\"reaccommodationJourneyDepartureIda\", response.data.journeys[0].from.designator.departure);\r",
+											"\r",
+											"if (response.data.journeys.length > 1)\r",
+											"{\r",
+											"    pm.environment.set(\"reaccommodationJourneyKeyVolta\", JSON.stringify(response.data.journeys[1].key).toString().replace(/['\"]+/g, '')); \r",
+											"    pm.environment.set(\"reaccommodationJourneyDepartureVolta\", response.data.journeys[1].from.designator.departure);\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"reaccommodation"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4 - Reaccommodation AirSearch v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"reaccommodationNewJourneyKeyIda\", JSON.stringify(response.data.offers[0].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"pm.environment.set(\"reaccommodationNewFareKeyIda\", JSON.stringify(response.data.offers[0].offersAvailableByMarket[0].value[0].fare.key).toString().replace(/['\"]+/g, ''));\r",
+											"\r",
+											"if (response.data.offers.length > 1)\r",
+											"{\r",
+											"    pm.environment.set(\"reaccommodationNewJourneyKeyVolta\", JSON.stringify(response.data.offers[1].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"    pm.environment.set(\"reaccommodationNewFareKeyVolta\", JSON.stringify(response.data.offers[1].offersAvailableByMarket[0].value[0].fare.key).toString().replace(/['\"]+/g, ''));\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"journeys\": [\r\n        {\r\n            \"key\": \"{{reaccommodationJourneyKeyIda}}\",\r\n            \"departure\": \"{{reaccommodationJourneyDepartureIda}}\"\r\n        },\r\n        {\r\n            \"key\": \"{{reaccommodationJourneyKeyVolta}}\",\r\n            \"departure\": \"{{reaccommodationJourneyDepartureVolta}}\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation/airSearch",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"reaccommodation",
+										"airSearch"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5 - Reaccommodation Move v1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"currentJourneyKey\": \"{{reaccommodationJourneyKeyIda}}\",\r\n            \"newJourneyKey\": \"{{reaccommodationNewJourneyKeyIda}}\",\r\n            \"newFareKey\": \"{{reaccommodationNewFareKeyIda}}\"\r\n        },\r\n        {\r\n            \"currentJourneyKey\": \"{{reaccommodationJourneyKeyVolta}}\",\r\n            \"newJourneyKey\": \"{{reaccommodationNewJourneyKeyVolta}}\",\r\n            \"newFareKey\": \"{{reaccommodationNewFareKeyVolta}}\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/move",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"journeys",
+										"reaccommodation",
+										"move"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "67 - Booking Flow | Reaccommodation Partial Move",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - Reaccommodation v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"for(let i =0; i < response.data.journeys.length; i++){\r",
+											"    if(response.data.journeys[i].changeTypes.length > 0){\r",
+											"        pm.environment.set(\"reaccommodationJourneyKeyIda\", JSON.stringify(response.data.journeys[i].key).toString().replace(/['\"]+/g, ''));\r",
+											"        pm.environment.set(\"reaccommodationJourneyDepartureIda\", response.data.journeys[i].from.designator.departure);\r",
+											"    }\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"reaccommodation"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4 - Reaccommodation AirSearch v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"reaccommodationNewJourneyKeyIda\", JSON.stringify(response.data.offers[0].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"pm.environment.set(\"reaccommodationNewFareKeyIda\", JSON.stringify(response.data.offers[0].offersAvailableByMarket[0].value[0].fare.key).toString().replace(/['\"]+/g, ''));"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"journeys\": [\r\n        {\r\n            \"key\": \"{{reaccommodationJourneyKeyIda}}\",\r\n            \"departure\": \"{{reaccommodationJourneyDepartureIda}}\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation/airSearch",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"reaccommodation",
+										"airSearch"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5 - Reaccommodation Move v1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"currentJourneyKey\": \"{{reaccommodationJourneyKeyIda}}\",\r\n            \"newJourneyKey\": \"{{reaccommodationNewJourneyKeyIda}}\",\r\n            \"newFareKey\": \"{{reaccommodationNewFareKeyIda}}\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/move",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"journeys",
+										"reaccommodation",
+										"move"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "68 - Booking Flow | Reaccommodation Full Cancel",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - Reaccommodation v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"reaccommodationJourneyKeyIda\", JSON.stringify(response.data.journeys[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"pm.environment.set(\"reaccommodationJourneyDepartureIda\", response.data.journeys[0].from.designator.departure);\r",
+											"\r",
+											"if (response.data.journeys.length > 1)\r",
+											"{\r",
+											"    pm.environment.set(\"reaccommodationJourneyKeyVolta\", JSON.stringify(response.data.journeys[1].key).toString().replace(/['\"]+/g, '')); \r",
+											"    pm.environment.set(\"reaccommodationJourneyDepartureVolta\", response.data.journeys[1].from.designator.departure);\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"reaccommodation"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4 - Reaccommodation Refund v1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"keys\": [\r\n        \"{{reaccommodationJourneyKeyIda}}\",\r\n        \"{{reaccommodationJourneyKeyVolta}}\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/refund",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"journeys",
+										"reaccommodation",
+										"refund"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "69 - Booking Flow | Reaccommodation Partial Cancel",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - Reaccommodation v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"for(let i =0; i < response.data.journeys.length; i++){\r",
+											"    if(response.data.journeys[i].changeTypes.length > 0){\r",
+											"        pm.environment.set(\"reaccommodationJourneyKeyIda\", JSON.stringify(response.data.journeys[i].key).toString().replace(/['\"]+/g, ''));\r",
+											"        pm.environment.set(\"reaccommodationJourneyDepartureIda\", response.data.journeys[i].from.designator.departure);\r",
+											"    }\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"reaccommodation"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5 - Reaccommodation Refund v1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"keys\": [\r\n        \"{{reaccommodationJourneyKeyIda}}\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/refund",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"journeys",
+										"reaccommodation",
+										"refund"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "70 - Booking Flow | Reaccommodation Move, Cancel and Accept",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - Reaccommodation v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"reaccommodationJourneyKeyIda\", JSON.stringify(response.data.journeys[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"pm.environment.set(\"reaccommodationJourneyDepartureIda\", response.data.journeys[0].from.designator.departure);\r",
+											"\r",
+											"if (response.data.journeys.length > 1)\r",
+											"{\r",
+											"    pm.environment.set(\"reaccommodationJourneyKeyVolta\", JSON.stringify(response.data.journeys[1].key).toString().replace(/['\"]+/g, '')); \r",
+											"    pm.environment.set(\"reaccommodationJourneyDepartureVolta\", response.data.journeys[1].from.designator.departure);\r",
+											"}\r",
+											"\r",
+											"if (response.data.journeys.length > 2)\r",
+											"{\r",
+											"    pm.environment.set(\"reaccommodationJourneyKey\", JSON.stringify(response.data.journeys[2].key).toString().replace(/['\"]+/g, '')); \r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"reaccommodation"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4 - Reaccommodation AirSearch v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"reaccommodationNewJourneyKeyIda\", JSON.stringify(response.data.offers[0].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"pm.environment.set(\"reaccommodationNewFareKeyIda\", JSON.stringify(response.data.offers[0].offersAvailableByMarket[0].value[0].fare.key).toString().replace(/['\"]+/g, ''));"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"journeys\": [\r\n        {\r\n            \"key\": \"{{reaccommodationJourneyKeyIda}}\",\r\n            \"departure\": \"{{reaccommodationJourneyDepartureIda}}\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation/airSearch",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"reaccommodation",
+										"airSearch"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5 - Reaccommodation Move v1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"currentJourneyKey\": \"{{reaccommodationJourneyKeyIda}}\",\r\n            \"newJourneyKey\": \"{{reaccommodationNewJourneyKeyIda}}\",\r\n            \"newFareKey\": \"{{reaccommodationNewFareKeyIda}}\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/move",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"journeys",
+										"reaccommodation",
+										"move"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "6 - Reaccommodation Refund v1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"keys\": [\r\n        \"{{reaccommodationJourneyKeyVolta}}\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/refund",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"journeys",
+										"reaccommodation",
+										"refund"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "7 - Reaccommodation v1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"keys\": [\r\n        \"{{reaccommodationJourneyKey}}\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/accept",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"journeys",
+										"reaccommodation",
+										"accept"
 									],
 									"variable": [
 										{

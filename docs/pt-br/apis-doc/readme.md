@@ -22,7 +22,7 @@ Aqui está a lista das APIs disponíveis e uma breve descrição das APIs dispon
 
 ## Como Fazer um Fluxo de Reserva
 
-Para obter informações detalhadas sobre os fluxos de reserva, quais APIs chamar para alteração, criação e manipulação da reserva, consulte alguns exemplos de fluxo do nosso postman na seção [Fluxos Básicos](/postman/middleware_b2b-release_1.2.5.postman_collection.json).
+Para obter informações detalhadas sobre os fluxos de reserva, quais APIs chamar para alteração, criação e manipulação da reserva, consulte alguns exemplos de fluxo do nosso postman na seção [Fluxos Básicos](/postman/middleware_b2b-release_1.3.0.postman_collection.json).
 
 ## Lista de Códigos de Erros da API
 
