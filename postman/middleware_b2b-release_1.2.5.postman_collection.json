@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "d4966b77-7f7c-4bea-9e33-ae757d8f4e11",
-		"name": "Middleware B2B - Release 1.1.0",
+		"_postman_id": "37110869-7ff6-41a2-926f-056ed8430795",
+		"name": "Middleware B2B - Release 1.2.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28520161",
-		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B~6e005c5d-54ea-4a11-9e9f-ab2adb854162/collection/23627244-d4966b77-7f7c-4bea-9e33-ae757d8f4e11?action=share&source=collection_link&creator=28520161"
+		"_exporter_id": "29122721",
+		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B~6e005c5d-54ea-4a11-9e9f-ab2adb854162/collection/28520161-37110869-7ff6-41a2-926f-056ed8430795?action=share&source=collection_link&creator=29122721"
 	},
 	"item": [
 		{
@@ -3643,10 +3643,619 @@
 			]
 		},
 		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "v1",
+					"item": [
+						{
+							"name": "Report Download",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlReports}}/api/v1/reports/:reportId/download",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"reports",
+										":reportId",
+										"download"
+									],
+									"variable": [
+										{
+											"key": "reportId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Payment Report",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"pm.environment.set(\"paymentsReportId\", jsonData.data.report.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"periodCriteria\": {\r\n        \"period\": \"OrderCreation\",\r\n        \"type\": \"Day\",\r\n        \"day\": 30,\r\n        \"week\": null,\r\n        \"month\": 8,\r\n        \"year\": 2023\r\n    },\r\n    \"orderCriteria\": {\r\n        \"type\": \"OrganizationGroup\",\r\n        \"createdBy\": null\r\n    },\r\n    \"paymentCriteria\": {\r\n        \"Transaction\": \"Payment\",\r\n        \"Method\": \"Monetary\",\r\n        \"MethodCode\": \"AG\",\r\n        \"Amount\": 10000,\r\n        \"CardEnd\": 5,\r\n        \"Authorization\": \"b2b\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlReports}}/api/v1/orders/reports/payments",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reports",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Payment Report",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/payments",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reports",
+										":reportId",
+										"payments"
+									],
+									"variable": [
+										{
+											"key": "reportId",
+											"value": "{{paymentsReportId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Payment Report",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlReports}}/api/v1/orders/reports/payments",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reports",
+										"payments"
+									],
+									"query": [
+										{
+											"key": "Status",
+											"value": "Pending",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Payment Report by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/payments",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reports",
+										":reportId",
+										"payments"
+									],
+									"variable": [
+										{
+											"key": "reportId",
+											"value": "{{paymentsReportId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sales Report",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"pm.environment.set(\"salesReportId\", jsonData.data.report.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"periodCriteria\": {\r\n        \"type\": \"day\",\r\n        \"day\": 13,\r\n        \"week\": null,\r\n        \"month\": 9,\r\n        \"year\": 2023\r\n    },\r\n    \"orderCriteria\": {\r\n        \"type\": \"OrganizationGroup\",\r\n        \"createdBy\": \"20202020WS\",\r\n        \"status\": \"any\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlReports}}/api/v1/orders/reports/sales",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reports",
+										"sales"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sales Report",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlReports}}/api/v1/orders/reports/sales",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reports",
+										"sales"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sales Report",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/sales",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reports",
+										":reportId",
+										"sales"
+									],
+									"variable": [
+										{
+											"key": "reportId",
+											"value": "{{salesReportId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sales Report by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/sales",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reports",
+										":reportId",
+										"sales"
+									],
+									"variable": [
+										{
+											"key": "reportId",
+											"value": "{{salesReportId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Segments Report",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"pm.environment.set(\"segmentsReportId\", jsonData.data.report.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"periodCriteria\": {\r\n        \"period\": \"SegmentDeparture\",\r\n        \"type\": \"Day\",\r\n        \"day\": 24,\r\n        \"week\": null,\r\n        \"month\": 10,\r\n        \"year\": 2023\r\n    },\r\n    \"orderCriteria\": {\r\n        \"type\": \"Organization\",\r\n        \"promotionCode\": null\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlReports}}/api/v1/orders/reports/segments",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reports",
+										"segments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Segments Report",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/segments",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reports",
+										":reportId",
+										"segments"
+									],
+									"variable": [
+										{
+											"key": "reportId",
+											"value": "{{segmentsReportId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Segments Report",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlReports}}/api/v1/orders/reports/segments",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reports",
+										"segments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Segments Report by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/segments",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"reports",
+										":reportId",
+										"segments"
+									],
+									"variable": [
+										{
+											"key": "reportId",
+											"value": "{{segmentsReportId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "Flows",
 			"item": [
 				{
-					"name": "1 - Booking Flow c/ Trecho somente Ida",
+					"name": "01 - Booking Flow | One Way",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -3969,7 +4578,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "2 - Booking Flow c/ Trecho Ida e Volta",
+					"name": "02 - Booking Flow | Roundtrip",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -4056,7 +4665,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"raw": "{\r\n   \"username\": \"20202020WS\",\r\n   \"password\": \"10231023\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4106,8 +4715,8 @@
 										"exec": [
 											"var moment = require('moment');\r",
 											"\r",
-											"pm.environment.set(\"departure_1\", moment().add(7, 'days').format('YYYY-MM-DDT00:00:00'));\r",
-											"pm.environment.set(\"departure_2\", moment().add(14, 'days').format('YYYY-MM-DDT00:00:00'));"
+											"pm.environment.set(\"departure_1\", moment().add(6, 'days').format('YYYY-MM-DDT00:00:00'));\r",
+											"pm.environment.set(\"departure_2\", moment().add(13, 'days').format('YYYY-MM-DDT00:00:00'));"
 										],
 										"type": "text/javascript"
 									}
@@ -4134,7 +4743,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"GRU\",\r\n            \"destination\": \"SDU\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        },\r\n        {\r\n            \"origin\": \"SDU\",\r\n            \"destination\": \"GRU\",\r\n            \"departure\": \"{{departure_2}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
+									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"VCP\",\r\n            \"destination\": \"SDU\",\r\n            \"departure\": \"{{departure_2}}\"\r\n        },\r\n        {\r\n            \"origin\": \"SDU\",\r\n            \"destination\": \"VCP\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4191,7 +4800,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"journeyKey\": \"{{journeyKeyIda}}\",\r\n            \"fareKey\": \"{{fareKeyIda}}\"\r\n        },\r\n        {\r\n            \"journeyKey\": \"{{journeyKeyVolta}}\",\r\n            \"fareKey\": \"{{fareKeyVolta}}\"\r\n        }\r\n    ],\r\n    \"passengers\": [\r\n        {\r\n            \"nationality\": \"BR\",\r\n            \"gender\": \"Female\",\r\n            \"dateOfBirth\": \"1990-01-01T09:35:00\",\r\n            \"phone\": \"(00) 91111-2222\",\r\n            \"email\": \"maria@email.com\",\r\n            \"type\": \"ADT\",\r\n            \"name\": {\r\n                \"first\": \"Maria\",\r\n                \"middle\": \"Silva\",\r\n                \"last\": \"Santos\",\r\n                \"title\": \"MR\",\r\n                \"suffix\": null\r\n            },\r\n            \"travelDocuments\": [\r\n                {\r\n                    \"type\": \"CPF\",\r\n                    \"number\": \"21121121121\",\r\n                    \"birthCountry\": \"BR\",\r\n                    \"issuingCountry\": \"BR\",\r\n                    \"issuedDate\": null,\r\n                    \"expirationDate\": null\r\n                }\r\n            ],\r\n            \"infant\": null,\r\n            \"iropContact\": {\r\n                \"refused\": false,\r\n                \"mobile\": \"(00) 91111-2222\",\r\n                \"email\": \"maria@email.com\"\r\n            }\r\n        }\r\n    ],\r\n    \"contact\": {\r\n        \"address\": {\r\n            \"lineOne\": \"Rua\",\r\n            \"lineTwo\": \"Sete de Setembro\",\r\n            \"lineThree\": \"No. 22\",\r\n            \"country\": \"BR\",\r\n            \"provinceState\": \"SP\",\r\n            \"city\": \"Sao Paulo\",\r\n            \"postalCode\": \"14800-000\"\r\n        },\r\n        \"email\": \"Viagem.Feliz@mail.com.br\",\r\n        \"companyName\": \"Viagem Feliz\",\r\n        \"name\": {\r\n            \"first\": \"Pedro\",\r\n            \"middle\": \"Souza\",\r\n            \"last\": \"Oliveira\",\r\n            \"title\": \"\",\r\n            \"suffix\": \"FO\"\r\n        },\r\n        \"phones\": [\r\n            {\r\n                \"number\": \"(11) 9999-9991\",\r\n                \"type\": \"Home\"\r\n            },\r\n            {\r\n                \"number\": \"(11) 9999-9992\",\r\n                \"type\": \"Fax\"\r\n            }\r\n        ]\r\n    }\r\n}",
+									"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"journeyKey\": \"{{journeyKeyIda}}\",\r\n            \"fareKey\": \"{{fareKeyIda}}\"\r\n        },\r\n        {\r\n            \"journeyKey\": \"{{journeyKeyVolta}}\",\r\n            \"fareKey\": \"{{fareKeyVolta}}\"\r\n        }\r\n    ],\r\n    \"passengers\": [\r\n        {\r\n            \"nationality\": \"BR\",\r\n            \"gender\": \"Female\",\r\n            \"dateOfBirth\": \"1990-01-01T09:35:00\",\r\n            \"phone\": \"(00) 91111-2222\",\r\n            \"email\": \"maria@email.com\",\r\n            \"type\": \"ADT\",\r\n            \"name\": {\r\n                \"first\": \"Maria\",\r\n                \"middle\": \"Silva\",\r\n                \"last\": \"AlertsTST\",\r\n                \"title\": \"MS\",\r\n                \"suffix\": null\r\n            },\r\n            \"travelDocuments\": [\r\n                {\r\n                    \"type\": \"CPF\",\r\n                    \"number\": \"21121121121\",\r\n                    \"birthCountry\": \"BR\",\r\n                    \"issuingCountry\": \"BR\",\r\n                    \"issuedDate\": null,\r\n                    \"expirationDate\": null\r\n                }\r\n            ],\r\n            \"infant\": null,\r\n            \"iropContact\": {\r\n                \"refused\": false,\r\n                \"mobile\": \"(00) 91111-2222\",\r\n                \"email\": \"maria@email.com\"\r\n            }\r\n        }\r\n    ],\r\n    \"contact\": {\r\n        \"address\": {\r\n            \"lineOne\": \"Rua\",\r\n            \"lineTwo\": \"Sete de Setembro\",\r\n            \"lineThree\": \"No. 22\",\r\n            \"country\": \"BR\",\r\n            \"provinceState\": \"SP\",\r\n            \"city\": \"Sao Paulo\",\r\n            \"postalCode\": \"14800-000\"\r\n        },\r\n        \"email\": \"Viagem.Feliz@mail.com.br\",\r\n        \"companyName\": \"Viagem Feliz\",\r\n        \"name\": {\r\n            \"first\": \"Pedro\",\r\n            \"middle\": \"Souza\",\r\n            \"last\": \"Oliveira\",\r\n            \"title\": \"\",\r\n            \"suffix\": \"FO\"\r\n        },\r\n        \"phones\": [\r\n            {\r\n                \"number\": \"(11) 9999-9991\",\r\n                \"type\": \"Home\"\r\n            },\r\n            {\r\n                \"number\": \"(11) 9999-9992\",\r\n                \"type\": \"Fax\"\r\n            }\r\n        ]\r\n    }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4296,7 +4905,7 @@
 					"description": "Booking Flow com exemplo de reserva de passagem para trecho de ida e volta."
 				},
 				{
-					"name": "3 - Booking Flow c/ Trecho Multitrechos",
+					"name": "03 - Booking Flow | Multi-City",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -4622,7 +5231,7 @@
 					"description": "Booking Flow com exemplo de reserva para multitrechos."
 				},
 				{
-					"name": "4 - Booking Flow c/  1 ADT",
+					"name": "04 - Booking Flow |  1 ADT",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -5005,7 +5614,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um adulto."
 				},
 				{
-					"name": "5 - Booking Flow c/ 1 ADT 1 CHD",
+					"name": "05 - Booking Flow | 1 ADT 1 CHD",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -5388,7 +5997,7 @@
 					"description": "Booking Flow com exemplo de reserva para um adulto e uma criança ( 2 à 12 anos )."
 				},
 				{
-					"name": "6 - Booking Flow c/ 1 ADT 1 INF",
+					"name": "06 - Booking Flow | 1 ADT 1 INF",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -5760,7 +6369,7 @@
 					"description": "Booking Flow com exemplo de reserva para um adulto e uma criança de colo ( menor de 2 anos )."
 				},
 				{
-					"name": "7 - Booking Flow c/ 1 ADT 1 CHD 1 INF",
+					"name": "07 - Booking Flow | 1 ADT 1 CHD 1 INF",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -6142,7 +6751,7 @@
 					"description": "Booking Flow com exemplo de reserva para um adulto, uma criança ( 2 à 12 anos) e uma criança de colo ( menor de 2 anos)."
 				},
 				{
-					"name": "8 - Booking Flow Pagamento em Hold",
+					"name": "08 - Booking Flow | Hold Payment",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -6413,7 +7022,7 @@
 					"description": "Booking Flow com exemplo de reserva sem pagamento."
 				},
 				{
-					"name": "9 - Booking Flow c/ pagamento AG",
+					"name": "09 - Booking Flow | AG Payment",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -6740,7 +7349,7 @@
 					"description": "Booking Flow com exemplo de reserva com pagamento por agência."
 				},
 				{
-					"name": "10 - Booking Flow c/ pagamento CC",
+					"name": "10 - Booking Flow | CC Payment",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -7066,7 +7675,7 @@
 					"description": "Booking Flow com exemplo de reserva com cartão de crédito."
 				},
 				{
-					"name": "11 - Booking Flow c/ pagamento 2 CC",
+					"name": "11 - Booking Flow | 2 CC Payments",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -7437,7 +8046,7 @@
 					"description": "Booking Flow com exemplo de reserva usando dois cartões de crédito como pagamento."
 				},
 				{
-					"name": "12 - Booking Flow c/ pagamento 1 CC 1 AG",
+					"name": "12 - Booking Flow | 1 CC 1 AG Payments",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -7808,7 +8417,7 @@
 					"description": "StartFragment\n\nBooking Flow com exemplo de reserva com dois pagamento, usando um cartão de credito e pagamento em agência."
 				},
 				{
-					"name": "13 - Booking Flow c/  2 ADT  1  CHD  2 INF (Voo internacional)",
+					"name": "13 - Booking Flow |  2 ADT  1  CHD  2 INF (International Flight)",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -8211,7 +8820,7 @@
 					]
 				},
 				{
-					"name": "14 - Booking Flow c/ troca de PoS (Organization em USD)",
+					"name": "14 - Booking Flow | PoS Change (USD Organization)",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -8642,7 +9251,7 @@
 					"description": "Booking Flow com exemplo de reserva com troca de organização para a utilização de outra moeda."
 				},
 				{
-					"name": "15 - Booking Flow c/ 2 Reservas (Create e Delete Order)",
+					"name": "15 - Booking Flow | 2 Bookings (Create and Delete Order)",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -9198,7 +9807,7 @@
 					"description": "Booking Flow com exemplo de duas reservas."
 				},
 				{
-					"name": "16 - Booking Flow c/  crédito da reserva",
+					"name": "16 - Booking Flow |  Credit Shell",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -10010,7 +10619,7 @@
 					"description": "Booking Flow com exemplo de utilização de crédito de uma reserva.\n\nNecessário informar um recordLocator que possua crédito para ser utilizado."
 				},
 				{
-					"name": "17 - Booking Flow c/  pagamento parcelado",
+					"name": "17 - Booking Flow |  Installment Payment",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -10337,7 +10946,7 @@
 					"description": "Booking Flow com exemplo de reserva com pagamento parcelado."
 				},
 				{
-					"name": "18 - Booking Flow c/ pagamento com Itaucard (TudoAzul)",
+					"name": "18 - Booking Flow | Itaucard (TudoAzul) Payment",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -10664,7 +11273,7 @@
 					"description": "Booking Flow com exemplo de reserva utilizando cartão Itaucard."
 				},
 				{
-					"name": "19 - Booking Flow c/ pagamento com código promocional",
+					"name": "19 - Booking Flow | Promo Code Payment",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -10991,7 +11600,7 @@
 					"description": "Booking Flow com exemplo de reserva utilizando codigo promocional de 5% de desconto."
 				},
 				{
-					"name": "20 - Booking Flow c/ divisão de reserva 2 ADT",
+					"name": "20 - Booking Flow | 2 ADT Booking Divide",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -11436,7 +12045,7 @@
 					]
 				},
 				{
-					"name": "21 - Booking Flow c/ divisão de reserva 2 ADT 1 CHD",
+					"name": "21 - Booking Flow | 2 ADT 1 CHD Booking Divide",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -11881,7 +12490,7 @@
 					]
 				},
 				{
-					"name": "22 - Booking Flow c/ categorização por TudoAzul",
+					"name": "22 - Booking Flow | TudoAzul Categorization",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -12208,7 +12817,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um adulto."
 				},
 				{
-					"name": "23 - Booking Flow c/ categorização por TravelDocuments (CPF)",
+					"name": "23 - Booking Flow | TravelDocuments (CPF) Categorization",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -12534,7 +13143,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um adulto."
 				},
 				{
-					"name": "24 - Booking Flow c/ categorização posterior",
+					"name": "24 - Booking Flow | Further Categorization",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -13049,7 +13658,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um adulto."
 				},
 				{
-					"name": "25 - Booking Flow c/  Menor desacompanhado (UMNR)",
+					"name": "25 - Booking Flow | Unaccompanied minor (UMNR)",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -13432,7 +14041,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um adulto."
 				},
 				{
-					"name": "26 - Booking Flow c/  Menor desacompanhado (LiableRecordLocator)",
+					"name": "26 - Booking Flow | Unaccompanied minor (LiableRecordLocator)",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -13923,7 +14532,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um adulto."
 				},
 				{
-					"name": "27 - Booking Flow do AirSearch com Datas Flexiveis",
+					"name": "27 - Booking Flow | AirSearch with Flexible Dates",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -14268,7 +14877,7 @@
 					"description": "Booking Flow com exemplos de busca para voos com datas flexiveis:\n\nRegras:\n\nCampos \"behind\" e \"ahead\" não são obrigatórios e caso informados devem contar valores entre 1 e 3."
 				},
 				{
-					"name": "28 - Booking Flow de reset de senha de usuário",
+					"name": "28 - Booking Flow | User Password Reset",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -14509,7 +15118,7 @@
 					"description": "Booking Flow com exemplo para solicitação de reset de senha de um usuário.\n\nO usuário autenticado deverá ter a Role TA01 e o usuário a ter a senha resetada deverá ser da mesma organização ou ter sua organização dentro do grupo de organizações do solicitante."
 				},
 				{
-					"name": "29 - Booking Flow de desbloqueio de usuário",
+					"name": "29 - Booking Flow | Unlock User",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -14749,7 +15358,7 @@
 					"description": "Booking Flow com exemplo para desbloqueio de um usuário.\n\nO usuário autenticado deverá ter a Role TA01 e o usuário a ter a senha resetada deverá ser da mesma organização ou ter sua organização dentro do grupo de organizações do solicitante além de pertecer as Roles TA03 e (ou) OP03."
 				},
 				{
-					"name": "30 - Booking Flow de divisão de reserva c/ crédito",
+					"name": "30 - Booking Flow | Booking Divide w/ Credit Shell",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -15384,7 +15993,7 @@
 					]
 				},
 				{
-					"name": "31 - Booking Flow c/ marcação de assento",
+					"name": "31 - Booking Flow | Seat Selection",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -15929,7 +16538,7 @@
 					]
 				},
 				{
-					"name": "32 - Booking Flow c/ remoção de assento",
+					"name": "32 - Booking Flow | Remove Seat Selection",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -16662,7 +17271,7 @@
 					]
 				},
 				{
-					"name": "33 - Booking Flow c/ Abandonar sessão do barramento",
+					"name": "33 - Booking Flow | Middleware Section Logoff",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -17278,7 +17887,7 @@
 					]
 				},
 				{
-					"name": "34 - Booking Flow c/ Logout do username",
+					"name": "34 - Booking Flow | Username Logout",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -17894,7 +18503,7 @@
 					]
 				},
 				{
-					"name": "35 - Booking Flow de Pesquisa de Orders por Tipo Organização",
+					"name": "35 - Booking Flow | Order Search by Organization Type",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -18081,7 +18690,7 @@
 					]
 				},
 				{
-					"name": "36 - Booking Flow de Pesquisa de Orders por Nome Passageiro",
+					"name": "36 - Booking Flow | Orders Search by Passenger Name",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -18263,7 +18872,7 @@
 					]
 				},
 				{
-					"name": "36 - Booking Flow de Pesquisa de Orders por Nome do Contato",
+					"name": "36 - Booking Flow | Orders Search by Contact Name",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -18445,7 +19054,7 @@
 					]
 				},
 				{
-					"name": "37 - Booking Flow de Pesquisa de Orders por Telefone",
+					"name": "37 - Booking Flow | Orders Search by Phone",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -18628,7 +19237,7 @@
 					]
 				},
 				{
-					"name": "38 - Booking Flow de Pesquisa de Orders por Email",
+					"name": "38 - Booking Flow | Orders Search by Email",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -18811,7 +19420,7 @@
 					]
 				},
 				{
-					"name": "39 - Booking Flow de Pesquisa de Orders por Número do Documento",
+					"name": "39 - Booking Flow | Orders Search by Document Number",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -18993,7 +19602,7 @@
 					]
 				},
 				{
-					"name": "40 - Booking Flow de Pesquisa de Orders por Número do Cartão",
+					"name": "40 - Booking Flow | Orders Search by Credit Card Number",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -19176,7 +19785,7 @@
 					]
 				},
 				{
-					"name": "41 - Booking Flow de Pesquisa de Orders por Número do cliente",
+					"name": "41 - Booking Flow | Orders Search by Customer Number",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -19359,7 +19968,7 @@
 					]
 				},
 				{
-					"name": "42 - Booking Flow de Pesquisa de Orders por Tipo Agente",
+					"name": "42 - Booking Flow | Orders Search by Agent Type",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -19544,7 +20153,7 @@
 					]
 				},
 				{
-					"name": "43 - Booking Flow c/ Adição de Bagagem",
+					"name": "43 - Booking Flow |  Add Baggages",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -20049,7 +20658,7 @@
 					]
 				},
 				{
-					"name": "44 - Booking Flow c/ Adição de Bagagem Ida e Volta",
+					"name": "44 - Booking Flow | Add Baggages Roundtrip",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -20677,7 +21286,7 @@
 					]
 				},
 				{
-					"name": "45 - Booking Flow c/ Adição de Bagagem (Internacional)",
+					"name": "45 - Booking Flow | Add Baggages (International)",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -21179,7 +21788,7 @@
 					]
 				},
 				{
-					"name": "46 - Booking Flow c/ Adição de Bagagem (America do Sul)",
+					"name": "46 - Booking Flow | Add Baggages (South Americal",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -21681,7 +22290,7 @@
 					]
 				},
 				{
-					"name": "47 - Booking Flow c/ Adição de Bagagem (TudoAzul)",
+					"name": "47 - Booking Flow | Add Baggages (TudoAzul)",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -22187,7 +22796,7 @@
 					]
 				},
 				{
-					"name": "48 - Booking Flow c/ Remoção de Bagagem",
+					"name": "48 - Booking Flow | Remove Baggages",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -22847,7 +23456,7 @@
 					]
 				},
 				{
-					"name": "49 - Booking Flow c/ Adição de Serviços Especial",
+					"name": "49 - Booking Flow | Add Special Service Request",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -23330,7 +23939,7 @@
 					]
 				},
 				{
-					"name": "50 - Booking Flow c/ Remoção de Serviços Especial",
+					"name": "50 - Booking Flow | Remove Special Service Request",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -23975,7 +24584,7 @@
 					]
 				},
 				{
-					"name": "51 - Booking Flow c/ Adição de Assistência Especial",
+					"name": "51 - Booking Flow | Add Assistance",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -24524,7 +25133,7 @@
 					]
 				},
 				{
-					"name": "52 - Booking Flow c/ Remoção de Assistência Especial",
+					"name": "52 - Booking Flow | Remove Assistance",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -25222,7 +25831,7 @@
 					]
 				},
 				{
-					"name": "53 - Booking Flow trecho com restrição de Bagagem",
+					"name": "53 - Booking Flow | Baggage Restriction Journey",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -25524,7 +26133,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "54 - Booking Flow de troca de trecho",
+					"name": "54 - Booking Flow | Journey Change",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -26240,7 +26849,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "55 - Booking Flow troca de trecho c/ Pagamento em hold",
+					"name": "55 - Booking Flow | Journey Change w/ Hold Payment",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -26866,7 +27475,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "56 - Booking Flow c/ Adição de journey",
+					"name": "56 - Booking Flow | Add Journey",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -27534,7 +28143,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "57 - Booking Flow Cancelamento de trecho",
+					"name": "57 - Booking Flow | Cancel Journey",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -28079,7 +28688,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "58 - Booking Flow Cancelamento de trecho com reembolso",
+					"name": "58 - Booking Flow | Cancel Journey w/ Refund",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -28624,7 +29233,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "59 - Booking Flow Alteração de DU manual",
+					"name": "59 - Booking Flow | Manual DU Change",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -29393,7 +30002,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "60 - Booking Flow Alteração de DU",
+					"name": "60 - Booking Flow | DU Change",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -29729,7 +30338,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "61 - Booking Flow Agendamento de Relatório de Pagamento",
+					"name": "61 - Booking Flow | Payments Reports Schedule",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -29943,7 +30552,7 @@
 					]
 				},
 				{
-					"name": "62 - Booking Flow Download de Relatório de Pagamento",
+					"name": "62 - Booking Flow | Payments Reports Schedule",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -30097,7 +30706,7 @@
 					]
 				},
 				{
-					"name": "63 - Booking Flow de Adição de Infant em reserva já criada",
+					"name": "63 - Booking Flow | Add Infant in Created Booking",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -30541,439 +31150,6 @@
 						},
 						{
 							"name": "9 - Checkout v1",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{urlOrderManagement}}/api/v1/order/:recordLocator/checkout",
-									"host": [
-										"{{urlOrderManagement}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"order",
-										":recordLocator",
-										"checkout"
-									],
-									"variable": [
-										{
-											"key": "recordLocator",
-											"value": "{{recordLocator}}"
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "64 - Booking Flow Hold c/ Pagamento posterior",
-					"item": [
-						{
-							"name": "1 - Token v1",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);\r",
-											"\r",
-											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"protocolProfileBehavior": {
-								"disabledSystemHeaders": {}
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlAuthorization}}/api/v1/token",
-									"host": [
-										"{{urlAuthorization}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"token"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "2 - Authenticate v1",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{urlUser}}/api/v1/authenticate",
-									"host": [
-										"{{urlUser}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"authenticate"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "3 - AirSearch v1",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var response = JSON.parse(responseBody);\r",
-											"\r",
-											"\r",
-											"pm.environment.set(\"journeyKeyIda\", JSON.stringify(response.data.airResult.offers[0].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
-											"pm.environment.set(\"fareKeyIda\", JSON.stringify(response.data.airResult.offers[0].offersAvailableByMarket[0].value[0].fares[0].key).toString().replace(/['\"]+/g, ''));\r",
-											"\r",
-											"if (response.data.airResult.offers.length > 1)\r",
-											"{\r",
-											"    pm.environment.set(\"journeyKeyVolta\", JSON.stringify(response.data.airResult.offers[1].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
-											"    pm.environment.set(\"fareKeyVolta\", JSON.stringify(response.data.airResult.offers[1].offersAvailableByMarket[0].value[0].fares[0].key).toString().replace(/['\"]+/g, ''));\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"var moment = require('moment');\r",
-											"\r",
-											"pm.environment.set(\"departure_1\", moment().add(7, 'days').format('YYYY-MM-DDT00:00:00'));\r",
-											"pm.environment.set(\"departure_2\", moment().add(14, 'days').format('YYYY-MM-DDT00:00:00'));"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"SDU\",\r\n            \"destination\": \"VCP\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        },\r\n        {\r\n            \"origin\": \"VCP\",\r\n            \"destination\": \"SDU\",\r\n            \"departure\": \"{{departure_2}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{urlShopping}}/api/v1/airSearch",
-									"host": [
-										"{{urlShopping}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"airSearch"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "4- Order v1",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var response = JSON.parse(responseBody);\r",
-											"\r",
-											"pm.environment.set(\"orderTotalBalanceDue\", response.data.order.totals.balanceDue);"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"journeyKey\": \"{{journeyKeyIda}}\",\r\n            \"fareKey\": \"{{fareKeyIda}}\"\r\n        },\r\n        {\r\n            \"journeyKey\": \"{{journeyKeyVolta}}\",\r\n            \"fareKey\": \"{{fareKeyVolta}}\"\r\n        }\r\n    ],\r\n    \"passengers\": [\r\n        {\r\n            \"nationality\": \"BR\",\r\n            \"gender\": \"Female\",\r\n            \"dateOfBirth\": \"1990-01-01T09:35:00\",\r\n            \"phone\": \"(00) 91111-2222\",\r\n            \"email\": \"maria@email.com\",\r\n            \"type\": \"ADT\",\r\n            \"name\": {\r\n                \"first\": \"Maria\",\r\n                \"middle\": \"Silva\",\r\n                \"last\": \"Santos\",\r\n                \"title\": \"MR\",\r\n                \"suffix\": null\r\n            },\r\n            \"travelDocuments\": [\r\n                {\r\n                    \"type\": \"CPF\",\r\n                    \"number\": \"21121121121\",\r\n                    \"birthCountry\": \"BR\",\r\n                    \"issuingCountry\": \"BR\",\r\n                    \"issuedDate\": null,\r\n                    \"expirationDate\": null\r\n                }\r\n            ],\r\n            \"infant\": null,\r\n            \"iropContact\": {\r\n                \"refused\": false,\r\n                \"mobile\": \"(00) 91111-2222\",\r\n                \"email\": \"maria@email.com\"\r\n            }\r\n        }\r\n    ],\r\n    \"contact\": {\r\n        \"address\": {\r\n            \"lineOne\": \"Rua\",\r\n            \"lineTwo\": \"Sete de Setembro\",\r\n            \"lineThree\": \"No. 22\",\r\n            \"country\": \"BR\",\r\n            \"provinceState\": \"SP\",\r\n            \"city\": \"Sao Paulo\",\r\n            \"postalCode\": \"14800-000\"\r\n        },\r\n        \"email\": \"Viagem.Feliz@mail.com.br\",\r\n        \"companyName\": \"Viagem Feliz\",\r\n        \"name\": {\r\n            \"first\": \"Pedro\",\r\n            \"middle\": \"Souza\",\r\n            \"last\": \"Oliveira\",\r\n            \"title\": \"\",\r\n            \"suffix\": \"FO\"\r\n        },\r\n        \"phones\": [\r\n            {\r\n                \"number\": \"(11) 9999-9991\",\r\n                \"type\": \"Home\"\r\n            },\r\n            {\r\n                \"number\": \"(11) 9999-9992\",\r\n                \"type\": \"Fax\"\r\n            }\r\n        ]\r\n    },\r\n    \"promotionCode\": \"\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{urlOrder}}/api/v1/order",
-									"host": [
-										"{{urlOrder}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"order"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "5 - Checkout v1",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var response = JSON.parse(responseBody);\r",
-											"\r",
-											"pm.environment.set(\"recordLocator\", response.data.recordLocator);"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlOrder}}/api/v1/checkout",
-									"host": [
-										"{{urlOrder}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"checkout"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "6 - Order v1",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlOrderManagement}}/api/v1/order/:recordLocator",
-									"host": [
-										"{{urlOrderManagement}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"order",
-										":recordLocator"
-									],
-									"variable": [
-										{
-											"key": "recordLocator",
-											"value": "{{recordLocator}}"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "7 - Payments v1",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n   \"methodCode\": \"VI\",\r\n   \"amount\": {{orderTotalBalanceDue}},\r\n   \"installments\": 1,\r\n   \"account\": 4111111111111111,\r\n   \"expirationMonth\": \"03\",\r\n   \"expirationYear\": \"2030\",\r\n   \"holderName\": \"John Smith\",\r\n   \"verificationCode\": 737,\r\n   \"govId\": \"75751475003\"\r\n }",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{urlOrderPayments}}/api/v1/order/payments",
-									"host": [
-										"{{urlOrderPayments}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"order",
-										"payments"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "8 - Checkout v1",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
 							"request": {
 								"auth": {
 									"type": "bearer",
