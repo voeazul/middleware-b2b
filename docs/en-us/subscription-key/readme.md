@@ -41,8 +41,9 @@ Follow the steps below to request a subscription key:
     - azul-viagens-key
 5. Click on "Subscribe".
 ![Steps 4 and 5](/docs/assets/subkey-subscribe-product.png)
-6. After that, you need to wait for approval from the Azul Business team.
-7. After approval, a notification will be sent to the email used to create the account on the developer portal.
+6. After that, it would be necessary to send an email to suporteb2b@voeazul.com.br, with a print screen indicating the URL address and the subscription key’s name, with this information the technical team can provide the access.
+7. After the previously step, you need to wait for approval from Azul technical team.
+8. After approval, a notification will be sent to the email used to create the account on the developer portal.
 
 ## Viewing a Subscription Key
 
@@ -62,7 +63,9 @@ If any unusual behavior is identified in the use of APIs using the subscription 
 
 ## Updating a Subscription Key
 
-If you suspect that your subscription key has been disclosed to unauthorized parties, you can reset it in the Developer Portal. Remember that when you regenerate a key, the previous one will be immediately invalidated and you will lose access to the Middleware APIs.
+Azul's security team suggests that every six months the subscription key must be updated by partners to mitigate risks of attacks and invasions, by not changing the key regularly, there is a risk of leakage and access by unauthorized people. If unexpected behaviors are verified with the keys in use, they will be blocked by Azul's security team, and partners must run the flow below to regain access.
+
+![Change Subscription Key](/docs/assets/subkey-change-subkey.png)
 
 Follow the steps below to regenerate a key:
 

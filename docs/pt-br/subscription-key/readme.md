@@ -41,8 +41,9 @@ Siga as etapas abaixo para solicitar uma chave de assinatura:
     - azul-viagens-key
 5. Clique em "Subscribe".
 ![Passos 4 e 5](/docs/assets/subkey-subscribe-product.png)
-6. Após isso, é necessário aguardar a aprovação do time Comercial da Azul.
-7. Após a aprovação, será enviado uma notificação no e-mail utilizado na criação da conta no portal do desenvolvedor.
+6. Após isso, é necessário enviar um e-mail para suporteb2b@voeazul.com.br, com um print evidenciando a URL do ambiente contendo o nome da chave, para que o acesso seja providenciado.
+7. Após a execução do tópico anterior, é necessário aguardar a aprovação do time técnico Azul.
+8. Após a aprovação, será enviado uma notificação no e-mail utilizado na criação da conta no portal do desenvolvedor.
 
 ## Visualizando uma Chave de Assinatura
 
@@ -62,7 +63,9 @@ Caso seja identificado algum comportamento incomum na utilização das APIs por 
 
 ## Atualizando uma Chave de Assinatura
 
-Se você suspeitar que sua chave de assinatura foi divulgada a pessoas não autorizadas, é possível regerá-la no Portal do Desenvolvedor. Lembre-se de que ao regerar uma chave, a anterior será invalidada imediatamente e perderá o acesso às APIs do barramento.
+O time de segurança da AZUL sugere que a cada seis meses a subscription key seja atualizada pelos parceiros para mitigar riscos de ataques e invasões, ao não trocar a chave regularmente, existe o risco de vazamento e acesso de pessoas não autorizadas. Caso sejam verificados comportamentos inesperados com as chaves em utilização elas serão bloqueadas pelo time de segurança da Azul, e os parceiros deverão executar o fluxo abaixo para voltar a ter acesso.
+
+![Change Subscription Key](/docs/assets/subkey-change-subkey.png)
 
 Siga as etapas abaixo para regerar uma chave:
 
