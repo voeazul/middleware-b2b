@@ -65,7 +65,7 @@ Caso seja identificado algum comportamento incomum na utilização das APIs por 
 
 O time de segurança da AZUL sugere que a cada seis meses a subscription key seja atualizada pelos parceiros para mitigar riscos de ataques e invasões, ao não trocar a chave regularmente, existe o risco de vazamento e acesso de pessoas não autorizadas. Caso sejam verificados comportamentos inesperados com as chaves em utilização elas serão bloqueadas pelo time de segurança da Azul, e os parceiros deverão executar o fluxo abaixo para voltar a ter acesso.
 
-![Change Subscription Key](/docs/assets/subkey-change-subkey.png)
+![Change Subscription Key](/docs/assets/subkey-change-subkey_PT.png)
 
 Siga as etapas abaixo para regerar uma chave:
 

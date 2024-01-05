@@ -65,7 +65,7 @@ If any unusual behavior is identified in the use of APIs using the subscription 
 
 Azul's security team suggests that every six months the subscription key must be updated by partners to mitigate risks of attacks and invasions, by not changing the key regularly, there is a risk of leakage and access by unauthorized people. If unexpected behaviors are verified with the keys in use, they will be blocked by Azul's security team, and partners must run the flow below to regain access.
 
-![Change Subscription Key](/docs/assets/subkey-change-subkey.png)
+![Change Subscription Key](/docs/assets/subkey-change-subkey_EN.png)
 
 Follow the steps below to regenerate a key:
 
