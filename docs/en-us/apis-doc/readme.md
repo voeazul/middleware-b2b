@@ -2,6 +2,10 @@
 
 Welcome to the Middleware APIs centralized documentation and reservation flow guide! Here you will find information about the available APIs and how to perform reservation, change and other main flows.
 
+## Security
+
+Due to security validation, to complement the API access, it will be necessary to send a header User-Agent, with the value salesb2b/agency_name in addition to the subscription key header in STG and PRD environment. Example: - salesb2b/xpto_travels.
+
 ## API Summary
 
 Here is the list of available APIs and a brief description of the available APIs:
