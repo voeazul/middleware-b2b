@@ -12,20 +12,20 @@ To gain access to the Middleware APIs, you must first follow the guidance descri
 
 ## 3. How can I sell airline tickets?
 
-To sell airline tickets, you must use the Order API. For more detailed information on how to create a sales flow, check out the [Basic Flows](/postman/middleware_b2b-release_1.3.0.postman_collection.json) documentation.
+To sell airline tickets, you must use the Order API. For more detailed information on how to create a sales flow, check out the [Basic Flows](/docs/en-us/postman/README.md) documentation.
 
 ## 4. Can I cancel an airline reservation?
 
 Yes, it is possible to cancel a reservation.
-To cancel airline tickets, you must use the Order Management API. For more detailed information on how to create a cancellation flow, check out the [Basic Flows](/postman/middleware_b2b-release_1.3.0.postman_collection.json) documentation.
+To cancel airline tickets, you must use the Order Management API. For more detailed information on how to create a cancellation flow, check out the [Basic Flows](/docs/en-us/postman/README.md) documentation.
 
 ## 5. How can I add additional services to a passenger's reservation?
 
-To add additional services you need to use the Order Services API, check out the documentation [Basic Flows](/postman/middleware_b2b-release_1.3.0.postman_collection.json).
+To add additional services you need to use the Order Services API, check out the documentation [Basic Flows](/docs/en-us/postman/README.md).
 
 ## 6. How can I get information about available flights?
 
-You can get flight details using the Shopping API, check out the [Basic Flows](/postman/middleware_b2b-release_1.3.0.postman_collection.json) documentation.
+You can get flight details using the Shopping API, check out the [Basic Flows](/docs/en-us/postman/README.md) documentation.
 
 ## 7. How to perform authentication on the bus?
 
@@ -37,21 +37,21 @@ You can change the logged in user's point of sale through the User API.
 
 ## 9. How to book a reserved seat for a passenger?
 
-To add seats you need to use the Order Seats API, check out the documentation [Basic Flows](/postman/middleware_b2b-release_1.3.0.postman_collection.json).
+To add seats you need to use the Order Seats API, check out the documentation [Basic Flows](/docs/en-us/postman/README.md).
 
 ## 10. How to add baggage to a passenger's reservation?
 
-To add baggage you need to use the Order Services API, check out the documentation [Basic Flows](/postman/middleware_b2b-release_1.3.0.postman_collection.json).
+To add baggage you need to use the Order Services API, check out the documentation [Basic Flows](/docs/en-us/postman/README.md).
 
 ## 11. Can I add sections to a reservation?
 
 Yes, it is possible to add sections to a reservation.
-To add sections, you must use the Order Management API. For more detailed information on how to create a snippet addition flow, check out the [Basic Flows](/postman/middleware_b2b-release_1.3.0.postman_collection.json) documentation.
+To add sections, you must use the Order Management API. For more detailed information on how to create a snippet addition flow, check out the [Basic Flows](/docs/en-us/postman/README.md) documentation.
 
 ## 12. Can I cancel sections of a reservation?
 
 Yes, it is possible to cancel parts of a reservation.
-To cancel segments, you must use the Order Management API. For more detailed information on how to create a section cancellation flow, check out the [Basic Flows](/postman/middleware_b2b-release_1.3.0.postman_collection.json) documentation.
+To cancel segments, you must use the Order Management API. For more detailed information on how to create a section cancellation flow, check out the [Basic Flows](/docs/en-us/postman/README.md) documentation.
 
 ---
 
