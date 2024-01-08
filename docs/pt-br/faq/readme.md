@@ -4,7 +4,7 @@ Aqui estão algumas perguntas frequentes sobre o uso do Barramento B2B:
 
 ## 1. Como posso começar a vender passagens da Azul?
 
-Para começar a se integrar com nosso barramento e disponibilizar nossos voos em sua agência, basta (...).
+Para começar a se integrar com nosso barramento e disponibilizar nossos voos em sua agência, entre em contato com nosso departamento comercial para cadastrar sua agencia de turismo
 
 ## 2. Como posso obter acesso às APIs do Barramento?
 
@@ -52,6 +52,55 @@ Para realizar a adição de trechos, você deve utilizar a API de Order Manageme
 
 Sim, é possível cancelar trechos uma reserva.
 Para realizar cancelamento de trechos, você deve utilizar a API de Order Management. Para informações mais detalhadas de como fazer um fluxo de cancelamento de trechos, confira a documentação [Fluxos Básicos](/docs/pt-br/postman/README.md).
+
+## 13. O que significam os códigos: AG, CF, AX, VI, MC, DI, HP, EL e TP, descritos no methodCode do swagger no endpoint do método POST Order/payments v1 ?
+
+Os significados são:
+AG = quanto de valor a agencia possui de limite para faturamento junto a azul.
+CS = crédito shell, quando o cliente possui crédito no valor da Reserva.
+CF = crédito fiel, quando o crédito for liberado para o cliente para utilização no TudoAzul ou para criação de um nova Reserva ou mesmo para utilização de reembolso.
+AX = AmericanExpress
+VI = VISA
+MC = MASTER
+DI = DINNERS
+HP = HiperCard
+EL = ELO
+TP = UATP, que é um cartão virtual que é valido somente em cias aereas
+
+## 14. Para que serve o serviço de Authentication/Token e qual seu tempo de duração por sessão?
+
+O serviço de Authentication é responsável por autenticar e identificar o usuário sistêmico do Barramento B2B.  
+A obtenção do token através do serviço Authentication é obrigatória no início de cada sessão do barramento B2B, e um token gerado para um agente de viagens deve ser utilizado até o final daquela sessão deste mesmo agente. 
+O token irá expirar após 15 minutos de inatividade. Após este tempo, será necessário solicitar um novo token, caso contrário os métodos chamados passarão a retornar o status HTTP 401: Unauthorized.
+
+## 15. Qual o processo de validação e Go Live?
+ 
+O processo de validação e go live está detalhado no link [Processo para uso do barramento em produção](https://github.com/voeazul/middleware-b2b/blob/main/docs/pt-br/processo-inicio-producao/readme.md).
+
+## 16. O que devo fazer quando recebo o erro: HTTP 409: Conflict, "message": "An agent is already authenticated."
+
+Nesta situação deverá ser enviado no header a variável: User_Agent com o nome: salesb2b/"Nome_da_Agência", sendo o nome da agência o nome da sua empresa para maiores detalhes acessar o link [Validação de UsersAgent](https://github.com/voeazul/middleware-b2b/blob/main/README.pt.md).
+
+
+## 17. O que devo fazer quando recebo o erro: HTTP 409: Conflict, "message": "An agent is already authenticated."
+
+Nesta situação deverá ser enviado no header a variável: User_Agent com o nome: salesb2b/"Nome_da_Agencia"
+
+## 18. Como encerrar a utilização de um token em uso?
+Resposta: Basta executar um Delete token na api authentication. 
+
+
+## 19. Como alterar o usuário utilizando o mesmo token?Devemos usar /api/v1/organizations/:organizationCode/users/:userKey/password/reset? 
+Resposta: Basta executar um Delete logout na API de users.
+
+
+## 20. Quais são as diferenças entre Primary Key e Secondary Key (estamos usando apenas a Primary Key no Postman) 
+Resposta: Não existe diferença entre a funcionalidade da primary e secondary key, ambas são criadas apenas por uma questão de segurança, e caso seja necessário o bloqueio de uma a outra possa ser utiliza automaticamente. Inclusive, o time de segurança sugere a atualização semestral das subscripitions Keys utilizadas.
+
+
+## 21. Existe um método de rotas disponíveis? Devo considerar o método stations para esta consulta?
+Resposta: Atualmente as informações devem ser consultadas através da API /api/v1/stations, futuramente será desenvolvido um método de rotas.
+
 
 ---
 
