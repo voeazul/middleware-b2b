@@ -75,11 +75,11 @@ O token irá expirar após 15 minutos de inatividade. Após este tempo, será ne
 
 ## 15. Qual o processo de validação e Go Live?
  
-O processo de validação e go live está detalhado no link [Processo para uso do barramento em produção](https://github.com/voeazul/middleware-b2b/blob/main/docs/pt-br/processo-inicio-producao/readme.md).
+O processo de validação e go live está detalhado no link [Processo para uso do barramento em produção](/docs/pt-br/processo-inicio-producao/readme.md).
 
 ## 16. O que devo fazer quando recebo o erro: HTTP 409: Conflict, "message": "An agent is already authenticated."
 
-Nesta situação deverá ser enviado no header a variável: User_Agent com o nome: salesb2b/"Nome_da_Agência", sendo o nome da agência o nome da sua empresa para maiores detalhes acessar o link [Validação de UsersAgent](https://github.com/voeazul/middleware-b2b/blob/main/README.pt.md).
+Nesta situação deverá ser enviado no header a variável: User_Agent com o nome: salesb2b/"Nome_da_Agência", sendo o nome da agência o nome da sua empresa para maiores detalhes acessar o link [Validação de UsersAgent](/README.pt.md).
 
 
 ## 17. O que devo fazer quando recebo o erro: HTTP 409: Conflict, "message": "An agent is already authenticated."
@@ -90,7 +90,7 @@ Nesta situação deverá ser enviado no header a variável: User_Agent com o nom
 Resposta: Basta executar um Delete token na api authentication. 
 
 
-## 19. Como alterar o usuário utilizando o mesmo token?Devemos usar /api/v1/organizations/:organizationCode/users/:userKey/password/reset? 
+## 19. Como alterar o usuário utilizando o mesmo token? Devemos usar /api/v1/organizations/:organizationCode/users/:userKey/password/reset? 
 Resposta: Basta executar um Delete logout na API de users.
 
 
