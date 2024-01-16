@@ -1,14 +1,14 @@
 # Frequently Asked Questions (FAQ)
 
-Here are some frequently asked questions about using B2B Bus:
+Here are some frequently asked questions about using B2B Middleware:
 
 ## 1. How can I start selling Azul tickets?
 
-To start integrating with our bus and making our flights available at your agency, contact our commercial department to register your travel agency
+To start integrating with our Middleware and making our flights available at your agency, contact our commercial department to register your travel agency
 
-## 2. How can I get access to the Bus APIs?
+## 2. How can I get access to the Middleware APIs?
 
-To gain access to the bus APIs, you must first follow the guidance described in the previous topic, and after that, simply follow the steps described in the document [How to Request a Subscription Key](/docs/en-us/subscription-key /readme.md).
+To gain access to the Middleware APIs, you must first follow the guidance described in the previous topic, and after that, simply follow the steps described in the document [How to Request a Subscription Key](/docs/en-us/subscription-key /readme.md).
 
 ## 3. How can I sell airline tickets?
 
@@ -27,7 +27,7 @@ To add additional services you need to use the Order Services API, check out the
 
 You can obtain flight details using the Shopping API, check the documentation [Basic Flows](/docs/en-us/postman/README.md).
 
-## 7. How to perform authentication on the bus?
+## 7. How to perform authentication on the Middleware?
 
 You can perform authentication by first obtaining the token from the Authentication API. After obtaining the token, you can use it to authenticate through the User API.
 
@@ -69,13 +69,13 @@ TP = UATP, which is a virtual card that is only valid on airlines
 
 ## 14. What is the Authentication/Token service for and how long does it last per session?
 
-The Authentication service is responsible for authenticating and identifying the systemic user of the B2B Bus.
-Obtaining the token through the Authentication service is mandatory at the beginning of each B2B bus session, and a token generated for a travel agent must be used until the end of that same agent's session.
+The Authentication service is responsible for authenticating and identifying the systemic user of the B2B Middleware.
+Obtaining the token through the Authentication service is mandatory at the beginning of each B2B Middleware session, and a token generated for a travel agent must be used until the end of that same agent's session.
 The token will expire after 15 minutes of inactivity. After this time, it will be necessary to request a new token, otherwise the methods called will return the HTTP status 401: Unauthorized.
 
 ## 15. What is the validation and Go Live process?
  
-The validation and go live process is detailed in the link [Process for using the bus in production](/docs/en-us/processo-inicio-producao/readme.md).
+The validation and go live process is detailed in the link [Process for using the Middleware in production](/docs/en-us/start-production-process/readme.md).
 
 ## 16. What should I do when I get the error: HTTP 409: Conflict, "message": "An agent is already authenticated."
 
@@ -104,6 +104,6 @@ Answer: Currently the information must be consulted through the API /api/v1/stat
 
 ---
 
-We hope these FAQs have helped clarify some common questions about using the bus to integrate with Navitaire. If you have additional questions or require more information, please don't hesitate to contact our support team.
+We hope these FAQs have helped clarify some common questions about using the Middleware to integrate with Navitaire. If you have additional questions or require more information, please don't hesitate to contact our support team.
 
 Happy coding! 😊✈️

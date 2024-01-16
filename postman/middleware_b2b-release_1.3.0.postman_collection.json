@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "4b303424-c8ed-431f-aee3-c2666897f23e",
+		"_postman_id": "0c1b059f-eb17-40e2-aba9-5014f504fd5a",
 		"name": "Middleware B2B - Release 1.3.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "9137354"
+		"_exporter_id": "28520161",
+		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B---Release-1.3.0~dbe2a194-4db2-4795-a57e-170bd97785b1/collection/28520161-0c1b059f-eb17-40e2-aba9-5014f504fd5a?action=share&source=collection_link&creator=28520161"
 	},
 	"item": [
 		{
