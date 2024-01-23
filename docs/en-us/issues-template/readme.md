@@ -6,7 +6,7 @@ Here you can find the [Template](./issue-template.md) to copy and use when openi
 
 ## Problem description
 
-Describe here clearly and concisely the problem encountered with the bus.
+Describe here clearly and concisely the problem encountered with the middleware.
 
 ## Steps to Reproduce
 

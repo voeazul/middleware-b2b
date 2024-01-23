@@ -2,6 +2,10 @@
 
 Bem-vindo à documentação centralizada das APIs do barramento e ao guia de fluxo de reserva! Aqui você encontrará informações sobre as APIs disponíveis e como realizar fluxos de reserva, alteração e outros principais.
 
+## Segurança
+
+Devido a validação de segurança, para complementar o processo de acesso as APIs do barramento, além da subscription key, é necessário enviar o header em todas as requisições das APIs da AZUL:  User-Agent, com o seguinte valor:- salesb2b/nome_da_agencia, sendo o nome_da_agencia, a agencia em questão que está fazendo a integração, por exemplo: - salesb2b/xpto_viagens.
+
 ## Sumário das APIs
 
 Aqui está a lista das APIs disponíveis e uma breve descrição das APIs disponíveis:
@@ -22,7 +26,7 @@ Aqui está a lista das APIs disponíveis e uma breve descrição das APIs dispon
 
 ## Como Fazer um Fluxo de Reserva
 
-Para obter informações detalhadas sobre os fluxos de reserva, quais APIs chamar para alteração, criação e manipulação da reserva, consulte alguns exemplos de fluxo do nosso postman na seção [Fluxos Básicos](/postman/middleware_b2b-release_1.2.5.postman_collection.json).
+Para obter informações detalhadas sobre os fluxos de reserva, quais APIs chamar para alteração, criação e manipulação da reserva, consulte alguns exemplos de fluxo do nosso postman na seção [Fluxos Básicos](/docs/pt-br/postman/README.md).
 
 ## Lista de Códigos de Erros da API
 

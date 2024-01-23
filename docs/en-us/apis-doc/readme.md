@@ -2,6 +2,10 @@
 
 Welcome to the Middleware APIs centralized documentation and reservation flow guide! Here you will find information about the available APIs and how to perform reservation, change and other main flows.
 
+## Security
+
+Due to security validation, to complement the API access, it will be necessary to send a header User-Agent, with the value salesb2b/agency_name in addition to the subscription key header in STG and PRD environment. Example: - salesb2b/xpto_travels.
+
 ## API Summary
 
 Here is the list of available APIs and a brief description of the available APIs:
@@ -22,7 +26,7 @@ Here is the list of available APIs and a brief description of the available APIs
 
 ## How to Make a Reservation Flow
 
-For detailed information about reservation flows, which APIs to call for reservation change, creation and manipulation, see some flow examples from our postman in the [Basic Flows](/postman/middleware_b2b-release_1.2.5.postman_collection.json) section.
+For detailed information about reservation flows, which APIs to call for reservation change, creation and manipulation, see some flow examples from our postman in the [Basic Flows](/docs/en-us/postman/README.md) section.
 
 ## List of API Error Codes
 

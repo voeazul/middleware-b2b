@@ -2,7 +2,7 @@
 
 ## Problem description
 
-<!-- Describe here clearly and concisely the problem encountered with the bus. -->
+<!-- Describe here clearly and concisely the problem encountered with the middleware. -->
 
 ## Steps to Reproduce
 

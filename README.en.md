@@ -16,9 +16,7 @@ Here you will find important information to start and use the Middleware efficie
 ## 📦 Postman's Collection
 
 - Access the Postman collection with examples of Middleware API calls.
-- [Link to the full document](/postman/middleware_b2b-release_1.2.5.postman_collection.json)
-- [Link to Stage environment variables](/postman/env-stg.postman_environment.json)
-- [Link to Production environment variables](/postman/env-prd.postman_environment.json)
+- [Link to the full document](/docs/en-us/postman/README.md)
 
 ## 📚 API documentation
 
