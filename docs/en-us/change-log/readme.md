@@ -1,24 +1,16 @@
 # Changelog
 
-## [1.3.0] - 01/31/2024
+## [1.5.0] - 02/27/2024
 
 ### Added
-- Payments with Interest
-- Flow improvements
-    - Division
-        - Hold
-        - Cancellation
-    - Itaucard discount
-        - Including discount on fuel tax
-    - Performance of the authentication flow
-    - TudoAzul Categorization
-        - Fix of names with namematch
-    - Handling error messages
-        - Fare sold out
-        - Agency account blocked
-    - Hold calculation correction
-    - Adjust Password Regex
-    - Economy Prime seats
-    - API documentation
-
+- Organizations (Internal API)
+    - Shopping Countdown and get user
+- Payments
+    - Remove CPF as mandatory field
+    - Fees Adjustment
+- Reaccommodation
+    - New change queues
+- Keep-Alive
+- New Error Messages
+  
 [Link to previous versions](/docs/en-us/change-log/readme.history.md)
