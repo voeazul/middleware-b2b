@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "0c1b059f-eb17-40e2-aba9-5014f504fd5a",
-		"name": "Middleware B2B - Release 1.3.0",
+		"_postman_id": "6f7778ab-b64f-43f7-9cac-b903fdd854b3",
+		"name": "Middleware B2B - Release 1.4.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "28520161",
-		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B---Release-1.3.0~dbe2a194-4db2-4795-a57e-170bd97785b1/collection/28520161-0c1b059f-eb17-40e2-aba9-5014f504fd5a?action=share&source=collection_link&creator=28520161"
+		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B---Release-1.4.0~ac65b70b-3464-4bc2-abe6-d0df4a6f0fe2/collection/23627244-6f7778ab-b64f-43f7-9cac-b903fdd854b3?action=share&source=collection_link&creator=28520161"
 	},
 	"item": [
 		{
@@ -1544,7 +1544,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        },\r\n        {\r\n            \"type\": \"CHD\",\r\n            \"count\": 1\r\n        },\r\n        {\r\n            \"type\": \"INF\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"GRU\",\r\n            \"destination\": \"SDU\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        },\r\n        {\r\n            \"origin\": \"SDU\",\r\n            \"destination\": \"GRU\",\r\n            \"departure\": \"{{departure_2}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    },\r\n    \"flexibleDays\": {\r\n        \"behind\": 1,\r\n        \"ahead\": 1\r\n    }\r\n}",
+							"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        },\r\n        {\r\n            \"type\": \"CHD\",\r\n            \"count\": 1\r\n        },\r\n        {\r\n            \"type\": \"INF\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"BEL\",\r\n            \"destination\": \"POA\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        },\r\n        {\r\n            \"origin\": \"POA\",\r\n            \"destination\": \"BEL\",\r\n            \"departure\": \"{{departure_2}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    },\r\n    \"flexibleDays\": {\r\n        \"behind\": 1,\r\n        \"ahead\": 1\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2298,7 +2298,7 @@
 							"variable": [
 								{
 									"key": "recordLocator",
-									"value": ""
+									"value": "{{recordLocator}}"
 								}
 							]
 						}
@@ -2346,7 +2346,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"journeys\": [\r\n    {\r\n      \"journeyKey\": \"QUR_Mjg0NH4gfn5WQ1B_MDgvMDQvMjAyMyAwNjoyMH5SQU9_MDgvMDQvMjAyMyAwNzoyNX5_\",\r\n      \"fareKey\": \"MH5Qfn5BRH5QOEVCRlpHQn4xOERCfjEwMDB_MX4xfk5SQU9WQ1AwMDEwMDEwflghMA--\"\r\n    }\r\n  ]\r\n}",
+							"raw": "{\r\n    \"journeys\": [\r\n        {\r\n            \"journeyKey\": \"{{journeyKeyIda}}\",\r\n            \"fareKey\": \"{{fareKeyIda}}\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2368,7 +2368,7 @@
 							"variable": [
 								{
 									"key": "recordLocator",
-									"value": ""
+									"value": "{{recordLocator}}"
 								}
 							]
 						}
@@ -2430,11 +2430,11 @@
 							"variable": [
 								{
 									"key": "recordLocator",
-									"value": ""
+									"value": "{{recordLocator}}"
 								},
 								{
 									"key": "journeyKey",
-									"value": ""
+									"value": "{{journeyKeyIda}}"
 								}
 							]
 						}
@@ -2506,7 +2506,7 @@
 							"variable": [
 								{
 									"key": "recordLocator",
-									"value": "EDU6HV"
+									"value": "{{recordLocator}}"
 								}
 							]
 						}
@@ -2633,7 +2633,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"passengerKeys\": [\r\n    \"MCFBRFQ-\",\r\n    \"MSFBRFQ-\"\r\n  ],\r\n  \"creditAmount\": 100.00\r\n}",
+							"raw": "{\r\n    \"passengerKeys\": [\r\n        \"MCFBRFQ-\"\r\n    ],\r\n    \"cancel\": false,\r\n    \"RefundType\": null,\r\n    \"creditAmount\": null\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2720,7 +2720,7 @@
 							"variable": [
 								{
 									"key": "recordLocator",
-									"value": ""
+									"value": "{{recordLocator}}"
 								}
 							]
 						}
@@ -3402,7 +3402,7 @@
 							"variable": [
 								{
 									"key": "recordLocator",
-									"value": null
+									"value": "{{recordLocator}}"
 								}
 							]
 						}
@@ -5792,6 +5792,265 @@
 										{
 											"key": "reportId",
 											"value": "{{creditsReportId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Report",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"pm.environment.set(\"userReportId\", jsonData.data.report.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"organizationCriteria\": {\r\n        \"type\": \"Organization\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlReports}}/api/v1/organizations/reports/users",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"organizations",
+										"reports",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Report",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlReports}}/api/v1/organizations/reports/:reportId/users",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"organizations",
+										"reports",
+										":reportId",
+										"users"
+									],
+									"variable": [
+										{
+											"key": "reportId",
+											"value": "{{userReportId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Report",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlReports}}/api/v1/organizations/reports/users?organizationCriteria=Organization",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"organizations",
+										"reports",
+										"users"
+									],
+									"query": [
+										{
+											"key": "organizationCriteria",
+											"value": "Organization"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Report by ID",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlReports}}/api/v1/organizations/reports/:reportId/users",
+									"host": [
+										"{{urlReports}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"organizations",
+										"reports",
+										":reportId",
+										"users"
+									],
+									"variable": [
+										{
+											"key": "reportId",
+											"value": "{{userReportId}}"
 										}
 									]
 								}
@@ -16439,7 +16698,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"passengerKeys\": [\r\n    \"MCFBRFQ-\"\r\n  ],\r\n  \"creditAmount\": null\r\n}",
+									"raw": "{\r\n    \"passengerKeys\": [\r\n        \"MCFBRFQ-\"\r\n    ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -16465,7 +16724,510 @@
 					]
 				},
 				{
-					"name": "21 - Booking Flow | 2 ADT 1 CHD Booking Divide",
+					"name": "21 - Booking Flow | 2 ADT Booking Divide Hold",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - AirSearch v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"\r",
+											"pm.environment.set(\"journeyKeyIda\", JSON.stringify(response.data.airResult.offers[0].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"pm.environment.set(\"fareKeyIda\", JSON.stringify(response.data.airResult.offers[0].offersAvailableByMarket[0].value[0].fares[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"\r",
+											"if (response.data.airResult.offers.length > 1)\r",
+											"{\r",
+											"    pm.environment.set(\"journeyKeyVolta\", JSON.stringify(response.data.airResult.offers[1].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"    pm.environment.set(\"fareKeyVolta\", JSON.stringify(response.data.airResult.offers[1].offersAvailableByMarket[0].value[0].fares[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											"\r",
+											"var moment = require('moment');\r",
+											"\r",
+											"pm.environment.set(\"departure_1\", moment().add(7, 'days').format('YYYY-MM-DDT00:00:00'));\r",
+											"pm.environment.set(\"departure_2\", moment().add(14, 'days').format('YYYY-MM-DDT00:00:00'));"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 2\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"VCP\",\r\n            \"destination\": \"BEL\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        },\r\n        {\r\n            \"origin\": \"BEL\",\r\n            \"destination\": \"VCP\",\r\n            \"departure\": \"{{departure_2}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShopping}}/api/v1/airSearch",
+									"host": [
+										"{{urlShopping}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"airSearch"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4 - Order v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"orderTotalBalanceDue\", response.data.order.totals.balanceDue);\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"journeyKey\": \"{{journeyKeyIda}}\",\r\n            \"fareKey\": \"{{fareKeyIda}}\"\r\n        },\r\n        {\r\n            \"journeyKey\": \"{{journeyKeyVolta}}\",\r\n            \"fareKey\": \"{{fareKeyVolta}}\"\r\n        }\r\n    ],\r\n    \"passengers\": [\r\n        {\r\n            \"nationality\": \"BR\",\r\n            \"gender\": \"Female\",\r\n            \"dateOfBirth\": \"1990-01-01T09:35:00\",\r\n            \"phone\": \"(00) 91111-2222\",\r\n            \"email\": \"maria@email.com\",\r\n            \"type\": \"ADT\",\r\n            \"name\": {\r\n                \"first\": \"Maria\",\r\n                \"middle\": \"Silva\",\r\n                \"last\": \"Santos\",\r\n                \"title\": \"MR\",\r\n                \"suffix\": null\r\n            },\r\n            \"travelDocuments\": [\r\n                {\r\n                    \"type\": \"CPF\",\r\n                    \"number\": \"21121121121\",\r\n                    \"birthCountry\": \"BR\",\r\n                    \"issuingCountry\": \"BR\",\r\n                    \"issuedDate\": null,\r\n                    \"expirationDate\": null\r\n                }\r\n            ],\r\n            \"infant\": null,\r\n            \"iropContact\": {\r\n                \"refused\": false,\r\n                \"mobile\": \"(00) 91111-2222\",\r\n                \"email\": \"maria@email.com\"\r\n            }\r\n        },\r\n        {\r\n            \"customerProgram\": {\r\n                \"number\": null\r\n            },\r\n            \"nationality\": \"BR\",\r\n            \"gender\": \"Male\",\r\n            \"dateOfBirth\": \"1995-01-12T00:00:00.000Z\",\r\n            \"phone\": \"(16) 99999-9988\",\r\n            \"email\": \"antonio@email.com.br\",\r\n            \"type\": \"ADT\",\r\n            \"name\": {\r\n                \"first\": \"Antônio\",\r\n                \"middle\": \"Oliveira\",\r\n                \"last\": \"Ramos\",\r\n                \"title\": \"MR\",\r\n                \"suffix\": \"JR\"\r\n            },\r\n            \"travelDocuments\": [\r\n                {\r\n                    \"type\": \"PASSPORT\",\r\n                    \"number\": \"656556656\",\r\n                    \"birthCountry\": \"BR\",\r\n                    \"issuingCountry\": \"BR\",\r\n                    \"issuedDate\": \"2020-01-01T00:00:00.000Z\",\r\n                    \"expirationDate\": \"2030-12-02T00:00:00.000Z\"\r\n                }\r\n            ],\r\n            \"infant\": null,\r\n            \"iropContact\": {\r\n                \"refused\": false,\r\n                \"mobile\": \"(00) 91111-2222\",\r\n                \"email\": \"maria@email.com\"\r\n            }\r\n        }\r\n    ],\r\n    \"contact\": {\r\n        \"address\": {\r\n            \"lineOne\": \"Rua\",\r\n            \"lineTwo\": \"Sete de Setembro\",\r\n            \"lineThree\": \"No. 22\",\r\n            \"country\": \"BR\",\r\n            \"provinceState\": \"SP\",\r\n            \"city\": \"Sao Paulo\",\r\n            \"postalCode\": \"14800-000\"\r\n        },\r\n        \"email\": \"Viagem.Feliz@mail.com.br\",\r\n        \"companyName\": \"Viagem Feliz\",\r\n        \"name\": {\r\n            \"first\": \"Pedro\",\r\n            \"middle\": \"Souza\",\r\n            \"last\": \"Oliveira\",\r\n            \"title\": \"\",\r\n            \"suffix\": \"FO\"\r\n        },\r\n        \"phones\": [\r\n            {\r\n                \"number\": \"(11) 9999-9991\",\r\n                \"type\": \"Home\"\r\n            },\r\n            {\r\n                \"number\": \"(11) 9999-9992\",\r\n                \"type\": \"Fax\"\r\n            }\r\n        ]\r\n    },\r\n    \"promotionCode\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrder}}/api/v1/order",
+									"host": [
+										"{{urlOrder}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "6 - Checkout v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"recordLocatorForDivide\", response.data.recordLocator);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrder}}/api/v1/checkout",
+									"host": [
+										"{{urlOrder}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"checkout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "7 - Order by Record Locator",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"orderTotalBalanceDue\", response.data.order.totals.balanceDue);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderManagement}}/api/v1/order/:recordLocator",
+									"host": [
+										"{{urlOrderManagement}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocatorForDivide}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "8 - Order Divide v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"passengerKeys\": [\r\n        \"MCFBRFQ-\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderManagement}}/api/v1/order/{{recordLocatorForDivide}}/divide",
+									"host": [
+										"{{urlOrderManagement}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"{{recordLocatorForDivide}}",
+										"divide"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "22 - Booking Flow | 2 ADT 1 CHD Booking Divide",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -17012,7 +17774,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"passengerKeys\": [\r\n    \"MCFBRFQ-\",\r\n    \"MiFDSEQ-\"\r\n  ],\r\n  \"creditAmount\": null\r\n}",
+									"raw": "{\r\n    \"passengerKeys\": [\r\n        \"MCFBRFQ-\",\r\n        \"MiFDSEQ-\"\r\n    ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -17038,7 +17800,7 @@
 					]
 				},
 				{
-					"name": "22 - Booking Flow | TudoAzul Categorization",
+					"name": "23 - Booking Flow | TudoAzul Categorization",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -17459,7 +18221,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um adulto."
 				},
 				{
-					"name": "23 - Booking Flow | TravelDocuments (CPF) Categorization",
+					"name": "24 - Booking Flow | TravelDocuments (CPF) Categorization",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -17882,7 +18644,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um adulto."
 				},
 				{
-					"name": "24 - Booking Flow | Further Categorization",
+					"name": "25 - Booking Flow | Further Categorization",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -18538,7 +19300,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um adulto."
 				},
 				{
-					"name": "25 - Booking Flow | Unaccompanied minor (UMNR)",
+					"name": "26- Booking Flow | Unaccompanied minor (UMNR)",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -19030,7 +19792,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um adulto."
 				},
 				{
-					"name": "26 - Booking Flow | Unaccompanied minor (LiableRecordLocator)",
+					"name": "27- Booking Flow | Unaccompanied minor (LiableRecordLocator)",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -19649,7 +20411,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um adulto."
 				},
 				{
-					"name": "27 - Booking Flow | AirSearch with Flexible Dates",
+					"name": "28 - Booking Flow | AirSearch with Flexible Dates",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -20053,7 +20815,7 @@
 					"description": "Booking Flow com exemplos de busca para voos com datas flexiveis:\n\nRegras:\n\nCampos \"behind\" e \"ahead\" não são obrigatórios e caso informados devem contar valores entre 1 e 3."
 				},
 				{
-					"name": "28 - Booking Flow | User Password Reset",
+					"name": "29 - Booking Flow | User Password Reset",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -20368,7 +21130,7 @@
 					"description": "Booking Flow com exemplo para solicitação de reset de senha de um usuário.\n\nO usuário autenticado deverá ter a Role TA01 e o usuário a ter a senha resetada deverá ser da mesma organização ou ter sua organização dentro do grupo de organizações do solicitante."
 				},
 				{
-					"name": "29 - Booking Flow | Unlock User",
+					"name": "30 - Booking Flow | Unlock User",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -20684,7 +21446,7 @@
 					"description": "Booking Flow com exemplo para desbloqueio de um usuário.\n\nO usuário autenticado deverá ter a Role TA01 e o usuário a ter a senha resetada deverá ser da mesma organização ou ter sua organização dentro do grupo de organizações do solicitante além de pertecer as Roles TA03 e (ou) OP03."
 				},
 				{
-					"name": "30 - Booking Flow | Booking Divide w/ Credit Shell",
+					"name": "31 - Booking Flow | Booking Divide w/ Credit Shell",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -21520,7 +22282,7 @@
 					]
 				},
 				{
-					"name": "31 - Booking Flow | Seat Selection",
+					"name": "32 - Booking Flow | Seat Selection",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -22231,7 +22993,7 @@
 					]
 				},
 				{
-					"name": "32 - Booking Flow | Remove Seat Selection",
+					"name": "33 - Booking Flow | Remove Seat Selection",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -23199,7 +23961,7 @@
 					]
 				},
 				{
-					"name": "33 - Booking Flow | Middleware Section Logoff",
+					"name": "34 - Booking Flow | Middleware Section Logoff",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -23996,7 +24758,7 @@
 					]
 				},
 				{
-					"name": "34 - Booking Flow | Username Logout",
+					"name": "35 - Booking Flow | Username Logout",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -24812,7 +25574,7 @@
 					]
 				},
 				{
-					"name": "35 - Booking Flow | Order Search by Organization Type",
+					"name": "36 - Booking Flow | Order Search by Organization Type",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -25049,7 +25811,7 @@
 					]
 				},
 				{
-					"name": "36 - Booking Flow | Orders Search by Passenger Name",
+					"name": "37 - Booking Flow | Orders Search by Passenger Name",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -25282,7 +26044,7 @@
 					]
 				},
 				{
-					"name": "36 - Booking Flow | Orders Search by Contact Name",
+					"name": "38 - Booking Flow | Orders Search by Contact Name",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -25514,7 +26276,7 @@
 					]
 				},
 				{
-					"name": "37 - Booking Flow | Orders Search by Phone",
+					"name": "39 - Booking Flow | Orders Search by Phone",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -25747,7 +26509,7 @@
 					]
 				},
 				{
-					"name": "38 - Booking Flow | Orders Search by Email",
+					"name": "40 - Booking Flow | Orders Search by Email",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -25960,7 +26722,7 @@
 					]
 				},
 				{
-					"name": "39 - Booking Flow | Orders Search by Document Number",
+					"name": "41 - Booking Flow | Orders Search by Document Number",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -26193,7 +26955,7 @@
 					]
 				},
 				{
-					"name": "40 - Booking Flow | Orders Search by Credit Card Number",
+					"name": "42 - Booking Flow | Orders Search by Credit Card Number",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -26427,7 +27189,7 @@
 					]
 				},
 				{
-					"name": "41 - Booking Flow | Orders Search by Customer Number",
+					"name": "43 - Booking Flow | Orders Search by Customer Number",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -26661,7 +27423,7 @@
 					]
 				},
 				{
-					"name": "42 - Booking Flow | Orders Search by Agent Type",
+					"name": "44 - Booking Flow | Orders Search by Agent Type",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -26898,7 +27660,7 @@
 					]
 				},
 				{
-					"name": "43 - Booking Flow |  Add Baggages",
+					"name": "45 - Booking Flow |  Add Baggages",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -27545,7 +28307,7 @@
 					]
 				},
 				{
-					"name": "44 - Booking Flow | Add Baggages Roundtrip",
+					"name": "46 - Booking Flow | Add Baggages Roundtrip",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -28346,7 +29108,7 @@
 					]
 				},
 				{
-					"name": "45 - Booking Flow | Add Baggages (International)",
+					"name": "47 - Booking Flow | Add Baggages (International)",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -28982,7 +29744,7 @@
 					]
 				},
 				{
-					"name": "46 - Booking Flow | Add Baggages (South Americal",
+					"name": "48 - Booking Flow | Add Baggages (South Americal",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -29628,7 +30390,7 @@
 					]
 				},
 				{
-					"name": "47 - Booking Flow | Add Baggages (TudoAzul)",
+					"name": "49 - Booking Flow | Add Baggages (TudoAzul)",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -30262,7 +31024,7 @@
 					]
 				},
 				{
-					"name": "48 - Booking Flow | Remove Baggages",
+					"name": "50 - Booking Flow | Remove Baggages",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -31119,7 +31881,7 @@
 					]
 				},
 				{
-					"name": "49 - Booking Flow | Add Special Service Request",
+					"name": "51 - Booking Flow | Add Special Service Request",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -31747,7 +32509,7 @@
 					]
 				},
 				{
-					"name": "50 - Booking Flow | Remove Special Service Request",
+					"name": "52 - Booking Flow | Remove Special Service Request",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -32590,7 +33352,7 @@
 					]
 				},
 				{
-					"name": "51 - Booking Flow | Add Assistance",
+					"name": "53 - Booking Flow | Add Assistance",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -33306,7 +34068,7 @@
 					]
 				},
 				{
-					"name": "52 - Booking Flow | Remove Assistance",
+					"name": "54 - Booking Flow | Remove Assistance",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -34225,7 +34987,7 @@
 					]
 				},
 				{
-					"name": "53 - Booking Flow | Baggage Restriction Journey",
+					"name": "55 - Booking Flow | Baggage Restriction Journey",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -34601,7 +35363,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "54 - Booking Flow | Journey Change",
+					"name": "56 - Booking Flow | Journey Change",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -35524,7 +36286,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "55 - Booking Flow | Journey Change w/ Hold Payment",
+					"name": "57 - Booking Flow | Journey Change w/ Hold Payment",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -36306,7 +37068,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "56 - Booking Flow | Add Journey",
+					"name": "58 - Booking Flow | Add Journey",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -37166,7 +37928,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "57 - Booking Flow | Cancel Journey",
+					"name": "59 - Booking Flow | Cancel Journey",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -37871,7 +38633,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "58 - Booking Flow | Cancel Journey w/ Refund",
+					"name": "60 - Booking Flow | Cancel Journey w/ Refund",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -38578,7 +39340,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "59 - Booking Flow | Manual DU Change",
+					"name": "61 - Booking Flow | Manual DU Change",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -39573,7 +40335,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "60 - Booking Flow | DU Change",
+					"name": "62 - Booking Flow | DU Change",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -40003,7 +40765,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "61 - Booking Flow | Payments Reports Schedule",
+					"name": "63 - Booking Flow | Payments Reports Schedule",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -40276,7 +41038,7 @@
 					]
 				},
 				{
-					"name": "62 - Booking Flow | Payments Reports Schedule",
+					"name": "64 - Booking Flow | Payments Reports Schedule",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -40480,7 +41242,7 @@
 					]
 				},
 				{
-					"name": "63 - Booking Flow | Add Infant in Created Booking",
+					"name": "65 - Booking Flow | Add Infant in Created Booking",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -41126,7 +41888,7 @@
 					]
 				},
 				{
-					"name": "64 - Booking Flow | Reaccommodation Full Accept",
+					"name": "66 - Booking Flow | Reaccommodation Full Accept",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -41423,7 +42185,7 @@
 					]
 				},
 				{
-					"name": "65 - Booking Flow | Reaccommodation Partial Accept",
+					"name": "67 - Booking Flow | Reaccommodation Partial Accept",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -41715,7 +42477,7 @@
 					]
 				},
 				{
-					"name": "66 - Booking Flow | Reaccommodation Full Move",
+					"name": "68 - Booking Flow | Reaccommodation Full Move",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -42100,7 +42862,7 @@
 					]
 				},
 				{
-					"name": "67 - Booking Flow | Reaccommodation Partial Move",
+					"name": "69 - Booking Flow | Reaccommodation Partial Move",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -42477,7 +43239,7 @@
 					]
 				},
 				{
-					"name": "68 - Booking Flow | Reaccommodation Full Cancel",
+					"name": "70 - Booking Flow | Reaccommodation Full Cancel",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -42771,7 +43533,7 @@
 					]
 				},
 				{
-					"name": "69 - Booking Flow | Reaccommodation Partial Cancel",
+					"name": "71 - Booking Flow | Reaccommodation Partial Cancel",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -43068,7 +43830,7 @@
 					]
 				},
 				{
-					"name": "70 - Booking Flow | Reaccommodation Move, Cancel and Accept",
+					"name": "72 - Booking Flow | Reaccommodation Move, Cancel and Accept",
 					"item": [
 						{
 							"name": "1 - Token v1",
