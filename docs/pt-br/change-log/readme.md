@@ -20,3 +20,5 @@
     - Ajuste Regex de Senhas
     - Assentos Economy Prime
     - Documentações das APIs
+
+[Link para as versões anteriores](/docs/pt-br/change-log/readme.history.md)
