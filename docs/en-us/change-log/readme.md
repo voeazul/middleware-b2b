@@ -20,3 +20,5 @@
     - Adjust Password Regex
     - Economy Prime seats
     - API documentation
+
+[Link to previous versions](/docs/en-us/change-log/readme.history.md)
