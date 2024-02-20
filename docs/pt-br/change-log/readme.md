@@ -1,24 +1,16 @@
 # Changelog
 
-## [1.4.0] - 31/01/2024
+## [1.5.0] - 27/02/2024
 
 ### Adicionado
-- Pagamentos com Juros
-- Melhorias de fluxos
-    - Divisão
-        - Hold
-        - Cancelamento
-    - Desconto Itaucard 
-        - Incluindo desconto sobre taxa combustível
-    - Performance do fluxo de autenticação
-    - Categorização TudoAzul
-        - Correção de nomes com namematch
-    - Tratativa de mensagens de erros
-        - Tarifa esgotada
-        - Account de Agencia bloqueada
-    - Corereção de Calculo de Hold
-    - Ajuste Regex de Senhas
-    - Assentos Economy Prime
-    - Documentações das APIs
+- Organizations (API Interno)
+    - Regressivo de shopping e get user
+- Payments
+    - Remoção do CPF como campo obrigatório
+    - Ajuste Juros
+- Reaccommodation
+    - Novas filas de mudanças
+- Keep-Alive
+- Novas mensagens de Erro
 
 [Link para as versões anteriores](/docs/pt-br/change-log/readme.history.md)
