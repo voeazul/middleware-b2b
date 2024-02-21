@@ -20,3 +20,19 @@
     - Ajuste Regex de Senhas
     - Assentos Economy Prime
     - Documentações das APIs
+
+ ## [1.3.0] - 
+
+### Adicionado
+
+## [1.2.0] - 
+
+### Adicionado
+
+## [1.1.0] - 
+
+### Adicionado
+
+## [1.0.0] - 
+
+### Adicionado
