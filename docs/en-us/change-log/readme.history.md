@@ -25,7 +25,7 @@
 
 ### Added
 
-- Provision of reacommodation features
+- Availability of reacommodation features
 
 ## [1.2.0] - 12/26/2023
 
