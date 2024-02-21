@@ -3,16 +3,6 @@
 ## [1.5.0] - 02/27/2024
 
 ### Added
-- Organizations (Internal API)
-    - Shopping Countdown and get user
-- Payments
-    - Remove CPF as mandatory field
-    - Fees Adjustment
-- Reaccommodation
-    - New change queues
-- Keep-Alive
-- New Error Messages
-
 - Shopping
     - Fix the field "productClass" on Offer Quote method.
 - Payments
