@@ -5,7 +5,7 @@ We suggest carrying out the following steps for the development validation. Reme
 1. Formalize by email .suporteb2b@voeazul.com.br which methods were developed and will be implemented.
 2. The validated scenarios must be added to the Excel .xls file referencing the Booking number, if in your scenarios contain the booking creation process.
 3. The tests must be executed in stg environment.
-4. You must send a .rar document with each tested flow and bookings numbers.
+4. You must send a .har document with each tested flow and bookings numbers.
 
 # Go live plan
 
