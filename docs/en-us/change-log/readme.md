@@ -4,14 +4,14 @@
 
 ### Added
 - Shopping
-    - Fix the field "productClass" on Offer Quote method.
+    - Fix the property "productClass" on Offer Quote method.
 - Payments
-    - Remove GovId with mandatory field from credit card payments with BRL currency
-    - Adjust on rule fee
+    - Remove GovId as mandatory field for credit card payments with BRL currency
+    - Adjusts on interests fee
 - Reaccommodations
-    - New mapped changed queues
+    - New queues mapped
 - Keep Alive
     - New error messages
-    - Calculate from dynamic keep alive time according to Navitaire iddleTimeout
+    - Dynamic calculation of keep alive time according to Navitaire iddleTimeout
   
 [Link to previous versions](/docs/en-us/change-log/readme.history.md)
