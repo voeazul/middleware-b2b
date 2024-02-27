@@ -3,7 +3,7 @@
 ## [1.4.0] - 01/31/2024
 
 ### Added
-- Payments with Interest
+- Payments with interest
 - Flow improvements
     - Division
         - Hold
@@ -25,49 +25,49 @@
 
 ### Added
 
-- Availability of reacommodation features
+- Releasing reaccommodation features
 
 ## [1.2.0] - 12/26/2023
 
 ### Added
 
-- Availability of report features
+- Releasing report features
 	- Payments reports
-	- Sells reports
+	- Sales reports
 	- Segments reports
 
 ## [1.1.0] - 11/16/2023
 
 ### Added
 
-- Availability of passagers managemenmt features
-	- Add an infant in reservations already created
-	- Categorization of Tudo Azul in reservations already created
+- Releasing passagers management features
+	- Add an infant in already created orders
+	- Customer program categorization (TudoAzul) in already created orders
 
-- Availability on asynchronous sells of ancillaries features
+- Releasing asynchronous sells of ancillaries features
 
-- General improvments of seating map
-	- SkySofa returns
-	- Information of emergency out
+- General improvments of seat map
+	- Mapping SkySofa
+	- Mapping emergency exits
 
 - General improvments on cancel and change flows
-	- Block search in state with pending calculate
-	- Block DU manual adjust with pending calculate
-	- Block division of reservations with updated routes
+	- Block get from state with pending calculate
+	- Block DUFEE manual adjustment with pending calculate
+	- Block order division with changed journeys
 	
 - Improvments on agent management
 	- User Search
-	- Extra informations on authentication returns
+	- Extra informations on Authentication response
 
 ## [1.0.1] - 09/28/2023
 
 ### Updated
 
 - General improvments on Loyality API
-	- New API Comarch
+	- New Comarch API
 
 ## [1.0.0] - 08/01/2023
 
 ### Added
 
-- Availability of initial version from bus in production environment
+- Releasing initial version from middleware B2B in production environment
