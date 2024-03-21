@@ -1,17 +1,13 @@
 # Changelog
 
-## [1.5.0] - 02/27/2024
+## [1.6.0] - 03/27/2024
 
 ### Added
-- Shopping
-    - Fix the property "productClass" on Offer Quote method.
-- Payments
-    - Remove GovId as mandatory field for credit card payments with BRL currency
-    - Adjusts on interests fee
-- Reaccommodations
-    - New queues mapped
-- Keep Alive
-    - New error messages
-    - Dynamic calculation of keep alive time according to Navitaire iddleTimeout
+- New method for query children locators
+- Show promotional discounts applied on charge objects
+
+### Fixed
+- Paginations of reaccommodation summaries
+- Adjustment in the mapping of agency telephone numbers in the generated reservation contact
   
 [Link to previous versions](/docs/en-us/change-log/readme.history.md)
