@@ -1,22 +1,17 @@
 # Changelog
 
-## [1.3.0] - 01/31/2024
+## [1.5.0] - 02/27/2024
 
 ### Added
-- Payments with Interest
-- Flow improvements
-    - Division
-        - Hold
-        - Cancellation
-    - Itaucard discount
-        - Including discount on fuel tax
-    - Performance of the authentication flow
-    - TudoAzul Categorization
-        - Fix of names with namematch
-    - Handling error messages
-        - Fare sold out
-        - Agency account blocked
-    - Hold calculation correction
-    - Adjust Password Regex
-    - Economy Prime seats
-    - API documentation
+- Shopping
+    - Fix the property "productClass" on Offer Quote method.
+- Payments
+    - Remove GovId as mandatory field for credit card payments with BRL currency
+    - Adjusts on interests fee
+- Reaccommodations
+    - New queues mapped
+- Keep Alive
+    - New error messages
+    - Dynamic calculation of keep alive time according to Navitaire iddleTimeout
+  
+[Link to previous versions](/docs/en-us/change-log/readme.history.md)

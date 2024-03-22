@@ -5,7 +5,7 @@ Sugerimos a execução dos seguintes passos para validação técnica do desenvo
 1. Formalizar via e-mail suporteb2b@voeazul.com.br quais métodos foram desenvolvidos e serão implementados.
 2. Os cenários validados devem ser adicionados no arquivo Excel .xls referenciando o número do Booking, se houver no processo de criação do booking.
 3. Os testes devem ser executados no ambiente STG.
-4. Deverá ser enviado um arquivo .rar com os cenários testados para validação.
+4. Deverá ser enviado um arquivo .har com os cenários testados para validação.
 
 # Plano de go live
 
