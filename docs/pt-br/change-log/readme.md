@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.6.0] - 27/03/2024
+## [1.6.0] - 25/04/2024
 
 ### Adicionado
 - Novo método para consulta de localizadores filho
