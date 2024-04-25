@@ -22,6 +22,18 @@ O número de versão em uma rota pode mudar nas seguintes ocasiões:
 ## Suporte a Versões Anteriores
 Garantimos suporte para versões anteriores por um período determinado, permitindo que os usuários façam a transição para as versões mais recentes. A duração do suporte para uma versão específica pode variar, mas em geral, seguimos a política de manter o suporte por __12 meses__.
 
+## APIs com Novas Versões
+|Método                      |API                       | Versão | Data Limite de Suporte  |
+|----------------------------|--------------------------|--------|-------------------------|
+|`POST` `/api/v1/airSearch`  |Sales.B2B.Shopping.Api  | 1.0  | 25/04/2025                  |
+|`POST` `/api/v1/quote`      |Sales.B2B.Shopping.Api  | 1.0  | 25/04/2025                  |
+|`GET` `/api/v1/order`       |Sales.B2B.Order.Api     | 1.0  | 25/04/2025                  |
+
+Após a data limite de suporte para uma versão, recomendamos fortemente que os usuários migrem para a versão mais recente para continuar recebendo suporte e aproveitar as funcionalidades mais recentes.
+
+## Notificações de Versões
+Quando uma nova versão da API é lançada ou uma versão antiga atinge a data limite de suporte, notificaremos os usuários por e-mail e por nossa conta no Github. Por e-mail as notificações serão enviadas para o endereço de e-mail associado à chave de assinatura da API e para o contato principal da agência.
+
 ## Notificações de Versões
 Quando uma nova versão da API é lançada ou uma versão antiga atinge a data limite de suporte, notificaremos os usuários por e-mail e por nossa conta no Github. Por e-mail as notificações serão enviadas para o endereço de e-mail associado à chave de assinatura da API e para o contato principal da agência.
 
