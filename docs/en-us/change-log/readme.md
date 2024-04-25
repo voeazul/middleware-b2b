@@ -1,9 +1,10 @@
 # Changelog
 
-## [1.6.0] - 03/27/2024
+## [1.6.0] - 04/25/2024
 
 ### Added
 - New method to search for children record locators
+- New method to search for LowFares
 - Show promotional discounts applied on charge objects
 
 ### Fixed
