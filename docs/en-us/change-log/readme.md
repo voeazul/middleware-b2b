@@ -4,7 +4,6 @@
 
 ### Added
 - New method to search for children record locators
-- New method to search for LowFares
 - Show promotional discounts applied on charge objects
 
 ### Fixed
