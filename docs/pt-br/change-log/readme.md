@@ -4,6 +4,7 @@
 
 ### Adicionado
 - Novo método para consulta de localizadores filho
+- Novo método de consulta de LowFares.
 - Exibir descontos promocionais aplicados nos objetos de charges
 
 ### Corrigido
