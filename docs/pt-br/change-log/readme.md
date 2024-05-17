@@ -1,13 +1,8 @@
 # Changelog
 
-## [1.6.0] - 25/04/2024
+## [1.6.1] - 16/05/2024
 
 ### Adicionado
-- Novo método para consulta de localizadores filho
-- Exibir descontos promocionais aplicados nos objetos de charges
-
-### Corrigido
-- Paginações dos sumários de reacomodações
-- Ajuste no mapeamento dos telefones das agências no contato da reserva gerada
+- Novo método para consulta de lowfares
 
 [Link para as versões anteriores](/docs/pt-br/change-log/readme.history.md)
