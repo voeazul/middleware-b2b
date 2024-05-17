@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "74983f61-b192-42ae-bf8a-50bf5250506b",
-		"name": "Middleware B2B - Release 1.6.0",
+		"_postman_id": "306c04fb-4b55-45bc-bfe1-e25efe2865e9",
+		"name": "Middleware B2B - Release 1.6.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29122721",
-		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B---Release-1.6.0~3a4e6dc2-7d73-4f2f-b714-58dc87205497/collection/23627244-74983f61-b192-42ae-bf8a-50bf5250506b?action=share&source=collection_link&creator=29122721"
+		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B---Release-1.6.1~f1c767fe-dc43-45e7-824b-2c441a2c5d2e/collection/29122721-306c04fb-4b55-45bc-bfe1-e25efe2865e9?action=share&source=collection_link&creator=29122721"
 	},
 	"item": [
 		{
@@ -1308,7 +1308,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        },\r\n        {\r\n            \"type\": \"CHD\",\r\n            \"count\": 1\r\n        },\r\n        {\r\n            \"type\": \"INF\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"BEL\",\r\n            \"destination\": \"POA\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        },\r\n        {\r\n            \"origin\": \"POA\",\r\n            \"destination\": \"BEL\",\r\n            \"departure\": \"{{departure_2}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": \"{{promotionCode}}\",\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    },\r\n    \"flexibleDays\": {\r\n        \"behind\": 1,\r\n        \"ahead\": 1\r\n    }\r\n}",
+							"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        },\r\n        {\r\n            \"type\": \"CHD\",\r\n            \"count\": 1\r\n        },\r\n        {\r\n            \"type\": \"INF\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"BEL\",\r\n            \"destination\": \"POA\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        },\r\n        {\r\n            \"origin\": \"POA\",\r\n            \"destination\": \"BEL\",\r\n            \"departure\": \"{{departure_2}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": \"{{promotionCode}}\",\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1324,6 +1324,97 @@
 								"api",
 								"v2",
 								"airSearch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AirSearch Lowfare",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}\r",
+									"\r",
+									"var moment = require('moment');\r",
+									"\r",
+									"pm.environment.set(\"departure_begin_1\", moment().add(7, 'days').format('YYYY-MM-DDT00:00:00'));\r",
+									"pm.environment.set(\"departure_end_1\", moment().add(8, 'days').format('YYYY-MM-DDT00:00:00'));\r",
+									"pm.environment.set(\"departure_begin_2\", moment().add(14, 'days').format('YYYY-MM-DDT00:00:00'));\r",
+									"pm.environment.set(\"departure_end_2\", moment().add(15, 'days').format('YYYY-MM-DDT00:00:00'));"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);\r",
+									"\r",
+									"\r",
+									"pm.environment.set(\"journeyKeyIda\", JSON.stringify(response.data.airResult.offers[0].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
+									"pm.environment.set(\"fareKeyIda\", JSON.stringify(response.data.airResult.offers[0].offersAvailableByMarket[0].value[0].fares[0].key).toString().replace(/['\"]+/g, ''));\r",
+									"\r",
+									"if (response.data.airResult.offers.length > 1)\r",
+									"{\r",
+									"    pm.environment.set(\"journeyKeyVolta\", JSON.stringify(response.data.airResult.offers[1].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
+									"    pm.environment.set(\"fareKeyVolta\", JSON.stringify(response.data.airResult.offers[1].offersAvailableByMarket[0].value[0].fares[0].key).toString().replace(/['\"]+/g, ''));\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        },\r\n        {\r\n            \"type\": \"CHD\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"BEL\",\r\n            \"destination\": \"POA\",\r\n            \"departureBegin\": \"{{departure_begin_1}}\",\r\n            \"departureEnd\": \"{{departure_end_1}}\"\r\n        },\r\n        {\r\n            \"origin\": \"POA\",\r\n            \"destination\": \"BEL\",\r\n            \"departureBegin\": \"{{departure_begin_2}}\",\r\n            \"departureEnd\": \"{{departure_end_2}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": \"{{promotionCode}}\",\r\n        \"baggageAllowance\": \"All\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlShopping}}/api/v1/airSearch/lowfare",
+							"host": [
+								"{{urlShopping}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"airSearch",
+								"lowfare"
 							]
 						}
 					},
@@ -3651,548 +3742,543 @@
 			"name": "Order.Reaccommodation",
 			"item": [
 				{
-					"name": "v1",
-					"item": [
+					"name": "Summary",
+					"event": [
 						{
-							"name": "Summary",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
 								],
-								"url": {
-									"raw": "{{urlOrderReaccommodations}}/api/v1/orders/reaccommodations/summary?type=Organization&departureBegin=2024-04-01&departureEnd=2023-04-31&pageSize=10&page=1",
-									"host": [
-										"{{urlOrderReaccommodations}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reaccommodations",
-										"summary"
-									],
-									"query": [
-										{
-											"key": "type",
-											"value": "Organization"
-										},
-										{
-											"key": "code",
-											"value": "",
-											"disabled": true
-										},
-										{
-											"key": "departureBegin",
-											"value": "2024-04-01"
-										},
-										{
-											"key": "departureEnd",
-											"value": "2023-04-31"
-										},
-										{
-											"key": "changeType",
-											"value": "Minimal",
-											"disabled": true
-										},
-										{
-											"key": "pageSize",
-											"value": "10"
-										},
-										{
-											"key": "page",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Summary Details",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlOrderReaccommodations}}/api/v1/orders/reaccommodations/summary/Details?type=Organization&departure=2023-04-01&changeType=Important&pageSize=10&page=1",
-									"host": [
-										"{{urlOrderReaccommodations}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reaccommodations",
-										"summary",
-										"Details"
-									],
-									"query": [
-										{
-											"key": "type",
-											"value": "Organization"
-										},
-										{
-											"key": "code",
-											"value": "12345679",
-											"disabled": true
-										},
-										{
-											"key": "departure",
-											"value": "2023-04-01"
-										},
-										{
-											"key": "changeType",
-											"value": "Important"
-										},
-										{
-											"key": "pageSize",
-											"value": "10"
-										},
-										{
-											"key": "page",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Reaccommodation",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var response = JSON.parse(responseBody);\r",
-											"\r",
-											"pm.environment.set(\"reaccommodationJourneyKeyIda\", JSON.stringify(response.data.journeys[0].key).toString().replace(/['\"]+/g, ''));\r",
-											"pm.environment.set(\"reaccommodationJourneyDepartureIda\", response.data.journeys[0].from.designator.departure);\r",
-											"\r",
-											"if (response.data.journeys.length > 1)\r",
-											"{\r",
-											"    pm.environment.set(\"reaccommodationJourneyKeyVolta\", JSON.stringify(response.data.journeys[1].key).toString().replace(/['\"]+/g, '')); \r",
-											"    pm.environment.set(\"reaccommodationJourneyDepartureVolta\", response.data.journeys[1].from.designator.departure);\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation",
-									"host": [
-										"{{urlOrderReaccommodations}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"order",
-										":recordLocator",
-										"reaccommodation"
-									],
-									"variable": [
-										{
-											"key": "recordLocator",
-											"value": "{{recordLocator}}"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Reaccommodation",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"keys\": [\r\n        \"{{reaccommodationJourneyKeyIda}}\"\r\n    ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/accept",
-									"host": [
-										"{{urlOrderReaccommodations}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"order",
-										":recordLocator",
-										"journeys",
-										"reaccommodation",
-										"accept"
-									],
-									"variable": [
-										{
-											"key": "recordLocator",
-											"value": "{{recordLocator}}"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Reaccommodation AirSearch",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var response = JSON.parse(responseBody);\r",
-											"\r",
-											"pm.environment.set(\"reaccommodationNewJourneyKeyIda\", JSON.stringify(response.data.offers[0].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
-											"pm.environment.set(\"reaccommodationNewFareKeyIda\", JSON.stringify(response.data.offers[0].offersAvailableByMarket[0].value[0].fare.key).toString().replace(/['\"]+/g, ''));\r",
-											"\r",
-											"if (response.data.offers.length > 0)\r",
-											"{\r",
-											"    pm.environment.set(\"reaccommodationNewJourneyKeyVolta\", JSON.stringify(response.data.offers[1].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
-											"    pm.environment.set(\"reaccommodationNewFareKeyIda\", JSON.stringify(response.data.offers[1].offersAvailableByMarket[0].value[0].fare.key).toString().replace(/['\"]+/g, ''));\r",
-											"}\r",
-											""
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"journeys\": [\r\n        {\r\n            \"key\": \"{{reaccommodationJourneyKeyIda}}\",\r\n            \"departure\": \"{{reaccommodationJourneyDepartureIda}}\"\r\n        }\r\n    ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation/airSearch",
-									"host": [
-										"{{urlOrderReaccommodations}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"order",
-										":recordLocator",
-										"reaccommodation",
-										"airSearch"
-									],
-									"variable": [
-										{
-											"key": "recordLocator",
-											"value": "{{recordLocator}}"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Reaccommodation Move",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"currentJourneyKey\": \"{{reaccommodationJourneyKeyIda}}\",\r\n            \"newJourneyKey\": \"{{reaccommodationNewJourneyKeyIda}}\",\r\n            \"newFareKey\": \"{{reaccommodationNewFareKeyIda}}\"\r\n        }\r\n    ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/move",
-									"host": [
-										"{{urlOrderReaccommodations}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"order",
-										":recordLocator",
-										"journeys",
-										"reaccommodation",
-										"move"
-									],
-									"variable": [
-										{
-											"key": "recordLocator",
-											"value": "{{recordLocator}}"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Reaccommodation Refund",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"keys\": [\r\n        \"{{reaccommodationJourneyKeyIda}}\"\r\n    ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/refund",
-									"host": [
-										"{{urlOrderReaccommodations}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"order",
-										":recordLocator",
-										"journeys",
-										"reaccommodation",
-										"refund"
-									],
-									"variable": [
-										{
-											"key": "recordLocator",
-											"value": "{{recordLocator}}"
-										}
-									]
-								}
-							},
-							"response": []
+								"type": "text/javascript",
+								"packages": {}
+							}
 						}
-					]
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlOrderReaccommodations}}/api/v1/orders/reaccommodations/summary?type=Organization&departureBegin=2024-04-01&departureEnd=2023-04-31&pageSize=10&page=1",
+							"host": [
+								"{{urlOrderReaccommodations}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reaccommodations",
+								"summary"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "Organization"
+								},
+								{
+									"key": "code",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "departureBegin",
+									"value": "2024-04-01"
+								},
+								{
+									"key": "departureEnd",
+									"value": "2023-04-31"
+								},
+								{
+									"key": "changeType",
+									"value": "Minimal",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Summary Details",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlOrderReaccommodations}}/api/v1/orders/reaccommodations/summary/Details?type=Organization&departure=2023-04-01&changeType=Important&pageSize=10&page=1",
+							"host": [
+								"{{urlOrderReaccommodations}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reaccommodations",
+								"summary",
+								"Details"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "Organization"
+								},
+								{
+									"key": "code",
+									"value": "12345679",
+									"disabled": true
+								},
+								{
+									"key": "departure",
+									"value": "2023-04-01"
+								},
+								{
+									"key": "changeType",
+									"value": "Important"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reaccommodation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);\r",
+									"\r",
+									"pm.environment.set(\"reaccommodationJourneyKeyIda\", JSON.stringify(response.data.journeys[0].key).toString().replace(/['\"]+/g, ''));\r",
+									"pm.environment.set(\"reaccommodationJourneyDepartureIda\", response.data.journeys[0].from.designator.departure);\r",
+									"\r",
+									"if (response.data.journeys.length > 1)\r",
+									"{\r",
+									"    pm.environment.set(\"reaccommodationJourneyKeyVolta\", JSON.stringify(response.data.journeys[1].key).toString().replace(/['\"]+/g, '')); \r",
+									"    pm.environment.set(\"reaccommodationJourneyDepartureVolta\", response.data.journeys[1].from.designator.departure);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation",
+							"host": [
+								"{{urlOrderReaccommodations}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								":recordLocator",
+								"reaccommodation"
+							],
+							"variable": [
+								{
+									"key": "recordLocator",
+									"value": "{{recordLocator}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reaccommodation",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"keys\": [\r\n        \"{{reaccommodationJourneyKeyIda}}\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/accept",
+							"host": [
+								"{{urlOrderReaccommodations}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								":recordLocator",
+								"journeys",
+								"reaccommodation",
+								"accept"
+							],
+							"variable": [
+								{
+									"key": "recordLocator",
+									"value": "{{recordLocator}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reaccommodation AirSearch",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);\r",
+									"\r",
+									"pm.environment.set(\"reaccommodationNewJourneyKeyIda\", JSON.stringify(response.data.offers[0].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
+									"pm.environment.set(\"reaccommodationNewFareKeyIda\", JSON.stringify(response.data.offers[0].offersAvailableByMarket[0].value[0].fare.key).toString().replace(/['\"]+/g, ''));\r",
+									"\r",
+									"if (response.data.offers.length > 0)\r",
+									"{\r",
+									"    pm.environment.set(\"reaccommodationNewJourneyKeyVolta\", JSON.stringify(response.data.offers[1].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
+									"    pm.environment.set(\"reaccommodationNewFareKeyIda\", JSON.stringify(response.data.offers[1].offersAvailableByMarket[0].value[0].fare.key).toString().replace(/['\"]+/g, ''));\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"journeys\": [\r\n        {\r\n            \"key\": \"{{reaccommodationJourneyKeyIda}}\",\r\n            \"departure\": \"{{reaccommodationJourneyDepartureIda}}\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation/airSearch",
+							"host": [
+								"{{urlOrderReaccommodations}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								":recordLocator",
+								"reaccommodation",
+								"airSearch"
+							],
+							"variable": [
+								{
+									"key": "recordLocator",
+									"value": "{{recordLocator}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reaccommodation Move",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"currentJourneyKey\": \"{{reaccommodationJourneyKeyIda}}\",\r\n            \"newJourneyKey\": \"{{reaccommodationNewJourneyKeyIda}}\",\r\n            \"newFareKey\": \"{{reaccommodationNewFareKeyIda}}\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/move",
+							"host": [
+								"{{urlOrderReaccommodations}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								":recordLocator",
+								"journeys",
+								"reaccommodation",
+								"move"
+							],
+							"variable": [
+								{
+									"key": "recordLocator",
+									"value": "{{recordLocator}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reaccommodation Refund",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"keys\": [\r\n        \"{{reaccommodationJourneyKeyIda}}\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/journeys/reaccommodation/refund",
+							"host": [
+								"{{urlOrderReaccommodations}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								":recordLocator",
+								"journeys",
+								"reaccommodation",
+								"refund"
+							],
+							"variable": [
+								{
+									"key": "recordLocator",
+									"value": "{{recordLocator}}"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -5098,1095 +5184,1090 @@
 			"name": "Reports",
 			"item": [
 				{
-					"name": "v1",
-					"item": [
+					"name": "Report Download",
+					"event": [
 						{
-							"name": "Report Download",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
 								],
-								"url": {
-									"raw": "{{urlReports}}/api/v1/reports/:reportId/download",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"reports",
-										":reportId",
-										"download"
-									],
-									"variable": [
-										{
-											"key": "reportId",
-											"value": ""
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Payment Report",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);\r",
-											"pm.environment.set(\"paymentsReportId\", jsonData.data.report.id);"
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"periodCriteria\": {\r\n        \"period\": \"OrderCreation\",\r\n        \"type\": \"Day\",\r\n        \"day\": 30,\r\n        \"week\": null,\r\n        \"month\": 8,\r\n        \"year\": 2023\r\n    },\r\n    \"orderCriteria\": {\r\n        \"type\": \"OrganizationGroup\",\r\n        \"createdBy\": null\r\n    },\r\n    \"paymentCriteria\": {\r\n        \"Transaction\": \"Payment\",\r\n        \"Method\": \"Monetary\",\r\n        \"MethodCode\": \"AG\",\r\n        \"Amount\": 10000,\r\n        \"CardEnd\": 5,\r\n        \"Authorization\": \"b2b\"\r\n    }\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{urlReports}}/api/v1/orders/reports/payments",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reports",
-										"payments"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Payment Report",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/payments",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reports",
-										":reportId",
-										"payments"
-									],
-									"variable": [
-										{
-											"key": "reportId",
-											"value": "{{paymentsReportId}}"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Payment Report",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlReports}}/api/v1/orders/reports/payments",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reports",
-										"payments"
-									],
-									"query": [
-										{
-											"key": "Status",
-											"value": "Pending",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Payment Report by ID",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/payments",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reports",
-										":reportId",
-										"payments"
-									],
-									"variable": [
-										{
-											"key": "reportId",
-											"value": "{{paymentsReportId}}"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Sales Report",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);\r",
-											"pm.environment.set(\"salesReportId\", jsonData.data.report.id);"
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"periodCriteria\": {\r\n        \"type\": \"day\",\r\n        \"day\": 13,\r\n        \"week\": null,\r\n        \"month\": 9,\r\n        \"year\": 2023\r\n    },\r\n    \"orderCriteria\": {\r\n        \"type\": \"OrganizationGroup\",\r\n        \"createdBy\": \"20202020WS\",\r\n        \"status\": \"any\"\r\n    }\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{urlReports}}/api/v1/orders/reports/sales",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reports",
-										"sales"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Sales Report",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlReports}}/api/v1/orders/reports/sales",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reports",
-										"sales"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Sales Report",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/sales",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reports",
-										":reportId",
-										"sales"
-									],
-									"variable": [
-										{
-											"key": "reportId",
-											"value": "{{salesReportId}}"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Sales Report by ID",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/sales",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reports",
-										":reportId",
-										"sales"
-									],
-									"variable": [
-										{
-											"key": "reportId",
-											"value": "{{salesReportId}}"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Segments Report",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);\r",
-											"pm.environment.set(\"segmentsReportId\", jsonData.data.report.id);"
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"periodCriteria\": {\r\n        \"period\": \"SegmentDeparture\",\r\n        \"type\": \"Day\",\r\n        \"day\": 24,\r\n        \"week\": null,\r\n        \"month\": 10,\r\n        \"year\": 2023\r\n    },\r\n    \"orderCriteria\": {\r\n        \"type\": \"Organization\",\r\n        \"promotionCode\": null\r\n    }\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{urlReports}}/api/v1/orders/reports/segments",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reports",
-										"segments"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Segments Report",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/segments",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reports",
-										":reportId",
-										"segments"
-									],
-									"variable": [
-										{
-											"key": "reportId",
-											"value": "{{segmentsReportId}}"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Segments Report",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlReports}}/api/v1/orders/reports/segments",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reports",
-										"segments"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Segments Report by ID",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/segments",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"orders",
-										"reports",
-										":reportId",
-										"segments"
-									],
-									"variable": [
-										{
-											"key": "reportId",
-											"value": "{{segmentsReportId}}"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "User Report",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);\r",
-											"pm.environment.set(\"userReportId\", jsonData.data.report.id);"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"organizationCriteria\": {\r\n        \"type\": \"Organization\"\r\n    }\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{urlReports}}/api/v1/organizations/reports/users",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"organizations",
-										"reports",
-										"users"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "User Report",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlReports}}/api/v1/organizations/reports/:reportId/users",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"organizations",
-										"reports",
-										":reportId",
-										"users"
-									],
-									"variable": [
-										{
-											"key": "reportId",
-											"value": "{{userReportId}}"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "User Report",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlReports}}/api/v1/organizations/reports/users?organizationCriteria=Organization",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"organizations",
-										"reports",
-										"users"
-									],
-									"query": [
-										{
-											"key": "organizationCriteria",
-											"value": "Organization"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "User Report by ID",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}",
-										"type": "text"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlReports}}/api/v1/organizations/reports/:reportId/users",
-									"host": [
-										"{{urlReports}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"organizations",
-										"reports",
-										":reportId",
-										"users"
-									],
-									"variable": [
-										{
-											"key": "reportId",
-											"value": "{{userReportId}}"
-										}
-									]
-								}
-							},
-							"response": []
+								"type": "text/javascript"
+							}
 						}
-					]
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlReports}}/api/v1/reports/:reportId/download",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reports",
+								":reportId",
+								"download"
+							],
+							"variable": [
+								{
+									"key": "reportId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payment Report",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"paymentsReportId\", jsonData.data.report.id);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"periodCriteria\": {\r\n        \"period\": \"OrderCreation\",\r\n        \"type\": \"Day\",\r\n        \"day\": 30,\r\n        \"week\": null,\r\n        \"month\": 8,\r\n        \"year\": 2023\r\n    },\r\n    \"orderCriteria\": {\r\n        \"type\": \"OrganizationGroup\",\r\n        \"createdBy\": null\r\n    },\r\n    \"paymentCriteria\": {\r\n        \"Transaction\": \"Payment\",\r\n        \"Method\": \"Monetary\",\r\n        \"MethodCode\": \"AG\",\r\n        \"Amount\": 10000,\r\n        \"CardEnd\": 5,\r\n        \"Authorization\": \"b2b\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlReports}}/api/v1/orders/reports/payments",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reports",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payment Report",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/payments",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reports",
+								":reportId",
+								"payments"
+							],
+							"variable": [
+								{
+									"key": "reportId",
+									"value": "{{paymentsReportId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payment Report",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlReports}}/api/v1/orders/reports/payments",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reports",
+								"payments"
+							],
+							"query": [
+								{
+									"key": "Status",
+									"value": "Pending",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payment Report by ID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/payments",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reports",
+								":reportId",
+								"payments"
+							],
+							"variable": [
+								{
+									"key": "reportId",
+									"value": "{{paymentsReportId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sales Report",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"salesReportId\", jsonData.data.report.id);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"periodCriteria\": {\r\n        \"type\": \"day\",\r\n        \"day\": 13,\r\n        \"week\": null,\r\n        \"month\": 9,\r\n        \"year\": 2023\r\n    },\r\n    \"orderCriteria\": {\r\n        \"type\": \"OrganizationGroup\",\r\n        \"createdBy\": \"20202020WS\",\r\n        \"status\": \"any\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlReports}}/api/v1/orders/reports/sales",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reports",
+								"sales"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sales Report",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlReports}}/api/v1/orders/reports/sales",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reports",
+								"sales"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sales Report",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/sales",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reports",
+								":reportId",
+								"sales"
+							],
+							"variable": [
+								{
+									"key": "reportId",
+									"value": "{{salesReportId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sales Report by ID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/sales",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reports",
+								":reportId",
+								"sales"
+							],
+							"variable": [
+								{
+									"key": "reportId",
+									"value": "{{salesReportId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Segments Report",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"segmentsReportId\", jsonData.data.report.id);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"periodCriteria\": {\r\n        \"period\": \"SegmentDeparture\",\r\n        \"type\": \"Day\",\r\n        \"day\": 24,\r\n        \"week\": null,\r\n        \"month\": 10,\r\n        \"year\": 2023\r\n    },\r\n    \"orderCriteria\": {\r\n        \"type\": \"Organization\",\r\n        \"promotionCode\": null\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlReports}}/api/v1/orders/reports/segments",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reports",
+								"segments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Segments Report",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/segments",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reports",
+								":reportId",
+								"segments"
+							],
+							"variable": [
+								{
+									"key": "reportId",
+									"value": "{{segmentsReportId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Segments Report",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlReports}}/api/v1/orders/reports/segments",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reports",
+								"segments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Segments Report by ID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/segments",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reports",
+								":reportId",
+								"segments"
+							],
+							"variable": [
+								{
+									"key": "reportId",
+									"value": "{{segmentsReportId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Report",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"userReportId\", jsonData.data.report.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"organizationCriteria\": {\r\n        \"type\": \"Organization\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlReports}}/api/v1/organizations/reports/users",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"organizations",
+								"reports",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Report",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlReports}}/api/v1/organizations/reports/:reportId/users",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"organizations",
+								"reports",
+								":reportId",
+								"users"
+							],
+							"variable": [
+								{
+									"key": "reportId",
+									"value": "{{userReportId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Report",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlReports}}/api/v1/organizations/reports/users?organizationCriteria=Organization",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"organizations",
+								"reports",
+								"users"
+							],
+							"query": [
+								{
+									"key": "organizationCriteria",
+									"value": "Organization"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Report by ID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlReports}}/api/v1/organizations/reports/:reportId/users",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"organizations",
+								"reports",
+								":reportId",
+								"users"
+							],
+							"variable": [
+								{
+									"key": "reportId",
+									"value": "{{userReportId}}"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},

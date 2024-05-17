@@ -1,5 +1,15 @@
 # Complete Changelog
 
+## [1.6.0] - 04/25/2024
+
+### Added
+- New method to search for children record locators
+- Show promotional discounts applied on charge objects
+
+### Fixed
+- Paginations of reaccommodation summaries
+- Adjustment in the mapping of agency phone numbers in the generated order contacts
+
 ## [1.5.0] - 02/27/2024
 
 ### Added
