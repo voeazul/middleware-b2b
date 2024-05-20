@@ -1,5 +1,10 @@
 # Changelog Completo
 
+## [1.6.1] - 16/05/2024
+
+### Adicionado
+- Novo método para consulta de lowfares
+
 ## [1.6.0] - 25/04/2024
 
 ### Adicionado
