@@ -1,5 +1,10 @@
 # Complete Changelog
 
+## [1.6.1] - 16/05/2024
+
+### Added
+- New method to search for lowfares
+
 ## [1.6.0] - 04/25/2024
 
 ### Added
