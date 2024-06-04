@@ -285,9 +285,9 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequestFailed.TudoAzul.Retrieve | An error occurred while retrieving the TudoAzul program. | Ocorreu um erro ao recuperar o programa TudoAzul. |
 | 400 Bad Request | RequestFailed.Unexpected | An unexpected error has occurred. | Ocorreu um erro inesperado. |
 | 400 Bad Request | Required.RefundType | The 'RefundType' is required. | O 'RefundType' é obrigatório. |
-| 400 Bad Request | RequiredField.Account | The 'Account' is required. | A 'Conta' é obrigatória. |
-| 400 Bad Request | RequiredField.Amount | The 'Amount' is required. | O 'Valor' é obrigatório. |
-| 400 Bad Request | RequiredField.AssistanceArray | The 'Assistances' array is required. | A lista 'Assistências' é obrigatória. |
+| 400 Bad Request | RequiredField.Account | The 'Account' is required. | O 'Account' é obrigatório. |
+| 400 Bad Request | RequiredField.Amount | The 'Amount' is required. | O 'Amount' é obrigatório. |
+| 400 Bad Request | RequiredField.AssistanceArray | The 'Assistances' array is required. | O array de 'Assistances' é obrigatório. |
 | 400 Bad Request | RequiredField.AssistancesCount | The 'Assistances.Count' is required. | O 'Assistances.Count' é obrigatório. |
 | 400 Bad Request | RequiredField.AssistancesKey | The 'Assistances.Key' is required. | A 'Assistências.Key' é necessária. |
 | 400 Bad Request | RequiredField.ChangeType | The 'ChangeType' is required. | O 'ChangeType' é obrigatório. |
@@ -301,10 +301,10 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.ContactName.Last | The 'Contact.Name.Last' is required. | O 'Contact.Name.Last' é obrigatório. |
 | 400 Bad Request | RequiredField.ContactPhones.Number | The 'Contact.Phones.Number' is required. | O 'Contact.Phones.Number' é obrigatório. |
 | 400 Bad Request | RequiredField.ContactPhones.Type | The 'Contact.Phones.Type' is required. | O 'Contact.Phones.Type' é obrigatório. |
-| 400 Bad Request | RequiredField.ContactPhonesHome | The 'Contact.Phones' a home object is required. | O objeto 'Contact.Phones' é necessário. |
+| 400 Bad Request | RequiredField.ContactPhonesHome | The 'Contact.Phones' a home object is required. | O objeto 'Contact.Phones' é obrigatório. |
 | 400 Bad Request | RequiredField.CreditCard.ExpirationMonth | The 'ExpirationMonth' is required. | O 'ExpirationMonth' é obrigatório. |
 | 400 Bad Request | RequiredField.CreditCard.ExpirationYear | The 'ExpirationYear' is required. | O 'ExpirationYear' é obrigatório. |
-| 400 Bad Request | RequiredField.CreditCard.GovId | The 'GovId' is required for this method code due to the currency code of the order. | O 'GovId' é necessário para este código de método devido ao código da moeda da reserva. |
+| 400 Bad Request | RequiredField.CreditCard.GovId | The 'GovId' is required for this method code due to the currency code of the order. | O 'GovId' é necessário para este código de método devido ao código da moeda da order. |
 | 400 Bad Request | RequiredField.CreditCard.HolderName | The 'HolderName' is required. | O 'HolderName' é obrigatório. |
 | 400 Bad Request | RequiredField.CreditCard.MethodCode | The 'MethodCode' is required. | O 'MethodCode' é obrigatório. |
 | 400 Bad Request | RequiredField.CreditCard.Type | The 'CreditCard.Type' is required | O 'CreditCard.Type' é obrigatório |
@@ -312,22 +312,22 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.Criteria | The 'Criteria' is only required for 'CriteriaType': 'Phone', 'Email', 'DocumentNumber', 'CardNumber' and 'CustomerNumber'. | Os 'Critérios' só são necessários para 'CriteriaType': 'Telefone', 'E-mail', 'DocumentNumber', 'CardNumber' e 'CustomerNumber'. |
 | 400 Bad Request | RequiredField.CriteriaType | The 'CriteriaType' is only required for 'Type': 'Organization'. | O 'CriteriaType' só é necessário para 'Tipo': 'Organização'. |
 | 400 Bad Request | RequiredField.CurrencyCode | The 'CurrencyCode' is required. | O 'CurrencyCode' é obrigatório. |
-| 400 Bad Request | RequiredField.CurrentPassword | User not authenticated. The field 'Username' is required. | Usuário não autenticado.  |
+| 400 Bad Request | RequiredField.CurrentPassword | User not authenticated. The field 'Username' is required. | Usuário não autenticado. O campo 'Username' é obrigatório.  |
 | 400 Bad Request | RequiredField.DateOfBirth | The 'DateOfBirth' is required. | O 'DateOfBirth' é obrigatório. |
 | 400 Bad Request | RequiredField.Day | The 'PeriodCriteria.Day' is required. | O 'PeriodCriteria.Day' é obrigatório. |
-| 400 Bad Request | RequiredField.Departure | The 'Departure' is required. | A 'Partida' é obrigatória. |
+| 400 Bad Request | RequiredField.Departure | The 'Departure' is required. | O 'Departure' é obrigatório. |
 | 400 Bad Request | RequiredField.DepartureBegin | The 'DepartureBegin' is required. | O 'DepartureBegin' é obrigatório. |
-| 400 Bad Request | RequiredField.DepartureDate | The 'Departure' is required. | A 'Partida' é obrigatória. |
+| 400 Bad Request | RequiredField.DepartureDate | The 'Departure' is required. | A 'Departure' é obrigatório. |
 | 400 Bad Request | RequiredField.DepartureEnd | The 'DepartureEnd' is required. | O 'DepartureEnd' é obrigatório. |
-| 400 Bad Request | RequiredField.Destination | The 'Destination' is required. | O 'Destino' é obrigatório. |
+| 400 Bad Request | RequiredField.Destination | The 'Destination' is required. | O 'Destination' é obrigatório. |
 | 400 Bad Request | RequiredField.Document.Type | The 'Infant.Document.Type' CPF, RNE or PASSPORT is required. | É necessário apresentar CPF, RNE ou PASSAPORTE 'Tipo.Documento.Infantil'. |
 | 400 Bad Request | RequiredField.DocumentType | The 'DocumentType' is required for the informed 'CriteriaType'. | O 'DocumentType' é obrigatório para o 'CriteriaType' informado. |
-| 400 Bad Request | RequiredField.Email | The 'Email' is required. | O 'E-mail' é obrigatório. |
+| 400 Bad Request | RequiredField.Email | The 'Email' is required. | O 'Email' é obrigatório. |
 | 400 Bad Request | RequiredField.FareKey | The 'FareKey' is required. | O 'FareKey' é obrigatório. |
 | 400 Bad Request | RequiredField.FirstName | The 'FirstName' is required for the 'FirstNameMatching' field. | O 'FirstName' é obrigatório para o campo 'FirstNameMatching'. |
 | 400 Bad Request | RequiredField.FirstNameMatching | The 'FirstNameMatching' is required for the 'FirstName' field. | O 'FirstNameMatching' é obrigatório para o campo 'FirstName'. |
-| 400 Bad Request | RequiredField.Gender | The 'Gender' must be a valid Enum. | O 'Gênero' deve ser um Enum válido. |
-| 400 Bad Request | RequiredField.Identifier | The 'Identifier' is required. | O 'Identificador' é obrigatório. |
+| 400 Bad Request | RequiredField.Gender | The 'Gender' must be a valid Enum. | O 'Gender' deve ser um Enum válido. |
+| 400 Bad Request | RequiredField.Identifier | The 'Identifier' is required. | O 'Identifier' é obrigatório. |
 | 400 Bad Request | RequiredField.Infant.FirstName | The 'Infant.FirstName' is required. | O 'Infant.FirstName' é obrigatório. |
 | 400 Bad Request | RequiredField.Infant.Gender | The 'Infant:Gender' is required. | O 'Infantil:Gênero' é obrigatório. |
 | 400 Bad Request | RequiredField.Infant.LastName | The 'Infant.LastName' is required. | O 'Infant.LastName' é obrigatório. |
@@ -335,20 +335,20 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.IropContact.EmailMobile | The 'Passengers.IropContact.Email' or 'Passengers.IropContact.Mobile is required. | O 'Passengers.IropContact.Email' ou 'Passengers.IropContact.Mobile é obrigatório. |
 | 400 Bad Request | RequiredField.IropContact.Refused | The 'Passengers.IropContact.Refused' is required. | O 'Passengers.IropContact.Refused' é obrigatório. |
 | 400 Bad Request | RequiredField.JourneyKey | The 'JourneyKey' is required. | A 'JourneyKey' é necessária. |
-| 400 Bad Request | RequiredField.Journeys | The 'Journeys' array is required. | A lista 'Journeys' é obrigatória. |
-| 400 Bad Request | RequiredField.Journeys.Departure | The 'Departure' is required. | A 'Partida' é obrigatória. |
+| 400 Bad Request | RequiredField.Journeys | The 'Journeys' array is required. | O array de 'Journeys' é obrigatório. |
+| 400 Bad Request | RequiredField.Journeys.Departure | The 'Departure' is required. | A 'Departure' é obrigatória. |
 | 400 Bad Request | RequiredField.Journeys.Key | The 'Journey.Key' is required. | A 'Journey.Key' é necessária. |
-| 400 Bad Request | RequiredField.Key | The 'Key' is required. | A 'Chave' é necessária. |
-| 400 Bad Request | RequiredField.Keys | The 'Keys' array is required. | A lista 'Keys' é obrigatória. |
-| 400 Bad Request | RequiredField.LastName | The 'LastName' is required. | O 'Sobrenome' é obrigatório. |
+| 400 Bad Request | RequiredField.Key | The 'Key' is required. | A 'Key' é obrigatória. |
+| 400 Bad Request | RequiredField.Keys | The 'Keys' array is required. | O array de'Keys' é obrigatório. |
+| 400 Bad Request | RequiredField.LastName | The 'LastName' is required. | O 'LastName' é obrigatório. |
 | 400 Bad Request | RequiredField.Month | The 'PeriodCriteria.Month' is required. | O 'PeriodCriteria.Month' é obrigatório. |
-| 400 Bad Request | RequiredField.Name | The 'Name' is required. | O 'Nome' é obrigatório. |
-| 400 Bad Request | RequiredField.Name.First | The 'Name.First' is required. | O 'Nome.Primeiro' é obrigatório. |
-| 400 Bad Request | RequiredField.Name.Last | The 'Name.Last' is required. | O 'Nome.Último' é obrigatório. |
-| 400 Bad Request | RequiredField.Name.Middle | The 'Name.Middle' is required. | O 'Nome.Middle' é obrigatório. |
-| 400 Bad Request | RequiredField.Nationality | The 'Nationality' is required. | A 'Nacionalidade' é obrigatória. |
-| 400 Bad Request | RequiredField.NewPassword | The 'NewPassword' is required. | A 'Nova Senha' é necessária. |
-| 400 Bad Request | RequiredField.Offers | The 'Offers' array is required. | A lista 'Ofertas' é obrigatória. |
+| 400 Bad Request | RequiredField.Name | The 'Name' is required. | O 'Name' é obrigatório. |
+| 400 Bad Request | RequiredField.Name.First | The 'Name.First' is required. | O 'Name.First' é obrigatório. |
+| 400 Bad Request | RequiredField.Name.Last | The 'Name.Last' is required. | O 'Name.Last' é obrigatório. |
+| 400 Bad Request | RequiredField.Name.Middle | The 'Name.Middle' is required. | O 'Name.Middle' é obrigatório. |
+| 400 Bad Request | RequiredField.Nationality | The 'Nationality' is required. | A 'Nationality' é obrigatório. |
+| 400 Bad Request | RequiredField.NewPassword | The 'NewPassword' is required. | O 'NewPassword' é obrigatória. |
+| 400 Bad Request | RequiredField.Offers | The 'Offers' array is required. | O array de 'Offers' é obrigatória. |
 | 400 Bad Request | RequiredField.Offers.CurrentJourneyKey | The 'CurrentJourneyKey' is required. | O 'CurrentJourneyKey' é obrigatório. |
 | 400 Bad Request | RequiredField.Offers.FareKey | The 'Offers.FareKey' is required. | O 'Offers.FareKey' é obrigatório. |
 | 400 Bad Request | RequiredField.Offers.JourneyKey | The 'Offers.JouneyKey' is required. | O 'Offers.JouneyKey' é obrigatório. |
@@ -369,8 +369,8 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.Passenger.PhoneEmail | The 'Passengers.Phone' or  'Passengers.Email' is required. | O 'Passengers.Phone' ou 'Passengers.Email' é obrigatório. |
 | 400 Bad Request | RequiredField.Passenger.Type | The 'Passengers.Type' is required. | O 'Passengers.Type' é obrigatório. |
 | 400 Bad Request | RequiredField.PassengerKey | The 'PassengerKey' is required. | A 'PassengerKey' é necessária. |
-| 400 Bad Request | RequiredField.PassengerKeys | The 'passengerKeys' informed in the request does not exist in the informed order. | As 'passengerKeys' informadas na solicitação não existem no pedido informado. |
-| 400 Bad Request | RequiredField.Passengers | The 'Passengers' array is required. | A lista 'Passageiros' é obrigatória. |
+| 400 Bad Request | RequiredField.PassengerKeys | The 'passengerKeys' informed in the request does not exist in the informed order. | As 'passengerKeys' informadas na solicitação não existem na order. |
+| 400 Bad Request | RequiredField.Passengers | The 'Passengers' array is required. | O array 'Passengers' é obrigatória. |
 | 400 Bad Request | RequiredField.PassengerType | The 'Passenger.Type' is required. | O 'Passenger.Type' é obrigatório. |
 | 400 Bad Request | RequiredField.PassengerType.Adult | The 'Passengers.Type' a ADT value is required. | O valor 'Passengers.Type' é obrigatório. |
 | 400 Bad Request | RequiredField.Password | The 'Password' is required. | A 'Senha' é necessária. |
@@ -391,31 +391,31 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.ServicesKey | The 'Services.Key' is required. | O 'Services.Key' é obrigatório. |
 | 400 Bad Request | RequiredField.SessionContext | The 'SessionContext' is required. | O 'SessionContext' é obrigatório. |
 | 400 Bad Request | RequiredField.Status | The 'Status' is required. | O 'Status' é obrigatório. |
-| 400 Bad Request | RequiredField.TravelDocument | The minimum count of 'TravelDocument' array is 1. | A contagem mínima da lista 'TravelDocument' é 1. |
+| 400 Bad Request | RequiredField.TravelDocument | The minimum count of 'TravelDocument' array is 1. | A contagem mínima do 'TravelDocument' é 1. |
 | 400 Bad Request | RequiredField.TravelDocument.ExpirationDate | The 'TravelDocuments.ExpirationDate' is required. | O 'TravelDocuments.ExpirationDate' é obrigatório. |
 | 400 Bad Request | RequiredField.TravelDocument.Number | The 'TravelDocuments.Number' is required. | O 'TravelDocuments.Number' é obrigatório. |
 | 400 Bad Request | RequiredField.TravelDocument.Type | The 'TravelDocuments.Type' CPF, RNE or PASSPORT is required. | É necessário o CPF, RNE ou PASSAPORTE 'TravelDocuments.Type'. |
 | 400 Bad Request | RequiredField.TravelDocuments.IssuingCountry | The 'TravelDocuments.IssuingCountry' is required. | O 'TravelDocuments.IssuingCountry' é obrigatório. |
 | 400 Bad Request | RequiredField.TravelDocuments.Type | The 'TravelDocuments.Type' is required. | O 'TravelDocuments.Type' é obrigatório. |
 | 400 Bad Request | RequiredField.Type | The 'Type' is required. | O 'Tipo' é obrigatório. |
-| 400 Bad Request | RequiredField.UnitKey | The 'unitkey' is required. | A 'chave de unidade' é necessária. |
+| 400 Bad Request | RequiredField.UnitKey | The 'unitkey' is required. | A 'unitkey' é necessária. |
 | 400 Bad Request | RequiredField.UserKey | The 'UserKey' is required. | A 'UserKey' é necessária. |
-| 400 Bad Request | RequiredField.Username | The 'Username' is required. | O 'Nome de usuário' é obrigatório. |
+| 400 Bad Request | RequiredField.Username | The 'Username' is required. | O 'Username' é obrigatório. |
 | 400 Bad Request | RequiredField.Week | The 'PeriodCriteria.Week' is required. | O 'PeriodCriteria.Week' é obrigatório. |
 | 400 Bad Request | RequiredField.Year | The 'PeriodCriteria.Year' is required. | O 'PeriodCriteria.Year' é obrigatório. |
-| 400 Bad Request | Retrieve.NoActions | There are no more journeys waiting for agent actions on this order. | Não há mais jornadas aguardando ações do agente nesta ordem. |
-| 400 Bad Request | Roles.NotAllowed | Cannot edit the user that belongs to WebService roles. | Não é possível editar o usuário que pertence às funções WebService. |
+| 400 Bad Request | Retrieve.NoActions | There are no more journeys waiting for agent actions on this order. | Não há mais journey aguardando ações do agente nesta order. |
+| 400 Bad Request | Roles.NotAllowed | Cannot edit the user that belongs to WebService roles. | Não é possível editar o usuário que pertence às roles WebService. |
 | 400 Bad Request | Seat.Unavailable | Seat already assigned to another passenger. | Assento já atribuído a outro passageiro. |
 | 400 Bad Request | Service.Quantity.Restricted | This service is restricted to one occurence per passenger and leg. | Este serviço está restrito a uma ocorrência por passageiro e trecho. |
 | 400 Bad Request | Shopping.Request.Failed | The Shopping request failed. | A solicitação do Shopping falhou. |
-| 400 Bad Request | Stations.NotAllowed | These requested stations are invalid: | Estas estações solicitadas são inválidas: |
-| 400 Bad Request | TudoAzul.Categorization.Failed | There was a failure in the categorization of TudoAzul of 'passengers.customerProgram.number': {0}. Try categorize again after the order creation (before assigning seats or adding baggages to ensure all potential benefits). | Houve falha na categorização do TudoAzul de ‘passageiros.customerProgram.number’: {0}.  |
+| 400 Bad Request | Stations.NotAllowed | These requested stations are invalid: | Estas stations solicitadas são inválidas: |
+| 400 Bad Request | TudoAzul.Categorization.Failed | There was a failure in the categorization of TudoAzul of 'passengers.customerProgram.number': {0}. Try categorize again after the order creation (before assigning seats or adding baggages to ensure all potential benefits). | Houve falha na categorização do TudoAzul de 'passengers.customerProgram.number': {0}.  |
 | 400 Bad Request | UnitKey.Invalid | The 'UnitKey' is invalid. | O 'UnitKey' é inválido. |
 | 400 Bad Request | User.CannotBeUnlocked | Only API users can be unlocked. | Somente usuários da API podem ser desbloqueados. |
-| 400 Bad Request | User.NoGroup | The user must be in an Organization Group when the ‘Type’ is Group. | O usuário deve estar em um grupo organizacional quando o ‘Tipo’ for Grupo. |
+| 400 Bad Request | User.NoGroup | The user must be in an Organization Group when the 'Type' is Group. | O usuário deve estar em um grupo organizacional quando o 'Tipo' for Grupo. |
 | 400 Bad Request | User.NotEditable | Deleted user cannot be edited. | O usuário excluído não pode ser editado. |
 | 400 Bad Request | User.Password.Expired | Expired password, user must change password. | Senha expirada, o usuário deve alterar a senha. |
-| 400 Bad Request | Warning.OrganizationFeeOverride | Organization fee override is not applicable for this order. | A substituição da taxa de organização não se aplica a este pedido. |
+| 400 Bad Request | Warning.OrganizationFeeOverride | Organization fee override is not applicable for this order. | A substituição da taxa de organização não se aplica a esta order. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. | Ocorreu um erro ao executar a autenticação. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. | O Bearer Token fornecido é inválido ou expirou. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. | Ocorreu um erro ao validar a autenticação do usuário. |
@@ -496,7 +496,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 422 Unprocessable Content | NotMatch.Name | The names sent do not match those on the attached order. | Os nomes enviados não correspondem aos da order em anexo. |
 | 422 Unprocessable Content | NotMatch.PassengerKey | An informed passenger key does not exists in the attached order or is invalid. | A chave do passageiro informada não existe em anexo na order ou é inválida. |
 | 422 Unprocessable Content | Order.RetrieveRequired | The requested order was not found or does not exist. | A order solicitada não foi encontrada ou não existe. |
-| 422 Unprocessable Content | Order.State.Timeout | The state time for this order has expired. Please retrieve the order again with the GET Order method. | O tempo estadual para este pedido expirou.  |
+| 422 Unprocessable Content | Order.State.Timeout | The state time for this order has expired. Please retrieve the order again with the GET Order method. | O tempo da reserva no state expirou. Por favor, recupere a reserva novamente  |
 | 422 Unprocessable Content | SeatMapCache.SearchRequired | No seatmap found or generated in state. Please retrieve a seatmap before trying to assign a seat. | Nenhum mapa de assentos encontrado ou gerado no state.  |
 | 422 Unprocessable Content | Service.SearchRequired | Retrieve a 'services/search' with journeyKey before execute this method. | Recupere um 'serviços/pesquisa' com travelKey antes de executar este método. |
 | 422 Unprocessable Content | UnitKey.SearchRequired | The informed UnitKey does not belong to a previously retrieved SeatMap or the previous retrive is expired. | A UnitKey informada não pertence a um SeatMap recuperado anteriormente ou a recuperação anterior expirou. |
