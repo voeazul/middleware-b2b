@@ -424,9 +424,9 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 403 Forbidden | Organization.AuthorizationFailed.User | This user does not have access to the informed organization. | Este usuário não tem acesso à organização informada. |
 | 404 Not Found | Assistance.NoMatches | This assistance does not exist or was not found. | Esta assistência não existe ou não foi encontrada. |
 | 404 Not Found | Assistances.NoMatches | Unable to retrieve the assistances data. | Não foi possível recuperar os dados de assistência. |
-| 404 Not Found | AssistancesKey.NoMatches | The informed 'Assistances.Key' does not exists or does not belong to a previously retrieved 'assistance/search'. | A 'Assistências.Chave' informada não existe ou não pertence a uma 'assistência/busca' recuperada anteriormente. |
+| 404 Not Found | AssistancesKey.NoMatches | The informed 'Assistances.Key' does not exists or does not belong to a previously retrieved 'assistance/search'. | A 'Assistances.Key' informada não existe ou não pertence a uma 'assistance/search' recuperada anteriormente. |
 | 404 Not Found | Baggage.NoMatches | No 'Baggage' was found for removal. | Nenhuma 'Bagagem' foi encontrada para remoção. |
-| 404 Not Found | BagKey.NoMatches | The informed 'Key' does not exists or does not belong to a previously retrieved 'baggage/search'. | A ‘Chave’ informada não existe ou não pertence a uma ‘bagagem/busca’ previamente recuperada. |
+| 404 Not Found | BagKey.NoMatches | The informed 'Key' does not exists or does not belong to a previously retrieved 'baggage/search'. | A 'Chave' informada não existe ou não pertence a uma 'bagagem/busca' previamente recuperada. |
 | 404 Not Found | Code.NoMatches | Informed Organization Code was not found. | O código da organização informada não foi encontrado. |
 | 404 Not Found | Countries.NoMatches | Unable to retrieve the countries data. | Não foi possível recuperar os dados dos países. |
 | 404 Not Found | Country.NoMatches | This country does not exist or was not found. | Este país não existe ou não foi encontrado. |
@@ -439,38 +439,38 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 404 Not Found | Fee.NoMatches | This fee does not exist or was not found. | Esta taxa não existe ou não foi encontrada. |
 | 404 Not Found | Fees.NoMatches | Unable to retrieve the fees data. | Não foi possível recuperar os dados de taxas. |
 | 404 Not Found | InvalidField.JourneyKey | The 'JourneyKey' is invalid. | O 'JourneyKey' é inválido. |
-| 404 Not Found | JourneyKey.NoMatches | The 'JourneyKey' is invalid or does not exists in the current state. | O 'JourneyKey' é inválido ou não existe no estado atual. |
+| 404 Not Found | JourneyKey.NoMatches | The 'JourneyKey' is invalid or does not exists in the current state. | O 'JourneyKey' é inválido ou não existe no state. |
 | 404 Not Found | NoMatches | The informed user does not exist or was not found. | O usuário informado não existe ou não foi encontrado. |
-| 404 Not Found | Order.NoMatches | The requested order was not found or does not exist. | O pedido solicitado não foi encontrado ou não existe. |
-| 404 Not Found | OrderCache.NoMatches | An order must be attached. | Um pedido deve ser anexado. |
-| 404 Not Found | OrderSearch.NoMatches | No orders found for the informed search filters. | Não foram encontrados pedidos para os filtros de busca informados. |
+| 404 Not Found | Order.NoMatches | The requested order was not found or does not exist. | A order solicitada não foi encontrado ou não existe. |
+| 404 Not Found | OrderCache.NoMatches | An order must be attached. | Uma order deve ser anexado. |
+| 404 Not Found | OrderSearch.NoMatches | No orders found for the informed search filters. | Não foram encontado orders para os filtros de busca informados. |
 | 404 Not Found | Organization.NoMatches | The informed organization does not exist or was not found. | A organização informada não existe ou não foi encontrada. |
 | 404 Not Found | OrganizationCode.NoMatches | The informed 'OrganizationCode' doesn't exists or doesn't belong to the same organization as your current Point of Sale. | O 'OrganizationCode' informado não existe ou não pertence à mesma organização do seu Ponto de Venda atual. |
 | 404 Not Found | OrganizationGroup.NoMatches | The informed organization group does not exist or was not found. | O grupo organizacional informado não existe ou não foi encontrado. |
-| 404 Not Found | OrganizationGroupCode.NoMatches | The 'OrganizationGroupCode does not exist or was not found. | O 'OrganizationGroupCode não existe ou não foi encontrado. |
-| 404 Not Found | PassengerKey.NoMatches | The informed 'PassengerKey' does not match within those on the order in state. | A 'PassengerKey' informada não corresponde àquelas do pedido em estado. |
+| 404 Not Found | OrganizationGroupCode.NoMatches | The 'OrganizationGroupCode does not exist or was not found. | O 'OrganizationGroupCode' não existe ou não foi encontrada. |
+| 404 Not Found | PassengerKey.NoMatches | The informed 'PassengerKey' does not match within those on the order in state. | A 'PassengerKey' informada não corresponde a reserva no state. |
 | 404 Not Found | PassengerName.NoMatches | The Passenger name does not match within informed Customer Program. | O nome do Passageiro não corresponde ao Programa do Cliente informado. |
-| 404 Not Found | Payments.NoMatches | No payments were found for the order in state. | Nenhum pagamento foi encontrado para o pedido no estado. |
-| 404 Not Found | RecordLocator.NoMatches | Your order must be created to use its credits. | Seu pedido deve ser criado para utilizar seus créditos. |
-| 404 Not Found | RefundOrder.NoMatches | Order not found. Retrieve the order. | Pedido não encontrado.  |
-| 404 Not Found | ReportId.NoMatches | The informed 'ReportId' does not exists or was not found. | O ‘ReportId’ informado não existe ou não foi encontrado. |
+| 404 Not Found | Payments.NoMatches | No payments were found for the order in state. | Nenhum pagamento foi encontrado para order no state. |
+| 404 Not Found | RecordLocator.NoMatches | Your order must be created to use its credits. | Uma order deve ser criada para utilizar seus créditos. |
+| 404 Not Found | RefundOrder.NoMatches | Order not found. Retrieve the order. | Order não encontrada.  |
+| 404 Not Found | ReportId.NoMatches | The informed 'ReportId' does not exists or was not found. | O 'ReportId' informado não existe ou não foi encontrado. |
 | 404 Not Found | Seat.NoMatches | Seat not found. | Assento não encontrado. |
 | 404 Not Found | SeatMap.NoMatches | No matching seats. | Não há assentos correspondentes. |
-| 404 Not Found | SegmentKey.NoMatches | The 'SegmentKey' is invalid or does not exists in the current state. | O 'SegmentKey' é inválido ou não existe no estado atual. |
-| 404 Not Found | Service.NoMatches | Service not found in the specified Journey. | Serviço não encontrado na jornada especificada. |
+| 404 Not Found | SegmentKey.NoMatches | The 'SegmentKey' is invalid or does not exists in the current state. | O 'SegmentKey' é inválido ou não existe no state. |
+| 404 Not Found | Service.NoMatches | Service not found in the specified Journey. | Serviço não encontrado na journey especificada. |
 | 404 Not Found | ServiceKey.NoMatches | The informed 'Services.Key' does not exists or does not belong to a previously retrieved 'service/search'. | O 'Services.Key' informado não existe ou não pertence a um 'serviço/busca' recuperado anteriormente. |
 | 404 Not Found | SessionContextToken.NoMatches | No sessions found for the given provider. | Nenhuma sessão encontrada para o provedor fornecido. |
-| 404 Not Found | Station.NoMatches | This station does not exist or was not found. | Esta estação não existe ou não foi encontrada. |
-| 404 Not Found | Stations.NoMatches | Unable to retrieve the stations data. | Não foi possível recuperar os dados das estações. |
+| 404 Not Found | Station.NoMatches | This station does not exist or was not found. | A station não existe ou não foi encontrada. |
+| 404 Not Found | Stations.NoMatches | Unable to retrieve the stations data. | Não foi possível recuperar os dados das stations. |
 | 404 Not Found | TudoAzul.NoMatches | The informed 'passengers.customerProgram.number': {0} does not exists or was not found. | O 'passengers.customerProgram.number' informado: {0} não existe ou não foi encontrado. |
-| 404 Not Found | TudoAzulNames.NoMatches | The names of the informed 'passengers.customerProgram.number': {0} do not match those registered in TudoAzul. | Os nomes dos ‘passageiros.customerProgram.number’ informados: {0} não correspondem aos cadastrados no TudoAzul. |
-| 404 Not Found | UnitKey.NoMatches | The 'UnitKey' is invalid or does not exists in the current state. | O 'UnitKey' é inválido ou não existe no estado atual. |
+| 404 Not Found | TudoAzulNames.NoMatches | The names of the informed 'passengers.customerProgram.number': {0} do not match those registered in TudoAzul. | Os nomes dos 'passageiros.customerProgram.number' informados: {0} não correspondem aos cadastrados no TudoAzul. |
+| 404 Not Found | UnitKey.NoMatches | The 'UnitKey' is invalid or does not exists in the current state. | O 'UnitKey' é inválido ou não existe no state. |
 | 404 Not Found | User.NoMatches | The informed user does not exist or was not found. | O usuário informado não existe ou não foi encontrado. |
-| 404 Not Found | UserKey.NoMatches | The informed 'UserKey' does not exist or was not found. | O ‘UserKey’ informado não existe ou não foi encontrado. |
-| 404 Not Found | Username.NoMatches | The 'Username' user does not exist or was not found. | O usuário 'Nome de usuário' não existe ou não foi encontrado. |
-| 409 Conflict | AssignSeat.PassengerKey.Conflict | The PassengerKey does not exists in the order state. | O PassengerKey não existe no estado do pedido. |
+| 404 Not Found | UserKey.NoMatches | The informed 'UserKey' does not exist or was not found. | O 'UserKey' informado não existe ou não foi encontrado. |
+| 404 Not Found | Username.NoMatches | The 'Username' user does not exist or was not found. | O 'Username' não existe ou não foi encontrado. |
+| 409 Conflict | AssignSeat.PassengerKey.Conflict | The PassengerKey does not exists in the order state. | O PassengerKey não existe na order do state. |
 | 409 Conflict | AssignSeat.Seat.Conflict | Seat Already Assigned. | Assento já atribuído. |
-| 409 Conflict | InvalidField.AssistanceCode | The assistance '{0}' is invalid for the Journey '{1}-{2} - {3}'. | A assistência '{0}' é inválida para a Jornada '{1}-{2} - {3}'. |
+| 409 Conflict | InvalidField.AssistanceCode | The assistance '{0}' is invalid for the Journey '{1}-{2} - {3}'. | A assistência '{0}' é inválida para a journey '{1}-{2} - {3}'. |
 | 409 Conflict | InvalidField.AssistanceLimit | The count for the 'Assistances.key' {0} is greater than the specified limit. | A contagem de 'Assistances.key' {0} é maior que o limite especificado. |
 | 409 Conflict | InvalidField.Assistanceskey | There are duplicated 'Assistances.key' {0}. | Existem 'Assistances.key' {0} duplicados. |
 | 409 Conflict | InvalidField.PassengerKeyCache | The requested service is not available for the informed passenger. | O serviço solicitado não está disponível para o passageiro informado. |
@@ -479,31 +479,31 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 409 Conflict | InvalidField.Serviceskey | There are duplicated 'Services.key' {0}. | Existem 'Services.key' {0} duplicados. |
 | 409 Conflict | InvalidToken.Expired | An error occurred while performing authentication. | Ocorreu um erro ao executar a autenticação. |
 | 409 Conflict | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. | O Bearer Token fornecido é inválido ou expirou. |
-| 409 Conflict | LiableRecordLocator.UnaccopaniedMinor.NotMatchJourneys | Liable order and unaccompanied minors order flights must match. | Pedidos responsáveis \u200b\u200be voos de pedidos de menores desacompanhados devem coincidir. |
-| 409 Conflict | NotEmpty.State | It's not possible to attach with an order already retrieved in the current state. Please execute an order delete before the order attach. | Não é possível anexar um pedido já recuperado no estado atual.  |
-| 409 Conflict | Order.HasRecordLocator | This method is for orders under creation process. If you want to checkout a previously created order, please use the equivalent method in the Order.Management.Api. | Este método é para pedidos em processo de criação.  |
-| 409 Conflict | Order.Recordlocator.Empty | This method is for previously created orders. If you want to retrieve an order under creation, please use the equivalent method in the Order.Api. | Este método é para pedidos criados anteriormente.  |
-| 409 Conflict | Order.State.Change | Removing a journey after adding journeys is not allowed. Please confirm your changes or restart the process retrieving the order again. | Não é permitido remover uma viagem após adicionar viagens.  |
-| 409 Conflict | Order.State.Modified | The order in state has been externally modified. Retrieve the order again with the GET Order methods and try again. | A ordem no estado foi modificada externamente.  |
+| 409 Conflict | LiableRecordLocator.UnaccopaniedMinor.NotMatchJourneys | Liable order and unaccompanied minors order flights must match. | Voos com menores desacompanhados devem coincidir. |
+| 409 Conflict | NotEmpty.State | It's not possible to attach with an order already retrieved in the current state. Please execute an order delete before the order attach. | Não é possível anexar uma order já recuperada no estado atual.  |
+| 409 Conflict | Order.HasRecordLocator | This method is for orders under creation process. If you want to checkout a previously created order, please use the equivalent method in the Order.Management.Api. | Este método é para orders em processo de criação.  |
+| 409 Conflict | Order.Recordlocator.Empty | This method is for previously created orders. If you want to retrieve an order under creation, please use the equivalent method in the Order.Api. | Este método é para orders criadas anteriormente.  |
+| 409 Conflict | Order.State.Change | Removing a journey after adding journeys is not allowed. Please confirm your changes or restart the process retrieving the order again. | Não é permitido remover uma journey após adicionar outra journey.  |
+| 409 Conflict | Order.State.Modified | The order in state has been externally modified. Retrieve the order again with the GET Order methods and try again. | A order no state foi modificada externamente.  |
 | 409 Conflict | Order.UnaccopaniedMinor.OperatedFligthAzul | Unaccompanied minors are allowed in Azul operated flights only. | Menores desacompanhados são permitidos apenas em voos operados pela Azul. |
-| 409 Conflict | Order.UnderCreationException | This method is for orders under creation process. If you want to retrieve a previously created order, please use the equivalent method in the Order.Management.Api. | Este método é para pedidos em processo de criação.  |
-| 409 Conflict | Refund.NotApplicable | There is no amount in the order to be refunded. | Não há valor no pedido a ser reembolsado. |
-| 409 Conflict | RequestFailed.UnaccompaniedMinor.DomesticFligths | Unaccompanied minors are allowed in brazilian domestic flights only. | Menores desacompanhados são permitidos apenas em voos domésticos brasileiros. |
+| 409 Conflict | Order.UnderCreationException | This method is for orders under creation process. If you want to retrieve a previously created order, please use the equivalent method in the Order.Management.Api. | Este método é para orders em processo de criação.  |
+| 409 Conflict | Refund.NotApplicable | There is no amount in the order to be refunded. | Não há valor na order a ser reembolsado. |
+| 409 Conflict | RequestFailed.UnaccompaniedMinor.DomesticFligths | Unaccompanied minors are allowed in brazilian domestic flights only. | Menores desacompanhados são permitidos apenas em voos domésticos no Brasil. |
 | 409 Conflict | RequestFailed.UnaccopaniedMinor.OnlyDirectFlight | Unaccompanied minors are allowed in direct flights only. | Menores desacompanhados são permitidos apenas em voos diretos. |
-| 409 Conflict | RequiredField.LiableRecordLocator | A passenger over 18 years old is required in the liable order. | É necessário um passageiro maior de 18 anos na ordem responsável. |
+| 409 Conflict | RequiredField.LiableRecordLocator | A passenger over 18 years old is required in the liable order. | É necessário um passageiro maior de 18 anos na order |
 | 422 Unprocessable Content | Assistance.SearchRequired | Retrieve a 'assistances/search' with journeyKey before execute this method. | Recupere uma 'assistência/pesquisa' com travelKey antes de executar este método. |
 | 422 Unprocessable Content | Baggage.SearchRequired | Retrieve a 'baggage/search' with journeyKey before execute this method. | Recupere uma 'bagagem/pesquisa' com travelKey antes de executar este método. |
-| 422 Unprocessable Content | NotMatch.Name | The names sent do not match those on the attached order. | Os nomes enviados não correspondem aos do pedido em anexo. |
-| 422 Unprocessable Content | NotMatch.PassengerKey | An informed passenger key does not exists in the attached order or is invalid. | A chave do passageiro informada não existe no pedido anexo ou é inválida. |
-| 422 Unprocessable Content | Order.RetrieveRequired | The requested order was not found or does not exist. | O pedido solicitado não foi encontrado ou não existe. |
+| 422 Unprocessable Content | NotMatch.Name | The names sent do not match those on the attached order. | Os nomes enviados não correspondem aos da order em anexo. |
+| 422 Unprocessable Content | NotMatch.PassengerKey | An informed passenger key does not exists in the attached order or is invalid. | A chave do passageiro informada não existe em anexo na order ou é inválida. |
+| 422 Unprocessable Content | Order.RetrieveRequired | The requested order was not found or does not exist. | A order solicitada não foi encontrada ou não existe. |
 | 422 Unprocessable Content | Order.State.Timeout | The state time for this order has expired. Please retrieve the order again with the GET Order method. | O tempo estadual para este pedido expirou.  |
-| 422 Unprocessable Content | SeatMapCache.SearchRequired | No seatmap found or generated in state. Please retrieve a seatmap before trying to assign a seat. | Nenhum mapa de assentos encontrado ou gerado no estado.  |
+| 422 Unprocessable Content | SeatMapCache.SearchRequired | No seatmap found or generated in state. Please retrieve a seatmap before trying to assign a seat. | Nenhum mapa de assentos encontrado ou gerado no state.  |
 | 422 Unprocessable Content | Service.SearchRequired | Retrieve a 'services/search' with journeyKey before execute this method. | Recupere um 'serviços/pesquisa' com travelKey antes de executar este método. |
 | 422 Unprocessable Content | UnitKey.SearchRequired | The informed UnitKey does not belong to a previously retrieved SeatMap or the previous retrive is expired. | A UnitKey informada não pertence a um SeatMap recuperado anteriormente ou a recuperação anterior expirou. |
 | 502 Bad Gateway | Agent.DefaultEmail.NotConfigured | The informed agent does not have a configured default email. | O agente informado não possui email padrão configurado. |
 | 502 Bad Gateway | Agent.NotActive | The Agent is not active. | O Agente não está ativo. |
 | 502 Bad Gateway | AuthorizationFailed.Credentials | Username or password is incorrect. | Nome de usuário ou senha está incorreta. |
-| 502 Bad Gateway | Comarch.RequestFailed | An error occurred while retrieving the data in the commarch. | Ocorreu um erro ao recuperar os dados no commarch. |
+| 502 Bad Gateway | Comarch.RequestFailed | An error occurred while retrieving the data in the commarch. | Ocorreu um erro ao recuperar os dados na commarch. |
 | 502 Bad Gateway | Integration.Error | ServiceBus connection error! | Erro de conexão do ServiceBus! |
 | 502 Bad Gateway | Integration.Failed | The request failed. | A solicitação falhou. |
 | 502 Bad Gateway | Integration.InvalidFare | There is an error within the requested fares | Há um erro nas tarifas solicitadas |
@@ -513,9 +513,9 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 502 Bad Gateway | InvalidField.CountryCode | The 'CountryCode' must have 2 characters. | O 'CountryCode' deve ter 2 caracteres. |
 | 502 Bad Gateway | InvalidField.CurrencyCode.Length | The 'CurrencyCode' has a maximum length of 3 characters. | O 'CurrencyCode' tem um comprimento máximo de 3 caracteres. |
 | 502 Bad Gateway | InvalidField.DepartureDate | Arrival date may not be before Departure date. | A data de chegada não pode ser anterior à data de partida. |
-| 502 Bad Gateway | InvalidField.Destination.Length | The 'Destination' station code has a maximum length of 3 characters. | O código da estação 'Destino' tem um comprimento máximo de 3 caracteres. |
+| 502 Bad Gateway | InvalidField.Destination.Length | The 'Destination' station code has a maximum length of 3 characters. | O código de Destino tem um comprimento máximo de 3 caracteres. |
 | 502 Bad Gateway | InvalidField.FareKey | The 'FareAvailabilityKey' is invalid! | O 'FareAvailabilityKey' é inválido! |
-| 502 Bad Gateway | InvalidField.Installments | The 'Installments' cannot be zero or null. | As ‘Parcelas’ não podem ser zero ou nulas. |
+| 502 Bad Gateway | InvalidField.Installments | The 'Installments' cannot be zero or null. | As 'Parcelas' não podem ser zeradas ou nulas. |
 | 502 Bad Gateway | InvalidField.MethodCode.Length | The 'MethodCode' must be 2 characters. | O 'MethodCode' deve ter 2 caracteres. |
 | 502 Bad Gateway | InvalidField.Miscelaneous.Length | Check the length of fields 'GovId, AccountHolderName and VerificationCode'. | Verifique o comprimento dos campos 'GovId, AccountHolderName e VerificationCode'. |
 | 502 Bad Gateway | InvalidField.Organization | The 'Organization' is invalid! | A 'Organização' é inválida! |
@@ -525,40 +525,40 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 502 Bad Gateway | InvalidField.Password | The given password violates the password policy. Policy: The password must be numeric, have at least 8 numbers and a maximum of 14. The password cannot contain numerical sequences of three or more digits or numbers repeated more than twice in a row. | A senha fornecida viola a política de senha.  |
 | 502 Bad Gateway | InvalidField.PromotionCode | The 'PromotionCode' is invalid! | O 'PromotionCode' é inválido! |
 | 502 Bad Gateway | InvalidField.PromotionCode.Length | The 'PromotionCode' has a maximum length of 8 characters. | O 'PromotionCode' tem no máximo 8 caracteres. |
-| 502 Bad Gateway | Navitaire.Authenticated.NoAgentRoles | Unable to find valid role for agent. | Não foi possível encontrar uma função válida para o agente. |
-| 502 Bad Gateway | Navitaire.Authenticated.Session | An agent is already authenticated. | Um agente já está autenticado. |
-| 502 Bad Gateway | Navitaire.GetBooking.Failed | The requested order was not found or does not exist. | O pedido solicitado não foi encontrado ou não existe. |
-| 502 Bad Gateway | Navitaire.Request.Failed | The request failed with navitaire. | A solicitação falhou com o navitaire. |
-| 502 Bad Gateway | Navitaire.SeatKey.Invalid | Invalid seat key for equipment. | Chave de assento inválida para equipamento. |
+| 502 Bad Gateway | Navitaire.Authenticated.NoAgentRoles | Unable to find valid role for agent. | Não foi possível encontrar uma role válida para o agente. |
+| 502 Bad Gateway | Navitaire.Authenticated.Session | An agent is already authenticated. | O agente já está autenticado. |
+| 502 Bad Gateway | Navitaire.GetBooking.Failed | The requested order was not found or does not exist. | A order solicitada não foi encontrada ou não existe. |
+| 502 Bad Gateway | Navitaire.Request.Failed | The request failed with navitaire. | A solicitação falhou com a navitaire. |
+| 502 Bad Gateway | Navitaire.SeatKey.Invalid | Invalid seat key for equipment. | Chave de assento inválida para o equipamento. |
 | 502 Bad Gateway | Navitaire.SegmentKey.Invalid | The 'SegmentKey' is invalid. | O 'SegmentKey' é inválido. |
-| 502 Bad Gateway | Order.RequestFailed | An error has ocurred retrieving the order from state. | Ocorreu um erro ao recuperar o pedido do estado. |
+| 502 Bad Gateway | Order.RequestFailed | An error has ocurred retrieving the order from state. | Ocorreu um erro ao recuperar a order do state. |
 | 502 Bad Gateway | Order.RequestFailed.Credits | An error occurred while searching for credit. | Ocorreu um erro ao procurar crédito. |
-| 502 Bad Gateway | Order.RequestFailed.InsufficientFunds | Not enough funds available. | Não há fundos suficientes disponíveis. |
-| 502 Bad Gateway | Order.RequestFailed.NoFunds | The Order in state has no funds. | A Ordem no estado não tem fundos. |
+| 502 Bad Gateway | Order.RequestFailed.InsufficientFunds | Not enough funds available. | Não há saldo suficientes disponíveis. |
+| 502 Bad Gateway | Order.RequestFailed.NoFunds | The Order in state has no funds. | A Ordem do state não tem saldo. |
 | 502 Bad Gateway | Order.RequestFailed.NotUpdated | Unable to update booking. | Não foi possível atualizar a reserva. |
 | 502 Bad Gateway | Organization.AuthorizationFailed.User | This user does not have access to the informed organization. | Este usuário não tem acesso à organização informada. |
 | 502 Bad Gateway | Organization.NotActive | The Organization is not active. | A Organização não está ativa. |
-| 502 Bad Gateway | Passengers.Count.OverMaximum | The sum of adult and child passenger must be less than or equal to 9. | A soma do passageiro adulto e criança deverá ser menor ou igual a 9. |
-| 502 Bad Gateway | Passengers.Count.UnderMinimum | The minimum count of 'Passenger' array is 1. | A contagem mínima da matriz 'Passageiro' é 1. |
+| 502 Bad Gateway | Passengers.Count.OverMaximum | The sum of adult and child passenger must be less than or equal to 9. | A soma dos passageiros adultos e crianças deverá ser menor ou igual a 9. |
+| 502 Bad Gateway | Passengers.Count.UnderMinimum | The minimum count of 'Passenger' array is 1. | A contagem mínima de 'Passageiro' é 1. |
 | 502 Bad Gateway | RequestFailed | The request failed. | A solicitação falhou. |
-| 502 Bad Gateway | RequestFailed.AssistanceCode.NotAllowed | The informed assistance code is invalid or cannot be added to this journey. | O código de assistência informado é inválido ou não pode ser adicionado a esta viagem. |
+| 502 Bad Gateway | RequestFailed.AssistanceCode.NotAllowed | The informed assistance code is invalid or cannot be added to this journey. | O código de assistência informado é inválido ou não pode ser adicionado a esta journey. |
 | 502 Bad Gateway | RequestFailed.Authentication | An error occurred while validating the user authentication. | Ocorreu um erro ao validar a autenticação do usuário. |
-| 502 Bad Gateway | RequestFailed.ChangeNotAllowed | The requested journey cannot be changed. | A viagem solicitada não pode ser alterada. |
-| 502 Bad Gateway | RequestFailed.Comarch | An error occurred while retrieving the data in the comarch. | Ocorreu um erro ao recuperar os dados no comarch. |
-| 502 Bad Gateway | RequestFailed.CompletedPayment | The amounts for this order have already been totally paid. | Os valores deste pedido já foram integralmente pagos. |
-| 502 Bad Gateway | RequestFailed.ContactError | Your Order request was succefully processed, but the informed booking contact has errors. | O seu pedido de encomenda foi processado com sucesso, mas o contacto de reserva informado apresenta erros. |
-| 502 Bad Gateway | RequestFailed.DeletingError | An error occurred when deleting the order. | Ocorreu um erro ao excluir o pedido. |
+| 502 Bad Gateway | RequestFailed.ChangeNotAllowed | The requested journey cannot be changed. | A journey solicitada não pode ser alterada. |
+| 502 Bad Gateway | RequestFailed.Comarch | An error occurred while retrieving the data in the comarch. | Ocorreu um erro ao recuperar os dados na comarch. |
+| 502 Bad Gateway | RequestFailed.CompletedPayment | The amounts for this order have already been totally paid. | Os valores desta order já foram integralmente pagos. |
+| 502 Bad Gateway | RequestFailed.ContactError | Your Order request was succefully processed, but the informed booking contact has errors. | A reauisição foi processada com sucesso, mas o contacto de reserva informado apresenta erros. |
+| 502 Bad Gateway | RequestFailed.DeletingError | An error occurred when deleting the order. | Ocorreu um erro ao excluir a order. |
 | 502 Bad Gateway | RequestFailed.GetPayment | There was an error retrieving the payment. | Ocorreu um erro ao recuperar o pagamento. |
 | 502 Bad Gateway | RequestFailed.IncompletePayment | The Payment must include at least the total amount of the order taxes. | O Pagamento deve incluir pelo menos o valor total dos impostos do pedido. |
 | 502 Bad Gateway | RequestFailed.Installments | Installment payment available only for BRL currency code. | Pagamento parcelado disponível apenas para o código de moeda BRL. |
 | 502 Bad Gateway | RequestFailed.NotAuthenticated | An error occurred while authenticating. | Ocorreu um erro durante a autenticação. |
-| 502 Bad Gateway | RequestFailed.Order.AlreadyExistsInState | There is already an order created in state. | Já existe um pedido criado no estado. |
+| 502 Bad Gateway | RequestFailed.Order.AlreadyExistsInState | There is already an order created in state. | Já existe uma order criada no state. |
 | 502 Bad Gateway | RequestFailed.OrderPayments | The order in the current state has not been checked out yet. The CreditType 'Order' only applies to created orders. | O pedido no estado atual ainda não foi verificado.  |
-| 502 Bad Gateway | RequestFailed.OverPayment | The informed amount is greater than the balance due for this order. | O valor informado é superior ao saldo devido deste pedido. |
+| 502 Bad Gateway | RequestFailed.OverPayment | The informed amount is greater than the balance due for this order. | O valor informado é superior ao saldo devido da order. |
 | 502 Bad Gateway | RequestFailed.Payments | An error occurred with the order payments service. | Ocorreu um erro com o serviço de pagamentos de pedidos. |
-| 502 Bad Gateway | RequestFailed.SSR.AddNotPossible | It was not possible to add an SSR to the order. | Não foi possível adicionar um SSR ao pedido. |
+| 502 Bad Gateway | RequestFailed.SSR.AddNotPossible | It was not possible to add an SSR to the order. | Não foi possível adicionar um SSR a order. |
 | 502 Bad Gateway | RequestFailed.StatusAccount | Organization account is Closed/Blocked, please contact Azul's commercial team. | A conta da organização está Fechada/Bloqueada, entre em contato com a equipe comercial da Azul. |
-| 502 Bad Gateway | RequestFailed.UnaccompaniedMinor.Information | There are unaccompanied minors in your order, please verify possible costs and required documentations. | Há menores desacompanhados em seu pedido, verifique possíveis custos e documentações exigidas. |
+| 502 Bad Gateway | RequestFailed.UnaccompaniedMinor.Information | There are unaccompanied minors in your order, please verify possible costs and required documentations. | Há menores desacompanhados na order, verifique possíveis custos e documentações exigidas. |
 | 502 Bad Gateway | RequestFailed.Unexpected | An unexpected error has occurred. | Ocorreu um erro inesperado. |
 | 502 Bad Gateway | RequiredField.Amount | The 'Amount' is required. | O 'Valor' é obrigatório. |
 | 502 Bad Gateway | RequiredField.CreditCard.MethodCode | The 'MethodCode' is required. | O 'MethodCode' é obrigatório. |
@@ -567,5 +567,5 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 502 Bad Gateway | RequiredField.JourneyKey | The 'JourneyKey' is required. | A 'JourneyKey' é necessária. |
 | 502 Bad Gateway | RequiredField.OrganizationCode | The 'OrganizationCode' is required. | O 'OrganizationCode' é obrigatório. |
 | 502 Bad Gateway | RequiredField.PassengerType | The 'Passenger.Type' is required. | O 'Passenger.Type' é obrigatório. |
-| 502 Bad Gateway | Resources.RequestFailed | The Resources request failed. | A solicitação de recursos falhou. |
+| 502 Bad Gateway | Resources.RequestFailed | The Resources request failed. | A solicitação do recurso falhou. |
 | 502 Bad Gateway | UserOrganization.NotAllowed | The logged user organization does not have access to the requested order. | A organização do usuário logado não tem acesso ao pedido solicitado. |
