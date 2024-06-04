@@ -6,11 +6,11 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 
 | Código HTTP       | Código Interno | Mensagem de Erro                               | Descrição                                     |
 | ----------------- | -------------- | ---------------------------------------------- | ----------------------------------------------|
-| 400 Bad Request | Agent.NoOrganizationGroup | The Agent must be in a organization group when 'OrderCriteria.Type' is equal to 'OrganizationGroup'. | O Agente deve estar em um grupo organizacional quando 'OrderCriteria.Type' for igual a 'OrganizationGroup'. |
+| 400 Bad Request | Agent.NoOrganizationGroup | The Agent must be in a organization group when 'OrderCriteria.Type' is equal to 'OrganizationGroup'. | O Agente deve estar em um grupo de uma organização quando 'OrderCriteria.Type' for igual a 'OrganizationGroup'. |
 | 400 Bad Request | Agent.NotAuthorized | Agent is not allowed to assign seat. | O agente não tem permissão para atribuir assento. |
-| 400 Bad Request | AgentOrder.NotAuthorized | Agent is not authorized to commit order with invalid price status without requesting to override restrictions. | O agente não está autorizado a confirmar pedidos com status de preço inválido sem solicitar a substituição das restrições. |
+| 400 Bad Request | AgentOrder.NotAuthorized | Agent is not authorized to commit order with invalid price status without requesting to override restrictions. | O agente não está autorizado a confirmar a reserva com status de preço inválido sem solicitar a substituição das restrições. |
 | 400 Bad Request | Alerts.Authentication.Invalid | Invalid Authentication. | Autenticação inválida. |
-| 400 Bad Request | AlreadyExists.Username | The 'Username' entered already exists in this or another organization. | O 'Nome de usuário' inserido já existe nesta ou em outra organização. |
+| 400 Bad Request | AlreadyExists.Username | The 'Username' entered already exists in this or another organization. | O 'Username' inserido já existe nesta ou em outra organização. |
 | 400 Bad Request | AuthorizationFailed.Credentials | Username or password is incorrect. | Nome de usuário ou senha está incorreta. |
 | 400 Bad Request | B2b.OrderManagementRequest.Failed | The request failed. | A solicitação falhou. |
 | 400 Bad Request | B2b.Request.Failed | The request failed. | A solicitação falhou. |
@@ -19,18 +19,18 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Change.Hold.Information | The hold date has changed from {0} to {1}. | A data de retenção mudou de {0} para {1}. |
 | 400 Bad Request | Change.Hold.NotAllowed | Unable to update hold date. Check the given date. | Não foi possível atualizar a data de retenção.  |
 | 400 Bad Request | ChangeCancel.NotFound | No ChangeCancel session found. | Nenhuma sessão ChangeCancel encontrada. |
-| 400 Bad Request | Checkout.V2.Blocked | This method is not compatible with retrieve order in V1. | Este método não é compatível com a ordem de recuperação em V1. |
-| 400 Bad Request | Codeshare.Departure.LessThan24Hours | It is not allowed to create an order with codeshare when the journey departure date is less than 24 hours. | Não é permitido criar um pedido com codeshare quando a data de saída da viagem for inferior a 24 horas. |
+| 400 Bad Request | Checkout.V2.Blocked | This method is not compatible with retrieve order in V1. | Este método não é compatível com a reserva de recuperação em V1. |
+| 400 Bad Request | Codeshare.Departure.LessThan24Hours | It is not allowed to create an order with codeshare when the journey departure date is less than 24 hours. | Não é permitido criar uma reserva com codeshare quando a data de saída da viagem for inferior a 24 horas. |
 | 400 Bad Request | Contact.AddressLine.Required | The 'AddressLine1' is required. | O 'AddressLine1' é obrigatório. |
 | 400 Bad Request | Contact.Duplicate | The 'TypeCode' is duplicated. | O 'TypeCode' está duplicado. |
 | 400 Bad Request | Contact.LastName.Required | The 'LastNameRequired' is required. | O 'LastNameRequired' é obrigatório. |
 | 400 Bad Request | CustomerProgram.NotAllowed | This user profile cannot categorize customers. | Este perfil de usuário não pode categorizar clientes. |
 | 400 Bad Request | CustomProgram.NotMatch | Passenger name does not match within informed Customer Program. | O nome do passageiro não corresponde ao Programa do Cliente informado. |
 | 400 Bad Request | Dates.Range.OverMaximum | The difference in days between 'DepartureBegin' and 'DepartureEnd' cannot be greater than {0} days. | A diferença de dias entre 'DepartureBegin' e 'DepartureEnd' não pode ser superior a {0} dias. |
-| 400 Bad Request | DiscountPayment.TudoAzul | A discount have been applied to your order for using a TudoAzul card. | Foi aplicado um desconto no seu pedido pela utilização do cartão TudoAzul. |
+| 400 Bad Request | DiscountPayment.TudoAzul | A discount have been applied to your order for using a TudoAzul card. | Foi aplicado um desconto na sua reserva pela utilização do cartão TudoAzul. |
 | 400 Bad Request | Email.NotFound | User has no email assigned. | O usuário não tem email atribuído. |
 | 400 Bad Request | FlexibleDays.Disabled | Unable to get flexible days because this feature is disabled. | Não é possível obter dias flexíveis porque esse recurso está desativado. |
-| 400 Bad Request | Infant.NotNull | There is already a infant in the order for this passenger. | Já existe um bebê no pedido para este passageiro. |
+| 400 Bad Request | Infant.NotNull | There is already a infant in the order for this passenger. | Já existe um bebê na reserva para este passageiro. |
 | 400 Bad Request | Infant.Request.Failed | There was an error sending the passenger document. | Ocorreu um erro no envio do documento do passageiro. |
 | 400 Bad Request | Integration.EnterpriseStation | An error occurred while returning the stations. | Ocorreu um erro ao retornar as estações. |
 | 400 Bad Request | Integration.Error | ServiceBus connection error! | Erro de conexão do ServiceBus! |
@@ -43,8 +43,8 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | InvalidField.Address.LineTwo | The 'Address.LineTwo' has a maximum of 128 characters. | O 'Address.LineTwo' possui no máximo 128 caracteres. |
 | 400 Bad Request | InvalidField.Address.PostalCode | The 'Address.PostalCode' has a maximum of 10 characters. | O 'Address.PostalCode' tem no máximo 10 caracteres. |
 | 400 Bad Request | InvalidField.Address.ProvinceState | The 'Address.ProvinceState' has a maximum of 3 characters. | O 'Address.ProvinceState' possui no máximo 3 caracteres. |
-| 400 Bad Request | InvalidField.Amount | The 'Amount' value must be equal or greater than zero. | O valor 'Quantidade' deve ser igual ou maior que zero. |
-| 400 Bad Request | InvalidField.AssistanceArray | The minimum count of 'Assistances' array is 1. | A contagem mínima da matriz 'Assistências' é 1. |
+| 400 Bad Request | InvalidField.Amount | The 'Amount' value must be equal or greater than zero. | O valor 'Amount' deve ser igual ou maior que zero. |
+| 400 Bad Request | InvalidField.AssistanceArray | The minimum count of 'Assistances' array is 1. | A contagem mínima da lista 'Assistances' é 1. |
 | 400 Bad Request | InvalidField.AssistanceCode | The assistance '{0}' is invalid for the Journey '{1}-{2} - {3}'. | A assistência '{0}' é inválida para a Jornada '{1}-{2} - {3}'. |
 | 400 Bad Request | InvalidField.AssistancesCount | The 'Assistances.Count' must be greather than 0. | O 'Assistances.Count' deve ser maior que 0. |
 | 400 Bad Request | InvalidField.Authorization | The 'PaymentCriteria.Authorization' has a maximum of 20 characters. | O 'PaymentCriteria.Authorization' possui no máximo 20 caracteres. |
@@ -53,13 +53,13 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | InvalidField.Bin.Length | The 'BIN' must be of 6 characters. | O 'BIN' deve ter 6 caracteres. |
 | 400 Bad Request | InvalidField.CardEnd | The 'PaymentCriteria.CardEnd' has a maximum of 4 characters. | O 'PaymentCriteria.CardEnd' possui no máximo 4 caracteres. |
 | 400 Bad Request | InvalidField.ChangeType | The 'ChangeType' must be a valid Enum. | O 'ChangeType' deve ser um Enum válido. |
-| 400 Bad Request | InvalidField.Code | The 'Code' must have a maximum length of 10 characters. | O 'Código' deve ter no máximo 10 caracteres. |
-| 400 Bad Request | InvalidField.Codes | The minimum count of 'Codes' array is 1. | A contagem mínima da matriz 'Códigos' é 1. |
+| 400 Bad Request | InvalidField.Code | The 'Code' must have a maximum length of 10 characters. | O 'Code' deve ter no máximo 10 caracteres. |
+| 400 Bad Request | InvalidField.Codes | The minimum count of 'Codes' array is 1. | A contagem mínima da lista 'Codes' é 1. |
 | 400 Bad Request | InvalidField.Contact.AddressCity | The 'Contact.Address.City' has a maximum length 32 characters. | O 'Contact.Address.City' tem no máximo 32 caracteres. |
 | 400 Bad Request | InvalidField.Contact.CompanyName | The 'Contact.CompanyName' has a maximum of 64 characters. | O 'Contact.CompanyName' possui no máximo 64 caracteres. |
 | 400 Bad Request | InvalidField.Contact.Email | The 'Contact.Email' is invalid. | O 'Contact.Email' é inválido. |
-| 400 Bad Request | InvalidField.Contact.FirstName | The 'Name.First' has a maximum of 32 characters. | O 'Nome.Primeiro' possui no máximo 32 caracteres. |
-| 400 Bad Request | InvalidField.Contact.LastName | The 'Name.Last' has a maximum of 32 characters. | O 'Nome.Último' possui no máximo 32 caracteres. |
+| 400 Bad Request | InvalidField.Contact.FirstName | The 'Name.First' has a maximum of 32 characters. | O 'Name.First' possui no máximo 32 caracteres. |
+| 400 Bad Request | InvalidField.Contact.LastName | The 'Name.Last' has a maximum of 32 characters. | O 'Name.Last' possui no máximo 32 caracteres. |
 | 400 Bad Request | InvalidField.ContactAddress.LineOne | The 'Contact.Address.LineOne' has a maximum length 52 characters. | O 'Contact.Address.LineOne' tem comprimento máximo de 52 caracteres. |
 | 400 Bad Request | InvalidField.ContactAddress.LineThree | The 'Contact.Address.LineThree' has a maximum length 52 characters. | O 'Contact.Address.LineThree' tem comprimento máximo de 52 caracteres. |
 | 400 Bad Request | InvalidField.ContactAddress.LineTwo | The 'Contact.Address.LineTwo' has a maximum length 52 characters. | O 'Contact.Address.LineTwo' tem comprimento máximo de 52 caracteres. |
@@ -84,10 +84,10 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | InvalidField.CustomerProgram.Number | The 'Passengers.CustomerProgram.Number' has a maximum lenght of 20 characters. | O 'Passengers.CustomerProgram.Number' tem no máximo 20 caracteres. |
 | 400 Bad Request | InvalidField.DateOfBirth | The agent must be at least {0} years old. | O agente deve ter pelo menos {0} anos. |
 | 400 Bad Request | InvalidField.Day | the 'PeriodCriteria.Day' can only be informed if the 'PeriodCriteria.Type' is equal to 'Day'. | o 'PeriodCriteria.Day' só poderá ser informado se o 'PeriodCriteria.Type' for igual a 'Day'. |
-| 400 Bad Request | InvalidField.Departure | The 'Departure' must be greater than or equal today's date. | A 'Partida' deve ser maior ou igual à data de hoje. |
+| 400 Bad Request | InvalidField.Departure | The 'Departure' must be greater than or equal today's date. | A 'Departure' deve ser maior ou igual à data de hoje. |
 | 400 Bad Request | InvalidField.DepartureBegin | The 'DepartureBegin' must be greater than today's date. | O 'DepartureBegin' deve ser maior que a data de hoje. |
 | 400 Bad Request | InvalidField.DepartureEnd | The 'DepartureBegin' must be greater than 'DepartureEnd'. | O 'DepartureBegin' deve ser maior que 'DepartureEnd'. |
-| 400 Bad Request | InvalidField.Destination.Length | The 'Destination' station code has a maximum length of 3 characters. | O código da estação 'Destino' tem um comprimento máximo de 3 caracteres. |
+| 400 Bad Request | InvalidField.Destination.Length | The 'Destination' station code has a maximum length of 3 characters. | O código da estação 'Destination' tem um comprimento máximo de 3 caracteres. |
 | 400 Bad Request | InvalidField.Email | The 'Email' provided is invalid. | O 'E-mail' fornecido é inválido. |
 | 400 Bad Request | InvalidField.EquipmentCode | The 'EquipmentCode' must have a maximum of 3 characters. | O 'EquipmentCode' deve ter no máximo 3 caracteres. |
 | 400 Bad Request | InvalidField.ExpirationDate | Invalid credit card expiration date. | Data de validade do cartão de crédito inválida. |
@@ -95,10 +95,10 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | InvalidField.ExpirationYear | The 'ExpirationYear' must be empty when MethodCode is {0} | O 'ExpirationYear' deve estar vazio quando MethodCode for {0} |
 | 400 Bad Request | InvalidField.FareKey | The 'FareAvailabilityKey' is invalid! | O 'FareAvailabilityKey' é inválido! |
 | 400 Bad Request | InvalidField.FeeCode | The 'FeeCode' must have a maximum of 6 characters. | O 'FeeCode' deve ter no máximo 6 caracteres. |
-| 400 Bad Request | InvalidField.Filter | Can only be filtered by 'Username' or 'FirstName'. | Só pode ser filtrado por 'Nome de usuário' ou 'Nome'. |
+| 400 Bad Request | InvalidField.Filter | Can only be filtered by 'Username' or 'FirstName'. | Só pode ser filtrado por 'Username' ou 'Nome'. |
 | 400 Bad Request | InvalidField.FirstName | The 'FirstName' must be a string with a maximum length of 32. | O 'Nome' deve ser uma string com comprimento máximo de 32. |
 | 400 Bad Request | InvalidField.FirstName.Length | The 'FirstName' must be a string with a maximum length of 128. | O 'Nome' deve ser uma string com comprimento máximo de 128. |
-| 400 Bad Request | InvalidField.FirstNameMatching | The 'FirstNameMatching' cannot be entered with 'Username'. | O 'FirstNameMatching' não pode ser inserido com 'Nome de usuário'. |
+| 400 Bad Request | InvalidField.FirstNameMatching | The 'FirstNameMatching' cannot be entered with 'Username'. | O 'FirstNameMatching' não pode ser inserido com 'Username'. |
 | 400 Bad Request | InvalidField.FlexibleDays.Ahead | The minimum value of 'FlexibleDays.Ahead' is {0}. | O valor mínimo de 'FlexibleDays.Ahead' é {0}. |
 | 400 Bad Request | InvalidField.FlexibleDays.Behind | The minimum value of 'FlexibleDays.Behind' is {0}. | O valor mínimo de 'FlexibleDays.Behind' é {0}. |
 | 400 Bad Request | InvalidField.FlightNumber | Some segments for the Journey '{0}-{1} - {2}' do not support the assistance '{3}'. Please contact the customer service to complete the special assistance process. | Alguns segmentos da Jornada '{0}-{1} - {2}' não suportam a assistência '{3}'.  |
@@ -109,64 +109,64 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | InvalidField.HolderName.Length | The 'HolderName' has a maximum length of 255 characters. | O 'HolderName' tem um comprimento máximo de 255 caracteres. |
 | 400 Bad Request | InvalidField.Identifier | The Identifier cannot be more than 20 digits. | O Identificador não pode ter mais de 20 dígitos. |
 | 400 Bad Request | InvalidField.Infant.DateOfBirth | The 'Infant.DateOfBirth' is invalid. | O 'Infant.DateOfBirth' é inválido. |
-| 400 Bad Request | InvalidField.Infant.Nationality | The 'Infant.Nationality' has a maximum of 2 characters. | A 'Nacionalidade Infantil' tem no máximo 2 caracteres. |
-| 400 Bad Request | InvalidField.Installments | The 'Installments' cannot be zero or null. | As ‘Parcelas’ não podem ser zero ou nulas. |
+| 400 Bad Request | InvalidField.Infant.Nationality | The 'Infant.Nationality' has a maximum of 2 characters. | A 'Infant.Nationality' tem no máximo 2 caracteres. |
+| 400 Bad Request | InvalidField.Installments | The 'Installments' cannot be zero or null. | As 'Installments' não podem ser zero ou nulas. |
 | 400 Bad Request | InvalidField.IropContact.Email | The 'Passengers.IropContact.Email' has a maximum length 128 characters. | O 'Passengers.IropContact.Email' tem um comprimento máximo de 128 caracteres. |
-| 400 Bad Request | InvalidField.IropContact.Mobile | The 'Passengers.IropContact.Mobile' cannot be informed when Passengers.IropContact.Refused is True. | O 'Passengers.IropContact.Mobile' não pode ser informado quando Passengers.IropContact.Refused for True. |
+| 400 Bad Request | InvalidField.IropContact.Mobile | The 'Passengers.IropContact.Mobile' cannot be informed when Passengers.IropContact.Refused is True. | O 'Passengers.IropContact.Mobile' não pode ser informado quando Passengers.IropContact.Refused for verdadeiro. |
 | 400 Bad Request | InvalidField.Jorneys.Departure | Departure of each JourneyKey must be greater than or equal to the current date. | A partida de cada JourneyKey deverá ser maior ou igual à data atual. |
 | 400 Bad Request | InvalidField.Journey | The Journey.Key '{0}' is duplicated. | O Journey.Key '{0}' está duplicado. |
-| 400 Bad Request | InvalidField.Journey.Key | One or more journeyKeys informed in the request does not exist for the order informed. | Uma ou mais travelKeys informadas na solicitação não existem para o pedido informado. |
-| 400 Bad Request | InvalidField.Journeys | The minimum count of 'Journeys' array is 1. | A contagem mínima da matriz 'Journeys' é 1. |
-| 400 Bad Request | InvalidField.Journeys.Count | The maximum number of Journeys allowed in a order is {0}. | O número máximo de jornadas permitidas em um pedido é {0}. |
-| 400 Bad Request | InvalidField.Journeys.OverMaximum | The number of 'Journeys' must be less than {0}. | O número de 'Viagens' deve ser menor que {0}. |
-| 400 Bad Request | InvalidField.Journeys.UnderMinimum | The number of 'Journeys' must be greater than {0}. | O número de 'Viagens' deve ser maior que {0}. |
+| 400 Bad Request | InvalidField.Journey.Key | One or more journeyKeys informed in the request does not exist for the order informed. | Uma ou mais travelKeys informadas na solicitação não existem para a reserva informada. |
+| 400 Bad Request | InvalidField.Journeys | The minimum count of 'Journeys' array is 1. | A contagem mínima da lista 'Journeys' é 1. |
+| 400 Bad Request | InvalidField.Journeys.Count | The maximum number of Journeys allowed in a order is {0}. | O número máximo de jornadas permitidas em uma reserva é {0}. |
+| 400 Bad Request | InvalidField.Journeys.OverMaximum | The number of 'Journeys' must be less than {0}. | O número de 'Journeys' deve ser menor que {0}. |
+| 400 Bad Request | InvalidField.Journeys.UnderMinimum | The number of 'Journeys' must be greater than {0}. | O número de 'Journeys' deve ser maior que {0}. |
 | 400 Bad Request | InvalidField.Keys | The key '{0}' cannot be accepted. | A chave '{0}' não pode ser aceita. |
-| 400 Bad Request | InvalidField.Keys.UnderMinimum | The number of 'Keys' must be greater than 1. | O número de 'Chaves' deve ser maior que 1. |
-| 400 Bad Request | InvalidField.LastName | The 'LastName' cannot be entered with 'Username'. | O 'Sobrenome' não pode ser inserido com 'Nome de usuário'. |
+| 400 Bad Request | InvalidField.Keys.UnderMinimum | The number of 'Keys' must be greater than 1. | O número de 'Keys' deve ser maior que 1. |
+| 400 Bad Request | InvalidField.LastName | The 'LastName' cannot be entered with 'Username'. | O 'LastName' não pode ser inserido com 'Username'. |
 | 400 Bad Request | InvalidField.LastName.Length | The 'OrganizationCode' must be a string with a maximum length of 64. | O 'OrganizationCode' deve ser uma string com comprimento máximo de 64. |
 | 400 Bad Request | InvalidField.LiableRecordLocator | The 'LiableRecordLocator' must have 6 characters. | O 'LiableRecordLocator' deve ter 6 caracteres. |
 | 400 Bad Request | InvalidField.Method | The 'PaymentCriteria.Method' must be a valid Enum. | O 'PaymentCriteria.Method' deve ser um Enum válido. |
 | 400 Bad Request | InvalidField.MethodCode | The 'MethodCode' must be equals to {0}, {1}. | O 'MethodCode' deve ser igual a {0}, {1}. |
 | 400 Bad Request | InvalidField.MethodCode.Length | The 'MethodCode' must be 2 characters. | O 'MethodCode' deve ter 2 caracteres. |
 | 400 Bad Request | InvalidField.MiddleName | The 'MiddleName' must be a string with a maximum length of 32. | O 'MiddleName' deve ser uma string com comprimento máximo de 32. |
-| 400 Bad Request | InvalidField.MiddleName.Length | The 'Name.Middle' has a maximum of 32 characters. | O 'Nome.Middle' possui no máximo 32 caracteres. |
+| 400 Bad Request | InvalidField.MiddleName.Length | The 'Name.Middle' has a maximum of 32 characters. | O 'Name.Middle' possui no máximo 32 caracteres. |
 | 400 Bad Request | InvalidField.Month | The 'PeriodCriteria.Month' must be between 1 and 12. | O 'PeriodCriteria.Month' deve estar entre 1 e 12. |
-| 400 Bad Request | InvalidField.Name.First | The 'Name.First' has a maximum length 32 characters. | O 'Nome.Primeiro' tem comprimento máximo de 32 caracteres. |
-| 400 Bad Request | InvalidField.Name.Last | The 'Name.Last' has a maximum length 32 characters. | O 'Nome.Último' tem comprimento máximo de 32 caracteres. |
-| 400 Bad Request | InvalidField.Name.Length | The 'Username' must be a string with a maximum length of 64. | O 'Nome de usuário' deve ser uma string com comprimento máximo de 64. |
+| 400 Bad Request | InvalidField.Name.First | The 'Name.First' has a maximum length 32 characters. | O 'Name.First' tem comprimento máximo de 32 caracteres. |
+| 400 Bad Request | InvalidField.Name.Last | The 'Name.Last' has a maximum length 32 characters. | O 'Name.Last' tem comprimento máximo de 32 caracteres. |
+| 400 Bad Request | InvalidField.Name.Length | The 'Username' must be a string with a maximum length of 64. | O 'Username' deve ser uma string com comprimento máximo de 64. |
 | 400 Bad Request | InvalidField.Name.Suffix | The 'Name.Sufix' must be a valid Enum. | O 'Name.Sufix' deve ser um Enum válido. |
 | 400 Bad Request | InvalidField.Name.Title | The 'Name.Title' must be a valid Enum. | O 'Name.Title' deve ser um Enum válido. |
-| 400 Bad Request | InvalidField.Nationality.Length | The 'Nationality' has a maximum length 2 characters. | A 'Nacionalidade' tem um comprimento máximo de 2 caracteres. |
+| 400 Bad Request | InvalidField.Nationality.Length | The 'Nationality' has a maximum length 2 characters. | A 'Nationality' tem um comprimento máximo de 2 caracteres. |
 | 400 Bad Request | InvalidField.NewPassword | The 'NewPassword' must be different from the 'CurrentPassword'. | A 'NewPassword' deve ser diferente da 'CurrentPassword'. |
-| 400 Bad Request | InvalidField.NoFilter | Filter by 'Username' or 'FirstName'. | Filtre por 'Nome de usuário' ou 'Nome'. |
-| 400 Bad Request | InvalidField.Offers | The minimum count of 'Offers' array is 1. | A contagem mínima da matriz 'Ofertas' é 1. |
-| 400 Bad Request | InvalidField.Offers.CurrentJourneyKey | One or more CurrentJourneyKey informed in the request does not exist for the order informed. | Uma ou mais CurrentJourneyKey informadas na requisição não existem para o pedido informado. |
-| 400 Bad Request | InvalidField.Offers.OverMaximum | The maximum count of 'offer' array is 4 | A contagem máxima da matriz 'oferta' é 4 |
-| 400 Bad Request | InvalidField.Offers.UnderMinimum | The minimum count of 'offer' array is 1. | A contagem mínima da matriz 'oferta' é 1. |
+| 400 Bad Request | InvalidField.NoFilter | Filter by 'Username' or 'FirstName'. | Filtre por 'Username' ou 'FirstName'. |
+| 400 Bad Request | InvalidField.Offers | The minimum count of 'Offers' array is 1. | A contagem mínima da lista 'Offers' é 1. |
+| 400 Bad Request | InvalidField.Offers.CurrentJourneyKey | One or more CurrentJourneyKey informed in the request does not exist for the order informed. | Uma ou mais CurrentJourneyKey informadas na requisição não existem para a reserva informada. |
+| 400 Bad Request | InvalidField.Offers.OverMaximum | The maximum count of 'offer' array is 4 | A contagem máxima da lista 'offer' é 4 |
+| 400 Bad Request | InvalidField.Offers.UnderMinimum | The minimum count of 'offer' array is 1. | A contagem mínima da lista 'offer' é 1. |
 | 400 Bad Request | InvalidField.OrderCriteria.Status | The 'OrderCriteria.Status' must be a valid Enum. | O 'OrderCriteria.Status' deve ser um Enum válido. |
 | 400 Bad Request | InvalidField.OrderCriteria.Type | The 'OrderCriteria.Type' must be a valid Enum. | O 'OrderCriteria.Type' deve ser um Enum válido. |
 | 400 Bad Request | InvalidField.OrganizationCode | The 'OrganizationCode' must be a string with a minimum length of 2 and a maximum length of 10. | O 'OrganizationCode' deve ser uma string com comprimento mínimo de 2 e máximo de 10. |
 | 400 Bad Request | InvalidField.OrganizationCode.Length | The 'OrganizationCode' must be a string with a minimum length of 2 and a maximum length of 10. | O 'OrganizationCode' deve ser uma string com comprimento mínimo de 2 e máximo de 10. |
 | 400 Bad Request | InvalidField.OrganizationCriteria.Type | The 'OrganizationCriteria.Type' must be a valid Enum. | O 'OrganizationCriteria.Type' deve ser um Enum válido. |
-| 400 Bad Request | InvalidField.OrganizationFeeOverride.Amount | The 'Amount' value must be equal or greater than zero. | O valor 'Quantidade' deve ser igual ou maior que zero. |
+| 400 Bad Request | InvalidField.OrganizationFeeOverride.Amount | The 'Amount' value must be equal or greater than zero. | O valor 'Amount' deve ser igual ou maior que zero. |
 | 400 Bad Request | InvalidField.OrganizationGroupCode | The 'organizationGroupCode' must be 3 characters in length. | O 'organizationGroupCode' deve ter 3 caracteres. |
-| 400 Bad Request | InvalidField.Origin.Length | The 'Origin' station code has a maximum length of 3 characters. | O código da estação 'Origem' tem um comprimento máximo de 3 caracteres. |
-| 400 Bad Request | InvalidField.Page | The 'Page' must be greather than or equal to 1. | A 'Página' deve ser maior ou igual a 1. |
-| 400 Bad Request | InvalidField.PageNumber | The 'Page' number must be between {0} and {1}. | O número da 'Página' deve estar entre {0} e {1}. |
+| 400 Bad Request | InvalidField.Origin.Length | The 'Origin' station code has a maximum length of 3 characters. | O código da estação 'Origin' tem um comprimento máximo de 3 caracteres. |
+| 400 Bad Request | InvalidField.Page | The 'Page' must be greather than or equal to 1. | A 'Page' deve ser maior ou igual a 1. |
+| 400 Bad Request | InvalidField.PageNumber | The 'Page' number must be between {0} and {1}. | O número da 'Page' deve estar entre {0} e {1}. |
 | 400 Bad Request | InvalidField.PageSize | The 'PageSize' number must be between {0} and {1}. | O número 'PageSize' deve estar entre {0} e {1}. |
-| 400 Bad Request | InvalidField.Passenger | The minimum count of 'passengers' array is 1. | A contagem mínima da matriz 'passageiros' é 1. |
+| 400 Bad Request | InvalidField.Passenger | The minimum count of 'passengers' array is 1. | A contagem mínima da lista 'passengers' é 1. |
 | 400 Bad Request | InvalidField.Passenger.Email | The 'Passenger.Email' is invalid. | O 'Passenger.Email' é inválido. |
 | 400 Bad Request | InvalidField.Passenger.IssuingCountry | The 'InvalidField.Passenger.IssuingCountry' has a maximum of 2 characters. | O 'InvalidField.Passenger.IssuingCountry' possui no máximo 2 caracteres. |
 | 400 Bad Request | InvalidField.Passenger.Name | The 'Passengers.Name' is required. | O 'Passengers.Name' é obrigatório. |
-| 400 Bad Request | InvalidField.Passenger.Nationality | The 'Passenger.Nationality' has a maximum of 2 characters. | O 'Passageiro.Nacionalidade' tem no máximo 2 caracteres. |
-| 400 Bad Request | InvalidField.Passenger.OverMaximum | The maximum count of 'Passenger' array is 3. | A contagem máxima da matriz 'Passageiro' é 3. |
+| 400 Bad Request | InvalidField.Passenger.Nationality | The 'Passenger.Nationality' has a maximum of 2 characters. | O 'Passenger.Nationality' tem no máximo 2 caracteres. |
+| 400 Bad Request | InvalidField.Passenger.OverMaximum | The maximum count of 'Passenger' array is 3. | A contagem máxima da lista 'Passenger' é 3. |
 | 400 Bad Request | InvalidField.Passenger.Phone | The 'PassengerAddress.Phone' has a maximum of 20 characters. | O 'PassengerAddress.Phone' possui no máximo 20 caracteres. |
 | 400 Bad Request | InvalidField.Passenger.Type | The 'PassengerRequest.PassengerTypeCode' has a maximum of 3 characters. | O 'PassengerRequest.PassengerTypeCode' possui no máximo 3 caracteres. |
-| 400 Bad Request | InvalidField.Passenger.UnderMinimum | The minimum count of 'Passenger' array is 1. | A contagem mínima da matriz 'Passageiro' é 1. |
+| 400 Bad Request | InvalidField.Passenger.UnderMinimum | The minimum count of 'Passenger' array is 1. | A contagem mínima da lista 'Passenger' é 1. |
 | 400 Bad Request | InvalidField.PassengerAddress.CultureCode | The 'PassengerAddress.CultureCode' has a maximum of 17 characters. | O 'PassengerAddress.CultureCode' possui no máximo 17 caracteres. |
 | 400 Bad Request | InvalidField.PassengerAddress.StationCode | The 'PassengerAddress.StationCode' has a minimum of 3 and a maximum of 3 characters. | O 'PassengerAddress.StationCode' possui no mínimo 3 e no máximo 3 caracteres. |
 | 400 Bad Request | InvalidField.PassengerCount.UnderMinimum | The 'Passengers.Count' must be greater than 0. | O 'Passengers.Count' deve ser maior que 0. |
-| 400 Bad Request | InvalidField.PassengerKeys.Empty | The 'PassengerKeys' array cannot contain empty values. | A matriz 'PassengerKeys' não pode conter valores vazios. |
+| 400 Bad Request | InvalidField.PassengerKeys.Empty | The 'PassengerKeys' array cannot contain empty values. | A lista 'PassengerKeys' não pode conter valores vazios. |
 | 400 Bad Request | InvalidField.PassengerType | The 'Passengers.Type' must be equal to 'ADT', 'CHD' or 'INF'. | O 'Passengers.Type' deve ser igual a 'ADT', 'CHD' ou 'INF'. |
 | 400 Bad Request | InvalidField.PassengerType.Length | The 'Passengers.Type' has a maximum length of 3 characters. | O 'Passengers.Type' tem no máximo 3 caracteres. |
 | 400 Bad Request | InvalidField.PassengerType.Repeated | Must only have one 'Passenger.Type' of type ADT. | Deve ter apenas um 'Passenger.Type' do tipo ADT. |
@@ -188,7 +188,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | InvalidField.StationCode | The 'StationCode' must be 3 characters. | O 'StationCode' deve ter 3 caracteres. |
 | 400 Bad Request | InvalidField.Suffix | The 'Suffix' must be a valid Enum. | O 'Sufixo' deve ser um Enum válido. |
 | 400 Bad Request | InvalidField.TaxAmount | The 'TaxAmount' must be greater than or equal to 0. | O 'TaxAmount' deve ser maior ou igual a 0. |
-| 400 Bad Request | InvalidField.Title | The 'Title' must be a valid Enum. | O 'Título' deve ser um Enum válido. |
+| 400 Bad Request | InvalidField.Title | The 'Title' must be a valid Enum. | O 'Title' deve ser um Enum válido. |
 | 400 Bad Request | InvalidField.Transaction | The 'PaymentCriteria.Transaction' must be a valid Enum. | O 'PaymentCriteria.Transaction' deve ser um Enum válido. |
 | 400 Bad Request | InvalidField.TravelDocument.BirthCountry | The 'TravelDocuments.BirthCountry' has a maximum length 2 characters. | O 'TravelDocuments.BirthCountry' tem no máximo 2 caracteres. |
 | 400 Bad Request | InvalidField.TravelDocument.IssuingCountry | The 'TravelDocuments.IssuingCountry' has a maximum length 2 characters. | O 'TravelDocuments.IssuingCountry' tem no máximo 2 caracteres. |
@@ -197,8 +197,8 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | InvalidField.TravelDocuments.IssuingCountry | The 'TravelDocuments.IssuingCountry' has a maximum length 3 characters. | O 'TravelDocuments.IssuingCountry' tem no máximo 3 caracteres. |
 | 400 Bad Request | InvalidField.TravelDocuments.Type | The 'TravelDocuments.Type' has a maximum of 4 characters. | O 'TravelDocuments.Type' possui no máximo 4 caracteres. |
 | 400 Bad Request | InvalidField.Type | The 'Type' must be an valid Enum. | O 'Tipo' deve ser um Enum válido. |
-| 400 Bad Request | InvalidField.Username | The 'Username' is invalid. Must be a valid CPF. | O 'Nome de usuário' é inválido.  |
-| 400 Bad Request | InvalidField.Username.Length | The 'Username' must be a string with a maximum length of 128. | O 'Nome de usuário' deve ser uma string com comprimento máximo de 128. |
+| 400 Bad Request | InvalidField.Username | The 'Username' is invalid. Must be a valid CPF. | O 'Username' é inválido.  |
+| 400 Bad Request | InvalidField.Username.Length | The 'Username' must be a string with a maximum length of 128. | O 'Username' deve ser uma string com comprimento máximo de 128. |
 | 400 Bad Request | InvalidField.UsernameMatching | The 'UsernameMatching' cannot be entered with 'FirstName'. | O 'UsernameMatching' não pode ser inserido com 'FirstName'. |
 | 400 Bad Request | InvalidField.VerificationCode | The 'VerificationCode' is invalid. | O 'VerificationCode' é inválido. |
 | 400 Bad Request | InvalidField.VerificationCode.Length | The 'VerificationCode' has a maximum length of 4 characters. | O 'VerificationCode' tem comprimento máximo de 4 caracteres. |
@@ -213,7 +213,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Journeys.DepartureTimeLimit | Sent JourneyKey is too close to it's deaparture time. | O JourneyKey enviado está muito próximo do horário de partida. |
 | 400 Bad Request | Journeys.Duplicated | Leg already existing in the offer. | Perna já existente na oferta. |
 | 400 Bad Request | Journeys.Overlap | The times of informed journeys overlaps. | Os tempos das viagens informadas se sobrepõem. |
-| 400 Bad Request | LiableRecordLocator.UnaccompaniedMinor.Issuing | The 'LiableRecordLocator' can only be informed for issuing an order with unaccompanied minors. | O ‘LiableRecordLocator’ só poderá ser informado para emissão de pedido com menores desacompanhados. |
+| 400 Bad Request | LiableRecordLocator.UnaccompaniedMinor.Issuing | The 'LiableRecordLocator' can only be informed for issuing an order with unaccompanied minors. | O ‘LiableRecordLocator’ só poderá ser informado para emissão de reserva com menores desacompanhados. |
 | 400 Bad Request | Loyalty.Authentication.Invalid | Invalid Authentication. | Autenticação inválida. |
 | 400 Bad Request | Loyalty.Customer.NotFound | The customer not found. | O cliente não foi encontrado. |
 | 400 Bad Request | Loyalty.InvalidToken.Expired | Token is invalid or expired. | O token é inválido ou expirou. |
@@ -221,29 +221,29 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Loyalty.Tier.NotFound | The customer tier not found. | A camada do cliente não foi encontrada. |
 | 400 Bad Request | Market.NotAvailable | The set of stations requested do not have an available market yet. | O conjunto de estações solicitadas ainda não tem mercado disponível. |
 | 400 Bad Request | Market.Unavailable | The informed origin/destination market are currently unavailable for low fare estimate search. | O mercado de origem/destino informado não está atualmente disponível para pesquisa de estimativas de tarifas baixas. |
-| 400 Bad Request | Nationality.NotFound | The 'Nationality' was not found. | A 'Nacionalidade' não foi encontrada. |
+| 400 Bad Request | Nationality.NotFound | The 'Nationality' was not found. | A 'Nationality' não foi encontrada. |
 | 400 Bad Request | Navitaire.SeatCreate.Failed | The request failed to assign seat. | A solicitação não conseguiu atribuir assento. |
 | 400 Bad Request | NotAvailable.Credit | The informed 'RecordLocator' has no credit available. | O ‘RecordLocator’ informado não possui crédito disponível. |
 | 400 Bad Request | NotChange.Password | Attempt to modify password was not successful. Please check if new password is different from the current or if it's different from the last 5 used passwords. | A tentativa de modificar a senha não foi bem-sucedida.  |
 | 400 Bad Request | Offer.UnaccompaniedMinor.AdditionalFees | Unaccompanied minor may incur additional fee, according to company policy. | Menores desacompanhados poderão incorrer em taxa adicional, de acordo com a política da empresa. |
-| 400 Bad Request | Order.Calculation.NotPending | The order in the state has no calculations to be done. | O pedido no estado não tem cálculos a serem feitos. |
-| 400 Bad Request | Order.Calculation.Pending | Order details can only be retrieved after calculation of its changes. If you are changing journeys, please finish desired changes and do a calculate before retrieving. | Os detalhes do pedido só podem ser recuperados após o cálculo de suas alterações.  |
-| 400 Bad Request | Order.Journeys.Count | The maximum number of Journeys allowed in a order is {0}. | O número máximo de jornadas permitidas em um pedido é {0}. |
-| 400 Bad Request | Order.NoChildren | The informed order does not have any children record locator associated. | O pedido informado não possui nenhum localizador de registros filhos associado. |
-| 400 Bad Request | Order.NoJourneys | The informed order has no journeys to be managed. | O pedido informado não possui jornadas a serem gerenciadas. |
-| 400 Bad Request | Order.Passengers.NoDateOfBirth | It is not possible to divide orders without all passengers having their date of birth informed in the order. | Não é possível dividir pedidos sem que todos os passageiros tenham sua data de nascimento informada no pedido. |
+| 400 Bad Request | Order.Calculation.NotPending | The order in the state has no calculations to be done. | A reserva no estado não tem cálculos a serem feitos. |
+| 400 Bad Request | Order.Calculation.Pending | Order details can only be retrieved after calculation of its changes. If you are changing journeys, please finish desired changes and do a calculate before retrieving. | Os detalhes da reserva só podem ser recuperados após o cálculo de suas alterações.  |
+| 400 Bad Request | Order.Journeys.Count | The maximum number of Journeys allowed in a order is {0}. | O número máximo de jornadas permitidas em uma reserva é {0}. |
+| 400 Bad Request | Order.NoChildren | The informed order does not have any children record locator associated. | A reserva informado não possui nenhum localizador de registros filhos associado. |
+| 400 Bad Request | Order.NoJourneys | The informed order has no journeys to be managed. | A reserva informado não possui jornadas a serem gerenciadas. |
+| 400 Bad Request | Order.Passengers.NoDateOfBirth | It is not possible to divide orders without all passengers having their date of birth informed in the order. | Não é possível dividir reservas sem que todos os passageiros tenham sua data de nascimento informada na reserva. |
 | 400 Bad Request | Order.PendingCalculation | There are pending calculations to be performed. Call the order calculate method before confirming your order changes. | Existem cálculos pendentes a serem realizados.  |
 | 400 Bad Request | Order.Reaccommodation.Pending | It is not possible manage an order with pending reaccommodation. | Não é possível gerir uma encomenda com reacomodação pendente. |
 | 400 Bad Request | Order.RefundType.NotAllowed | The 'RefundType' field can only be entered when 'Cancel' is true. | O campo 'RefundType' só pode ser inserido quando 'Cancel' for verdadeiro. |
 | 400 Bad Request | Order.Retrieve.V1.Conflict | This method is not compatible with retrieve order in V1. | Este método não é compatível com a ordem de recuperação em V1. |
 | 400 Bad Request | Order.Retrieve.V2.Conflict | This method is not compatible with retrieve order in V2. | Este método não é compatível com a ordem de recuperação na V2. |
-| 400 Bad Request | Order.State.Timeout | The state time for this order has expired. Please retrieve the order again with the GET Order method. | O tempo estadual para este pedido expirou.  |
-| 400 Bad Request | OrderDivide.BalanceDue.Underpaid | Underpaid orders cannot be divided. | Pedidos mal pagos não podem ser divididos. |
-| 400 Bad Request | OrderDivide.CreditAmount.invalid | The informed 'creditAmount' is invalid because it's greater than the amount available in the informed order. | O 'creditAmount' informado é inválido porque é maior que o valor disponível no pedido informado. |
-| 400 Bad Request | OrderDivide.DivideCredit.Failed | An error occurred while dividing the order credit. Credit values have not been divided or changed, remaining entirely in the parent order. | Ocorreu um erro ao dividir o crédito do pedido.  |
-| 400 Bad Request | OrderDivide.PassengerKeys.InvalidAmount | The number of 'passengerKeys' in the request must be less than the number of passengers in the informed order. | A quantidade de ‘passengerKeys’ na solicitação deverá ser menor que a quantidade de passageiros do pedido informado. |
-| 400 Bad Request | OrderDivide.Pending.Service | It is not possible to perform order divide after a service addition/change. Please confirm changes to your order before splitting it, or split it first before making changes. | Não é possível realizar a divisão de pedidos após uma adição/alteração de serviço.  |
-| 400 Bad Request | OrderDivide.Unaccompanied.NotAllowed | It's not allowed to divide an order when it will result in orders where there are only unaccompanied minors (under {0} years old). Both involved orders must contain at least one adult passenger (ADT) over {0} years of age at the end of the division. | Não é permitida a divisão de um pedido quando isso resultar em pedidos onde haja apenas menores desacompanhados (menores de {0} anos).  |
+| 400 Bad Request | Order.State.Timeout | The state time for this order has expired. Please retrieve the order again with the GET Order method. | O tempo estadual para esta reserva expirou.  |
+| 400 Bad Request | OrderDivide.BalanceDue.Underpaid | Underpaid orders cannot be divided. | Reservas mal pagos não podem ser divididos. |
+| 400 Bad Request | OrderDivide.CreditAmount.invalid | The informed 'creditAmount' is invalid because it's greater than the amount available in the informed order. | O 'creditAmount' informado é inválido porque é maior que o valor disponível na reserva informado. |
+| 400 Bad Request | OrderDivide.DivideCredit.Failed | An error occurred while dividing the order credit. Credit values have not been divided or changed, remaining entirely in the parent order. | Ocorreu um erro ao dividir o crédito da reserva.  |
+| 400 Bad Request | OrderDivide.PassengerKeys.InvalidAmount | The number of 'passengerKeys' in the request must be less than the number of passengers in the informed order. | A quantidade de ‘passengerKeys’ na solicitação deverá ser menor que a quantidade de passageiros da reserva informado. |
+| 400 Bad Request | OrderDivide.Pending.Service | It is not possible to perform order divide after a service addition/change. Please confirm changes to your order before splitting it, or split it first before making changes. | Não é possível realizar a divisão de reservas após uma adição/alteração de serviço.  |
+| 400 Bad Request | OrderDivide.Unaccompanied.NotAllowed | It's not allowed to divide an order when it will result in orders where there are only unaccompanied minors (under {0} years old). Both involved orders must contain at least one adult passenger (ADT) over {0} years of age at the end of the division. | Não é permitida a divisão de uma reserva quando isso resultar em reservas onde haja apenas menores desacompanhados (menores de {0} anos).  |
 | 400 Bad Request | Organization.AlreadyIntoGroup | The informed OrganizationCode is already inserted in this organization group. | O OrganizationCode informado já está inserido neste grupo organizacional. |
 | 400 Bad Request | Organization.AuthorizationFailed | The agent does not have access to the finder organization, either on its own or by a group. | O agente não tem acesso à organização localizadora, nem por conta própria nem por grupo. |
 | 400 Bad Request | Organization.CNPJ.Invalid | The point of sale organization does not have a valid CNPJ. | A organização do ponto de venda não possui CNPJ válido. |
@@ -253,7 +253,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | OrganizationAccount.NotFound | Organization has no account. | A organização não tem conta. |
 | 400 Bad Request | OrganizationGroup.Invalid | OrganizationGroup already exists or invalid. | OrganizationGroup já existe ou é inválido. |
 | 400 Bad Request | Passenger.AssignedSeat | Seat already assigned to the passenger. | Assento já atribuído ao passageiro. |
-| 400 Bad Request | Passenger.DocumentType.Confict | Document already informed to the passenger of the order. | Documento já informado ao passageiro do pedido. |
+| 400 Bad Request | Passenger.DocumentType.Confict | Document already informed to the passenger of the order. | Documento já informado ao passageiro da reserva. |
 | 400 Bad Request | Passenger.DocumentTypeMatch.NotAllowed | Multiple Passengers with the same Travel Document Type and Number are not allowed, including Infants. | Não são permitidos vários passageiros com o mesmo tipo e número de documento de viagem, incluindo bebês. |
 | 400 Bad Request | Passenger.InvalidAge | Passenger under 12 years old on the departure date cannot be considered an adult (ADT). | Passageiro menor de 12 anos na data do embarque não poderá ser considerado adulto (ADT). |
 | 400 Bad Request | Passenger.NameMatch.NotAllowed | Multiple Passengers with exactly the same First Name, Middle Name, Last Name and Suffix are not allowed, including Infants. | Não são permitidos vários passageiros com exatamente o mesmo nome, nome do meio, sobrenome e sufixo, incluindo bebês. |
@@ -277,9 +277,9 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Report.RetrieveError | An unexpected error occurred while retrieving the report file. | Ocorreu um erro inesperado ao recuperar o arquivo de relatório. |
 | 400 Bad Request | Request.Failed | The Refund request failed. | A solicitação de reembolso falhou. |
 | 400 Bad Request | RequestFailed.CreditCard.Expired | Expired credit card. | Cartão de crédito expirado. |
-| 400 Bad Request | RequestFailed.Enterprise | An error occurred while validating order passengers names. | Ocorreu um erro ao validar os nomes dos passageiros do pedido. |
+| 400 Bad Request | RequestFailed.Enterprise | An error occurred while validating order passengers names. | Ocorreu um erro ao validar os nomes dos passageiros da reserva. |
 | 400 Bad Request | RequestFailed.International.Required | The organization fee override is only allowed for orders with international journeys. | O cancelamento da taxa de organização só é permitido para encomendas com viagens internacionais. |
-| 400 Bad Request | RequestFailed.Journeys.NotAllowed | The organization fee override is only allowed while adding new journeys to the order and execute the calculate. | A substituição da taxa de organização só é permitida ao adicionar novas viagens ao pedido e executar o cálculo. |
+| 400 Bad Request | RequestFailed.Journeys.NotAllowed | The organization fee override is only allowed while adding new journeys to the order and execute the calculate. | A substituição da taxa de organização só é permitida ao adicionar novas viagens a reserva e executar o cálculo. |
 | 400 Bad Request | RequestFailed.PassengerMinor.NotAllowedInfants | Passengers under 18 years old are not allowed to have infants. | Passageiros menores de 18 anos não podem ter bebês. |
 | 400 Bad Request | RequestFailed.Passengers.WithoutFee | No passengers in this order have organization fees charged. | Nenhum passageiro nesta ordem tem cobrança de taxas de organização. |
 | 400 Bad Request | RequestFailed.TudoAzul.Retrieve | An error occurred while retrieving the TudoAzul program. | Ocorreu um erro ao recuperar o programa TudoAzul. |
@@ -287,7 +287,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Required.RefundType | The 'RefundType' is required. | O 'RefundType' é obrigatório. |
 | 400 Bad Request | RequiredField.Account | The 'Account' is required. | A 'Conta' é obrigatória. |
 | 400 Bad Request | RequiredField.Amount | The 'Amount' is required. | O 'Valor' é obrigatório. |
-| 400 Bad Request | RequiredField.AssistanceArray | The 'Assistances' array is required. | A matriz 'Assistências' é obrigatória. |
+| 400 Bad Request | RequiredField.AssistanceArray | The 'Assistances' array is required. | A lista 'Assistências' é obrigatória. |
 | 400 Bad Request | RequiredField.AssistancesCount | The 'Assistances.Count' is required. | O 'Assistances.Count' é obrigatório. |
 | 400 Bad Request | RequiredField.AssistancesKey | The 'Assistances.Key' is required. | A 'Assistências.Key' é necessária. |
 | 400 Bad Request | RequiredField.ChangeType | The 'ChangeType' is required. | O 'ChangeType' é obrigatório. |
@@ -304,7 +304,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.ContactPhonesHome | The 'Contact.Phones' a home object is required. | O objeto 'Contact.Phones' é necessário. |
 | 400 Bad Request | RequiredField.CreditCard.ExpirationMonth | The 'ExpirationMonth' is required. | O 'ExpirationMonth' é obrigatório. |
 | 400 Bad Request | RequiredField.CreditCard.ExpirationYear | The 'ExpirationYear' is required. | O 'ExpirationYear' é obrigatório. |
-| 400 Bad Request | RequiredField.CreditCard.GovId | The 'GovId' is required for this method code due to the currency code of the order. | O 'GovId' é necessário para este código de método devido ao código da moeda do pedido. |
+| 400 Bad Request | RequiredField.CreditCard.GovId | The 'GovId' is required for this method code due to the currency code of the order. | O 'GovId' é necessário para este código de método devido ao código da moeda da reserva. |
 | 400 Bad Request | RequiredField.CreditCard.HolderName | The 'HolderName' is required. | O 'HolderName' é obrigatório. |
 | 400 Bad Request | RequiredField.CreditCard.MethodCode | The 'MethodCode' is required. | O 'MethodCode' é obrigatório. |
 | 400 Bad Request | RequiredField.CreditCard.Type | The 'CreditCard.Type' is required | O 'CreditCard.Type' é obrigatório |
@@ -335,11 +335,11 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.IropContact.EmailMobile | The 'Passengers.IropContact.Email' or 'Passengers.IropContact.Mobile is required. | O 'Passengers.IropContact.Email' ou 'Passengers.IropContact.Mobile é obrigatório. |
 | 400 Bad Request | RequiredField.IropContact.Refused | The 'Passengers.IropContact.Refused' is required. | O 'Passengers.IropContact.Refused' é obrigatório. |
 | 400 Bad Request | RequiredField.JourneyKey | The 'JourneyKey' is required. | A 'JourneyKey' é necessária. |
-| 400 Bad Request | RequiredField.Journeys | The 'Journeys' array is required. | A matriz 'Journeys' é obrigatória. |
+| 400 Bad Request | RequiredField.Journeys | The 'Journeys' array is required. | A lista 'Journeys' é obrigatória. |
 | 400 Bad Request | RequiredField.Journeys.Departure | The 'Departure' is required. | A 'Partida' é obrigatória. |
 | 400 Bad Request | RequiredField.Journeys.Key | The 'Journey.Key' is required. | A 'Journey.Key' é necessária. |
 | 400 Bad Request | RequiredField.Key | The 'Key' is required. | A 'Chave' é necessária. |
-| 400 Bad Request | RequiredField.Keys | The 'Keys' array is required. | A matriz 'Keys' é obrigatória. |
+| 400 Bad Request | RequiredField.Keys | The 'Keys' array is required. | A lista 'Keys' é obrigatória. |
 | 400 Bad Request | RequiredField.LastName | The 'LastName' is required. | O 'Sobrenome' é obrigatório. |
 | 400 Bad Request | RequiredField.Month | The 'PeriodCriteria.Month' is required. | O 'PeriodCriteria.Month' é obrigatório. |
 | 400 Bad Request | RequiredField.Name | The 'Name' is required. | O 'Nome' é obrigatório. |
@@ -348,7 +348,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.Name.Middle | The 'Name.Middle' is required. | O 'Nome.Middle' é obrigatório. |
 | 400 Bad Request | RequiredField.Nationality | The 'Nationality' is required. | A 'Nacionalidade' é obrigatória. |
 | 400 Bad Request | RequiredField.NewPassword | The 'NewPassword' is required. | A 'Nova Senha' é necessária. |
-| 400 Bad Request | RequiredField.Offers | The 'Offers' array is required. | A matriz 'Ofertas' é obrigatória. |
+| 400 Bad Request | RequiredField.Offers | The 'Offers' array is required. | A lista 'Ofertas' é obrigatória. |
 | 400 Bad Request | RequiredField.Offers.CurrentJourneyKey | The 'CurrentJourneyKey' is required. | O 'CurrentJourneyKey' é obrigatório. |
 | 400 Bad Request | RequiredField.Offers.FareKey | The 'Offers.FareKey' is required. | O 'Offers.FareKey' é obrigatório. |
 | 400 Bad Request | RequiredField.Offers.JourneyKey | The 'Offers.JouneyKey' is required. | O 'Offers.JouneyKey' é obrigatório. |
@@ -370,7 +370,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.Passenger.Type | The 'Passengers.Type' is required. | O 'Passengers.Type' é obrigatório. |
 | 400 Bad Request | RequiredField.PassengerKey | The 'PassengerKey' is required. | A 'PassengerKey' é necessária. |
 | 400 Bad Request | RequiredField.PassengerKeys | The 'passengerKeys' informed in the request does not exist in the informed order. | As 'passengerKeys' informadas na solicitação não existem no pedido informado. |
-| 400 Bad Request | RequiredField.Passengers | The 'Passengers' array is required. | A matriz 'Passageiros' é obrigatória. |
+| 400 Bad Request | RequiredField.Passengers | The 'Passengers' array is required. | A lista 'Passageiros' é obrigatória. |
 | 400 Bad Request | RequiredField.PassengerType | The 'Passenger.Type' is required. | O 'Passenger.Type' é obrigatório. |
 | 400 Bad Request | RequiredField.PassengerType.Adult | The 'Passengers.Type' a ADT value is required. | O valor 'Passengers.Type' é obrigatório. |
 | 400 Bad Request | RequiredField.Password | The 'Password' is required. | A 'Senha' é necessária. |
@@ -391,7 +391,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.ServicesKey | The 'Services.Key' is required. | O 'Services.Key' é obrigatório. |
 | 400 Bad Request | RequiredField.SessionContext | The 'SessionContext' is required. | O 'SessionContext' é obrigatório. |
 | 400 Bad Request | RequiredField.Status | The 'Status' is required. | O 'Status' é obrigatório. |
-| 400 Bad Request | RequiredField.TravelDocument | The minimum count of 'TravelDocument' array is 1. | A contagem mínima da matriz 'TravelDocument' é 1. |
+| 400 Bad Request | RequiredField.TravelDocument | The minimum count of 'TravelDocument' array is 1. | A contagem mínima da lista 'TravelDocument' é 1. |
 | 400 Bad Request | RequiredField.TravelDocument.ExpirationDate | The 'TravelDocuments.ExpirationDate' is required. | O 'TravelDocuments.ExpirationDate' é obrigatório. |
 | 400 Bad Request | RequiredField.TravelDocument.Number | The 'TravelDocuments.Number' is required. | O 'TravelDocuments.Number' é obrigatório. |
 | 400 Bad Request | RequiredField.TravelDocument.Type | The 'TravelDocuments.Type' CPF, RNE or PASSPORT is required. | É necessário o CPF, RNE ou PASSAPORTE 'TravelDocuments.Type'. |
