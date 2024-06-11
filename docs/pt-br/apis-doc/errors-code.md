@@ -125,6 +125,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | InvalidField.LastName | The 'LastName' cannot be entered with 'Username'. | O 'LastName' não pode ser inserido com 'Username'. |
 | 400 Bad Request | InvalidField.LastName.Length | The 'OrganizationCode' must be a string with a maximum length of 64. | O 'OrganizationCode' deve ser uma string com comprimento máximo de 64. |
 | 400 Bad Request | InvalidField.LiableRecordLocator | The 'LiableRecordLocator' must have 6 characters. | O 'LiableRecordLocator' deve ter 6 caracteres. |
+| 400 Bad Request | InvalidField.LiableRecordLocator | 'LiableRecordLocator' is invalid. | 'LiableRecordLocator' é invalido. |
 | 400 Bad Request | InvalidField.Method | The 'PaymentCriteria.Method' must be a valid Enum. | O 'PaymentCriteria.Method' deve ser um Enum válido. |
 | 400 Bad Request | InvalidField.MethodCode | The 'MethodCode' must be equals to {0}, {1}. | O 'MethodCode' deve ser igual a {0}, {1}. |
 | 400 Bad Request | InvalidField.MethodCode.Length | The 'MethodCode' must be 2 characters. | O 'MethodCode' deve ter 2 caracteres. |

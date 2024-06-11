@@ -125,6 +125,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | InvalidField.LastName | The 'LastName' cannot be entered with 'Username'. |
 | 400 Bad Request | InvalidField.LastName.Length | The 'OrganizationCode' must be a string with a maximum length of 64. |
 | 400 Bad Request | InvalidField.LiableRecordLocator | The 'LiableRecordLocator' must have 6 characters. |
+| 400 Bad Request | InvalidField.LiableRecordLocator | 'LiableRecordLocator' is invalid. |
 | 400 Bad Request | InvalidField.Method | The 'PaymentCriteria.Method' must be a valid Enum. |
 | 400 Bad Request | InvalidField.MethodCode | The 'MethodCode' must be equals to {0}, {1}. |
 | 400 Bad Request | InvalidField.MethodCode.Length | The 'MethodCode' must be 2 characters. |
