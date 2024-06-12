@@ -480,6 +480,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 409 Conflict | InvalidField.Serviceskey | There are duplicated 'Services.key' {0}. |
 | 409 Conflict | InvalidToken.Expired | An error occurred while performing authentication. |
 | 409 Conflict | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. |
+| 409 Conflict | Journey.CodeShare.Restriction | Please contact partner carrier to add journeys started by a partner. |
 | 409 Conflict | LiableRecordLocator.UnaccopaniedMinor.NotMatchJourneys | Liable order and unaccompanied minors order flights must match. |
 | 409 Conflict | NotEmpty.State | It's not possible to attach with an order already retrieved in the current state. Please execute an order delete before the order attach. |
 | 409 Conflict | Order.HasRecordLocator | This method is for orders under creation process. If you want to checkout a previously created order, please use the equivalent method in the Order.Management.Api. |

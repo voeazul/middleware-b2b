@@ -480,6 +480,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 409 Conflict | InvalidField.Serviceskey | There are duplicated 'Services.key' {0}. | Existem 'Services.key' {0} duplicados. |
 | 409 Conflict | InvalidToken.Expired | An error occurred while performing authentication. | Ocorreu um erro ao executar a autenticação. |
 | 409 Conflict | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. | O Bearer Token fornecido é inválido ou expirou. |
+| 409 Conflict | Journey.CodeShare.Restriction | Please contact partner carrier to add journeys started by a partner. | Entre em contato com a companhia parceira para journeys iniciadas por um parceiro. |
 | 409 Conflict | LiableRecordLocator.UnaccopaniedMinor.NotMatchJourneys | Liable order and unaccompanied minors order flights must match. | Voos com menores desacompanhados devem coincidir. |
 | 409 Conflict | NotEmpty.State | It's not possible to attach with an order already retrieved in the current state. Please execute an order delete before the order attach. | Não é possível anexar uma order já recuperada no estado atual.  |
 | 409 Conflict | Order.HasRecordLocator | This method is for orders under creation process. If you want to checkout a previously created order, please use the equivalent method in the Order.Management.Api. | Este método é para orders em processo de criação.  |
