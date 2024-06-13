@@ -35,12 +35,6 @@ We guarantee support for previous versions for a set period of time, allowing us
 |`PUT` `/api/v1/order/{recordLocator}/fees/organization`                                                   |Sales.B2B.Order.Management.Api   | 1.0    | 21/05/2025              |
 |`POST` `/api/v1/order/{recordLocator}/journeys`                                                           |Sales.B2B.Order.Management.Api   | 1.0    | 21/05/2025              |
 |`DELETE` `/api/v1/order/{recordLocator}/journeys/{journeyKey}`                                            |Sales.B2B.Order.Management.Api   | 1.0    | 21/05/2025              |
-|`POST` `/api/v1/order/segments/{segmentKey}/passengers/{passengerKey}/seats/{unitKey}`                    |Sales.B2B.Order.Seats.Api        | 1.0    | 21/05/2025              |
-|`DELETE` `/api/v1/order/segments/{segmentKey}/passengers/{passengerKey}/seats/{unitKey}`                  |Sales.B2B.Order.Seats.Api        | 1.0    | 21/05/2025              |
-|`PUT` `/api/v1/order/{recordLocator}/journeys/{journeyKey}/passengers/{passengerKey}/baggage`             |Sales.B2B.Order.Services.Api     | 1.0    | 21/05/2025              |
-|`DELETE` `/api/v1/order/{recordLocator}/journeys/{journeyKey}/passengers/{passengerKey}/baggage`          |Sales.B2B.Order.Services.Api     | 1.0    | 21/05/2025              |
-|`POST` `/api/v1/order/{recordLocator}/journeys/{journeyKey}/passengers/{passengerKey}/services`           |Sales.B2B.Order.Services.Api     | 1.0    | 21/05/2025              |
-|`DELETE` `/api/v1/order/{recordLocator}/journeys/{journeyKey}/passengers/{passengerKey}/services/{code}`  |Sales.B2B.Order.Services.Api     | 1.0    | 21/05/2025              |
 
 After the support deadline for a version, we strongly recommend that users migrate to the latest version to continue receiving support and enjoy of the latest functionalities.
 
