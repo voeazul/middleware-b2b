@@ -23,11 +23,17 @@ O número de versão em uma rota pode mudar nas seguintes ocasiões:
 Garantimos suporte para versões anteriores por um período determinado, permitindo que os usuários façam a transição para as versões mais recentes. A duração do suporte para uma versão específica pode variar, mas em geral, seguimos a política de manter o suporte por __12 meses__.
 
 ## APIs com Novas Versões
-|Método                      |API                       | Versão | Data Limite de Suporte  |
-|----------------------------|--------------------------|--------|-------------------------|
-|`POST` `/api/v1/airSearch`  |Sales.B2B.Shopping.Api  | 1.0  | 25/04/2025                  |
-|`POST` `/api/v1/quote`      |Sales.B2B.Shopping.Api  | 1.0  | 25/04/2025                  |
-|`GET` `/api/v1/order`       |Sales.B2B.Order.Api     | 1.0  | 25/04/2025                  |
+|Método                                                                                                    |API                              | Versão | Data Limite de Suporte  |
+|----------------------------------------------------------------------------------------------------------|---------------------------------|--------|-------------------------|
+|`POST` `/api/v1/airSearch`                                                                                |Sales.B2B.Shopping.Api           | 1.0    | 25/04/2025              |
+|`POST` `/api/v1/quote`                                                                                    |Sales.B2B.Shopping.Api           | 1.0    | 25/04/2025              |
+|`GET` `/api/v1/order`                                                                                     |Sales.B2B.Order.Api              | 1.0    | 25/04/2025              |
+|`GET` `/api/v1/order`                                                                                     |Sales.B2B.Order.Management.Api   | 1.0    | 17/06/2025              |
+|`GET` `/api/v1/order/{recordLocator}`                                                                     |Sales.B2B.Order.Management.Api   | 1.0    | 17/06/2025              |
+|`POST` `/api/v1/order/{recordLocator}/checkout`                                                           |Sales.B2B.Order.Management.Api   | 1.0    | 17/06/2025              |
+|`POST` `/api/v1/order/{recordLocator}/calculate`                                                          |Sales.B2B.Order.Management.Api   | 1.0    | 17/06/2025              |
+|`POST` `/api/v1/order/{recordLocator}/journeys`                                                           |Sales.B2B.Order.Management.Api   | 1.0    | 17/06/2025              |
+|`DELETE` `/api/v1/order/{recordLocator}/journeys/{journeyKey}`                                            |Sales.B2B.Order.Management.Api   | 1.0    | 17/06/2025              |
 
 Após a data limite de suporte para uma versão, recomendamos fortemente que os usuários migrem para a versão mais recente para continuar recebendo suporte e aproveitar as funcionalidades mais recentes.
 
