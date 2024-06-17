@@ -4341,6 +4341,78 @@
 							}
 						],
 						"url": {
+							"raw": "{{urlOrderSeats}}/api/v1/order/segments/:segmentKey/passengers/:passengerKey/seats/:unitKey",
+							"host": [
+								"{{urlOrderSeats}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"segments",
+								":segmentKey",
+								"passengers",
+								":passengerKey",
+								"seats",
+								":unitKey"
+							],
+							"variable": [
+								{
+									"key": "segmentKey",
+									"value": ""
+								},
+								{
+									"key": "passengerKey",
+									"value": null
+								},
+								{
+									"key": "unitKey",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Seat by Record Locator v1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}"
+							}
+						],
+						"url": {
 							"raw": "{{urlOrderSeats}}/api/v1/order/:recordLocator/segments/:segmentKey/passengers/:passengerKey/seats/:unitKey",
 							"host": [
 								"{{urlOrderSeats}}"
@@ -4381,6 +4453,78 @@
 				},
 				{
 					"name": "Remove Seat v1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}"
+							}
+						],
+						"url": {
+							"raw": "{{urlOrderSeats}}/api/v1/order/segments/:segmentKey/passengers/:passengerKey/seats/:unitKey",
+							"host": [
+								"{{urlOrderSeats}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"segments",
+								":segmentKey",
+								"passengers",
+								":passengerKey",
+								"seats",
+								":unitKey"
+							],
+							"variable": [
+								{
+									"key": "segmentKey",
+									"value": ""
+								},
+								{
+									"key": "passengerKey",
+									"value": ""
+								},
+								{
+									"key": "unitKey",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Seat by Record Locator v1",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -4584,6 +4728,151 @@
 							}
 						},
 						"url": {
+							"raw": "{{urlOrderService}}/api/v1/order/journeys/:journeyKey/passengers/:passengerKey/baggages/",
+							"host": [
+								"{{urlOrderService}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"journeys",
+								":journeyKey",
+								"passengers",
+								":passengerKey",
+								"baggages",
+								""
+							],
+							"variable": [
+								{
+									"key": "journeyKey",
+									"value": "{{journeyKeyIda}}"
+								},
+								{
+									"key": "passengerKey",
+									"value": "{{passengerKey}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Baggage v1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}"
+							}
+						],
+						"url": {
+							"raw": "{{urlOrderService}}/api/v1/order/journeys/:journeyKey/passengers/:passengerKey/baggages/",
+							"host": [
+								"{{urlOrderService}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"journeys",
+								":journeyKey",
+								"passengers",
+								":passengerKey",
+								"baggages",
+								""
+							],
+							"variable": [
+								{
+									"key": "journeyKey",
+									"value": "{{journeyKeyIda}}"
+								},
+								{
+									"key": "passengerKey",
+									"value": "{{passengerKey}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Baggage by Record Locator v1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"{{baggageKey}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
 							"raw": "{{urlOrderService}}/api/v1/order/:recordLocator/journeys/:journeyKey/passengers/:passengerKey/baggages/",
 							"host": [
 								"{{urlOrderService}}"
@@ -4603,7 +4892,7 @@
 							"variable": [
 								{
 									"key": "recordLocator",
-									"value": "{{recordLocator}}"
+									"value": ""
 								},
 								{
 									"key": "journeyKey",
@@ -4619,7 +4908,7 @@
 					"response": []
 				},
 				{
-					"name": "Baggage v1",
+					"name": "Baggage by Record Locator v1",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -4811,6 +5100,155 @@
 							}
 						},
 						"url": {
+							"raw": "{{urlOrderService}}/api/v1/order/journeys/:journeyKey/passengers/:passengerKey/services/",
+							"host": [
+								"{{urlOrderService}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"journeys",
+								":journeyKey",
+								"passengers",
+								":passengerKey",
+								"services",
+								""
+							],
+							"variable": [
+								{
+									"key": "journeyKey",
+									"value": "{{journeyKeyIda}}"
+								},
+								{
+									"key": "passengerKey",
+									"value": "{{passengerKey}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Service v1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}"
+							}
+						],
+						"url": {
+							"raw": "{{urlOrderService}}/api/v1/order/journeys/:journeyKey/passengers/:passengerKey/services/:code",
+							"host": [
+								"{{urlOrderService}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"journeys",
+								":journeyKey",
+								"passengers",
+								":passengerKey",
+								"services",
+								":code"
+							],
+							"variable": [
+								{
+									"key": "journeyKey",
+									"value": "{{journeyKeyIda}}"
+								},
+								{
+									"key": "passengerKey",
+									"value": "{{passengerKey}}"
+								},
+								{
+									"key": "code",
+									"value": "PETC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Service by Record Locator v1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"services\": [\r\n        {\r\n            \"key\": \"{{servicesKey}}\",\r\n            \"count\": 1\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
 							"raw": "{{urlOrderService}}/api/v1/order/:recordLocator/journeys/:journeyKey/passengers/:passengerKey/services/",
 							"host": [
 								"{{urlOrderService}}"
@@ -4846,7 +5284,7 @@
 					"response": []
 				},
 				{
-					"name": "Service v1",
+					"name": "Service  by Record Locator v1",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -13139,7 +13577,7 @@
 							"response": []
 						},
 						{
-							"name": "8 - Service v1",
+							"name": "8 - Service by Record Locator v1",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -26652,7 +27090,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{urlOrderSeats}}/api/v1/order/{{recordLocator}}/segments/{{segmentKey}}/passengers/{{passengerKey}}/seats/{{unitKey}}",
+									"raw": "{{urlOrderSeats}}/api/v1/order/segments/{{segmentKey}}/passengers/{{passengerKey}}/seats/{{unitKey}}",
 									"host": [
 										"{{urlOrderSeats}}"
 									],
@@ -26660,7 +27098,6 @@
 										"api",
 										"v1",
 										"order",
-										"{{recordLocator}}",
 										"segments",
 										"{{segmentKey}}",
 										"passengers",
@@ -34175,7 +34612,7 @@
 							"response": []
 						},
 						{
-							"name": "13 - Baggage v1",
+							"name": "13 - Baggage by Record Locator v1",
 							"event": [
 								{
 									"listen": "test",
@@ -34232,7 +34669,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{urlOrderService}}/api/v1/order/{{recordLocator}}/journeys/{{journeyKeyIda}}/passengers/{{passengerKey}}/baggages/",
+									"raw": "{{urlOrderService}}/api/v1/order/{{recordLocator}}/journeys/{{journeyKeyIda}}/passengers/{{passengerKey}}/baggage/",
 									"host": [
 										"{{urlOrderService}}"
 									],
@@ -34245,7 +34682,7 @@
 										"{{journeyKeyIda}}",
 										"passengers",
 										"{{passengerKey}}",
-										"baggages",
+										"baggage",
 										""
 									]
 								}
@@ -35199,7 +35636,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{urlOrderService}}/api/v1/order/{{recordLocator}}/journeys/{{journeyKeyVolta}}/passengers/{{passengerKey}}/baggages/",
+									"raw": "{{urlOrderService}}/api/v1/order/journeys/{{journeyKeyVolta}}/passengers/{{passengerKey}}/baggages/",
 									"host": [
 										"{{urlOrderService}}"
 									],
@@ -35207,7 +35644,6 @@
 										"api",
 										"v1",
 										"order",
-										"{{recordLocator}}",
 										"journeys",
 										"{{journeyKeyVolta}}",
 										"passengers",
@@ -35911,7 +36347,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{urlOrderService}}/api/v1/order//journeys/{{journeyKeyIda}}/passengers/{{passengerKey}}/baggages/",
+									"raw": "{{urlOrderService}}/api/v1/order/journeys/{{journeyKeyIda}}/passengers/{{passengerKey}}/baggages/",
 									"host": [
 										"{{urlOrderService}}"
 									],
@@ -35919,7 +36355,6 @@
 										"api",
 										"v1",
 										"order",
-										"",
 										"journeys",
 										"{{journeyKeyIda}}",
 										"passengers",
@@ -38342,7 +38777,7 @@
 							"response": []
 						},
 						{
-							"name": "11 - Baggage v1",
+							"name": "11 - Baggage by Record Locator v1",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -38380,7 +38815,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{urlOrderService}}/api/v1/order/{{recordLocator}}/journeys/:journeyKey/passengers/:passengerKey/baggages/",
+									"raw": "{{urlOrderService}}/api/v1/order/:recordLocator/journeys/:journeyKey/passengers/:passengerKey/baggage/",
 									"host": [
 										"{{urlOrderService}}"
 									],
@@ -38388,15 +38823,19 @@
 										"api",
 										"v1",
 										"order",
-										"{{recordLocator}}",
+										":recordLocator",
 										"journeys",
 										":journeyKey",
 										"passengers",
 										":passengerKey",
-										"baggages",
+										"baggage",
 										""
 									],
 									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										},
 										{
 											"key": "journeyKey",
 											"value": "{{journeyKeyIda}}"
@@ -39905,7 +40344,71 @@
 							"response": []
 						},
 						{
-							"name": "9 - Order by Record Locator v2",
+							"name": "9 - Checkout v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"recordLocator\", response.data.recordLocator);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrder}}/api/v1/checkout",
+									"host": [
+										"{{urlOrder}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"checkout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "10 - Order by Record Locator v2",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -39964,7 +40467,7 @@
 							"response": []
 						},
 						{
-							"name": "10 - Service v1",
+							"name": "11 - Service  by Record Locator v1",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -40042,7 +40545,7 @@
 							"response": []
 						},
 						{
-							"name": "11 - Order Calculate v2",
+							"name": "12 - Order Calculate v2",
 							"event": [
 								{
 									"listen": "test",
@@ -40114,7 +40617,7 @@
 							"response": []
 						},
 						{
-							"name": "12 - Checkout v2",
+							"name": "13 - Checkout v2",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -40183,7 +40686,7 @@
 							"response": []
 						},
 						{
-							"name": "13 - Logout v1",
+							"name": "14 - Logout v1",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -40235,7 +40738,7 @@
 							"response": []
 						},
 						{
-							"name": "14 - Token v1",
+							"name": "15 - Token v1",
 							"request": {
 								"auth": {
 									"type": "bearer",

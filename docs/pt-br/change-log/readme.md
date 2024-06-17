@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.7.0] - 21/05/2024
+## [1.7.0] - 17/06/2024
 
 ### Adicionado
 - Nova opção de reembolso do pagamento ao realizar o _checkout_ da reserva

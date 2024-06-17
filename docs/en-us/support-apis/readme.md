@@ -28,13 +28,12 @@ We guarantee support for previous versions for a set period of time, allowing us
 |`POST` `/api/v1/airSearch`                                                                                |Sales.B2B.Shopping.Api           | 1.0    | 25/04/2025              |
 |`POST` `/api/v1/quote`                                                                                    |Sales.B2B.Shopping.Api           | 1.0    | 25/04/2025              |
 |`GET` `/api/v1/order`                                                                                     |Sales.B2B.Order.Api              | 1.0    | 25/04/2025              |
-|`GET` `/api/v1/order`                                                                                     |Sales.B2B.Order.Management.Api   | 1.0    | 21/05/2025              |
-|`GET` `/api/v1/order/{recordLocator}`                                                                     |Sales.B2B.Order.Management.Api   | 1.0    | 21/05/2025              |
-|`POST` `/api/v1/order/{recordLocator}/checkout`                                                           |Sales.B2B.Order.Management.Api   | 1.0    | 21/05/2025              |
-|`POST` `/api/v1/order/{recordLocator}/calculate`                                                          |Sales.B2B.Order.Management.Api   | 1.0    | 21/05/2025              |
-|`PUT` `/api/v1/order/{recordLocator}/fees/organization`                                                   |Sales.B2B.Order.Management.Api   | 1.0    | 21/05/2025              |
-|`POST` `/api/v1/order/{recordLocator}/journeys`                                                           |Sales.B2B.Order.Management.Api   | 1.0    | 21/05/2025              |
-|`DELETE` `/api/v1/order/{recordLocator}/journeys/{journeyKey}`                                            |Sales.B2B.Order.Management.Api   | 1.0    | 21/05/2025              |
+|`GET` `/api/v1/order`                                                                                     |Sales.B2B.Order.Management.Api   | 1.0    | 17/06/2025              |
+|`GET` `/api/v1/order/{recordLocator}`                                                                     |Sales.B2B.Order.Management.Api   | 1.0    | 17/06/2025              |
+|`POST` `/api/v1/order/{recordLocator}/checkout`                                                           |Sales.B2B.Order.Management.Api   | 1.0    | 17/06/2025              |
+|`POST` `/api/v1/order/{recordLocator}/calculate`                                                          |Sales.B2B.Order.Management.Api   | 1.0    | 17/06/2025              |
+|`POST` `/api/v1/order/{recordLocator}/journeys`                                                           |Sales.B2B.Order.Management.Api   | 1.0    | 17/06/2025              |
+|`DELETE` `/api/v1/order/{recordLocator}/journeys/{journeyKey}`                                            |Sales.B2B.Order.Management.Api   | 1.0    | 17/06/2025              |
 
 After the support deadline for a version, we strongly recommend that users migrate to the latest version to continue receiving support and enjoy of the latest functionalities.
 
