@@ -4873,7 +4873,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{urlOrderService}}/api/v1/order/:recordLocator/journeys/:journeyKey/passengers/:passengerKey/baggages/",
+							"raw": "{{urlOrderService}}/api/v1/order/:recordLocator/journeys/:journeyKey/passengers/:passengerKey/baggage/",
 							"host": [
 								"{{urlOrderService}}"
 							],
@@ -4886,13 +4886,13 @@
 								":journeyKey",
 								"passengers",
 								":passengerKey",
-								"baggages",
+								"baggage",
 								""
 							],
 							"variable": [
 								{
 									"key": "recordLocator",
-									"value": ""
+									"value": "{{recordLocator}}"
 								},
 								{
 									"key": "journeyKey",
