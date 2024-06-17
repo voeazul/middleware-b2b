@@ -1,20 +1,14 @@
 # Changelog
 
-## [1.7.0] - 17/06/2024
+## [1.8.0] - 18/06/2024
 
 ### Added
-- New payment refund option in order checkout
-- Search for the credit available to an organization without the need to previously retrieve an order
-- Added "No Show" fares in the get fares method
-- Return of cabin type information when performing AirSerch, Quote and get Order
+- CodeShare orders record locators informations
 
 ### Updated
-- Adjustment to the Tudo Azul card discount, now the discount is only applied to fully paid orders
-- Return the informed card identification in the payment and installments methods
-- Return information about expiration date and the card holder's name in the payments object in get order methods
-
-### Fixed
-- Error when informing a passport as travel document for infants in order creation
+- Adjustments and restrictions on the availability of baggage and services on CodeShare segments
+- Block unaccompanied minor passengers on CodeShare orders
+- Block creation of CodeShare orders with segments with a departure date less than 24 hours away
 
 [Link to previous versions](/docs/en-us/change-log/readme.history.md)
 
