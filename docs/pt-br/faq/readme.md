@@ -56,16 +56,16 @@ Para realizar cancelamento de trechos, você deve utilizar a API de Order Manage
 ## 13. O que significam os códigos: AG, CF, AX, VI, MC, DI, HP, EL e TP, descritos no methodCode do swagger no endpoint do método POST Order/payments v1 ?
 
 Os significados são: 
-AG = Conta de crédito direto com a Azul
-CS = Credit Shell, quando o cliente inputa crédito em sua reserva para usar posteriormente
-CF = Credit file, quando o cliente consume o  crédito existente no Credit Shell
-AX = American Express
-VI = VIsa
-MC = MasterCard
-DI = DinnersClub
-HP = HiperCard
-EL = ELO
-TP = UATP
+- AG = Conta de crédito direto com a Azul
+- CS = Credit Shell, quando o cliente inputa crédito em sua reserva para usar posteriormente
+- CF = Credit file, quando o cliente consume o  crédito existente no Credit Shell
+- AX = American Express
+- VI = VIsa
+- MC = MasterCard
+- DI = DinnersClub
+- HP = HiperCard
+- EL = ELO
+- TP = UATP
 
 ## 14. Para que serve o serviço de Authentication/Token e qual seu tempo de duração por sessão?
 
