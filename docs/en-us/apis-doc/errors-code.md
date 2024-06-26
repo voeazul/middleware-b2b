@@ -239,6 +239,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | Order.Retrieve.V1.Conflict | This method is not compatible with retrieve order in V1. |
 | 400 Bad Request | Order.Retrieve.V2.Conflict | This method is not compatible with retrieve order in V2. |
 | 400 Bad Request | Order.State.Timeout | The state time for this order has expired. Please retrieve the order again with the GET Order method. |
+| 400 Bad Request | Order.Quarantine.payment | This order is in payment quarantine. |
 | 400 Bad Request | OrderDivide.BalanceDue.Underpaid | Underpaid orders cannot be divided. |
 | 400 Bad Request | OrderDivide.CreditAmount.invalid | The informed 'creditAmount' is invalid because it's greater than the amount available in the informed order. |
 | 400 Bad Request | OrderDivide.DivideCredit.Failed | An error occurred while dividing the order credit. Credit values have not been divided or changed, remaining entirely in the parent order. |
