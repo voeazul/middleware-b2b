@@ -417,6 +417,32 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | User.NotEditable | Deleted user cannot be edited. | O usuário excluído não pode ser editado. |
 | 400 Bad Request | User.Password.Expired | Expired password, user must change password. | Senha expirada, o usuário deve alterar a senha. |
 | 400 Bad Request | Warning.OrganizationFeeOverride | Organization fee override is not applicable for this order. | A substituição da taxa de organização não se aplica a esta order. |
+| 400 Bad Request | Duplicate.Organization | The informed organization code already exists. | O código da organização informado já existe. |
+| 400 Bad Request | InvalidField.Address.City | The 'City' must be 32 characters in length. | A 'Cidade' deve ter 32 caracteres. |
+| 400 Bad Request | InvalidField.Address.CompanyName | The 'CompanyName' must be 128 characters in length. | O 'CompanyName' deve ter 128 caracteres. |
+| 400 Bad Request | InvalidField.Address.CountryCode | The 'CountryCode' must be 2 characters in length. | O 'CountryCode' deve ter 2 caracteres de comprimento. |
+| 400 Bad Request | InvalidField.Address.LineOne | The 'LineOne' must be 128 characters in length. | O 'LineOne' deve ter 128 caracteres. |
+| 400 Bad Request | InvalidField.Address.LineTwo | The 'LineTwo' must be 128 characters in length. | O 'LineTwo' deve ter 128 caracteres. |
+| 400 Bad Request | InvalidField.Address.PostalCode | The 'PostalCode' must be 10 characters in length. | O 'PostalCode' deve ter 10 caracteres. |
+| 400 Bad Request | InvalidField.Address.ProvinceState | The 'ProvinceState' must be 2 characters in length. | O 'ProvinceState' deve ter 2 caracteres de comprimento. |
+| 400 Bad Request | InvalidField.Company.EmailAdress | The 'EmailAdress' must be a valid. | O 'EmailAdress' deve ser válido. |
+| 400 Bad Request | InvalidField.CompanyPhones.Number | The 'Company.Phones.Number' has a maximum length 20 characters. | O 'Company.Phones.Number' tem no máximo 20 caracteres. |
+| 400 Bad Request | InvalidField.CompanyPhones.Type | The 'Company.Phones.Type' must be a valid enum. | O 'Company.Phones.Type' deve ser um enum válido. |
+| 400 Bad Request | InvalidField.ContactName.First | The 'Contact.Name.First' has a maximum length 32 characters. | O 'Contact.Name.First' tem no máximo 32 caracteres. |
+| 400 Bad Request | InvalidField.ContactName.Last | The 'Contact.Name.Last' has a maximum length 32 characters. | O 'Contact.Name.Last' tem no máximo 32 caracteres. |
+| 400 Bad Request | InvalidField.ContactName.Middle | The 'Contact.Name.Middle' has a maximum length 32 characters. | O 'Contact.Name.Middle' tem comprimento máximo de 32 caracteres.|
+| 400 Bad Request | InvalidField.ContactName.Suffix | The 'Contact.Name.Suffix' must be a valid enum. | O 'Contact.Name.Suffix' deve ser um enum válido. |
+| 400 Bad Request | InvalidField.ContactName.Title | The 'Contact.Name.Title' must be a valid enum. | O 'Contact.Name.Title' deve ser um enum válido. |
+| 400 Bad Request | InvalidField.ContactPhones.Number | The 'Contact.Phones.Number' has a maximum length 20 characters. | O 'Contact.Phones.Number' tem no máximo 20 caracteres. |
+| 400 Bad Request | InvalidField.ContactPhones.Type | The 'Contact.Phones.Type' must be a valid enum. | InvalidField.ContactPhones.Type | O 'Contact.Phones.Type' deve ser um enum válido.|
+| 400 Bad Request | InvalidField.IataCode | The 'IataCodeLength' must be 8 characters in length. | O 'IataCodeLength' deve ter 8 caracteres. |
+| 400 Bad Request | InvalidField.LastStatementDate | The 'LastStatementDate' must be a valid. | O 'LastStatementDate' deve ser válido. |
+| 400 Bad Request | InvalidField.StatementNote | The 'StatementNote' must be 128 characters in length. | O 'StatementNote' deve ter 128 caracteres. |
+| 400 Bad Request | RequiredField.Company.Cnpj | The 'Company Cnpj' is required. | O 'Cnpj da Empresa' é obrigatório. |
+| 400 Bad Request | RequiredField.CompanyPhones.Type | The 'Company.Phones.Type' is required. | O 'Company.Phones.Type' é obrigatório. |
+| 400 Bad Request | RequiredField.ConpanyPhones.Number | The 'Conpany.Phones.Number' is required. | O 'Company.Phones.Number' é obrigatório. |
+| 400 Bad Request | RequiredField.ContactPhones.Type | The 'Contact.Phones.Type' is required. | O 'Contact.Phones.Type' é obrigatório. |
+| 400 Bad Request | RequiredField.ParentCode | The 'ParentCode' is required. | O 'ParentCode' é obrigatório. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. | Ocorreu um erro ao executar a autenticação. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. | O Bearer Token fornecido é inválido ou expirou. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. | Ocorreu um erro ao validar a autenticação do usuário. |
@@ -493,6 +519,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 409 Conflict | RequestFailed.UnaccompaniedMinor.DomesticFligths | Unaccompanied minors are allowed in brazilian domestic flights only. | Menores desacompanhados são permitidos apenas em voos domésticos no Brasil. |
 | 409 Conflict | RequestFailed.UnaccopaniedMinor.OnlyDirectFlight | Unaccompanied minors are allowed in direct flights only. | Menores desacompanhados são permitidos apenas em voos diretos. |
 | 409 Conflict | RequiredField.LiableRecordLocator | A passenger over 18 years old is required in the liable order. | É necessário um passageiro maior de 18 anos na order |
+| 409 Conflict | Organizations.CNPJ.error | You are not allowed to create Organizations to this CNPJ. | Você não tem permissão para criar Organizações para este CNPJ |
 | 422 Unprocessable Content | Assistance.SearchRequired | Retrieve a 'assistances/search' with journeyKey before execute this method. | Recupere uma 'assistência/pesquisa' com travelKey antes de executar este método. |
 | 422 Unprocessable Content | Baggage.SearchRequired | Retrieve a 'baggage/search' with journeyKey before execute this method. | Recupere uma 'bagagem/pesquisa' com travelKey antes de executar este método. |
 | 422 Unprocessable Content | NotMatch.Name | The names sent do not match those on the attached order. | Os nomes enviados não correspondem aos da order em anexo. |

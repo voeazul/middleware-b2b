@@ -417,6 +417,32 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | User.NotEditable | Deleted user cannot be edited. |
 | 400 Bad Request | User.Password.Expired | Expired password, user must change password. |
 | 400 Bad Request | Warning.OrganizationFeeOverride | Organization fee override is not applicable for this order. |
+| 400 Bad Request | Duplicate.Organization | The informed organization code already exists. |
+| 400 Bad Request | InvalidField.Address.City | The 'City' must be 32 characters in length. |
+| 400 Bad Request | InvalidField.Address.CompanyName | The 'CompanyName' must be 128 characters in length. |
+| 400 Bad Request | InvalidField.Address.CountryCode | The 'CountryCode' must be 2 characters in length. |
+| 400 Bad Request | InvalidField.Address.LineOne | The 'LineOne' must be 128 characters in length. |
+| 400 Bad Request | InvalidField.Address.LineTwo | The 'LineTwo' must be 128 characters in length. |
+| 400 Bad Request | InvalidField.Address.PostalCode | The 'PostalCode' must be 10 characters in length. |
+| 400 Bad Request | InvalidField.Address.ProvinceState | The 'ProvinceState' must be 2 characters in length. |
+| 400 Bad Request | InvalidField.Company.EmailAdress | The 'EmailAdress' must be a valid. |
+| 400 Bad Request | InvalidField.CompanyPhones.Number | The 'Company.Phones.Number' has a maximum length 20 characters. |
+| 400 Bad Request | InvalidField.CompanyPhones.Type | The 'Company.Phones.Type' must be a valid enum. |
+| 400 Bad Request | InvalidField.ContactName.First | The 'Contact.Name.First' has a maximum length 32 characters. |
+| 400 Bad Request | InvalidField.ContactName.Last | The 'Contact.Name.Last' has a maximum length 32 characters. |
+| 400 Bad Request | InvalidField.ContactName.Middle | The 'Contact.Name.Middle' has a maximum length 32 characters. |
+| 400 Bad Request | InvalidField.ContactName.Suffix | The 'Contact.Name.Suffix' must be a valid enum. |
+| 400 Bad Request | InvalidField.ContactName.Title | The 'Contact.Name.Title' must be a valid enum. |
+| 400 Bad Request | InvalidField.ContactPhones.Number | The 'Contact.Phones.Number' has a maximum length 20 characters. |
+| 400 Bad Request | InvalidField.ContactPhones.Type | The 'Contact.Phones.Type' must be a valid enum. |
+| 400 Bad Request | InvalidField.IataCode | The 'IataCodeLength' must be 8 characters in length. |
+| 400 Bad Request | InvalidField.LastStatementDate | The 'LastStatementDate' must be a valid. |
+| 400 Bad Request | InvalidField.StatementNote | The 'StatementNote' must be 128 characters in length. |
+| 400 Bad Request | RequiredField.Company.Cnpj | The 'Company Cnpj' is required. |
+| 400 Bad Request | RequiredField.CompanyPhones.Type | The 'Company.Phones.Type' is required. |
+| 400 Bad Request | RequiredField.ConpanyPhones.Number | The 'Conpany.Phones.Number' is required. |
+| 400 Bad Request | RequiredField.ContactPhones.Type | The 'Contact.Phones.Type' is required. |
+| 400 Bad Request | RequiredField.ParentCode | The 'ParentCode' is required. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. |
@@ -493,6 +519,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 409 Conflict | RequestFailed.UnaccompaniedMinor.DomesticFligths | Unaccompanied minors are allowed in brazilian domestic flights only. |
 | 409 Conflict | RequestFailed.UnaccopaniedMinor.OnlyDirectFlight | Unaccompanied minors are allowed in direct flights only. |
 | 409 Conflict | RequiredField.LiableRecordLocator | A passenger over 18 years old is required in the liable order. |
+| 409 Conflict | Organizations.CNPJ.error | You are not allowed to create Organizations to this CNPJ. |
 | 422 Unprocessable Content | Assistance.SearchRequired | Retrieve a 'assistances/search' with journeyKey before execute this method. |
 | 422 Unprocessable Content | Baggage.SearchRequired | Retrieve a 'baggage/search' with journeyKey before execute this method. |
 | 422 Unprocessable Content | NotMatch.Name | The names sent do not match those on the attached order. |
