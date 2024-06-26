@@ -239,6 +239,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Order.Retrieve.V1.Conflict | This method is not compatible with retrieve order in V1. | Este método não é compatível com a ordem de recuperação em V1. |
 | 400 Bad Request | Order.Retrieve.V2.Conflict | This method is not compatible with retrieve order in V2. | Este método não é compatível com a ordem de recuperação na V2. |
 | 400 Bad Request | Order.State.Timeout | The state time for this order has expired. Please retrieve the order again with the GET Order method. | O tempo estadual para esta reserva expirou.  |
+| 400 Bad Request | Order.Quarantine.payment | This order is in payment quarantine. | Este pedido está em quarentena de pagamento. |
 | 400 Bad Request | OrderDivide.BalanceDue.Underpaid | Underpaid orders cannot be divided. | Reservas mal pagos não podem ser divididos. |
 | 400 Bad Request | OrderDivide.CreditAmount.invalid | The informed 'creditAmount' is invalid because it's greater than the amount available in the informed order. | O 'creditAmount' informado é inválido porque é maior que o valor disponível na reserva informado. |
 | 400 Bad Request | OrderDivide.DivideCredit.Failed | An error occurred while dividing the order credit. Credit values have not been divided or changed, remaining entirely in the parent order. | Ocorreu um erro ao dividir o crédito da reserva.  |
