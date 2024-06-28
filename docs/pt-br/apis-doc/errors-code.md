@@ -188,6 +188,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | InvalidField.ServicesCount | The 'Services.Count' must be greather than 0. | O 'Services.Count' deve ser maior que 0. |
 | 400 Bad Request | InvalidField.StationCode | The 'StationCode' must be 3 characters. | O 'StationCode' deve ter 3 caracteres. |
 | 400 Bad Request | InvalidField.Suffix | The 'Suffix' must be a valid Enum. | O 'Sufixo' deve ser um Enum válido. |
+| 400 Bad Request | InvalidField.Status | The 'Status' must be a valid enum. | O 'Status' deve ser um Enum válido. |
 | 400 Bad Request | InvalidField.TaxAmount | The 'TaxAmount' must be greater than or equal to 0. | O 'TaxAmount' deve ser maior ou igual a 0. |
 | 400 Bad Request | InvalidField.Title | The 'Title' must be a valid Enum. | O 'Title' deve ser um Enum válido. |
 | 400 Bad Request | InvalidField.Transaction | The 'PaymentCriteria.Transaction' must be a valid Enum. | O 'PaymentCriteria.Transaction' deve ser um Enum válido. |
@@ -423,6 +424,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 403 Forbidden | Agent.NoAccess | The agent does not have access to the informed user. | O agente não tem acesso ao usuário informado. |
 | 403 Forbidden | AssignSeat.UnitKey.Blocked | The request failed to assign the seat, because this seat is blocked by passengers rules (age, SSR or equipment). | A solicitação não conseguiu atribuir o assento, pois este assento está bloqueado pelas regras do passageiro (idade, SSR ou equipamento). |
 | 403 Forbidden | Organization.AuthorizationFailed.User | This user does not have access to the informed organization. | Este usuário não tem acesso à organização informada. |
+| 403 Forbidden | Organizations.Update.Errors | You are not allowed to update Organizations. | Usuario não tem permissão para editar organizações. |
 | 404 Not Found | Assistance.NoMatches | This assistance does not exist or was not found. | Esta assistência não existe ou não foi encontrada. |
 | 404 Not Found | Assistances.NoMatches | Unable to retrieve the assistances data. | Não foi possível recuperar os dados de assistência. |
 | 404 Not Found | AssistancesKey.NoMatches | The informed 'Assistances.Key' does not exists or does not belong to a previously retrieved 'assistance/search'. | A 'Assistances.Key' informada não existe ou não pertence a uma 'assistance/search' recuperada anteriormente. |
