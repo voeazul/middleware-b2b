@@ -444,6 +444,8 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | RequiredField.ConpanyPhones.Number | The 'Conpany.Phones.Number' is required. |
 | 400 Bad Request | RequiredField.ContactPhones.Type | The 'Contact.Phones.Type' is required. |
 | 400 Bad Request | RequiredField.ParentCode | The 'ParentCode' is required. |
+| 400 Bad Request | NotApplied.PromotionCode | Application of promotionCode is only permitted on hold reservations.|
+| 400 Bad Request | InvalidField.Promotion.Code | It is not possible to apply a promo code to reservations that contain the promo code. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. |
