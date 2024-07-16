@@ -1,13 +1,14 @@
 # Changelog
 
-## [1.8.0] - 18/06/2024
+## [1.9.0] - 16/07/2024
 
 ### Adicionado
-- Informação de localizadores de reservas CodeShare
+- Fluxo de remoção do promocode TAIC10 com pagamento diferente de approved.
+- Fluxo de inclusão de outro promocode diferente de TAIC10.
 
 ### Modificado
-- Ajustes e restrições na disponibilização de bagagens e serviços em trechos CodeShare
-- Impedir menor desacompanhado em reservas CodeShare
-- Bloquear emissão de reservas CodeShare com trechos com data de partida a menos de 24 horas
+- Ajustes e disponibilização informações de importedDate ao consultar Reacomodação.
+- Indicação de que a order encontra-se em quarentena.
+- Ajuste identificado o valor de multa de reembolso a ser aplicado no cancelamento campo RefundFeeAmount no Calculate v2.
 
 [Link para as versões anteriores](/docs/pt-br/change-log/readme.history.md)

@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "efaae067-c17f-4a53-9c32-750f7f8911ac",
-		"name": "Middleware B2B - Release 1.7.0",
+		"_postman_id": "1c5d005c-33c1-4ac9-b561-e4aaae5597bb",
+		"name": "Middleware B2B - Release 1.9.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "29122721",
-		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B---Release-1.7.0~15754c67-2ecb-4156-bf23-ff0e31e2286c/collection/23627244-efaae067-c17f-4a53-9c32-750f7f8911ac?action=share&source=collection_link&creator=29122721"
+		"_exporter_id": "23627244",
+		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B---Release-1.9.0~43aa2207-3b41-4588-9e15-f31dcb9104d9/collection/23627244-1c5d005c-33c1-4ac9-b561-e4aaae5597bb?action=share&source=collection_link&creator=23627244"
 	},
 	"item": [
 		{
@@ -3075,6 +3075,69 @@
 									"key": "recordLocator",
 									"value": "{{recordLocator}}"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PromotionCode  v1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"promotionCode\": \"TAIC10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlOrderManagement}}/api/v1/order/{{recordLocator}}/promotionCode",
+							"host": [
+								"{{urlOrderManagement}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"{{recordLocator}}",
+								"promotionCode"
 							]
 						}
 					},
