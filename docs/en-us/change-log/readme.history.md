@@ -3,15 +3,16 @@
 ## [1.9.0] - 16/07/2024
 
 ### Added
-- TAIC10 promocode removal flow with payment other than approved.
-- Inclusion flow of another promocode other than TAIC10.
+- Flow for removing the TAIC10 promocode if the payment with the Tudo Azul card is declined.
+- Method for adding promocode to already created orders on hold.
 
 ### Updated
-- Adjustments and availability of importedDate information when consulting Reaccommodation.
-- Indication that the order is in quarantine.
-- Adjustment identified the amount of refund fine to be applied upon cancellation in the RefundFeeAmount field in Calculate v2.
+- Permission to access the reports methods for agents with the WebServiceAgent profile.
+- Returning imported date information in the retrieve reaccommodations method.
+- Indication that the order is in payment quarantine in the retrieve order methods.
+- Return of the refund fee amount to be applied in the Calculate v2.
 
-## [1.8.0] - 18/06/2024
+## [1.8.0] - 28/06/2024
 
 ### Added
 - CodeShare orders record locators informations
