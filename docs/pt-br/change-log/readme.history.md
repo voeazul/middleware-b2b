@@ -3,15 +3,16 @@
 ## [1.9.0] - 16/07/2024
 
 ### Adicionado
-- Fluxo de remoção do promocode TAIC10 com pagamento diferente de approved.
-- Fluxo de inclusão de outro promocode diferente de TAIC10.
+- Fluxo de remoção do promocode TAIC10 caso o pagamento com o cartão Tudo Azul deja declinado.
+- Método para adicionar promocode em reservas em hold já criadas.
 
 ### Modificado
-- Ajustes e disponibilização informações de importedDate ao consultar Reacomodação.
-- Indicação de que a order encontra-se em quarentena.
-- Ajuste identificado o valor de multa de reembolso a ser aplicado no cancelamento campo RefundFeeAmount no Calculate v2.
+- Permissão para acesso aos métodos de relatórios aos agentes do perfil WebServiceAgent.
+- Disponibilização da informação da data de importação ao consultar reacomodação.
+- Indicação de que a reserva encontra-se em quarentena de pagamento nos métodos de consulta.
+- Indicação do valor da multa de reembolso (RefundFeeAmount) a ser aplicada no método Calculate v2.
 
-## [1.8.0] - 18/06/2024
+## [1.8.0] - 28/06/2024
 
 ### Adicionado
 - Informação de localizadores de reservas CodeShare
