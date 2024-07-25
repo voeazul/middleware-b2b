@@ -229,6 +229,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | Offer.UnaccompaniedMinor.AdditionalFees | Unaccompanied minor may incur additional fee, according to company policy. |
 | 400 Bad Request | Order.Calculation.NotPending | The order in the state has no calculations to be done. |
 | 400 Bad Request | Order.Calculation.Pending | Order details can only be retrieved after calculation of its changes. If you are changing journeys, please finish desired changes and do a calculate before retrieving. |
+| 400 Bad Request | Orders.Group.Error | You are not allowed to see Orders Groups in this method. |
 | 400 Bad Request | Order.Journeys.Count | The maximum number of Journeys allowed in a order is {0}. |
 | 400 Bad Request | Order.NoChildren | The informed order does not have any children record locator associated. |
 | 400 Bad Request | Order.NoJourneys | The informed order has no journeys to be managed. |
