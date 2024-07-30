@@ -230,6 +230,8 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Order.Calculation.NotPending | The order in the state has no calculations to be done. | A reserva no estado não tem cálculos a serem feitos. |
 | 400 Bad Request | Order.Calculation.Pending | Order details can only be retrieved after calculation of its changes. If you are changing journeys, please finish desired changes and do a calculate before retrieving. | Os detalhes da reserva só podem ser recuperados após o cálculo de suas alterações.  |
 | 400 Bad Request | Orders.Group.Error | You are not allowed to see Orders Groups in this method. | Você não está autorizado a ver grupos de reservas neste método. |
+| 400 Bad Request | Orders.Group.Error | You are not allowed to add baggages to Orders Groups in this method.| Você não está autorizado a adicionar bagagem para grupos de reservas neste método. |
+| 400 Bad Request | Orders.Group.Error | You are not allowed to add services to Orders Groups in this method.| Você não está autorizado a adicionar serviços para grupos de reservas neste método.  |
 | 400 Bad Request | Order.Journeys.Count | The maximum number of Journeys allowed in a order is {0}. | O número máximo de jornadas permitidas em uma reserva é {0}. |
 | 400 Bad Request | Order.NoChildren | The informed order does not have any children record locator associated. | A reserva informado não possui nenhum localizador de registros filhos associado. |
 | 400 Bad Request | Order.NoJourneys | The informed order has no journeys to be managed. | A reserva informado não possui jornadas a serem gerenciadas. |
