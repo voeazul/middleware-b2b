@@ -247,6 +247,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | OrderDivide.PassengerKeys.InvalidAmount | The number of 'passengerKeys' in the request must be less than the number of passengers in the informed order. |
 | 400 Bad Request | OrderDivide.Pending.Service | It is not possible to perform order divide after a service addition/change. Please confirm changes to your order before splitting it, or split it first before making changes. |
 | 400 Bad Request | OrderDivide.Unaccompanied.NotAllowed | It's not allowed to divide an order when it will result in orders where there are only unaccompanied minors (under {0} years old). Both involved orders must contain at least one adult passenger (ADT) over {0} years of age at the end of the division. |
+| 400 Bad Request | Orders.Fares.Error | You are not allowed to see others fares in this method. |
 | 400 Bad Request | Organization.AlreadyIntoGroup | The informed OrganizationCode is already inserted in this organization group. |
 | 400 Bad Request | Organization.AuthorizationFailed | The agent does not have access to the finder organization, either on its own or by a group. |
 | 400 Bad Request | Organization.CNPJ.Invalid | The point of sale organization does not have a valid CNPJ. |
