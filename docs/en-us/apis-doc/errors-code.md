@@ -541,6 +541,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 502 Bad Gateway | Agent.DefaultEmail.NotConfigured | The informed agent does not have a configured default email. |
 | 502 Bad Gateway | Agent.NotActive | The Agent is not active. |
 | 502 Bad Gateway | AuthorizationFailed.Credentials | Username or password is incorrect. |
+| 502 Bad Gateway | Blacklisted.Card | The used credit card is blacklisted, please select another one to pay this order. |
 | 502 Bad Gateway | Comarch.RequestFailed | An error occurred while retrieving the data in the commarch. |
 | 502 Bad Gateway | Integration.Error | ServiceBus connection error! |
 | 502 Bad Gateway | Integration.Failed | The request failed. |
