@@ -541,6 +541,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 502 Bad Gateway | Agent.DefaultEmail.NotConfigured | The informed agent does not have a configured default email. | O agente informado não possui email padrão configurado. |
 | 502 Bad Gateway | Agent.NotActive | The Agent is not active. | O Agente não está ativo. |
 | 502 Bad Gateway | AuthorizationFailed.Credentials | Username or password is incorrect. | Nome de usuário ou senha está incorreta. |
+| 502 Bad Gateway | Blacklisted.Card | The used credit card is blacklisted, please select another one to pay this order. | O cartão de crédito usado está na lista negra. Por favor selecione outro cartão para pagar esta reserva. |
 | 502 Bad Gateway | Comarch.RequestFailed | An error occurred while retrieving the data in the commarch. | Ocorreu um erro ao recuperar os dados na commarch. |
 | 502 Bad Gateway | Integration.Error | ServiceBus connection error! | Erro de conexão do ServiceBus! |
 | 502 Bad Gateway | Integration.Failed | The request failed. | A solicitação falhou. |
