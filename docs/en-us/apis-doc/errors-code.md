@@ -579,6 +579,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 502 Bad Gateway | Organization.NotActive | The Organization is not active. |
 | 502 Bad Gateway | Passengers.Count.OverMaximum | The sum of adult and child passenger must be less than or equal to 9. |
 | 502 Bad Gateway | Passengers.Count.UnderMinimum | The minimum count of 'Passenger' array is 1. |
+| 502 Bad Gateway | Payment.Appoval.fail | The payment flow was not finalized yet. |
 | 502 Bad Gateway | RequestFailed | The request failed. |
 | 502 Bad Gateway | RequestFailed.AssistanceCode.NotAllowed | The informed assistance code is invalid or cannot be added to this journey. |
 | 502 Bad Gateway | RequestFailed.Authentication | An error occurred while validating the user authentication. |
