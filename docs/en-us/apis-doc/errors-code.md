@@ -24,6 +24,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | Contact.AddressLine.Required | The 'AddressLine1' is required. |
 | 400 Bad Request | Contact.Duplicate | The 'TypeCode' is duplicated. |
 | 400 Bad Request | Contact.LastName.Required | The 'LastNameRequired' is required. |
+| 400 Bad Request | Customer.AlreadyCategorized | This passenger has already been categorized, You are not allowed to change the passenger's name. |
 | 400 Bad Request | CustomerProgram.NotAllowed | This user profile cannot categorize customers. |
 | 400 Bad Request | CustomProgram.NotMatch | Passenger name does not match within informed Customer Program. |
 | 400 Bad Request | Dates.Range.OverMaximum | The difference in days between 'DepartureBegin' and 'DepartureEnd' cannot be greater than {0} days. |
@@ -138,6 +139,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | InvalidField.Name.Suffix | The 'Name.Sufix' must be a valid Enum. |
 | 400 Bad Request | InvalidField.Name.Title | The 'Name.Title' must be a valid Enum. |
 | 400 Bad Request | InvalidField.Nationality.Length | The 'Nationality' has a maximum length 2 characters. |
+| 400 Bad Request | InvalidField.NewName | Please check the 'NewName', it can't start with special characters and numbers. |
 | 400 Bad Request | InvalidField.NewPassword | The 'NewPassword' must be different from the 'CurrentPassword'. |
 | 400 Bad Request | InvalidField.NoFilter | Filter by 'Username' or 'FirstName'. |
 | 400 Bad Request | InvalidField.Offers | The minimum count of 'Offers' array is 1. |
@@ -222,6 +224,9 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | Loyalty.Tier.NotFound | The customer tier not found. |
 | 400 Bad Request | Market.NotAvailable | The set of stations requested do not have an available market yet. |
 | 400 Bad Request | Market.Unavailable | The informed origin/destination market are currently unavailable for low fare estimate search. |
+| 400 Bad Request | Name.AlreadyChanged | This passenger name has already been changed, You are not allowed to change the passenger's name again. |
+| 400 Bad Request | Name.NotUpdated | This passenger name is the same to the one filled in this booking, Please check the name's change and try again. |
+| 400 Bad Request | Name.NotUpdatedLimit | This passenger's name has a limit of 4 characters when changing the name. |
 | 400 Bad Request | Nationality.NotFound | The 'Nationality' was not found. |
 | 400 Bad Request | Navitaire.SeatCreate.Failed | The request failed to assign seat. |
 | 400 Bad Request | NotAvailable.Credit | The informed 'RecordLocator' has no credit available. |
@@ -344,10 +349,12 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | RequiredField.LastName | The 'LastName' is required. |
 | 400 Bad Request | RequiredField.Month | The 'PeriodCriteria.Month' is required. |
 | 400 Bad Request | RequiredField.Name | The 'Name' is required. |
+| 400 Bad Request | RequiredField.NameToChange | The 'NameToChange' is required. |
 | 400 Bad Request | RequiredField.Name.First | The 'Name.First' is required. |
 | 400 Bad Request | RequiredField.Name.Last | The 'Name.Last' is required. |
 | 400 Bad Request | RequiredField.Name.Middle | The 'Name.Middle' is required. |
 | 400 Bad Request | RequiredField.Nationality | The 'Nationality' is required. |
+| 400 Bad Request | RequiredField.NewName | The 'NewName' is required. |
 | 400 Bad Request | RequiredField.NewPassword | The 'NewPassword' is required. |
 | 400 Bad Request | RequiredField.Offers | The 'Offers' array is required. |
 | 400 Bad Request | RequiredField.Offers.CurrentJourneyKey | The 'CurrentJourneyKey' is required. |

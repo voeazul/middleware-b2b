@@ -24,6 +24,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Contact.AddressLine.Required | The 'AddressLine1' is required. | O 'AddressLine1' é obrigatório. |
 | 400 Bad Request | Contact.Duplicate | The 'TypeCode' is duplicated. | O 'TypeCode' está duplicado. |
 | 400 Bad Request | Contact.LastName.Required | The 'LastNameRequired' is required. | O 'LastNameRequired' é obrigatório. |
+| 400 Bad Request | Customer.AlreadyCategorized | This passenger has already been categorized, You are not allowed to change the passenger's name. | Este passageiro já foi categorizado. Você não tem permissão para alterar o nome do passageiro |
 | 400 Bad Request | CustomerProgram.NotAllowed | This user profile cannot categorize customers. | Este perfil de usuário não pode categorizar clientes. |
 | 400 Bad Request | CustomProgram.NotMatch | Passenger name does not match within informed Customer Program. | O nome do passageiro não corresponde ao Programa do Cliente informado. |
 | 400 Bad Request | Dates.Range.OverMaximum | The difference in days between 'DepartureBegin' and 'DepartureEnd' cannot be greater than {0} days. | A diferença de dias entre 'DepartureBegin' e 'DepartureEnd' não pode ser superior a {0} dias. |
@@ -138,6 +139,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | InvalidField.Name.Suffix | The 'Name.Sufix' must be a valid Enum. | O 'Name.Sufix' deve ser um Enum válido. |
 | 400 Bad Request | InvalidField.Name.Title | The 'Name.Title' must be a valid Enum. | O 'Name.Title' deve ser um Enum válido. |
 | 400 Bad Request | InvalidField.Nationality.Length | The 'Nationality' has a maximum length 2 characters. | A 'Nationality' tem um comprimento máximo de 2 caracteres. |
+| 400 Bad Request | InvalidField.NewName | Please check the 'NewName', it can't start with special characters and numbers. | Por favor verifique o 'NewName', ele não pode começar com caracteres especiais e números. |
 | 400 Bad Request | InvalidField.NewPassword | The 'NewPassword' must be different from the 'CurrentPassword'. | A 'NewPassword' deve ser diferente da 'CurrentPassword'. |
 | 400 Bad Request | InvalidField.NoFilter | Filter by 'Username' or 'FirstName'. | Filtre por 'Username' ou 'FirstName'. |
 | 400 Bad Request | InvalidField.Offers | The minimum count of 'Offers' array is 1. | A contagem mínima da lista 'Offers' é 1. |
@@ -222,6 +224,9 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Loyalty.Tier.NotFound | The customer tier not found. | A camada do cliente não foi encontrada. |
 | 400 Bad Request | Market.NotAvailable | The set of stations requested do not have an available market yet. | O conjunto de estações solicitadas ainda não tem mercado disponível. |
 | 400 Bad Request | Market.Unavailable | The informed origin/destination market are currently unavailable for low fare estimate search. | O mercado de origem/destino informado não está atualmente disponível para pesquisa de estimativas de tarifas baixas. |
+| 400 Bad Request | Name.AlreadyChanged | This passenger name has already been changed, You are not allowed to change the passenger's name again. | O nome deste passageiro já foi alterado. Você não tem permissão para alterar o nome do passageiro novamente. |
+| 400 Bad Request | Name.NotUpdated | This passenger name is the same to the one filled in this booking, Please check the name's change and try again. | O nome deste passageiro é o mesmo preenchido nesta reserva. Verifique a alteração do nome e tente novamente. |
+| 400 Bad Request | Name.NotUpdatedLimit | This passenger's name has a limit of 4 characters when changing the name. | O nome deste passageiro tem um limite de 4 caracteres ao alterar o nome. 
 | 400 Bad Request | Nationality.NotFound | The 'Nationality' was not found. | A 'Nationality' não foi encontrada. |
 | 400 Bad Request | Navitaire.SeatCreate.Failed | The request failed to assign seat. | A solicitação não conseguiu atribuir assento. |
 | 400 Bad Request | NotAvailable.Credit | The informed 'RecordLocator' has no credit available. | O ‘RecordLocator’ informado não possui crédito disponível. |
@@ -344,10 +349,12 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.LastName | The 'LastName' is required. | O 'LastName' é obrigatório. |
 | 400 Bad Request | RequiredField.Month | The 'PeriodCriteria.Month' is required. | O 'PeriodCriteria.Month' é obrigatório. |
 | 400 Bad Request | RequiredField.Name | The 'Name' is required. | O 'Name' é obrigatório. |
+| 400 Bad Request | RequiredField.NameToChange | The 'NameToChange' is required. | O 'NameToChange' é obrigatório. |
 | 400 Bad Request | RequiredField.Name.First | The 'Name.First' is required. | O 'Name.First' é obrigatório. |
 | 400 Bad Request | RequiredField.Name.Last | The 'Name.Last' is required. | O 'Name.Last' é obrigatório. |
 | 400 Bad Request | RequiredField.Name.Middle | The 'Name.Middle' is required. | O 'Name.Middle' é obrigatório. |
 | 400 Bad Request | RequiredField.Nationality | The 'Nationality' is required. | A 'Nationality' é obrigatório. |
+| 400 Bad Request | RequiredField.NewName | The 'NewName' is required. | A 'NewName' é obrigatório. |
 | 400 Bad Request | RequiredField.NewPassword | The 'NewPassword' is required. | O 'NewPassword' é obrigatória. |
 | 400 Bad Request | RequiredField.Offers | The 'Offers' array is required. | O array de 'Offers' é obrigatória. |
 | 400 Bad Request | RequiredField.Offers.CurrentJourneyKey | The 'CurrentJourneyKey' is required. | O 'CurrentJourneyKey' é obrigatório. |
