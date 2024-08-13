@@ -1,16 +1,14 @@
 # Changelog
 
-## [1.9.0] - 16/07/2024
+## [1.10.0] - 13/07/2024
 
 ### Added
-- Flow for removing the TAIC10 promocode if the payment with the Tudo Azul card is declined.
-- Method for adding promocode to already created orders on hold.
+- Methods for get and checkout of group order.
+- Added new error messages for locked credit cards.
 
 ### Updated
-- Permission to access the reports methods for agents with the WebServiceAgent profile.
-- Returning imported date information in the retrieve reaccommodations method.
-- Indication that the order is in payment quarantine in the retrieve order methods.
-- Return of the refund fee amount to be applied in the Calculate v2.
+- Adjust the AirSearch ordering for flights with stopover and connection.
+- Permission to access the reports methods for agents with the FinancialAgent profile.
 
 [Link to previous versions](/docs/en-us/change-log/readme.history.md)
 
