@@ -29,6 +29,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Dates.Range.OverMaximum | The difference in days between 'DepartureBegin' and 'DepartureEnd' cannot be greater than {0} days. | A diferença de dias entre 'DepartureBegin' e 'DepartureEnd' não pode ser superior a {0} dias. |
 | 400 Bad Request | DiscountPayment.TudoAzul | A discount have been applied to your order for using a TudoAzul card. | Foi aplicado um desconto na sua reserva pela utilização do cartão TudoAzul. |
 | 400 Bad Request | Email.NotFound | User has no email assigned. | O usuário não tem email atribuído. |
+| 400 Bad Request | Error.PublisherMessage | An unexpected error occurred while sending a publisher message. | Um erro inesperado ocorreu enquanto a mensagem é enviada pelo emissor. |
 | 400 Bad Request | FlexibleDays.Disabled | Unable to get flexible days because this feature is disabled. | Não é possível obter dias flexíveis porque esse recurso está desativado. |
 | 400 Bad Request | Infant.NotNull | There is already a infant in the order for this passenger. | Já existe um bebê na reserva para este passageiro. |
 | 400 Bad Request | Infant.Request.Failed | There was an error sending the passenger document. | Ocorreu um erro no envio do documento do passageiro. |
