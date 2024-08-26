@@ -29,7 +29,6 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | Dates.Range.OverMaximum | The difference in days between 'DepartureBegin' and 'DepartureEnd' cannot be greater than {0} days. |
 | 400 Bad Request | DiscountPayment.TudoAzul | A discount have been applied to your order for using a TudoAzul card. |
 | 400 Bad Request | Email.NotFound | User has no email assigned. |
-| 400 Bad Request | Error.PublisherMessage | An unexpected error occurred while sending a publisher message. |
 | 400 Bad Request | FlexibleDays.Disabled | Unable to get flexible days because this feature is disabled. |
 | 400 Bad Request | Infant.NotNull | There is already a infant in the order for this passenger. |
 | 400 Bad Request | Infant.Request.Failed | There was an error sending the passenger document. |
