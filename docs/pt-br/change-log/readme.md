@@ -1,13 +1,10 @@
 # Changelog
 
-## [1.10.0] - 13/08/2024
-
-### Adicionado
-- Adicionado métodos para consulta e checkout de reservas de grupos.
-- Adicionado novas mensagens de erro para cartões bloqueados.
+## [1.11.0] - 24/09/2024
 
 ### Modificado
-- Ajuste na ordenação do AirSearch para voos com escala e conexão.
-- Permissão para acesso a funcionalidade de relatórios aos agentes do perfil FinancialAgent.
+- Aumento no timeout das Apis.
+- Limpeza do state após a divisão da reserva.
+- Validação de caracteres especiais para os campos "primeiro", "médio" e "último" na criação e modificação da reserva.
 
 [Link para as versões anteriores](/docs/pt-br/change-log/readme.history.md)
