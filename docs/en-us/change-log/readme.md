@@ -1,14 +1,11 @@
 # Changelog
 
-## [1.10.0] - 13/07/2024
-
-### Added
-- Methods for get and checkout of group order.
-- Added new error messages for locked credit cards.
+## [1.11.0] - 24/09/2024
 
 ### Updated
-- Adjust the AirSearch ordering for flights with stopover and connection.
-- Permission to access the reports methods for agents with the FinancialAgent profile.
+- Increase in the timeout of Apis.
+- Cleaning the state after the division of the order.
+- Validation of special characters for the fields "first", "middle" and "last" in the creation and modification of the order.
 
 [Link to previous versions](/docs/en-us/change-log/readme.history.md)
 
