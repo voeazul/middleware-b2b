@@ -1,5 +1,27 @@
 # Complete Changelog
 
+## [1.9.0] - 16/07/2024
+
+### Added
+- Flow for removing the TAIC10 promocode if the payment with the Tudo Azul card is declined.
+- Method for adding promocode to already created orders on hold.
+
+### Updated
+- Permission to access the reports methods for agents with the WebServiceAgent profile.
+- Returning imported date information in the retrieve reaccommodations method.
+- Indication that the order is in payment quarantine in the retrieve order methods.
+- Return of the refund fee amount to be applied in the Calculate v2.
+
+## [1.8.0] - 28/06/2024
+
+### Added
+- CodeShare orders record locators informations
+
+### Updated
+- Adjustments and restrictions on the availability of baggage and services on CodeShare segments
+- Block unaccompanied minor passengers on CodeShare orders
+- Block creation of CodeShare orders with segments with a departure date less than 24 hours away
+
 ## [1.7.0] - 17/06/2024
 
 ### Added

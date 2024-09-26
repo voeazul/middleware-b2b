@@ -229,6 +229,9 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Offer.UnaccompaniedMinor.AdditionalFees | Unaccompanied minor may incur additional fee, according to company policy. | Menores desacompanhados poderão incorrer em taxa adicional, de acordo com a política da empresa. |
 | 400 Bad Request | Order.Calculation.NotPending | The order in the state has no calculations to be done. | A reserva no estado não tem cálculos a serem feitos. |
 | 400 Bad Request | Order.Calculation.Pending | Order details can only be retrieved after calculation of its changes. If you are changing journeys, please finish desired changes and do a calculate before retrieving. | Os detalhes da reserva só podem ser recuperados após o cálculo de suas alterações.  |
+| 400 Bad Request | Orders.Group.Error | You are not allowed to see Orders Groups in this method. | Você não está autorizado a ver grupos de reservas neste método. |
+| 400 Bad Request | Orders.Group.Error | You are not allowed to add baggages to Orders Groups in this method.| Você não está autorizado a adicionar bagagem para grupos de reservas neste método. |
+| 400 Bad Request | Orders.Group.Error | You are not allowed to add services to Orders Groups in this method.| Você não está autorizado a adicionar serviços para grupos de reservas neste método.  |
 | 400 Bad Request | Order.Journeys.Count | The maximum number of Journeys allowed in a order is {0}. | O número máximo de jornadas permitidas em uma reserva é {0}. |
 | 400 Bad Request | Order.NoChildren | The informed order does not have any children record locator associated. | A reserva informado não possui nenhum localizador de registros filhos associado. |
 | 400 Bad Request | Order.NoJourneys | The informed order has no journeys to be managed. | A reserva informado não possui jornadas a serem gerenciadas. |
@@ -239,12 +242,14 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Order.Retrieve.V1.Conflict | This method is not compatible with retrieve order in V1. | Este método não é compatível com a ordem de recuperação em V1. |
 | 400 Bad Request | Order.Retrieve.V2.Conflict | This method is not compatible with retrieve order in V2. | Este método não é compatível com a ordem de recuperação na V2. |
 | 400 Bad Request | Order.State.Timeout | The state time for this order has expired. Please retrieve the order again with the GET Order method. | O tempo estadual para esta reserva expirou.  |
+| 400 Bad Request | Order.Quarantine.payment | This order is in payment quarantine. | Este pedido está em quarentena de pagamento. |
 | 400 Bad Request | OrderDivide.BalanceDue.Underpaid | Underpaid orders cannot be divided. | Reservas mal pagos não podem ser divididos. |
 | 400 Bad Request | OrderDivide.CreditAmount.invalid | The informed 'creditAmount' is invalid because it's greater than the amount available in the informed order. | O 'creditAmount' informado é inválido porque é maior que o valor disponível na reserva informado. |
 | 400 Bad Request | OrderDivide.DivideCredit.Failed | An error occurred while dividing the order credit. Credit values have not been divided or changed, remaining entirely in the parent order. | Ocorreu um erro ao dividir o crédito da reserva.  |
 | 400 Bad Request | OrderDivide.PassengerKeys.InvalidAmount | The number of 'passengerKeys' in the request must be less than the number of passengers in the informed order. | A quantidade de ‘passengerKeys’ na solicitação deverá ser menor que a quantidade de passageiros da reserva informado. |
 | 400 Bad Request | OrderDivide.Pending.Service | It is not possible to perform order divide after a service addition/change. Please confirm changes to your order before splitting it, or split it first before making changes. | Não é possível realizar a divisão de reservas após uma adição/alteração de serviço.  |
 | 400 Bad Request | OrderDivide.Unaccompanied.NotAllowed | It's not allowed to divide an order when it will result in orders where there are only unaccompanied minors (under {0} years old). Both involved orders must contain at least one adult passenger (ADT) over {0} years of age at the end of the division. | Não é permitida a divisão de uma reserva quando isso resultar em reservas onde haja apenas menores desacompanhados (menores de {0} anos).  |
+| 400 Bad Request | Orders.Fares.Error | You are not allowed to see others fares in this method. | Você não tem autorização para ver outras taxas neste método |
 | 400 Bad Request | Organization.AlreadyIntoGroup | The informed OrganizationCode is already inserted in this organization group. | O OrganizationCode informado já está inserido neste grupo organizacional. |
 | 400 Bad Request | Organization.AuthorizationFailed | The agent does not have access to the finder organization, either on its own or by a group. | O agente não tem acesso à organização localizadora, nem por conta própria nem por grupo. |
 | 400 Bad Request | Organization.CNPJ.Invalid | The point of sale organization does not have a valid CNPJ. | A organização do ponto de venda não possui CNPJ válido. |
@@ -417,9 +422,38 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | User.NotEditable | Deleted user cannot be edited. | O usuário excluído não pode ser editado. |
 | 400 Bad Request | User.Password.Expired | Expired password, user must change password. | Senha expirada, o usuário deve alterar a senha. |
 | 400 Bad Request | Warning.OrganizationFeeOverride | Organization fee override is not applicable for this order. | A substituição da taxa de organização não se aplica a esta order. |
+| 400 Bad Request | Duplicate.Organization | The informed organization code already exists. | O código da organização informado já existe. |
+| 400 Bad Request | InvalidField.Address.City | The 'City' must be 32 characters in length. | A 'Cidade' deve ter 32 caracteres. |
+| 400 Bad Request | InvalidField.Address.CompanyName | The 'CompanyName' must be 128 characters in length. | O 'CompanyName' deve ter 128 caracteres. |
+| 400 Bad Request | InvalidField.Address.CountryCode | The 'CountryCode' must be 2 characters in length. | O 'CountryCode' deve ter 2 caracteres de comprimento. |
+| 400 Bad Request | InvalidField.Address.LineOne | The 'LineOne' must be 128 characters in length. | O 'LineOne' deve ter 128 caracteres. |
+| 400 Bad Request | InvalidField.Address.LineTwo | The 'LineTwo' must be 128 characters in length. | O 'LineTwo' deve ter 128 caracteres. |
+| 400 Bad Request | InvalidField.Address.PostalCode | The 'PostalCode' must be 10 characters in length. | O 'PostalCode' deve ter 10 caracteres. |
+| 400 Bad Request | InvalidField.Address.ProvinceState | The 'ProvinceState' must be 2 characters in length. | O 'ProvinceState' deve ter 2 caracteres de comprimento. |
+| 400 Bad Request | InvalidField.Company.EmailAdress | The 'EmailAdress' must be a valid. | O 'EmailAdress' deve ser válido. |
+| 400 Bad Request | InvalidField.CompanyPhones.Number | The 'Company.Phones.Number' has a maximum length 20 characters. | O 'Company.Phones.Number' tem no máximo 20 caracteres. |
+| 400 Bad Request | InvalidField.CompanyPhones.Type | The 'Company.Phones.Type' must be a valid enum. | O 'Company.Phones.Type' deve ser um enum válido. |
+| 400 Bad Request | InvalidField.ContactName.First | The 'Contact.Name.First' has a maximum length 32 characters. | O 'Contact.Name.First' tem no máximo 32 caracteres. |
+| 400 Bad Request | InvalidField.ContactName.Last | The 'Contact.Name.Last' has a maximum length 32 characters. | O 'Contact.Name.Last' tem no máximo 32 caracteres. |
+| 400 Bad Request | InvalidField.ContactName.Middle | The 'Contact.Name.Middle' has a maximum length 32 characters. | O 'Contact.Name.Middle' tem comprimento máximo de 32 caracteres.|
+| 400 Bad Request | InvalidField.ContactName.Suffix | The 'Contact.Name.Suffix' must be a valid enum. | O 'Contact.Name.Suffix' deve ser um enum válido. |
+| 400 Bad Request | InvalidField.ContactName.Title | The 'Contact.Name.Title' must be a valid enum. | O 'Contact.Name.Title' deve ser um enum válido. |
+| 400 Bad Request | InvalidField.ContactPhones.Number | The 'Contact.Phones.Number' has a maximum length 20 characters. | O 'Contact.Phones.Number' tem no máximo 20 caracteres. |
+| 400 Bad Request | InvalidField.ContactPhones.Type | The 'Contact.Phones.Type' must be a valid enum. | InvalidField.ContactPhones.Type | O 'Contact.Phones.Type' deve ser um enum válido.|
+| 400 Bad Request | InvalidField.IataCode | The 'IataCodeLength' must be 8 characters in length. | O 'IataCodeLength' deve ter 8 caracteres. |
+| 400 Bad Request | InvalidField.LastStatementDate | The 'LastStatementDate' must be a valid. | O 'LastStatementDate' deve ser válido. |
+| 400 Bad Request | InvalidField.StatementNote | The 'StatementNote' must be 128 characters in length. | O 'StatementNote' deve ter 128 caracteres. |
+| 400 Bad Request | RequiredField.Company.Cnpj | The 'Company Cnpj' is required. | O 'Cnpj da Empresa' é obrigatório. |
+| 400 Bad Request | RequiredField.CompanyPhones.Type | The 'Company.Phones.Type' is required. | O 'Company.Phones.Type' é obrigatório. |
+| 400 Bad Request | RequiredField.ConpanyPhones.Number | The 'Conpany.Phones.Number' is required. | O 'Company.Phones.Number' é obrigatório. |
+| 400 Bad Request | RequiredField.ContactPhones.Type | The 'Contact.Phones.Type' is required. | O 'Contact.Phones.Type' é obrigatório. |
+| 400 Bad Request | RequiredField.ParentCode | The 'ParentCode' is required. | O 'ParentCode' é obrigatório. |
+| 400 Bad Request | NotApplied.PromotionCode | Application of promotionCode is only permitted on hold reservations.| A aplicação do promoCode só é permitida em reservas em HOLD |
+| 400 Bad Request | InvalidField.Promotion.Code | It is not possible to apply a promo code to reservations that contain the promo code. | Não é possível aplicar um PromotionCode a reservas que contenham PromotinCode. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. | Ocorreu um erro ao executar a autenticação. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. | O Bearer Token fornecido é inválido ou expirou. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. | Ocorreu um erro ao validar a autenticação do usuário. |
+| 403 Forbidden | Agent.MethodCode.NotAllowed | The logged agent is not allowed to make payments using this method code. | O agente logado não é liberado para realizar pagamentos usando este método. |
 | 403 Forbidden | Agent.NoAccess | The agent does not have access to the informed user. | O agente não tem acesso ao usuário informado. |
 | 403 Forbidden | AssignSeat.UnitKey.Blocked | The request failed to assign the seat, because this seat is blocked by passengers rules (age, SSR or equipment). | A solicitação não conseguiu atribuir o assento, pois este assento está bloqueado pelas regras do passageiro (idade, SSR ou equipamento). |
 | 403 Forbidden | Organization.AuthorizationFailed.User | This user does not have access to the informed organization. | Este usuário não tem acesso à organização informada. |
@@ -469,6 +503,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 404 Not Found | User.NoMatches | The informed user does not exist or was not found. | O usuário informado não existe ou não foi encontrado. |
 | 404 Not Found | UserKey.NoMatches | The informed 'UserKey' does not exist or was not found. | O 'UserKey' informado não existe ou não foi encontrado. |
 | 404 Not Found | Username.NoMatches | The 'Username' user does not exist or was not found. | O 'Username' não existe ou não foi encontrado. |
+| 406 Not Acceptable | Retrieve.Order.InvalidProductClass | It is not possible retrieve orders in v2 with the product class contained in the requested order. | Não é possível obter reservas na V2 com as classes de produtos contidas na reserva solicitada |
 | 409 Conflict | AssignSeat.PassengerKey.Conflict | The PassengerKey does not exists in the order state. | O PassengerKey não existe na order do state. |
 | 409 Conflict | AssignSeat.Seat.Conflict | Seat Already Assigned. | Assento já atribuído. |
 | 409 Conflict | InvalidField.AssistanceCode | The assistance '{0}' is invalid for the Journey '{1}-{2} - {3}'. | A assistência '{0}' é inválida para a journey '{1}-{2} - {3}'. |
@@ -493,6 +528,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 409 Conflict | RequestFailed.UnaccompaniedMinor.DomesticFligths | Unaccompanied minors are allowed in brazilian domestic flights only. | Menores desacompanhados são permitidos apenas em voos domésticos no Brasil. |
 | 409 Conflict | RequestFailed.UnaccopaniedMinor.OnlyDirectFlight | Unaccompanied minors are allowed in direct flights only. | Menores desacompanhados são permitidos apenas em voos diretos. |
 | 409 Conflict | RequiredField.LiableRecordLocator | A passenger over 18 years old is required in the liable order. | É necessário um passageiro maior de 18 anos na order |
+| 409 Conflict | Organizations.CNPJ.error | You are not allowed to create Organizations to this CNPJ. | Você não tem permissão para criar Organizações para este CNPJ |
 | 422 Unprocessable Content | Assistance.SearchRequired | Retrieve a 'assistances/search' with journeyKey before execute this method. | Recupere uma 'assistência/pesquisa' com travelKey antes de executar este método. |
 | 422 Unprocessable Content | Baggage.SearchRequired | Retrieve a 'baggage/search' with journeyKey before execute this method. | Recupere uma 'bagagem/pesquisa' com travelKey antes de executar este método. |
 | 422 Unprocessable Content | NotMatch.Name | The names sent do not match those on the attached order. | Os nomes enviados não correspondem aos da order em anexo. |
@@ -505,6 +541,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 502 Bad Gateway | Agent.DefaultEmail.NotConfigured | The informed agent does not have a configured default email. | O agente informado não possui email padrão configurado. |
 | 502 Bad Gateway | Agent.NotActive | The Agent is not active. | O Agente não está ativo. |
 | 502 Bad Gateway | AuthorizationFailed.Credentials | Username or password is incorrect. | Nome de usuário ou senha está incorreta. |
+| 502 Bad Gateway | Blacklisted.Card | The used credit card is blacklisted, please select another one to pay this order. | O cartão de crédito usado está na lista negra. Por favor selecione outro cartão para pagar esta reserva. |
 | 502 Bad Gateway | Comarch.RequestFailed | An error occurred while retrieving the data in the commarch. | Ocorreu um erro ao recuperar os dados na commarch. |
 | 502 Bad Gateway | Integration.Error | ServiceBus connection error! | Erro de conexão do ServiceBus! |
 | 502 Bad Gateway | Integration.Failed | The request failed. | A solicitação falhou. |
@@ -542,6 +579,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 502 Bad Gateway | Organization.NotActive | The Organization is not active. | A Organização não está ativa. |
 | 502 Bad Gateway | Passengers.Count.OverMaximum | The sum of adult and child passenger must be less than or equal to 9. | A soma dos passageiros adultos e crianças deverá ser menor ou igual a 9. |
 | 502 Bad Gateway | Passengers.Count.UnderMinimum | The minimum count of 'Passenger' array is 1. | A contagem mínima de 'Passageiro' é 1. |
+| 502 Bad Gateway | Payment.Appoval.fail | The payment flow was not finalized yet. | O fluxo de pagamento não foi finalizado. |
 | 502 Bad Gateway | RequestFailed | The request failed. | A solicitação falhou. |
 | 502 Bad Gateway | RequestFailed.AssistanceCode.NotAllowed | The informed assistance code is invalid or cannot be added to this journey. | O código de assistência informado é inválido ou não pode ser adicionado a esta journey. |
 | 502 Bad Gateway | RequestFailed.Authentication | An error occurred while validating the user authentication. | Ocorreu um erro ao validar a autenticação do usuário. |

@@ -229,6 +229,9 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | Offer.UnaccompaniedMinor.AdditionalFees | Unaccompanied minor may incur additional fee, according to company policy. |
 | 400 Bad Request | Order.Calculation.NotPending | The order in the state has no calculations to be done. |
 | 400 Bad Request | Order.Calculation.Pending | Order details can only be retrieved after calculation of its changes. If you are changing journeys, please finish desired changes and do a calculate before retrieving. |
+| 400 Bad Request | Orders.Group.Error | You are not allowed to see Orders Groups in this method. |
+| 400 Bad Request | Orders.Group.Error | You are not allowed to add baggages to Orders Groups in this method.|
+| 400 Bad Request | Orders.Group.Error | You are not allowed to add services to Orders Groups in this method.|
 | 400 Bad Request | Order.Journeys.Count | The maximum number of Journeys allowed in a order is {0}. |
 | 400 Bad Request | Order.NoChildren | The informed order does not have any children record locator associated. |
 | 400 Bad Request | Order.NoJourneys | The informed order has no journeys to be managed. |
@@ -239,12 +242,14 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | Order.Retrieve.V1.Conflict | This method is not compatible with retrieve order in V1. |
 | 400 Bad Request | Order.Retrieve.V2.Conflict | This method is not compatible with retrieve order in V2. |
 | 400 Bad Request | Order.State.Timeout | The state time for this order has expired. Please retrieve the order again with the GET Order method. |
+| 400 Bad Request | Order.Quarantine.payment | This order is in payment quarantine. |
 | 400 Bad Request | OrderDivide.BalanceDue.Underpaid | Underpaid orders cannot be divided. |
 | 400 Bad Request | OrderDivide.CreditAmount.invalid | The informed 'creditAmount' is invalid because it's greater than the amount available in the informed order. |
 | 400 Bad Request | OrderDivide.DivideCredit.Failed | An error occurred while dividing the order credit. Credit values have not been divided or changed, remaining entirely in the parent order. |
 | 400 Bad Request | OrderDivide.PassengerKeys.InvalidAmount | The number of 'passengerKeys' in the request must be less than the number of passengers in the informed order. |
 | 400 Bad Request | OrderDivide.Pending.Service | It is not possible to perform order divide after a service addition/change. Please confirm changes to your order before splitting it, or split it first before making changes. |
 | 400 Bad Request | OrderDivide.Unaccompanied.NotAllowed | It's not allowed to divide an order when it will result in orders where there are only unaccompanied minors (under {0} years old). Both involved orders must contain at least one adult passenger (ADT) over {0} years of age at the end of the division. |
+| 400 Bad Request | Orders.Fares.Error | You are not allowed to see others fares in this method. |
 | 400 Bad Request | Organization.AlreadyIntoGroup | The informed OrganizationCode is already inserted in this organization group. |
 | 400 Bad Request | Organization.AuthorizationFailed | The agent does not have access to the finder organization, either on its own or by a group. |
 | 400 Bad Request | Organization.CNPJ.Invalid | The point of sale organization does not have a valid CNPJ. |
@@ -417,9 +422,38 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | User.NotEditable | Deleted user cannot be edited. |
 | 400 Bad Request | User.Password.Expired | Expired password, user must change password. |
 | 400 Bad Request | Warning.OrganizationFeeOverride | Organization fee override is not applicable for this order. |
+| 400 Bad Request | Duplicate.Organization | The informed organization code already exists. |
+| 400 Bad Request | InvalidField.Address.City | The 'City' must be 32 characters in length. |
+| 400 Bad Request | InvalidField.Address.CompanyName | The 'CompanyName' must be 128 characters in length. |
+| 400 Bad Request | InvalidField.Address.CountryCode | The 'CountryCode' must be 2 characters in length. |
+| 400 Bad Request | InvalidField.Address.LineOne | The 'LineOne' must be 128 characters in length. |
+| 400 Bad Request | InvalidField.Address.LineTwo | The 'LineTwo' must be 128 characters in length. |
+| 400 Bad Request | InvalidField.Address.PostalCode | The 'PostalCode' must be 10 characters in length. |
+| 400 Bad Request | InvalidField.Address.ProvinceState | The 'ProvinceState' must be 2 characters in length. |
+| 400 Bad Request | InvalidField.Company.EmailAdress | The 'EmailAdress' must be a valid. |
+| 400 Bad Request | InvalidField.CompanyPhones.Number | The 'Company.Phones.Number' has a maximum length 20 characters. |
+| 400 Bad Request | InvalidField.CompanyPhones.Type | The 'Company.Phones.Type' must be a valid enum. |
+| 400 Bad Request | InvalidField.ContactName.First | The 'Contact.Name.First' has a maximum length 32 characters. |
+| 400 Bad Request | InvalidField.ContactName.Last | The 'Contact.Name.Last' has a maximum length 32 characters. |
+| 400 Bad Request | InvalidField.ContactName.Middle | The 'Contact.Name.Middle' has a maximum length 32 characters. |
+| 400 Bad Request | InvalidField.ContactName.Suffix | The 'Contact.Name.Suffix' must be a valid enum. |
+| 400 Bad Request | InvalidField.ContactName.Title | The 'Contact.Name.Title' must be a valid enum. |
+| 400 Bad Request | InvalidField.ContactPhones.Number | The 'Contact.Phones.Number' has a maximum length 20 characters. |
+| 400 Bad Request | InvalidField.ContactPhones.Type | The 'Contact.Phones.Type' must be a valid enum. |
+| 400 Bad Request | InvalidField.IataCode | The 'IataCodeLength' must be 8 characters in length. |
+| 400 Bad Request | InvalidField.LastStatementDate | The 'LastStatementDate' must be a valid. |
+| 400 Bad Request | InvalidField.StatementNote | The 'StatementNote' must be 128 characters in length. |
+| 400 Bad Request | RequiredField.Company.Cnpj | The 'Company Cnpj' is required. |
+| 400 Bad Request | RequiredField.CompanyPhones.Type | The 'Company.Phones.Type' is required. |
+| 400 Bad Request | RequiredField.ConpanyPhones.Number | The 'Conpany.Phones.Number' is required. |
+| 400 Bad Request | RequiredField.ContactPhones.Type | The 'Contact.Phones.Type' is required. |
+| 400 Bad Request | RequiredField.ParentCode | The 'ParentCode' is required. |
+| 400 Bad Request | NotApplied.PromotionCode | Application of promotionCode is only permitted on hold reservations.|
+| 400 Bad Request | InvalidField.Promotion.Code | It is not possible to apply a promo code to reservations that contain the promo code. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. |
+| 403 Forbidden | Agent.MethodCode.NotAllowed | The logged agent is not allowed to make payments using this method code. |
 | 403 Forbidden | Agent.NoAccess | The agent does not have access to the informed user. |
 | 403 Forbidden | AssignSeat.UnitKey.Blocked | The request failed to assign the seat, because this seat is blocked by passengers rules (age, SSR or equipment). |
 | 403 Forbidden | Organization.AuthorizationFailed.User | This user does not have access to the informed organization. |
@@ -469,6 +503,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 404 Not Found | User.NoMatches | The informed user does not exist or was not found. |
 | 404 Not Found | UserKey.NoMatches | The informed 'UserKey' does not exist or was not found. |
 | 404 Not Found | Username.NoMatches | The 'Username' user does not exist or was not found. |
+| 406 Not Acceptable | Retrieve.Order.InvalidProductClass | It is not possible retrieve orders in v2 with the product class contained in the requested order. |
 | 409 Conflict | AssignSeat.PassengerKey.Conflict | The PassengerKey does not exists in the order state. |
 | 409 Conflict | AssignSeat.Seat.Conflict | Seat Already Assigned. |
 | 409 Conflict | InvalidField.AssistanceCode | The assistance '{0}' is invalid for the Journey '{1}-{2} - {3}'. |
@@ -493,6 +528,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 409 Conflict | RequestFailed.UnaccompaniedMinor.DomesticFligths | Unaccompanied minors are allowed in brazilian domestic flights only. |
 | 409 Conflict | RequestFailed.UnaccopaniedMinor.OnlyDirectFlight | Unaccompanied minors are allowed in direct flights only. |
 | 409 Conflict | RequiredField.LiableRecordLocator | A passenger over 18 years old is required in the liable order. |
+| 409 Conflict | Organizations.CNPJ.error | You are not allowed to create Organizations to this CNPJ. |
 | 422 Unprocessable Content | Assistance.SearchRequired | Retrieve a 'assistances/search' with journeyKey before execute this method. |
 | 422 Unprocessable Content | Baggage.SearchRequired | Retrieve a 'baggage/search' with journeyKey before execute this method. |
 | 422 Unprocessable Content | NotMatch.Name | The names sent do not match those on the attached order. |
@@ -505,6 +541,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 502 Bad Gateway | Agent.DefaultEmail.NotConfigured | The informed agent does not have a configured default email. |
 | 502 Bad Gateway | Agent.NotActive | The Agent is not active. |
 | 502 Bad Gateway | AuthorizationFailed.Credentials | Username or password is incorrect. |
+| 502 Bad Gateway | Blacklisted.Card | The used credit card is blacklisted, please select another one to pay this order. |
 | 502 Bad Gateway | Comarch.RequestFailed | An error occurred while retrieving the data in the commarch. |
 | 502 Bad Gateway | Integration.Error | ServiceBus connection error! |
 | 502 Bad Gateway | Integration.Failed | The request failed. |
@@ -542,6 +579,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 502 Bad Gateway | Organization.NotActive | The Organization is not active. |
 | 502 Bad Gateway | Passengers.Count.OverMaximum | The sum of adult and child passenger must be less than or equal to 9. |
 | 502 Bad Gateway | Passengers.Count.UnderMinimum | The minimum count of 'Passenger' array is 1. |
+| 502 Bad Gateway | Payment.Appoval.fail | The payment flow was not finalized yet. |
 | 502 Bad Gateway | RequestFailed | The request failed. |
 | 502 Bad Gateway | RequestFailed.AssistanceCode.NotAllowed | The informed assistance code is invalid or cannot be added to this journey. |
 | 502 Bad Gateway | RequestFailed.Authentication | An error occurred while validating the user authentication. |
