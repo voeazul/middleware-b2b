@@ -4,6 +4,7 @@
 
 ### Added
 - Added overrideDuFee field in the passenger array above the nationality field.
+- New method to perform DU override in international reserves.
 
 ### Updated
 - Increase in the timeout of Apis.

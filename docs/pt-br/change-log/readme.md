@@ -4,6 +4,7 @@
 
 ### Adicionado
 - Adicionado campo overrideDuFee no array de passenger acima do campo nationality.
+- Novo método para realziar override da DU em reserva internacional.
 
 ### Modificado
 - Foi modificado o método que aplica a DU, para considerar a nova operação para DUI aplicando no máximo 7% do valor para cada passageiro.
