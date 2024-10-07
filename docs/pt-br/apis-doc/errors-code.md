@@ -29,6 +29,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Dates.Range.OverMaximum | The difference in days between 'DepartureBegin' and 'DepartureEnd' cannot be greater than {0} days. | A diferença de dias entre 'DepartureBegin' e 'DepartureEnd' não pode ser superior a {0} dias. |
 | 400 Bad Request | DiscountPayment.TudoAzul | A discount have been applied to your order for using a TudoAzul card. | Foi aplicado um desconto na sua reserva pela utilização do cartão TudoAzul. |
 | 400 Bad Request | Email.NotFound | User has no email assigned. | O usuário não tem email atribuído. |
+| 400 Bad Request | Error.OverrideDuFee | Fee override is higher than the maximum amount allowed {0}%. | A substituição da tarifa é superior ao valor máximo permitido {0}%. |
 | 400 Bad Request | FlexibleDays.Disabled | Unable to get flexible days because this feature is disabled. | Não é possível obter dias flexíveis porque esse recurso está desativado. |
 | 400 Bad Request | Infant.NotNull | There is already a infant in the order for this passenger. | Já existe um bebê na reserva para este passageiro. |
 | 400 Bad Request | Infant.Request.Failed | There was an error sending the passenger document. | Ocorreu um erro no envio do documento do passageiro. |
@@ -441,7 +442,8 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | InvalidField.ContactPhones.Number | The 'Contact.Phones.Number' has a maximum length 20 characters. | O 'Contact.Phones.Number' tem no máximo 20 caracteres. |
 | 400 Bad Request | InvalidField.ContactPhones.Type | The 'Contact.Phones.Type' must be a valid enum. | InvalidField.ContactPhones.Type | O 'Contact.Phones.Type' deve ser um enum válido.|
 | 400 Bad Request | InvalidField.IataCode | The 'IataCodeLength' must be 8 characters in length. | O 'IataCodeLength' deve ter 8 caracteres. |
-| 400 Bad Request | InvalidField.LastStatementDate | The 'LastStatementDate' must be a valid. | O 'LastStatementDate' deve ser válido. |
+| 400 Bad Request | InvalidField.LastStatementDate | The 'LastStatementDate' must be a valid. | O 'LastStatementDate' deve ser válido. | |
+| 400 Bad Request | InvalidField.OverrideDuFee | The organizationFeeOverride cannot be informed when overrideDuFee was already informed.| O 'LastStatementDate' deve ser válido. | A organizaçãoFeeOverride não pode ser informada quando overrideDuFee já foi informado. |
 | 400 Bad Request | InvalidField.StatementNote | The 'StatementNote' must be 128 characters in length. | O 'StatementNote' deve ter 128 caracteres. |
 | 400 Bad Request | RequiredField.Company.Cnpj | The 'Company Cnpj' is required. | O 'Cnpj da Empresa' é obrigatório. |
 | 400 Bad Request | RequiredField.CompanyPhones.Type | The 'Company.Phones.Type' is required. | O 'Company.Phones.Type' é obrigatório. |

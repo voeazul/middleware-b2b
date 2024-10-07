@@ -1,11 +1,13 @@
 # Changelog
 
-## [1.11.0] - 24/09/2024
+## [1.12.0] - 24/09/2024
+
+### Added
+- Added overrideDuFee field in the passenger array above the nationality field.
 
 ### Updated
 - Increase in the timeout of Apis.
-- Cleaning the state after the division of the order.
-- Validation of special characters for the fields "first", "middle" and "last" in the creation and modification of the order.
+- The method that applies the DU was modified to consider the new operation for DUI, applying a maximum of 7% of the value for each passenger.
 
 [Link to previous versions](/docs/en-us/change-log/readme.history.md)
 

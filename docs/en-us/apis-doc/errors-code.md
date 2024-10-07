@@ -30,6 +30,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | DiscountPayment.TudoAzul | A discount have been applied to your order for using a TudoAzul card. |
 | 400 Bad Request | Email.NotFound | User has no email assigned. |
 | 400 Bad Request | FlexibleDays.Disabled | Unable to get flexible days because this feature is disabled. |
+| 400 Bad Request | Error.OverrideDuFee | Fee override is higher than the maximum amount allowed {0}%. | 
 | 400 Bad Request | Infant.NotNull | There is already a infant in the order for this passenger. |
 | 400 Bad Request | Infant.Request.Failed | There was an error sending the passenger document. |
 | 400 Bad Request | Integration.EnterpriseStation | An error occurred while returning the stations. |
@@ -442,6 +443,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | InvalidField.ContactPhones.Type | The 'Contact.Phones.Type' must be a valid enum. |
 | 400 Bad Request | InvalidField.IataCode | The 'IataCodeLength' must be 8 characters in length. |
 | 400 Bad Request | InvalidField.LastStatementDate | The 'LastStatementDate' must be a valid. |
+| 400 Bad Request | InvalidField.OverrideDuFee | The organizationFeeOverride cannot be informed when overrideDuFee was already informed. |
 | 400 Bad Request | InvalidField.StatementNote | The 'StatementNote' must be 128 characters in length. |
 | 400 Bad Request | RequiredField.Company.Cnpj | The 'Company Cnpj' is required. |
 | 400 Bad Request | RequiredField.CompanyPhones.Type | The 'Company.Phones.Type' is required. |
