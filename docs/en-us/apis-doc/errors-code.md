@@ -273,8 +273,10 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | Profile.HoldPermission | Your current profile does not allow hold creation. |
 | 400 Bad Request | Quote.UnaccompaniedMinor.NotAllowed | The 'JourneyKeys' {0} does not allow unaccompanied minors. |
 | 400 Bad Request | Reaccommodation.InProcess | Reaccommodation is in process. Wait 24 hours for it to be updated. |
+| 400 Bad Request | Refund.Fare.SoldOut | The requested class of service is sold out. |
 | 400 Bad Request | RecordLocator.NotFound | The given 'RecordLocator' was not found. |
 | 400 Bad Request | RefundAuthentication.Request.Failed | The request failed. |
+| 400 Bad Request | Refund.Override.InvalidValue | No increase in value is allowed in an Override operation. |
 | 400 Bad Request | RefundOrder.Fare.NotAvailable | Fare not available. |
 | 400 Bad Request | RefundType.CreditShell.CannotBeApplied | It is not possible to make the refund via credit shell. |
 | 400 Bad Request | RefundType.Payments.CannotBeApplied | There are no amounts to be refunded. |
@@ -373,6 +375,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | RequiredField.Passenger.DateOfBirth | The 'Passenger.DateOfBirth' is required. |
 | 400 Bad Request | RequiredField.Passenger.Gender | The 'Passenger.Gender' is required. |
 | 400 Bad Request | RequiredField.Passenger.Key | The 'PassengerKey' is required. |
+| 400 Bad Request | RequiredField.PassengerKeyRequired | The 'PassengerKeyRequired' is required.|
 | 400 Bad Request | RequiredField.Passenger.PhoneEmail | The 'Passengers.Phone' or  'Passengers.Email' is required. |
 | 400 Bad Request | RequiredField.Passenger.Type | The 'Passengers.Type' is required. |
 | 400 Bad Request | RequiredField.PassengerKey | The 'PassengerKey' is required. |

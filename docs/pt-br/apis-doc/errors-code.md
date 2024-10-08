@@ -273,8 +273,10 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Profile.HoldPermission | Your current profile does not allow hold creation. | Seu perfil atual não permite a criação de retenção. |
 | 400 Bad Request | Quote.UnaccompaniedMinor.NotAllowed | The 'JourneyKeys' {0} does not allow unaccompanied minors. | O 'JourneyKeys' {0} não permite menores desacompanhados. |
 | 400 Bad Request | Reaccommodation.InProcess | Reaccommodation is in process. Wait 24 hours for it to be updated. | A reacomodação está em processo.  |
+| 400 Bad Request | Refund.Fare.SoldOut | The requested class of service is sold out. | A classe de serviço solicitada está esgotada |
 | 400 Bad Request | RecordLocator.NotFound | The given 'RecordLocator' was not found. | O 'RecordLocator' fornecido não foi encontrado. |
 | 400 Bad Request | RefundAuthentication.Request.Failed | The request failed. | A solicitação falhou. |
+| 400 Bad Request | Refund.Override.InvalidValue | No increase in value is allowed in an Override operation. | Nenhum override de valor é permitido em uma operação de substituição. |
 | 400 Bad Request | RefundOrder.Fare.NotAvailable | Fare not available. | Tarifa não disponível. |
 | 400 Bad Request | RefundType.CreditShell.CannotBeApplied | It is not possible to make the refund via credit shell. | Não é possível efetuar o reembolso via shell de crédito. |
 | 400 Bad Request | RefundType.Payments.CannotBeApplied | There are no amounts to be refunded. | Não há valores a serem reembolsados. |
@@ -373,6 +375,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.Passenger.DateOfBirth | The 'Passenger.DateOfBirth' is required. | O 'Passenger.DateOfBirth' é obrigatório. |
 | 400 Bad Request | RequiredField.Passenger.Gender | The 'Passenger.Gender' is required. | O 'Passenger.Gender' é obrigatório. |
 | 400 Bad Request | RequiredField.Passenger.Key | The 'PassengerKey' is required. | A 'PassengerKey' é necessária. |
+| 400 Bad Request | RequiredField.PassengerKeyRequired | The 'PassengerKeyRequired' is required.| O 'PassengerKeyRequired' é obrigatório. |
 | 400 Bad Request | RequiredField.Passenger.PhoneEmail | The 'Passengers.Phone' or  'Passengers.Email' is required. | O 'Passengers.Phone' ou 'Passengers.Email' é obrigatório. |
 | 400 Bad Request | RequiredField.Passenger.Type | The 'Passengers.Type' is required. | O 'Passengers.Type' é obrigatório. |
 | 400 Bad Request | RequiredField.PassengerKey | The 'PassengerKey' is required. | A 'PassengerKey' é necessária. |
