@@ -3139,79 +3139,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Passenger Name",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-									"}"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{bearerToken}}"
-							}
-						},
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Ocp-Apim-Subscription-Key",
-								"value": "{{apiKey}}",
-								"type": "text"
-							},
-							{
-								"key": "User-Agent",
-								"value": "{{userAgent}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"nameToChange \": \"First\",\r\n  \"newName\": \"Valentine\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{urlOrderPassengers}}/api/v1/order/:recordLocator/passengers/:passengerKey/name",
-							"host": [
-								"{{urlOrderPassengers}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"order",
-								":recordLocator",
-								"passengers",
-								":passengerKey",
-								"name"
-							],
-							"variable": [
-								{
-									"key": "recordLocator",
-									"value": "{{recordLocator}}"
-								},
-								{
-									"key": "passengerKey",
-									"value": "{{passengerKey}}"
-								}
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
@@ -11269,7 +11196,18 @@
 											"}\r",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
