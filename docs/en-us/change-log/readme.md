@@ -7,5 +7,5 @@
 - Cleaning the state after the division of the order.
 - Validation of special characters for the fields "first", "middle" and "last" in the creation and modification of the order.
 
-[Link to previous versions](/docs/en-us/change-log/readme.history.md)
 
+[Link to previous versions](/docs/en-us/change-log/readme.history.md)
