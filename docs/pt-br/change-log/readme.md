@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.11.0] - 24/09/2024
+## [1.11.0] - 21/10/2024
 
 ### Modificado
 - Aumento no timeout das Apis.
