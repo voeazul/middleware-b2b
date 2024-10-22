@@ -13,6 +13,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | AlreadyExists.Username | The 'Username' entered already exists in this or another organization. |
 | 400 Bad Request | AuthorizationFailed.Credentials | Username or password is incorrect. |
 | 400 Bad Request | B2b.OrderManagementRequest.Failed | The request failed. |
+| 400 Bad Request | B2bHttp.CustomBadRequest | The token is invalid. |
 | 400 Bad Request | B2b.Request.Failed | The request failed. |
 | 400 Bad Request | B2b.User.Failed | The request failed. |
 | 400 Bad Request | BirthCountry.NotFound | The 'BirthCountry' was not found. |
@@ -419,6 +420,11 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | Service.Quantity.Restricted | This service is restricted to one occurence per passenger and leg. |
 | 400 Bad Request | Shopping.Request.Failed | The Shopping request failed. |
 | 400 Bad Request | Stations.NotAllowed | These requested stations are invalid: |
+| 400 Bad Request | Token.InvalidDecodeJwtBadRequest | Error decoding token. |
+| 400 Bad Request | Token.InvalidReadJwtBadRequest | Error reading token. |
+| 400 Bad Request | Token.FailedBadRequest | It is not possible to generate token without group DL. |
+| 400 Bad Request | Token.InvalidSignatureBadRequest | Invalid Token Signature. |
+| 400 Bad Request | Token.ExpiredBadRequest | The token has expired. |
 | 400 Bad Request | TudoAzul.Categorization.Failed | There was a failure in the categorization of TudoAzul of 'passengers.customerProgram.number': {0}. Try categorize again after the order creation (before assigning seats or adding baggages to ensure all potential benefits). |
 | 400 Bad Request | UnitKey.Invalid | The 'UnitKey' is invalid. |
 | 400 Bad Request | User.CannotBeUnlocked | Only API users can be unlocked. |

@@ -13,6 +13,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | AlreadyExists.Username | The 'Username' entered already exists in this or another organization. | O 'Username' inserido já existe nesta ou em outra organização. |
 | 400 Bad Request | AuthorizationFailed.Credentials | Username or password is incorrect. | Nome de usuário ou senha está incorreta. |
 | 400 Bad Request | B2b.OrderManagementRequest.Failed | The request failed. | A solicitação falhou. |
+| 400 Bad Request | B2bHttp.CustomBadRequest | The token is invalid. | O token é invalido. |
 | 400 Bad Request | B2b.Request.Failed | The request failed. | A solicitação falhou. |
 | 400 Bad Request | B2b.User.Failed | The request failed. | A solicitação falhou. |
 | 400 Bad Request | BirthCountry.NotFound | The 'BirthCountry' was not found. | O 'BirthCountry' não foi encontrado. |
@@ -419,6 +420,11 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Service.Quantity.Restricted | This service is restricted to one occurence per passenger and leg. | Este serviço está restrito a uma ocorrência por passageiro e trecho. |
 | 400 Bad Request | Shopping.Request.Failed | The Shopping request failed. | A solicitação do Shopping falhou. |
 | 400 Bad Request | Stations.NotAllowed | These requested stations are invalid: | Estas stations solicitadas são inválidas: |
+| 400 Bad Request | Token.InvalidDecodeJwtBadRequest | Error decoding token. | Erro ao decoficar o token. |
+| 400 Bad Request | Token.InvalidReadJwtBadRequest | Error reading token. | Erro a ler o token. |
+| 400 Bad Request | Token.FailedBadRequest | It is not possible to generate token without group DL. | Não é possível gerar o token sem o groupo DL. |
+| 400 Bad Request | Token.InvalidSignatureBadRequest | Invalid Token Signature. | Assinatura do token ivalida. |
+| 400 Bad Request | Token.ExpiredBadRequest | The token has expired. | O token expirou. |
 | 400 Bad Request | TudoAzul.Categorization.Failed | There was a failure in the categorization of TudoAzul of 'passengers.customerProgram.number': {0}. Try categorize again after the order creation (before assigning seats or adding baggages to ensure all potential benefits). | Houve falha na categorização do TudoAzul de 'passengers.customerProgram.number': {0}.  |
 | 400 Bad Request | UnitKey.Invalid | The 'UnitKey' is invalid. | O 'UnitKey' é inválido. |
 | 400 Bad Request | User.CannotBeUnlocked | Only API users can be unlocked. | Somente usuários da API podem ser desbloqueados. |
