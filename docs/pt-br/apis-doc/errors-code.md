@@ -619,4 +619,5 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 502 Bad Gateway | RequiredField.OrganizationCode | The 'OrganizationCode' is required. | O 'OrganizationCode' é obrigatório. |
 | 502 Bad Gateway | RequiredField.PassengerType | The 'Passenger.Type' is required. | O 'Passenger.Type' é obrigatório. |
 | 502 Bad Gateway | Resources.RequestFailed | The Resources request failed. | A solicitação do recurso falhou. |
+| 502 Bad Gateway | FrequentFlyer.Inconsistent | The passenger's name in the frequent flyer registration is different from the reservation system, please contact frequent flyer support. | Se o nome do passageiro no registro de passageiro frequente for diferente do sistema de reservas, entre em contato com o suporte ao passageiro frequente. |
 | 502 Bad Gateway | UserOrganization.NotAllowed | The logged user organization does not have access to the requested order. | A organização do usuário logado não tem acesso ao pedido solicitado. |

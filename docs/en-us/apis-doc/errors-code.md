@@ -619,4 +619,5 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 502 Bad Gateway | RequiredField.OrganizationCode | The 'OrganizationCode' is required. |
 | 502 Bad Gateway | RequiredField.PassengerType | The 'Passenger.Type' is required. |
 | 502 Bad Gateway | Resources.RequestFailed | The Resources request failed. |
+| 502 Bad Gateway | FrequentFlyer.Inconsistent | The passenger's name in the frequent flyer registration is different from the reservation system, please contact frequent flyer support. |
 | 502 Bad Gateway | UserOrganization.NotAllowed | The logged user organization does not have access to the requested order. |
