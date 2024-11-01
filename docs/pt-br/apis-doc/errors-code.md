@@ -464,10 +464,14 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. | Ocorreu um erro ao executar a autenticação. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. | O Bearer Token fornecido é inválido ou expirou. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. | Ocorreu um erro ao validar a autenticação do usuário. |
+| 401 Unauthorized | InvalidToken.NotInformed | Bearer Token not informed. The token must be informed in the request header. | Bearer Token não informado. O token deve ser informado no cabeçalho da requisição. |
+| 401 Unauthorized | InvalidToken.NotAuthenticated | Not Authenticated. The Agent must be authenticated thru User API. | Não autenticado. O Agente deve ser autenticado por meio da API do Usuário. |
+| 401 Unauthorized | InvalidToken.Expired | Provided JWT is invalid or expired. | O JTW fornecido é inválido ou expirou. |
 | 403 Forbidden | Agent.MethodCode.NotAllowed | The logged agent is not allowed to make payments using this method code. | O agente logado não é liberado para realizar pagamentos usando este método. |
 | 403 Forbidden | Agent.NoAccess | The agent does not have access to the informed user. | O agente não tem acesso ao usuário informado. |
 | 403 Forbidden | AssignSeat.UnitKey.Blocked | The request failed to assign the seat, because this seat is blocked by passengers rules (age, SSR or equipment). | A solicitação não conseguiu atribuir o assento, pois este assento está bloqueado pelas regras do passageiro (idade, SSR ou equipamento). |
 | 403 Forbidden | Organization.AuthorizationFailed.User | This user does not have access to the informed organization. | Este usuário não tem acesso à organização informada. |
+| 403 Forbidden | AuthorizationFailed.InvalidRole | The agent does not have the required roles to access this method. | O agente não tem as funções necessárias para acessar esse método. |
 | 404 Not Found | Assistance.NoMatches | This assistance does not exist or was not found. | Esta assistência não existe ou não foi encontrada. |
 | 404 Not Found | Assistances.NoMatches | Unable to retrieve the assistances data. | Não foi possível recuperar os dados de assistência. |
 | 404 Not Found | AssistancesKey.NoMatches | The informed 'Assistances.Key' does not exists or does not belong to a previously retrieved 'assistance/search'. | A 'Assistances.Key' informada não existe ou não pertence a uma 'assistance/search' recuperada anteriormente. |
@@ -540,6 +544,8 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 409 Conflict | RequestFailed.UnaccopaniedMinor.OnlyDirectFlight | Unaccompanied minors are allowed in direct flights only. | Menores desacompanhados são permitidos apenas em voos diretos. |
 | 409 Conflict | RequiredField.LiableRecordLocator | A passenger over 18 years old is required in the liable order. | É necessário um passageiro maior de 18 anos na order |
 | 409 Conflict | Organizations.CNPJ.error | You are not allowed to create Organizations to this CNPJ. | Você não tem permissão para criar Organizações para este CNPJ |
+| 409 Conflict | Retrieve.V2.NotExecuted | Get Order V2 has not been executed. | Get Order V2 não foi executado. |
+| 409 Conflict | InternalSession.Failed | An internal error has occurred and the process is unrecoverable, please retrieve again to restart the process. | Ocorreu um erro interno e o processo é irrecuperável, recupere novamente para reiniciar o processo. |
 | 422 Unprocessable Content | Assistance.SearchRequired | Retrieve a 'assistances/search' with journeyKey before execute this method. | Recupere uma 'assistência/pesquisa' com travelKey antes de executar este método. |
 | 422 Unprocessable Content | Baggage.SearchRequired | Retrieve a 'baggage/search' with journeyKey before execute this method. | Recupere uma 'bagagem/pesquisa' com travelKey antes de executar este método. |
 | 422 Unprocessable Content | NotMatch.Name | The names sent do not match those on the attached order. | Os nomes enviados não correspondem aos da order em anexo. |
@@ -549,6 +555,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 422 Unprocessable Content | SeatMapCache.SearchRequired | No seatmap found or generated in state. Please retrieve a seatmap before trying to assign a seat. | Nenhum mapa de assentos encontrado ou gerado no state.  |
 | 422 Unprocessable Content | Service.SearchRequired | Retrieve a 'services/search' with journeyKey before execute this method. | Recupere um 'serviços/pesquisa' com travelKey antes de executar este método. |
 | 422 Unprocessable Content | UnitKey.SearchRequired | The informed UnitKey does not belong to a previously retrieved SeatMap or the previous retrive is expired. | A UnitKey informada não pertence a um SeatMap recuperado anteriormente ou a recuperação anterior expirou. |
+| 422 Unprocessable Content | Reaccommodation.pending | The indicated booking is in reaccommodation proccess. | A reserva indicada encontra-se em processo de reacomodação. |
 | 502 Bad Gateway | Agent.DefaultEmail.NotConfigured | The informed agent does not have a configured default email. | O agente informado não possui email padrão configurado. |
 | 502 Bad Gateway | Agent.NotActive | The Agent is not active. | O Agente não está ativo. |
 | 502 Bad Gateway | AuthorizationFailed.Credentials | Username or password is incorrect. | Nome de usuário ou senha está incorreta. |

@@ -464,10 +464,14 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. |
+| 401 Unauthorized | InvalidToken.NotInformed | Bearer Token not informed. The token must be informed in the request header. |
+| 401 Unauthorized | InvalidToken.NotAuthenticated | Not Authenticated. The Agent must be authenticated thru User API. |
+| 401 Unauthorized | InvalidToken.Expired | Provided JWT is invalid or expired. |
 | 403 Forbidden | Agent.MethodCode.NotAllowed | The logged agent is not allowed to make payments using this method code. |
 | 403 Forbidden | Agent.NoAccess | The agent does not have access to the informed user. |
 | 403 Forbidden | AssignSeat.UnitKey.Blocked | The request failed to assign the seat, because this seat is blocked by passengers rules (age, SSR or equipment). |
 | 403 Forbidden | Organization.AuthorizationFailed.User | This user does not have access to the informed organization. |
+| 403 Forbidden | AuthorizationFailed.InvalidRole | The agent does not have the required roles to access this method. |
 | 404 Not Found | Assistance.NoMatches | This assistance does not exist or was not found. |
 | 404 Not Found | Assistances.NoMatches | Unable to retrieve the assistances data. |
 | 404 Not Found | AssistancesKey.NoMatches | The informed 'Assistances.Key' does not exists or does not belong to a previously retrieved 'assistance/search'. |
@@ -540,6 +544,8 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 409 Conflict | RequestFailed.UnaccopaniedMinor.OnlyDirectFlight | Unaccompanied minors are allowed in direct flights only. |
 | 409 Conflict | RequiredField.LiableRecordLocator | A passenger over 18 years old is required in the liable order. |
 | 409 Conflict | Organizations.CNPJ.error | You are not allowed to create Organizations to this CNPJ. |
+| 409 Conflict | Retrieve.V2.NotExecuted | Get Order V2 has not been executed. |
+| 409 Conflict | InternalSession.Failed | An internal error has occurred and the process is unrecoverable, please retrieve again to restart the process. |
 | 422 Unprocessable Content | Assistance.SearchRequired | Retrieve a 'assistances/search' with journeyKey before execute this method. |
 | 422 Unprocessable Content | Baggage.SearchRequired | Retrieve a 'baggage/search' with journeyKey before execute this method. |
 | 422 Unprocessable Content | NotMatch.Name | The names sent do not match those on the attached order. |
@@ -549,6 +555,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 422 Unprocessable Content | SeatMapCache.SearchRequired | No seatmap found or generated in state. Please retrieve a seatmap before trying to assign a seat. |
 | 422 Unprocessable Content | Service.SearchRequired | Retrieve a 'services/search' with journeyKey before execute this method. |
 | 422 Unprocessable Content | UnitKey.SearchRequired | The informed UnitKey does not belong to a previously retrieved SeatMap or the previous retrive is expired. |
+| 422 Unprocessable Content | Reaccommodation.pending | The indicated booking is in reaccommodation proccess. |
 | 502 Bad Gateway | Agent.DefaultEmail.NotConfigured | The informed agent does not have a configured default email. |
 | 502 Bad Gateway | Agent.NotActive | The Agent is not active. |
 | 502 Bad Gateway | AuthorizationFailed.Credentials | Username or password is incorrect. |
