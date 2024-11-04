@@ -545,7 +545,6 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 409 Conflict | RequiredField.LiableRecordLocator | A passenger over 18 years old is required in the liable order. | É necessário um passageiro maior de 18 anos na order |
 | 409 Conflict | Organizations.CNPJ.error | You are not allowed to create Organizations to this CNPJ. | Você não tem permissão para criar Organizações para este CNPJ |
 | 409 Conflict | Retrieve.V2.NotExecuted | Get Order V2 has not been executed. | Get Order V2 não foi executado. |
-| 409 Conflict | InternalSession.Failed | An internal error has occurred and the process is unrecoverable, please retrieve again to restart the process. | Ocorreu um erro interno e o processo é irrecuperável, recupere novamente para reiniciar o processo. |
 | 422 Unprocessable Content | Assistance.SearchRequired | Retrieve a 'assistances/search' with journeyKey before execute this method. | Recupere uma 'assistência/pesquisa' com travelKey antes de executar este método. |
 | 422 Unprocessable Content | Baggage.SearchRequired | Retrieve a 'baggage/search' with journeyKey before execute this method. | Recupere uma 'bagagem/pesquisa' com travelKey antes de executar este método. |
 | 422 Unprocessable Content | NotMatch.Name | The names sent do not match those on the attached order. | Os nomes enviados não correspondem aos da order em anexo. |
@@ -628,3 +627,4 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 502 Bad Gateway | Resources.RequestFailed | The Resources request failed. | A solicitação do recurso falhou. |
 | 502 Bad Gateway | FrequentFlyer.Inconsistent | The passenger's name in the frequent flyer registration is different from the reservation system, please contact frequent flyer support. | Se o nome do passageiro no registro de passageiro frequente for diferente do sistema de reservas, entre em contato com o suporte ao passageiro frequente. |
 | 502 Bad Gateway | UserOrganization.NotAllowed | The logged user organization does not have access to the requested order. | A organização do usuário logado não tem acesso ao pedido solicitado. |
+| 502 Bad Gateway | InternalSession.Failed | An internal error has occurred and the process is unrecoverable, please retrieve again to restart the process. | Ocorreu um erro interno e o processo é irrecuperável, recupere novamente para reiniciar o processo. |

@@ -545,7 +545,6 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 409 Conflict | RequiredField.LiableRecordLocator | A passenger over 18 years old is required in the liable order. |
 | 409 Conflict | Organizations.CNPJ.error | You are not allowed to create Organizations to this CNPJ. |
 | 409 Conflict | Retrieve.V2.NotExecuted | Get Order V2 has not been executed. |
-| 409 Conflict | InternalSession.Failed | An internal error has occurred and the process is unrecoverable, please retrieve again to restart the process. |
 | 422 Unprocessable Content | Assistance.SearchRequired | Retrieve a 'assistances/search' with journeyKey before execute this method. |
 | 422 Unprocessable Content | Baggage.SearchRequired | Retrieve a 'baggage/search' with journeyKey before execute this method. |
 | 422 Unprocessable Content | NotMatch.Name | The names sent do not match those on the attached order. |
@@ -628,3 +627,4 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 502 Bad Gateway | Resources.RequestFailed | The Resources request failed. |
 | 502 Bad Gateway | FrequentFlyer.Inconsistent | The passenger's name in the frequent flyer registration is different from the reservation system, please contact frequent flyer support. |
 | 502 Bad Gateway | UserOrganization.NotAllowed | The logged user organization does not have access to the requested order. |
+| 502 Bad Gateway | InternalSession.Failed | An internal error has occurred and the process is unrecoverable, please retrieve again to restart the process. |
