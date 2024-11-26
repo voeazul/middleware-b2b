@@ -224,6 +224,9 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | Loyalty.Tier.NotFound | The customer tier not found. |
 | 400 Bad Request | Market.NotAvailable | The set of stations requested do not have an available market yet. |
 | 400 Bad Request | Market.Unavailable | The informed origin/destination market are currently unavailable for low fare estimate search. |
+| 400 Bad Request | Name.AlreadyChanged | This passenger name has already been changed, You are not allowed to change the passenger's name again. |
+| 400 Bad Request | Name.NotUpdated | This passenger name is the same to the one filled in this booking, Please check the name's change and try again. |
+| 400 Bad Request | Name.NotUpdatedLimit | This passenger's name has a limit of 4 characters when changing the name. |
 | 400 Bad Request | Nationality.NotFound | The 'Nationality' was not found. |
 | 400 Bad Request | Navitaire.SeatCreate.Failed | The request failed to assign seat. |
 | 400 Bad Request | NotAvailable.Credit | The informed 'RecordLocator' has no credit available. |
@@ -320,6 +323,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | RequiredField.CreditCard.Type | The 'CreditCard.Type' is required |
 | 400 Bad Request | RequiredField.CreditCard.VerificationCode | The 'VerificationCode' is required. |
 | 400 Bad Request | RequiredField.Criteria | The 'Criteria' is only required for 'CriteriaType': 'Phone', 'Email', 'DocumentNumber', 'CardNumber' and 'CustomerNumber'. |
+| 400 Bad Request | Customer.AlreadyCategorized | This passenger has already been categorized, You are not allowed to change the passenger's name. |
 | 400 Bad Request | RequiredField.CriteriaType | The 'CriteriaType' is only required for 'Type': 'Organization'. |
 | 400 Bad Request | RequiredField.CurrencyCode | The 'CurrencyCode' is required. |
 | 400 Bad Request | RequiredField.CurrentPassword | User not authenticated. The field 'Username' is required. |
@@ -356,7 +360,9 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | RequiredField.Name.First | The 'Name.First' is required. |
 | 400 Bad Request | RequiredField.Name.Last | The 'Name.Last' is required. |
 | 400 Bad Request | RequiredField.Name.Middle | The 'Name.Middle' is required. |
+| 400 Bad Request | RequiredField.NameToChange | The 'NameToChange' is required. |
 | 400 Bad Request | RequiredField.Nationality | The 'Nationality' is required. |
+| 400 Bad Request | RequiredField.NewName | The 'NewName' is required. |
 | 400 Bad Request | RequiredField.NewPassword | The 'NewPassword' is required. |
 | 400 Bad Request | RequiredField.Offers | The 'Offers' array is required. |
 | 400 Bad Request | RequiredField.Offers.CurrentJourneyKey | The 'CurrentJourneyKey' is required. |
@@ -454,6 +460,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | InvalidField.LastStatementDate | The 'LastStatementDate' must be a valid. |
 | 400 Bad Request | InvalidField.OverrideDuFee | The organizationFeeOverride cannot be informed when overrideDuFee was already informed. |
 | 400 Bad Request | InvalidField.StatementNote | The 'StatementNote' must be 128 characters in length. |
+| 400 Bad Request | InvalidField.NewName | Please check the 'NewName', it can't start with special characters and numbers. |
 | 400 Bad Request | RequiredField.Company.Cnpj | The 'Company Cnpj' is required. |
 | 400 Bad Request | RequiredField.CompanyPhones.Type | The 'Company.Phones.Type' is required. |
 | 400 Bad Request | RequiredField.ConpanyPhones.Number | The 'Conpany.Phones.Number' is required. |

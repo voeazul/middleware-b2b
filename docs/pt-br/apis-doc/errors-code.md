@@ -224,6 +224,9 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Loyalty.Tier.NotFound | The customer tier not found. | A camada do cliente não foi encontrada. |
 | 400 Bad Request | Market.NotAvailable | The set of stations requested do not have an available market yet. | O conjunto de estações solicitadas ainda não tem mercado disponível. |
 | 400 Bad Request | Market.Unavailable | The informed origin/destination market are currently unavailable for low fare estimate search. | O mercado de origem/destino informado não está atualmente disponível para pesquisa de estimativas de tarifas baixas. |
+| 400 Bad Request | Name.AlreadyChanged | This passenger name has already been changed, You are not allowed to change the passenger's name again. | O nome deste passageiro já foi alterado. Você não tem permissão para alterar o nome do passageiro novamente. |
+| 400 Bad Request | Name.NotUpdated | This passenger name is the same to the one filled in this booking, Please check the name's change and try again. | O nome deste passageiro é o mesmo preenchido nesta reserva. Verifique a alteração do nome e tente novamente. |
+| 400 Bad Request | Name.NotUpdatedLimit | This passenger's name has a limit of 4 characters when changing the name. | O nome deste passageiro tem um limite de 4 caracteres ao alterar o nome. 
 | 400 Bad Request | Nationality.NotFound | The 'Nationality' was not found. | A 'Nationality' não foi encontrada. |
 | 400 Bad Request | Navitaire.SeatCreate.Failed | The request failed to assign seat. | A solicitação não conseguiu atribuir assento. |
 | 400 Bad Request | NotAvailable.Credit | The informed 'RecordLocator' has no credit available. | O ‘RecordLocator’ informado não possui crédito disponível. |
@@ -320,6 +323,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.CreditCard.Type | The 'CreditCard.Type' is required | O 'CreditCard.Type' é obrigatório |
 | 400 Bad Request | RequiredField.CreditCard.VerificationCode | The 'VerificationCode' is required. | O 'VerificationCode' é obrigatório. |
 | 400 Bad Request | RequiredField.Criteria | The 'Criteria' is only required for 'CriteriaType': 'Phone', 'Email', 'DocumentNumber', 'CardNumber' and 'CustomerNumber'. | Os 'Critérios' só são necessários para 'CriteriaType': 'Telefone', 'E-mail', 'DocumentNumber', 'CardNumber' e 'CustomerNumber'. |
+| 400 Bad Request | Customer.AlreadyCategorized | This passenger has already been categorized, You are not allowed to change the passenger's name. | Este passageiro já foi categorizado. Você não tem permissão para alterar o nome do passageiro. |
 | 400 Bad Request | RequiredField.CriteriaType | The 'CriteriaType' is only required for 'Type': 'Organization'. | O 'CriteriaType' só é necessário para 'Tipo': 'Organização'. |
 | 400 Bad Request | RequiredField.CurrencyCode | The 'CurrencyCode' is required. | O 'CurrencyCode' é obrigatório. |
 | 400 Bad Request | RequiredField.CurrentPassword | User not authenticated. The field 'Username' is required. | Usuário não autenticado. O campo 'Username' é obrigatório.  |
@@ -356,7 +360,9 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.Name.First | The 'Name.First' is required. | O 'Name.First' é obrigatório. |
 | 400 Bad Request | RequiredField.Name.Last | The 'Name.Last' is required. | O 'Name.Last' é obrigatório. |
 | 400 Bad Request | RequiredField.Name.Middle | The 'Name.Middle' is required. | O 'Name.Middle' é obrigatório. |
+| 400 Bad Request | RequiredField.NameToChange | The 'NameToChange' is required. |
 | 400 Bad Request | RequiredField.Nationality | The 'Nationality' is required. | A 'Nationality' é obrigatório. |
+| 400 Bad Request | RequiredField.NewName | The 'NewName' is required. | A 'NewName' é obrigatório. |
 | 400 Bad Request | RequiredField.NewPassword | The 'NewPassword' is required. | O 'NewPassword' é obrigatória. |
 | 400 Bad Request | RequiredField.Offers | The 'Offers' array is required. | O array de 'Offers' é obrigatória. |
 | 400 Bad Request | RequiredField.Offers.CurrentJourneyKey | The 'CurrentJourneyKey' is required. | O 'CurrentJourneyKey' é obrigatório. |
@@ -454,6 +460,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | InvalidField.LastStatementDate | The 'LastStatementDate' must be a valid. | O 'LastStatementDate' deve ser válido. | |
 | 400 Bad Request | InvalidField.OverrideDuFee | The organizationFeeOverride cannot be informed when overrideDuFee was already informed.| O 'LastStatementDate' deve ser válido. | A organizaçãoFeeOverride não pode ser informada quando overrideDuFee já foi informado. |
 | 400 Bad Request | InvalidField.StatementNote | The 'StatementNote' must be 128 characters in length. | O 'StatementNote' deve ter 128 caracteres. |
+| 400 Bad Request | InvalidField.NewName | Please check the 'NewName', it can't start with special characters and numbers. | Por favor verifique o 'NovoNome', ele não pode começar com caracteres especiais e números. |
 | 400 Bad Request | RequiredField.Company.Cnpj | The 'Company Cnpj' is required. | O 'Cnpj da Empresa' é obrigatório. |
 | 400 Bad Request | RequiredField.CompanyPhones.Type | The 'Company.Phones.Type' is required. | O 'Company.Phones.Type' é obrigatório. |
 | 400 Bad Request | RequiredField.ConpanyPhones.Number | The 'Conpany.Phones.Number' is required. | O 'Company.Phones.Number' é obrigatório. |
