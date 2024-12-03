@@ -1504,7 +1504,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"notifyContacts\": true\r\n}",
+							"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2862,7 +2862,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"refundType\": \"Credit\",\r\n    \"notifyContacts\": true\r\n}",
+							"raw": "{\r\n    \"refundType\": \"Credit\",\r\n    \"notifyContacts\": \"None\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2966,7 +2966,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"notifyContacts\": true\r\n}",
+							"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6412,7 +6412,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": true\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -6811,7 +6811,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": true\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -7197,7 +7197,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -7644,7 +7644,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": true\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -8089,7 +8089,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": true\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -8535,7 +8535,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": true\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -8979,7 +8979,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": true\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -9315,7 +9315,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -9663,7 +9663,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -9836,7 +9836,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -10236,7 +10236,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -10617,7 +10617,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -11065,7 +11065,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -11410,7 +11410,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -11743,7 +11743,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -11947,7 +11947,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -12397,7 +12397,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -12840,7 +12840,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -13348,7 +13348,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -13740,7 +13740,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -14010,7 +14010,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -14404,7 +14404,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -14650,7 +14650,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"refundType\": \"Credit\",\r\n    \"notifyContacts\": false\r\n\r\n}",
+									"raw": "{\r\n    \"refundType\": \"Credit\",\r\n    \"notifyContacts\": \"None\"\r\n\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -14943,7 +14943,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -15327,7 +15327,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -15712,7 +15712,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -16092,7 +16092,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -16483,7 +16483,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -16939,7 +16939,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -17446,7 +17446,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -17942,7 +17942,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -18323,7 +18323,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -18715,7 +18715,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -18908,7 +18908,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -19361,7 +19361,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -19756,7 +19756,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -19961,7 +19961,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -20571,7 +20571,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -21317,7 +21317,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -22519,7 +22519,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -23127,7 +23127,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -24029,7 +24029,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -24714,7 +24714,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -27625,7 +27625,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -28017,7 +28017,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -28615,7 +28615,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -29326,7 +29326,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -29883,7 +29883,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -30450,7 +30450,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -31022,7 +31022,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -31599,7 +31599,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -32387,7 +32387,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -32930,7 +32930,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -33580,7 +33580,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -33827,7 +33827,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -34232,7 +34232,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -34667,7 +34667,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -35423,7 +35423,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -35845,7 +35845,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -36206,7 +36206,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -36582,7 +36582,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -36989,7 +36989,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -37353,7 +37353,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -37758,7 +37758,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -38408,7 +38408,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -39116,7 +39116,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -39762,7 +39762,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -40240,7 +40240,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  //\"refundType\": \"Credit\",\r\n    \"notifyContacts\": false\r\n\r\n}",
+									"raw": "{\r\n  //\"refundType\": \"Credit\",\r\n    \"notifyContacts\": \"None\"\r\n\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -40647,7 +40647,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -41500,7 +41500,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -41689,7 +41689,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -44521,7 +44521,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -45083,7 +45083,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -45341,7 +45341,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -45725,7 +45725,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -45914,7 +45914,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -46318,7 +46318,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -46713,7 +46713,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -47252,7 +47252,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -47648,7 +47648,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": false\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -48575,7 +48575,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"notifyContacts\": true\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
