@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.12.0] - 24/09/2024
+## [1.12.0] - 09/12/2024
 
 ### Added
 - Added overrideDuFee field in the passenger array above the nationality field.
