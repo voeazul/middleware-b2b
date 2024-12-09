@@ -1,6 +1,6 @@
 # Complete Changelog
 
-## [1.11.0] - 21/10/2024
+## [1.11.0] - 09/12/2024
 
 ### Updated
 - Increase in the timeout of Apis.
