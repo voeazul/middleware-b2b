@@ -13,6 +13,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | AlreadyExists.Username | The 'Username' entered already exists in this or another organization. |
 | 400 Bad Request | AuthorizationFailed.Credentials | Username or password is incorrect. |
 | 400 Bad Request | B2b.OrderManagementRequest.Failed | The request failed. |
+| 400 Bad Request | B2bHttp.CustomBadRequest | The token is invalid. |
 | 400 Bad Request | B2b.Request.Failed | The request failed. |
 | 400 Bad Request | B2b.User.Failed | The request failed. |
 | 400 Bad Request | BirthCountry.NotFound | The 'BirthCountry' was not found. |
@@ -30,6 +31,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | DiscountPayment.TudoAzul | A discount have been applied to your order for using a TudoAzul card. |
 | 400 Bad Request | Email.NotFound | User has no email assigned. |
 | 400 Bad Request | FlexibleDays.Disabled | Unable to get flexible days because this feature is disabled. |
+| 400 Bad Request | Error.OverrideDuFee | Fee override is higher than the maximum amount allowed {0}%. | 
 | 400 Bad Request | Infant.NotNull | There is already a infant in the order for this passenger. |
 | 400 Bad Request | Infant.Request.Failed | There was an error sending the passenger document. |
 | 400 Bad Request | Integration.EnterpriseStation | An error occurred while returning the stations. |
@@ -222,6 +224,9 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | Loyalty.Tier.NotFound | The customer tier not found. |
 | 400 Bad Request | Market.NotAvailable | The set of stations requested do not have an available market yet. |
 | 400 Bad Request | Market.Unavailable | The informed origin/destination market are currently unavailable for low fare estimate search. |
+| 400 Bad Request | Name.AlreadyChanged | This passenger name has already been changed, You are not allowed to change the passenger's name again. |
+| 400 Bad Request | Name.NotUpdated | This passenger name is the same to the one filled in this booking, Please check the name's change and try again. |
+| 400 Bad Request | Name.NotUpdatedLimit | This passenger's name has a limit of 4 characters when changing the name. |
 | 400 Bad Request | Nationality.NotFound | The 'Nationality' was not found. |
 | 400 Bad Request | Navitaire.SeatCreate.Failed | The request failed to assign seat. |
 | 400 Bad Request | NotAvailable.Credit | The informed 'RecordLocator' has no credit available. |
@@ -272,8 +277,10 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | Profile.HoldPermission | Your current profile does not allow hold creation. |
 | 400 Bad Request | Quote.UnaccompaniedMinor.NotAllowed | The 'JourneyKeys' {0} does not allow unaccompanied minors. |
 | 400 Bad Request | Reaccommodation.InProcess | Reaccommodation is in process. Wait 24 hours for it to be updated. |
+| 400 Bad Request | Refund.Fare.SoldOut | The requested class of service is sold out. |
 | 400 Bad Request | RecordLocator.NotFound | The given 'RecordLocator' was not found. |
 | 400 Bad Request | RefundAuthentication.Request.Failed | The request failed. |
+| 400 Bad Request | Refund.Override.InvalidValue | No increase in value is allowed in an Override operation. |
 | 400 Bad Request | RefundOrder.Fare.NotAvailable | Fare not available. |
 | 400 Bad Request | RefundType.CreditShell.CannotBeApplied | It is not possible to make the refund via credit shell. |
 | 400 Bad Request | RefundType.Payments.CannotBeApplied | There are no amounts to be refunded. |
@@ -316,6 +323,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | RequiredField.CreditCard.Type | The 'CreditCard.Type' is required |
 | 400 Bad Request | RequiredField.CreditCard.VerificationCode | The 'VerificationCode' is required. |
 | 400 Bad Request | RequiredField.Criteria | The 'Criteria' is only required for 'CriteriaType': 'Phone', 'Email', 'DocumentNumber', 'CardNumber' and 'CustomerNumber'. |
+| 400 Bad Request | Customer.AlreadyCategorized | This passenger has already been categorized, You are not allowed to change the passenger's name. |
 | 400 Bad Request | RequiredField.CriteriaType | The 'CriteriaType' is only required for 'Type': 'Organization'. |
 | 400 Bad Request | RequiredField.CurrencyCode | The 'CurrencyCode' is required. |
 | 400 Bad Request | RequiredField.CurrentPassword | User not authenticated. The field 'Username' is required. |
@@ -352,7 +360,9 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | RequiredField.Name.First | The 'Name.First' is required. |
 | 400 Bad Request | RequiredField.Name.Last | The 'Name.Last' is required. |
 | 400 Bad Request | RequiredField.Name.Middle | The 'Name.Middle' is required. |
+| 400 Bad Request | RequiredField.NameToChange | The 'NameToChange' is required. |
 | 400 Bad Request | RequiredField.Nationality | The 'Nationality' is required. |
+| 400 Bad Request | RequiredField.NewName | The 'NewName' is required. |
 | 400 Bad Request | RequiredField.NewPassword | The 'NewPassword' is required. |
 | 400 Bad Request | RequiredField.Offers | The 'Offers' array is required. |
 | 400 Bad Request | RequiredField.Offers.CurrentJourneyKey | The 'CurrentJourneyKey' is required. |
@@ -372,6 +382,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | RequiredField.Passenger.DateOfBirth | The 'Passenger.DateOfBirth' is required. |
 | 400 Bad Request | RequiredField.Passenger.Gender | The 'Passenger.Gender' is required. |
 | 400 Bad Request | RequiredField.Passenger.Key | The 'PassengerKey' is required. |
+| 400 Bad Request | RequiredField.PassengerKeyRequired | The 'PassengerKeyRequired' is required.|
 | 400 Bad Request | RequiredField.Passenger.PhoneEmail | The 'Passengers.Phone' or  'Passengers.Email' is required. |
 | 400 Bad Request | RequiredField.Passenger.Type | The 'Passengers.Type' is required. |
 | 400 Bad Request | RequiredField.PassengerKey | The 'PassengerKey' is required. |
@@ -415,6 +426,11 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | Service.Quantity.Restricted | This service is restricted to one occurence per passenger and leg. |
 | 400 Bad Request | Shopping.Request.Failed | The Shopping request failed. |
 | 400 Bad Request | Stations.NotAllowed | These requested stations are invalid: |
+| 400 Bad Request | Token.InvalidDecodeJwtBadRequest | Error decoding token. |
+| 400 Bad Request | Token.InvalidReadJwtBadRequest | Error reading token. |
+| 400 Bad Request | Token.FailedBadRequest | It is not possible to generate token without group DL. |
+| 400 Bad Request | Token.InvalidSignatureBadRequest | Invalid Token Signature. |
+| 400 Bad Request | Token.ExpiredBadRequest | The token has expired. |
 | 400 Bad Request | TudoAzul.Categorization.Failed | There was a failure in the categorization of TudoAzul of 'passengers.customerProgram.number': {0}. Try categorize again after the order creation (before assigning seats or adding baggages to ensure all potential benefits). |
 | 400 Bad Request | UnitKey.Invalid | The 'UnitKey' is invalid. |
 | 400 Bad Request | User.CannotBeUnlocked | Only API users can be unlocked. |
@@ -442,7 +458,9 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | InvalidField.ContactPhones.Type | The 'Contact.Phones.Type' must be a valid enum. |
 | 400 Bad Request | InvalidField.IataCode | The 'IataCodeLength' must be 8 characters in length. |
 | 400 Bad Request | InvalidField.LastStatementDate | The 'LastStatementDate' must be a valid. |
+| 400 Bad Request | InvalidField.OverrideDuFee | The organizationFeeOverride cannot be informed when overrideDuFee was already informed. |
 | 400 Bad Request | InvalidField.StatementNote | The 'StatementNote' must be 128 characters in length. |
+| 400 Bad Request | InvalidField.NewName | Please check the 'NewName', it can't start with special characters and numbers. |
 | 400 Bad Request | RequiredField.Company.Cnpj | The 'Company Cnpj' is required. |
 | 400 Bad Request | RequiredField.CompanyPhones.Type | The 'Company.Phones.Type' is required. |
 | 400 Bad Request | RequiredField.ConpanyPhones.Number | The 'Conpany.Phones.Number' is required. |
@@ -450,13 +468,18 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | RequiredField.ParentCode | The 'ParentCode' is required. |
 | 400 Bad Request | NotApplied.PromotionCode | Application of promotionCode is only permitted on hold reservations.|
 | 400 Bad Request | InvalidField.Promotion.Code | It is not possible to apply a promo code to reservations that contain the promo code. |
+| 400 Bad Request | Invalid.TravelDocument.Type | The document type Mercosur is invalid for this IssuingCountry. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. |
+| 401 Unauthorized | InvalidToken.NotInformed | Bearer Token not informed. The token must be informed in the request header. |
+| 401 Unauthorized | InvalidToken.NotAuthenticated | Not Authenticated. The Agent must be authenticated thru User API. |
+| 401 Unauthorized | InvalidToken.Expired | Provided JWT is invalid or expired. |
 | 403 Forbidden | Agent.MethodCode.NotAllowed | The logged agent is not allowed to make payments using this method code. |
 | 403 Forbidden | Agent.NoAccess | The agent does not have access to the informed user. |
 | 403 Forbidden | AssignSeat.UnitKey.Blocked | The request failed to assign the seat, because this seat is blocked by passengers rules (age, SSR or equipment). |
 | 403 Forbidden | Organization.AuthorizationFailed.User | This user does not have access to the informed organization. |
+| 403 Forbidden | AuthorizationFailed.InvalidRole | The agent does not have the required roles to access this method. |
 | 404 Not Found | Assistance.NoMatches | This assistance does not exist or was not found. |
 | 404 Not Found | Assistances.NoMatches | Unable to retrieve the assistances data. |
 | 404 Not Found | AssistancesKey.NoMatches | The informed 'Assistances.Key' does not exists or does not belong to a previously retrieved 'assistance/search'. |
@@ -529,6 +552,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 409 Conflict | RequestFailed.UnaccopaniedMinor.OnlyDirectFlight | Unaccompanied minors are allowed in direct flights only. |
 | 409 Conflict | RequiredField.LiableRecordLocator | A passenger over 18 years old is required in the liable order. |
 | 409 Conflict | Organizations.CNPJ.error | You are not allowed to create Organizations to this CNPJ. |
+| 409 Conflict | Retrieve.V2.NotExecuted | Get Order V2 has not been executed. |
 | 422 Unprocessable Content | Assistance.SearchRequired | Retrieve a 'assistances/search' with journeyKey before execute this method. |
 | 422 Unprocessable Content | Baggage.SearchRequired | Retrieve a 'baggage/search' with journeyKey before execute this method. |
 | 422 Unprocessable Content | NotMatch.Name | The names sent do not match those on the attached order. |
@@ -538,6 +562,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 422 Unprocessable Content | SeatMapCache.SearchRequired | No seatmap found or generated in state. Please retrieve a seatmap before trying to assign a seat. |
 | 422 Unprocessable Content | Service.SearchRequired | Retrieve a 'services/search' with journeyKey before execute this method. |
 | 422 Unprocessable Content | UnitKey.SearchRequired | The informed UnitKey does not belong to a previously retrieved SeatMap or the previous retrive is expired. |
+| 422 Unprocessable Content | Reaccommodation.pending | The indicated booking is in reaccommodation proccess. |
 | 502 Bad Gateway | Agent.DefaultEmail.NotConfigured | The informed agent does not have a configured default email. |
 | 502 Bad Gateway | Agent.NotActive | The Agent is not active. |
 | 502 Bad Gateway | AuthorizationFailed.Credentials | Username or password is incorrect. |
@@ -608,4 +633,6 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 502 Bad Gateway | RequiredField.OrganizationCode | The 'OrganizationCode' is required. |
 | 502 Bad Gateway | RequiredField.PassengerType | The 'Passenger.Type' is required. |
 | 502 Bad Gateway | Resources.RequestFailed | The Resources request failed. |
+| 502 Bad Gateway | FrequentFlyer.Inconsistent | The passenger's name in the frequent flyer registration is different from the reservation system, please contact frequent flyer support. |
 | 502 Bad Gateway | UserOrganization.NotAllowed | The logged user organization does not have access to the requested order. |
+| 502 Bad Gateway | InternalSession.Failed | An internal error has occurred and the process is unrecoverable, please retrieve again to restart the process. |

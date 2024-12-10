@@ -13,6 +13,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | AlreadyExists.Username | The 'Username' entered already exists in this or another organization. | O 'Username' inserido já existe nesta ou em outra organização. |
 | 400 Bad Request | AuthorizationFailed.Credentials | Username or password is incorrect. | Nome de usuário ou senha está incorreta. |
 | 400 Bad Request | B2b.OrderManagementRequest.Failed | The request failed. | A solicitação falhou. |
+| 400 Bad Request | B2bHttp.CustomBadRequest | The token is invalid. | O token é invalido. |
 | 400 Bad Request | B2b.Request.Failed | The request failed. | A solicitação falhou. |
 | 400 Bad Request | B2b.User.Failed | The request failed. | A solicitação falhou. |
 | 400 Bad Request | BirthCountry.NotFound | The 'BirthCountry' was not found. | O 'BirthCountry' não foi encontrado. |
@@ -29,6 +30,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Dates.Range.OverMaximum | The difference in days between 'DepartureBegin' and 'DepartureEnd' cannot be greater than {0} days. | A diferença de dias entre 'DepartureBegin' e 'DepartureEnd' não pode ser superior a {0} dias. |
 | 400 Bad Request | DiscountPayment.TudoAzul | A discount have been applied to your order for using a TudoAzul card. | Foi aplicado um desconto na sua reserva pela utilização do cartão TudoAzul. |
 | 400 Bad Request | Email.NotFound | User has no email assigned. | O usuário não tem email atribuído. |
+| 400 Bad Request | Error.OverrideDuFee | Fee override is higher than the maximum amount allowed {0}%. | A substituição da tarifa é superior ao valor máximo permitido {0}%. |
 | 400 Bad Request | FlexibleDays.Disabled | Unable to get flexible days because this feature is disabled. | Não é possível obter dias flexíveis porque esse recurso está desativado. |
 | 400 Bad Request | Infant.NotNull | There is already a infant in the order for this passenger. | Já existe um bebê na reserva para este passageiro. |
 | 400 Bad Request | Infant.Request.Failed | There was an error sending the passenger document. | Ocorreu um erro no envio do documento do passageiro. |
@@ -222,6 +224,9 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Loyalty.Tier.NotFound | The customer tier not found. | A camada do cliente não foi encontrada. |
 | 400 Bad Request | Market.NotAvailable | The set of stations requested do not have an available market yet. | O conjunto de estações solicitadas ainda não tem mercado disponível. |
 | 400 Bad Request | Market.Unavailable | The informed origin/destination market are currently unavailable for low fare estimate search. | O mercado de origem/destino informado não está atualmente disponível para pesquisa de estimativas de tarifas baixas. |
+| 400 Bad Request | Name.AlreadyChanged | This passenger name has already been changed, You are not allowed to change the passenger's name again. | O nome deste passageiro já foi alterado. Você não tem permissão para alterar o nome do passageiro novamente. |
+| 400 Bad Request | Name.NotUpdated | This passenger name is the same to the one filled in this booking, Please check the name's change and try again. | O nome deste passageiro é o mesmo preenchido nesta reserva. Verifique a alteração do nome e tente novamente. |
+| 400 Bad Request | Name.NotUpdatedLimit | This passenger's name has a limit of 4 characters when changing the name. | O nome deste passageiro tem um limite de 4 caracteres ao alterar o nome. 
 | 400 Bad Request | Nationality.NotFound | The 'Nationality' was not found. | A 'Nationality' não foi encontrada. |
 | 400 Bad Request | Navitaire.SeatCreate.Failed | The request failed to assign seat. | A solicitação não conseguiu atribuir assento. |
 | 400 Bad Request | NotAvailable.Credit | The informed 'RecordLocator' has no credit available. | O ‘RecordLocator’ informado não possui crédito disponível. |
@@ -272,8 +277,10 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Profile.HoldPermission | Your current profile does not allow hold creation. | Seu perfil atual não permite a criação de retenção. |
 | 400 Bad Request | Quote.UnaccompaniedMinor.NotAllowed | The 'JourneyKeys' {0} does not allow unaccompanied minors. | O 'JourneyKeys' {0} não permite menores desacompanhados. |
 | 400 Bad Request | Reaccommodation.InProcess | Reaccommodation is in process. Wait 24 hours for it to be updated. | A reacomodação está em processo.  |
+| 400 Bad Request | Refund.Fare.SoldOut | The requested class of service is sold out. | A classe de serviço solicitada está esgotada |
 | 400 Bad Request | RecordLocator.NotFound | The given 'RecordLocator' was not found. | O 'RecordLocator' fornecido não foi encontrado. |
 | 400 Bad Request | RefundAuthentication.Request.Failed | The request failed. | A solicitação falhou. |
+| 400 Bad Request | Refund.Override.InvalidValue | No increase in value is allowed in an Override operation. | Nenhum override de valor é permitido em uma operação de substituição. |
 | 400 Bad Request | RefundOrder.Fare.NotAvailable | Fare not available. | Tarifa não disponível. |
 | 400 Bad Request | RefundType.CreditShell.CannotBeApplied | It is not possible to make the refund via credit shell. | Não é possível efetuar o reembolso via shell de crédito. |
 | 400 Bad Request | RefundType.Payments.CannotBeApplied | There are no amounts to be refunded. | Não há valores a serem reembolsados. |
@@ -316,6 +323,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.CreditCard.Type | The 'CreditCard.Type' is required | O 'CreditCard.Type' é obrigatório |
 | 400 Bad Request | RequiredField.CreditCard.VerificationCode | The 'VerificationCode' is required. | O 'VerificationCode' é obrigatório. |
 | 400 Bad Request | RequiredField.Criteria | The 'Criteria' is only required for 'CriteriaType': 'Phone', 'Email', 'DocumentNumber', 'CardNumber' and 'CustomerNumber'. | Os 'Critérios' só são necessários para 'CriteriaType': 'Telefone', 'E-mail', 'DocumentNumber', 'CardNumber' e 'CustomerNumber'. |
+| 400 Bad Request | Customer.AlreadyCategorized | This passenger has already been categorized, You are not allowed to change the passenger's name. | Este passageiro já foi categorizado. Você não tem permissão para alterar o nome do passageiro. |
 | 400 Bad Request | RequiredField.CriteriaType | The 'CriteriaType' is only required for 'Type': 'Organization'. | O 'CriteriaType' só é necessário para 'Tipo': 'Organização'. |
 | 400 Bad Request | RequiredField.CurrencyCode | The 'CurrencyCode' is required. | O 'CurrencyCode' é obrigatório. |
 | 400 Bad Request | RequiredField.CurrentPassword | User not authenticated. The field 'Username' is required. | Usuário não autenticado. O campo 'Username' é obrigatório.  |
@@ -352,7 +360,9 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.Name.First | The 'Name.First' is required. | O 'Name.First' é obrigatório. |
 | 400 Bad Request | RequiredField.Name.Last | The 'Name.Last' is required. | O 'Name.Last' é obrigatório. |
 | 400 Bad Request | RequiredField.Name.Middle | The 'Name.Middle' is required. | O 'Name.Middle' é obrigatório. |
+| 400 Bad Request | RequiredField.NameToChange | The 'NameToChange' is required. |
 | 400 Bad Request | RequiredField.Nationality | The 'Nationality' is required. | A 'Nationality' é obrigatório. |
+| 400 Bad Request | RequiredField.NewName | The 'NewName' is required. | A 'NewName' é obrigatório. |
 | 400 Bad Request | RequiredField.NewPassword | The 'NewPassword' is required. | O 'NewPassword' é obrigatória. |
 | 400 Bad Request | RequiredField.Offers | The 'Offers' array is required. | O array de 'Offers' é obrigatória. |
 | 400 Bad Request | RequiredField.Offers.CurrentJourneyKey | The 'CurrentJourneyKey' is required. | O 'CurrentJourneyKey' é obrigatório. |
@@ -372,6 +382,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.Passenger.DateOfBirth | The 'Passenger.DateOfBirth' is required. | O 'Passenger.DateOfBirth' é obrigatório. |
 | 400 Bad Request | RequiredField.Passenger.Gender | The 'Passenger.Gender' is required. | O 'Passenger.Gender' é obrigatório. |
 | 400 Bad Request | RequiredField.Passenger.Key | The 'PassengerKey' is required. | A 'PassengerKey' é necessária. |
+| 400 Bad Request | RequiredField.PassengerKeyRequired | The 'PassengerKeyRequired' is required.| O 'PassengerKeyRequired' é obrigatório. |
 | 400 Bad Request | RequiredField.Passenger.PhoneEmail | The 'Passengers.Phone' or  'Passengers.Email' is required. | O 'Passengers.Phone' ou 'Passengers.Email' é obrigatório. |
 | 400 Bad Request | RequiredField.Passenger.Type | The 'Passengers.Type' is required. | O 'Passengers.Type' é obrigatório. |
 | 400 Bad Request | RequiredField.PassengerKey | The 'PassengerKey' is required. | A 'PassengerKey' é necessária. |
@@ -415,6 +426,11 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Service.Quantity.Restricted | This service is restricted to one occurence per passenger and leg. | Este serviço está restrito a uma ocorrência por passageiro e trecho. |
 | 400 Bad Request | Shopping.Request.Failed | The Shopping request failed. | A solicitação do Shopping falhou. |
 | 400 Bad Request | Stations.NotAllowed | These requested stations are invalid: | Estas stations solicitadas são inválidas: |
+| 400 Bad Request | Token.InvalidDecodeJwtBadRequest | Error decoding token. | Erro ao decoficar o token. |
+| 400 Bad Request | Token.InvalidReadJwtBadRequest | Error reading token. | Erro a ler o token. |
+| 400 Bad Request | Token.FailedBadRequest | It is not possible to generate token without group DL. | Não é possível gerar o token sem o groupo DL. |
+| 400 Bad Request | Token.InvalidSignatureBadRequest | Invalid Token Signature. | Assinatura do token ivalida. |
+| 400 Bad Request | Token.ExpiredBadRequest | The token has expired. | O token expirou. |
 | 400 Bad Request | TudoAzul.Categorization.Failed | There was a failure in the categorization of TudoAzul of 'passengers.customerProgram.number': {0}. Try categorize again after the order creation (before assigning seats or adding baggages to ensure all potential benefits). | Houve falha na categorização do TudoAzul de 'passengers.customerProgram.number': {0}.  |
 | 400 Bad Request | UnitKey.Invalid | The 'UnitKey' is invalid. | O 'UnitKey' é inválido. |
 | 400 Bad Request | User.CannotBeUnlocked | Only API users can be unlocked. | Somente usuários da API podem ser desbloqueados. |
@@ -441,8 +457,10 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | InvalidField.ContactPhones.Number | The 'Contact.Phones.Number' has a maximum length 20 characters. | O 'Contact.Phones.Number' tem no máximo 20 caracteres. |
 | 400 Bad Request | InvalidField.ContactPhones.Type | The 'Contact.Phones.Type' must be a valid enum. | InvalidField.ContactPhones.Type | O 'Contact.Phones.Type' deve ser um enum válido.|
 | 400 Bad Request | InvalidField.IataCode | The 'IataCodeLength' must be 8 characters in length. | O 'IataCodeLength' deve ter 8 caracteres. |
-| 400 Bad Request | InvalidField.LastStatementDate | The 'LastStatementDate' must be a valid. | O 'LastStatementDate' deve ser válido. |
+| 400 Bad Request | InvalidField.LastStatementDate | The 'LastStatementDate' must be a valid. | O 'LastStatementDate' deve ser válido. | |
+| 400 Bad Request | InvalidField.OverrideDuFee | The organizationFeeOverride cannot be informed when overrideDuFee was already informed.| O 'LastStatementDate' deve ser válido. | A organizaçãoFeeOverride não pode ser informada quando overrideDuFee já foi informado. |
 | 400 Bad Request | InvalidField.StatementNote | The 'StatementNote' must be 128 characters in length. | O 'StatementNote' deve ter 128 caracteres. |
+| 400 Bad Request | InvalidField.NewName | Please check the 'NewName', it can't start with special characters and numbers. | Por favor verifique o 'NovoNome', ele não pode começar com caracteres especiais e números. |
 | 400 Bad Request | RequiredField.Company.Cnpj | The 'Company Cnpj' is required. | O 'Cnpj da Empresa' é obrigatório. |
 | 400 Bad Request | RequiredField.CompanyPhones.Type | The 'Company.Phones.Type' is required. | O 'Company.Phones.Type' é obrigatório. |
 | 400 Bad Request | RequiredField.ConpanyPhones.Number | The 'Conpany.Phones.Number' is required. | O 'Company.Phones.Number' é obrigatório. |
@@ -450,13 +468,18 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.ParentCode | The 'ParentCode' is required. | O 'ParentCode' é obrigatório. |
 | 400 Bad Request | NotApplied.PromotionCode | Application of promotionCode is only permitted on hold reservations.| A aplicação do promoCode só é permitida em reservas em HOLD |
 | 400 Bad Request | InvalidField.Promotion.Code | It is not possible to apply a promo code to reservations that contain the promo code. | Não é possível aplicar um PromotionCode a reservas que contenham PromotinCode. |
+| 400 Bad Request | Invalid.TravelDocument.Type | The document type Mercosur is invalid for this IssuingCountry. | Não é possível utilizar o documento Mercosur quando o país emissor do documento não faz parte da organização. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. | Ocorreu um erro ao executar a autenticação. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. | O Bearer Token fornecido é inválido ou expirou. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. | Ocorreu um erro ao validar a autenticação do usuário. |
+| 401 Unauthorized | InvalidToken.NotInformed | Bearer Token not informed. The token must be informed in the request header. | Bearer Token não informado. O token deve ser informado no cabeçalho da requisição. |
+| 401 Unauthorized | InvalidToken.NotAuthenticated | Not Authenticated. The Agent must be authenticated thru User API. | Não autenticado. O Agente deve ser autenticado por meio da API do Usuário. |
+| 401 Unauthorized | InvalidToken.Expired | Provided JWT is invalid or expired. | O JTW fornecido é inválido ou expirou. |
 | 403 Forbidden | Agent.MethodCode.NotAllowed | The logged agent is not allowed to make payments using this method code. | O agente logado não é liberado para realizar pagamentos usando este método. |
 | 403 Forbidden | Agent.NoAccess | The agent does not have access to the informed user. | O agente não tem acesso ao usuário informado. |
 | 403 Forbidden | AssignSeat.UnitKey.Blocked | The request failed to assign the seat, because this seat is blocked by passengers rules (age, SSR or equipment). | A solicitação não conseguiu atribuir o assento, pois este assento está bloqueado pelas regras do passageiro (idade, SSR ou equipamento). |
 | 403 Forbidden | Organization.AuthorizationFailed.User | This user does not have access to the informed organization. | Este usuário não tem acesso à organização informada. |
+| 403 Forbidden | AuthorizationFailed.InvalidRole | The agent does not have the required roles to access this method. | O agente não tem as funções necessárias para acessar esse método. |
 | 404 Not Found | Assistance.NoMatches | This assistance does not exist or was not found. | Esta assistência não existe ou não foi encontrada. |
 | 404 Not Found | Assistances.NoMatches | Unable to retrieve the assistances data. | Não foi possível recuperar os dados de assistência. |
 | 404 Not Found | AssistancesKey.NoMatches | The informed 'Assistances.Key' does not exists or does not belong to a previously retrieved 'assistance/search'. | A 'Assistances.Key' informada não existe ou não pertence a uma 'assistance/search' recuperada anteriormente. |
@@ -529,6 +552,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 409 Conflict | RequestFailed.UnaccopaniedMinor.OnlyDirectFlight | Unaccompanied minors are allowed in direct flights only. | Menores desacompanhados são permitidos apenas em voos diretos. |
 | 409 Conflict | RequiredField.LiableRecordLocator | A passenger over 18 years old is required in the liable order. | É necessário um passageiro maior de 18 anos na order |
 | 409 Conflict | Organizations.CNPJ.error | You are not allowed to create Organizations to this CNPJ. | Você não tem permissão para criar Organizações para este CNPJ |
+| 409 Conflict | Retrieve.V2.NotExecuted | Get Order V2 has not been executed. | Get Order V2 não foi executado. |
 | 422 Unprocessable Content | Assistance.SearchRequired | Retrieve a 'assistances/search' with journeyKey before execute this method. | Recupere uma 'assistência/pesquisa' com travelKey antes de executar este método. |
 | 422 Unprocessable Content | Baggage.SearchRequired | Retrieve a 'baggage/search' with journeyKey before execute this method. | Recupere uma 'bagagem/pesquisa' com travelKey antes de executar este método. |
 | 422 Unprocessable Content | NotMatch.Name | The names sent do not match those on the attached order. | Os nomes enviados não correspondem aos da order em anexo. |
@@ -538,6 +562,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 422 Unprocessable Content | SeatMapCache.SearchRequired | No seatmap found or generated in state. Please retrieve a seatmap before trying to assign a seat. | Nenhum mapa de assentos encontrado ou gerado no state.  |
 | 422 Unprocessable Content | Service.SearchRequired | Retrieve a 'services/search' with journeyKey before execute this method. | Recupere um 'serviços/pesquisa' com travelKey antes de executar este método. |
 | 422 Unprocessable Content | UnitKey.SearchRequired | The informed UnitKey does not belong to a previously retrieved SeatMap or the previous retrive is expired. | A UnitKey informada não pertence a um SeatMap recuperado anteriormente ou a recuperação anterior expirou. |
+| 422 Unprocessable Content | Reaccommodation.pending | The indicated booking is in reaccommodation proccess. | A reserva indicada encontra-se em processo de reacomodação. |
 | 502 Bad Gateway | Agent.DefaultEmail.NotConfigured | The informed agent does not have a configured default email. | O agente informado não possui email padrão configurado. |
 | 502 Bad Gateway | Agent.NotActive | The Agent is not active. | O Agente não está ativo. |
 | 502 Bad Gateway | AuthorizationFailed.Credentials | Username or password is incorrect. | Nome de usuário ou senha está incorreta. |
@@ -608,4 +633,6 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 502 Bad Gateway | RequiredField.OrganizationCode | The 'OrganizationCode' is required. | O 'OrganizationCode' é obrigatório. |
 | 502 Bad Gateway | RequiredField.PassengerType | The 'Passenger.Type' is required. | O 'Passenger.Type' é obrigatório. |
 | 502 Bad Gateway | Resources.RequestFailed | The Resources request failed. | A solicitação do recurso falhou. |
+| 502 Bad Gateway | FrequentFlyer.Inconsistent | The passenger's name in the frequent flyer registration is different from the reservation system, please contact frequent flyer support. | Se o nome do passageiro no registro de passageiro frequente for diferente do sistema de reservas, entre em contato com o suporte ao passageiro frequente. |
 | 502 Bad Gateway | UserOrganization.NotAllowed | The logged user organization does not have access to the requested order. | A organização do usuário logado não tem acesso ao pedido solicitado. |
+| 502 Bad Gateway | InternalSession.Failed | An internal error has occurred and the process is unrecoverable, please retrieve again to restart the process. | Ocorreu um erro interno e o processo é irrecuperável, recupere novamente para reiniciar o processo. |
