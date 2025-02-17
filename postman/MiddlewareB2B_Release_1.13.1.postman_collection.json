@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "f73455e7-2e53-455e-85ac-1ba74eeab4a1",
-		"name": "Middleware B2B - Release 1.13.0",
+		"_postman_id": "1b24bc37-323f-4166-ab49-6a1abc6fc290",
+		"name": "Middleware B2B - Release 1.13.1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29122721",
-		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B---Release-1.13.0~65727368-4a52-4d96-a30b-89d49ad10a13/collection/23627244-f73455e7-2e53-455e-85ac-1ba74eeab4a1?action=share&source=collection_link&creator=29122721"
+		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Middleware-B2B---Release-1.13.1~eb40c468-bb9c-4af6-b333-d6a6ac3e2de6/collection/29122721-1b24bc37-323f-4166-ab49-6a1abc6fc290?action=share&source=collection_link&creator=29122721"
 	},
 	"item": [
 		{

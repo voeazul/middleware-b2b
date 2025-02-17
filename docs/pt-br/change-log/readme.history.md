@@ -1,5 +1,10 @@
 # Changelog Completo
 
+## [1.13.1] - 17/02/2025
+
+### Modificado
+- Tratamento de bloqueio para o AGTAIC10.
+
 ## [1.13.0] - 21/01/2025
 
 ### Adicionado
