@@ -6,6 +6,19 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 
 |	 HTTP Code       	|	 Internal Code   	|	 Error Message                               	|
 |	 ----------------- 	|	 -------------- 	|	 ---------------------------------------------- 	|
+| 400 Bad Request | InvalidField.TravelDocument.BirthCountry | The 'TravelDocuments.BirthCountry' has a maximum length 2 characters. |
+| 400 Bad Request | InvalidField.TravelDocument.Type | The 'TravelDocuments.Type' must be a valid Enum. |
+| 400 Bad Request | Passenger.InvalidAge | Passenger over 2 years of age on the date of departure cannot be considered an Infant (INF). |
+| 400 Bad Request | RequiredField.DateOfBirth | The 'DateOfBirth' is required. |
+| 400 Bad Request | RequiredField.TravelDocument.ExpirationDate | The 'TravelDocuments.ExpirationDate' is required. | 
+| 400 Bad Request | RequiredField.TravelDocument.Type | The 'TravelDocuments.Type' CPF, RNE or PASSPORT is required. |
+| 400 Bad Request | RequiredField.TravelDocuments.Type | The 'TravelDocuments.Type' is required. |
+| 400 Bad Request | Customer.AlreadyCategorized | This passenger has already been categorized, You are not allowed to change the passenger's name. |
+| 400 Bad Request | InvalidField.Contact.Phone | The 'phone' has a maximum length 20 characters. |
+| 400 Bad Request | InvalidField.IropContact.Email | The 'Passengers.IropContact.Email' has a maximum length 128 characters. |
+| 400 Bad Request | RequiredField.PhoneEmail | The 'Phone' or  'Email' is required. | O 'Phone' or 'Email' são obrigatórios.  | 
+| 400 Bad Request | RequiredField.IropContact.EmailMobile | The 'Passengers.IropContact.Email' or 'Passengers.IropContact.Mobile is required. |
+| 400 Bad Request | RequiredField.IropContact.Refused | The 'Passengers.IropContact.Refused' is required. |
 | 400 Bad Request | Agent.NoOrganizationGroup | The Agent must be in a organization group when 'OrderCriteria.Type' is equal to 'OrganizationGroup'. |
 | 400 Bad Request | Agent.NotAuthorized | Agent is not allowed to assign seat. |
 | 400 Bad Request | AgentOrder.NotAuthorized | Agent is not authorized to commit order with invalid price status without requesting to override restrictions. |
