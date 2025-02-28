@@ -1,16 +1,13 @@
 # Changelog
 
-## [1.13.0] - 21/01/2025
+## [1.14.0] - 28/02/2025
 
 ### Added
-- Separate display of the YQ tax.
-- Creation of a method for modifying PAX data.
-- New EuroAtlantic codeshare (YU).
+- Authorization of a Credit File (CF) payment using credit from another reservation.
 
 ### Updated
-- Case-insensitive handling for route locator searches.
-- Overall performance improvements in payments.
-- Enhanced response of the "get organization" method.
-- Reservation contacts - Capture logged-in user data and update the Email and Phone fields.
+- Framework version update to .NET 8.
+- Update of cancellation, modification, and No-Show fees in the FARES method.
+- Update of new segments with baggage restrictions: CUR/MDZ/BRC.
 
 [Link to previous versions](/docs/en-us/change-log/readme.history.md)

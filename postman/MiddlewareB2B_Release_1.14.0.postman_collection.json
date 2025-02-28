@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "f73455e7-2e53-455e-85ac-1ba74eeab4a1",
-		"name": "Middleware B2B - Release 1.13.0",
+		"_postman_id": "d9fa06c9-c888-47e7-979c-a66f4ece2010",
+		"name": "Middleware B2B - Release 1.14.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29122721",
-		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B---Release-1.13.0~65727368-4a52-4d96-a30b-89d49ad10a13/collection/23627244-f73455e7-2e53-455e-85ac-1ba74eeab4a1?action=share&source=collection_link&creator=29122721"
+		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Middleware-B2B---Release-1.14.0~8435a686-18c5-44aa-a509-bdc38fc35a10/collection/23627244-d9fa06c9-c888-47e7-979c-a66f4ece2010?action=share&source=collection_link&creator=29122721"
 	},
 	"item": [
 		{
@@ -58834,6 +58834,415 @@
 						},
 						{
 							"name": "15 - Token v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								},
+								"description": "<p>\r\n  <b>Description: </b>\r\n  <br />\r\n            This method abandons the active token.<br /></p>\r\n<br />\r\n<p>\r\n  <b>Requirements: </b>\r\n  <br />\r\n            Authenticated JWT token as bearer token in request header.<br /></p>\r\n<br />"
+							},
+							"response": []
+						}
+					],
+					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
+				},
+				{
+					"name": "84 - Booking Flow |Credit File of an existing reservation in Another Reservation.",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - Order by Record Locator v3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"orderTotalBalanceDue\", response.data.order.totals.balanceDue);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderManagement}}/api/v3/order/:recordLocator",
+									"host": [
+										"{{urlOrderManagement}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"order",
+										":recordLocator"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4 - Payments v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"methodCode\": \"CF\",\r\n   \"amount\": {{orderTotalBalanceDue}},\r\n   \"installments\": 1,\r\n   \"account\": \"OPL5TE\"   \r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderPayments}}/api/v1/order/payments",
+									"host": [
+										"{{urlOrderPayments}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5 - Checkout v2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"refundType\": \"Credit\",\r\n    \"notifyContacts\": \"None\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderManagement}}/api/v2/order/:recordLocator/checkout",
+									"host": [
+										"{{urlOrderManagement}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"order",
+										":recordLocator",
+										"checkout"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "6 - Token v1",
 							"event": [
 								{
 									"listen": "prerequest",
