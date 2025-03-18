@@ -469,6 +469,8 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | NotApplied.PromotionCode | Application of promotionCode is only permitted on hold reservations.| A aplicação do promoCode só é permitida em reservas em HOLD |
 | 400 Bad Request | InvalidField.Promotion.Code | It is not possible to apply a promo code to reservations that contain the promo code. | Não é possível aplicar um PromotionCode a reservas que contenham PromotinCode. |
 | 400 Bad Request | Invalid.TravelDocument.Type | The document type Mercosur is invalid for this IssuingCountry. | Não é possível utilizar o documento Mercosur quando o país emissor do documento não faz parte da organização. |
+| 400 Bad Request | Comments.NotAllowed | Comment will not be recorded as it does not meet the PS rule. | Não é possível enviar comentários quando o usuário não contém a role "LEMO", e não atende a regra da product class PS. |
+| 400 Bad Request | Comments.Maximum.Lenght | The 'Comments' must be a maximum of 1024 characters. | O comentário excede o limite de caracteres suportados. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. | Ocorreu um erro ao executar a autenticação. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. | O Bearer Token fornecido é inválido ou expirou. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. | Ocorreu um erro ao validar a autenticação do usuário. |
