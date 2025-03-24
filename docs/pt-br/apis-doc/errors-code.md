@@ -506,7 +506,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 404 Not Found | Order.NoMatches | The requested order was not found or does not exist. | A order solicitada não foi encontrado ou não existe. |
 | 404 Not Found | OrderCache.NoMatches | An order must be attached. | Uma order deve ser anexado. |
 | 404 Not Found | OrderSearch.NoMatches | No orders found for the informed search filters. | Não foram encontado orders para os filtros de busca informados. |
-| 404 Not Found | Organization.NoMatches | The informed organization does not exist or was not found. | A organização informada não existe ou não foi encontrada. |
+| 404 Not Found | Organization.NoMatches | The organization provided does not exist, was not found, or its status is not active. | A organização informada não existe ou não foi encontrada ou não está ativa. |
 | 404 Not Found | OrganizationCode.NoMatches | The informed 'OrganizationCode' doesn't exists or doesn't belong to the same organization as your current Point of Sale. | O 'OrganizationCode' informado não existe ou não pertence à mesma organização do seu Ponto de Venda atual. |
 | 404 Not Found | OrganizationGroup.NoMatches | The informed organization group does not exist or was not found. | O grupo organizacional informado não existe ou não foi encontrado. |
 | 404 Not Found | OrganizationGroupCode.NoMatches | The 'OrganizationGroupCode does not exist or was not found. | O 'OrganizationGroupCode' não existe ou não foi encontrada. |

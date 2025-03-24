@@ -507,7 +507,7 @@ Error authenticating using an AD type token. |
 | 404 Not Found | Order.NoMatches | The requested order was not found or does not exist. |
 | 404 Not Found | OrderCache.NoMatches | An order must be attached. |
 | 404 Not Found | OrderSearch.NoMatches | No orders found for the informed search filters. |
-| 404 Not Found | Organization.NoMatches | The informed organization does not exist or was not found. |
+| 404 Not Found | Organization.NoMatches | The organization provided does not exist, was not found, or its status is not active." |
 | 404 Not Found | OrganizationCode.NoMatches | The informed 'OrganizationCode' doesn't exists or doesn't belong to the same organization as your current Point of Sale. |
 | 404 Not Found | OrganizationGroup.NoMatches | The informed organization group does not exist or was not found. |
 | 404 Not Found | OrganizationGroupCode.NoMatches | The 'OrganizationGroupCode does not exist or was not found. |
