@@ -473,6 +473,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Comments.Maximum.Lenght | The 'Comments' must be a maximum of 1024 characters. | O comentário excede o limite de caracteres suportados. |
 | 400 Bad Request | Invalid.Authentication.Session | The Authentication Session is denied because the token is an Active Directory. | Erro ao autenticar utilizando um token do tipo AD. |
 | 400 Bad Request | Invalid.Authentication.Groups.Portal.Session | The Authentication Groups Portal is denied because the session must be an Active Directory. | Erro ao autenticar no portal de grupos utilizando um token diferente de AD. |
+| 400 Bad Request | Order.NoComments | The informed order does not have any comments associated. | A reserva não possui comentários. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. | Ocorreu um erro ao executar a autenticação. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. | O Bearer Token fornecido é inválido ou expirou. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. | Ocorreu um erro ao validar a autenticação do usuário. |

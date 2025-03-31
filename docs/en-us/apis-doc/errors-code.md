@@ -474,6 +474,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | Invalid.Authentication.Session | The Authentication Session is denied because the token is an Active Directory. | 
 Error authenticating using an AD type token. |
 | 400 Bad Request | Invalid.Authentication.Groups.Portal.Session | The Authentication Groups Portal is denied because the session must be an Active Directory. | Error authenticating to the groups portal using a token other than AD. |
+| 400 Bad Request | Order.NoComments | The informed order does not have any comments associated. | The order has no comments. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. |
