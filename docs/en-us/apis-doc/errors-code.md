@@ -482,6 +482,9 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | NotApplied.PromotionCode | Application of promotionCode is only permitted on hold reservations.|
 | 400 Bad Request | InvalidField.Promotion.Code | It is not possible to apply a promo code to reservations that contain the promo code. |
 | 400 Bad Request | Invalid.TravelDocument.Type | The document type Mercosur is invalid for this IssuingCountry. |
+| 400 Bad Request | RefundType.ExistingCredit | It is not possible to apply the 'ExistingCredit' refund, choose another type of refund. |
+| 400 Bad Request | RefundType.ExistingCredit | No credit available for refund. |
+| 400 Bad Request | RefundType.ExistingCredit | Does not have enough credit for refund as payment of the order. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. |

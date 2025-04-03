@@ -482,6 +482,9 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | NotApplied.PromotionCode | Application of promotionCode is only permitted on hold reservations.| A aplicação do promoCode só é permitida em reservas em HOLD |
 | 400 Bad Request | InvalidField.Promotion.Code | It is not possible to apply a promo code to reservations that contain the promo code. | Não é possível aplicar um PromotionCode a reservas que contenham PromotinCode. |
 | 400 Bad Request | Invalid.TravelDocument.Type | The document type Mercosur is invalid for this IssuingCountry. | Não é possível utilizar o documento Mercosur quando o país emissor do documento não faz parte da organização. |
+| 400 Bad Request | RefundType.ExistingCredit | It is not possible to apply the 'ExistingCredit' refund, choose another type of refund. | O 'ExistingCredit' não é válido para esta reserva, escolha outro tipo de reembolso. |
+| 400 Bad Request | RefundType.ExistingCredit | No credit available for refund. | Não há crédito disponível para reembolso. |
+| 400 Bad Request | RefundType.ExistingCredit | Does not have enough credit for refund as payment of the order. | Não tem crédito suficiente para reembolso como pagamento da reserva. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. | Ocorreu um erro ao executar a autenticação. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. | O Bearer Token fornecido é inválido ou expirou. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. | Ocorreu um erro ao validar a autenticação do usuário. |
