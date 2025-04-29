@@ -543,6 +543,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 404 Not Found | UserKey.NoMatches | The informed 'UserKey' does not exist or was not found. | O 'UserKey' informado não existe ou não foi encontrado. |
 | 404 Not Found | Username.NoMatches | The 'Username' user does not exist or was not found. | O 'Username' não existe ou não foi encontrado. |
 | 406 Not Acceptable | Retrieve.Order.InvalidProductClass | It is not possible retrieve orders in v2 with the product class contained in the requested order. | Não é possível obter reservas na V2 com as classes de produtos contidas na reserva solicitada |
+| 409 Conflict | AddJourneys.UnaccompaniedMinor.NotAllowed| Additional journeys for unaccompanied minors are not permitted. | Não são permitidos adicionar journeu para menores desacompanhados. |
 | 409 Conflict | AssignSeat.PassengerKey.Conflict | The PassengerKey does not exists in the order state. | O PassengerKey não existe na order do state. |
 | 409 Conflict | AssignSeat.Seat.Conflict | Seat Already Assigned. | Assento já atribuído. |
 | 409 Conflict | InvalidField.AssistanceCode | The assistance '{0}' is invalid for the Journey '{1}-{2} - {3}'. | A assistência '{0}' é inválida para a journey '{1}-{2} - {3}'. |

@@ -543,6 +543,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 404 Not Found | UserKey.NoMatches | The informed 'UserKey' does not exist or was not found. |
 | 404 Not Found | Username.NoMatches | The 'Username' user does not exist or was not found. |
 | 406 Not Acceptable | Retrieve.Order.InvalidProductClass | It is not possible retrieve orders in v2 with the product class contained in the requested order. |
+| 409 Conflict | AddJourneys.UnaccompaniedMinor.NotAllowed| Additional journeys for unaccompanied minors are not permitted. |
 | 409 Conflict | AssignSeat.PassengerKey.Conflict | The PassengerKey does not exists in the order state. |
 | 409 Conflict | AssignSeat.Seat.Conflict | Seat Already Assigned. |
 | 409 Conflict | InvalidField.AssistanceCode | The assistance '{0}' is invalid for the Journey '{1}-{2} - {3}'. |
