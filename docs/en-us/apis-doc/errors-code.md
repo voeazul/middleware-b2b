@@ -570,6 +570,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 409 Conflict | RequiredField.LiableRecordLocator | A passenger over 18 years old is required in the liable order. |
 | 409 Conflict | Organizations.CNPJ.error | You are not allowed to create Organizations to this CNPJ. |
 | 409 Conflict | Retrieve.V2.NotExecuted | Get Order V2 has not been executed. |
+| 409 Conflict | ServiceUmnr.Required | UMNR service is mandatory for the passenger and journey informed. |
 | 422 Unprocessable Content | Assistance.SearchRequired | Retrieve a 'assistances/search' with journeyKey before execute this method. |
 | 422 Unprocessable Content | Baggage.SearchRequired | Retrieve a 'baggage/search' with journeyKey before execute this method. |
 | 422 Unprocessable Content | NotMatch.Name | The names sent do not match those on the attached order. |

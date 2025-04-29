@@ -570,6 +570,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 409 Conflict | RequiredField.LiableRecordLocator | A passenger over 18 years old is required in the liable order. | É necessário um passageiro maior de 18 anos na order |
 | 409 Conflict | Organizations.CNPJ.error | You are not allowed to create Organizations to this CNPJ. | Você não tem permissão para criar Organizações para este CNPJ |
 | 409 Conflict | Retrieve.V2.NotExecuted | Get Order V2 has not been executed. | Get Order V2 não foi executado. |
+| 409 Conflict | ServiceUmnr.Required | UMNR service is mandatory for the passenger and journey informed. | Serviço UMNR é obrigatório para o passageiro e viagem informada. |
 | 422 Unprocessable Content | Assistance.SearchRequired | Retrieve a 'assistances/search' with journeyKey before execute this method. | Recupere uma 'assistência/pesquisa' com travelKey antes de executar este método. |
 | 422 Unprocessable Content | Baggage.SearchRequired | Retrieve a 'baggage/search' with journeyKey before execute this method. | Recupere uma 'bagagem/pesquisa' com travelKey antes de executar este método. |
 | 422 Unprocessable Content | NotMatch.Name | The names sent do not match those on the attached order. | Os nomes enviados não correspondem aos da order em anexo. |
