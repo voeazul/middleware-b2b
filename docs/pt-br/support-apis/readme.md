@@ -34,6 +34,7 @@ Garantimos suporte para versões anteriores por um período determinado, permiti
 |`POST` `/api/v1/order/{recordLocator}/calculate`                                                          |Sales.B2B.Order.Management.Api   | 1.0    | 17/06/2025              |
 |`POST` `/api/v1/order/{recordLocator}/journeys`                                                           |Sales.B2B.Order.Management.Api   | 1.0    | 17/06/2025              |
 |`DELETE` `/api/v1/order/{recordLocator}/journeys/{journeyKey}`                                            |Sales.B2B.Order.Management.Api   | 1.0    | 17/06/2025              |
+|`PUT` `/api/v1/order/{recordLocator}/fees/organization`                                                   |Sales.B2B.Order.Management.Api   | 1.0    | 17/06/2025              |
 
 Após a data limite de suporte para uma versão, recomendamos fortemente que os usuários migrem para a versão mais recente para continuar recebendo suporte e aproveitar as funcionalidades mais recentes.
 

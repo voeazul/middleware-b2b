@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "d9fa06c9-c888-47e7-979c-a66f4ece2010",
-		"name": "Middleware B2B - Release 1.14.0",
+		"_postman_id": "30095327-fe5d-4117-8d7b-e84b73abe0b0",
+		"name": "Middleware B2B - Release 1.15.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29122721",
-		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Middleware-B2B---Release-1.14.0~8435a686-18c5-44aa-a509-bdc38fc35a10/collection/23627244-d9fa06c9-c888-47e7-979c-a66f4ece2010?action=share&source=collection_link&creator=29122721"
+		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B---release-1.15.0~35a47f25-9e65-4631-8107-2e875c3ff90b/collection/23627244-30095327-fe5d-4117-8d7b-e84b73abe0b0?action=share&source=collection_link&creator=29122721"
 	},
 	"item": [
 		{
@@ -1161,6 +1161,42 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Address",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "5a875b7f266c49f59636f120c86ff5a7"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NDM3OTM3OTEsImV4cCI6MTc0Mzg4MDE5MSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiI4OGM4YmIwMi0zZTJlLTQ1MTUtODA5OS1mODU2Y2Y1NmEwM2UifQ.VQGwA-OybnTmmCJC-0SV9SjHZx2yUO2iEXeeAjH-cjk"
+							}
+						],
+						"url": {
+							"raw": "https://general-api-tst.azul.corp/sales/b2b/resources/api/v1/address/15904244",
+							"protocol": "https",
+							"host": [
+								"general-api-tst",
+								"azul",
+								"corp"
+							],
+							"path": [
+								"sales",
+								"b2b",
+								"resources",
+								"api",
+								"v1",
+								"address",
+								"15904244"
+							]
+						},
+						"description": "Generated from cURL: curl --location 'https://general-api-tst.azul.corp/sales/b2b/resources/api/v1/address/15904244' \\\r\n--header 'Ocp-Apim-Subscription-Key: 5a875b7f266c49f59636f120c86ff5a7' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NDM3OTM3OTEsImV4cCI6MTc0Mzg4MDE5MSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiI4OGM4YmIwMi0zZTJlLTQ1MTUtODA5OS1mODU2Y2Y1NmEwM2UifQ.VQGwA-OybnTmmCJC-0SV9SjHZx2yUO2iEXeeAjH-cjk'"
+					},
+					"response": []
 				}
 			]
 		},
@@ -1713,6 +1749,80 @@
 								"api",
 								"v1",
 								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order promotionCode v1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);\r",
+									"\r",
+									"pm.environment.set(\"orderTotalBalanceDue\", response.data.order.totals.balanceDue);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"promotionCode\": \"AZVL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlOrder}}/api/v1/order/promotionCode",
+							"host": [
+								"{{urlOrder}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"promotionCode"
 							]
 						}
 					},
@@ -3442,6 +3552,75 @@
 								"organization"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "Credit History v1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NDM3OTM3OTEsImV4cCI6MTc0Mzg4MDE5MSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiI4OGM4YmIwMi0zZTJlLTQ1MTUtODA5OS1mODU2Y2Y1NmEwM2UifQ.VQGwA-OybnTmmCJC-0SV9SjHZx2yUO2iEXeeAjH-cjk"
+							},
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "5a875b7f266c49f59636f120c86ff5a7"
+							}
+						],
+						"url": {
+							"raw": "https://general-api-tst.azul.corp/api/v1/order/NK3WSG/credit/history",
+							"protocol": "https",
+							"host": [
+								"general-api-tst",
+								"azul",
+								"corp"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"NK3WSG",
+								"credit",
+								"history"
+							]
+						},
+						"description": "Generated from cURL: curl --location 'https://general-api-tst.azul.corp/api/v1/order/NK3WSG/credit/history' \\\r\n--header 'Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NDM3OTM3OTEsImV4cCI6MTc0Mzg4MDE5MSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiI4OGM4YmIwMi0zZTJlLTQ1MTUtODA5OS1mODU2Y2Y1NmEwM2UifQ.VQGwA-OybnTmmCJC-0SV9SjHZx2yUO2iEXeeAjH-cjk' \\\r\n--header 'Ocp-Apim-Subscription-Key: 5a875b7f266c49f59636f120c86ff5a7'"
+					},
+					"response": []
+				},
+				{
+					"name": "Comments v1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NDM3OTM3OTEsImV4cCI6MTc0Mzg4MDE5MSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiI4OGM4YmIwMi0zZTJlLTQ1MTUtODA5OS1mODU2Y2Y1NmEwM2UifQ.VQGwA-OybnTmmCJC-0SV9SjHZx2yUO2iEXeeAjH-cjk"
+							},
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "5a875b7f266c49f59636f120c86ff5a7"
+							}
+						],
+						"url": {
+							"raw": "https://general-api-tst.azul.corp/api/v1/order/OJMNSW/comments",
+							"protocol": "https",
+							"host": [
+								"general-api-tst",
+								"azul",
+								"corp"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"OJMNSW",
+								"comments"
+							]
+						},
+						"description": "Generated from cURL: curl --location 'https://general-api-tst.azul.corp/api/v1/order/OJMNSW/comments' \\\r\n--header 'Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NDM3OTM3OTEsImV4cCI6MTc0Mzg4MDE5MSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiI4OGM4YmIwMi0zZTJlLTQ1MTUtODA5OS1mODU2Y2Y1NmEwM2UifQ.VQGwA-OybnTmmCJC-0SV9SjHZx2yUO2iEXeeAjH-cjk' \\\r\n--header 'Ocp-Apim-Subscription-Key: 5a875b7f266c49f59636f120c86ff5a7'"
 					},
 					"response": []
 				}
@@ -58890,7 +59069,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-					"name": "84 - Booking Flow |Credit File of an existing reservation in Another Reservation.",
+					"name": "84 - Booking Flow | Add PromoCode",
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -59030,7 +59209,160 @@
 							"response": []
 						},
 						{
-							"name": "3 - Order by Record Locator v3",
+							"name": "3 - AirSearch v3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"journeyKeyIda\", JSON.stringify(response.data.airResult.offers[0].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"pm.environment.set(\"fareKeyIda\", JSON.stringify(response.data.airResult.offers[0].offersAvailableByMarket[0].value[0].fares[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											"\r",
+											"var moment = require('moment');\r",
+											"\r",
+											"pm.environment.set(\"departure_1\", moment().add(3, 'days').format('YYYY-MM-DDT00:00:00'));"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"POA\",\r\n            \"destination\": \"FLL\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShopping}}/api/v2/airSearch",
+									"host": [
+										"{{urlShopping}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"airSearch"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4 - Order v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"orderTotalBalanceDue\", response.data.order.totals.balanceDue);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"offers\": [\r\n    {\r\n      \"journeyKey\": \"{{journeyKeyIda}}\",\r\n      \"fareKey\": \"{{fareKeyIda}}\"\r\n    }\r\n   \r\n  ],\r\n  \"passengers\": [\r\n    {\r\n      \"customerProgram\": {\r\n        \"number\": \"\"\r\n      },\r\n      \"nationality\": \"BR\",\r\n      \"gender\": \"Female\",\r\n      \"dateOfBirth\": \"1990-01-01T09:35:00\",\r\n      \"phone\": \"(00) 91111-2222\",\r\n      \"email\": \"maria@email.com\",\r\n      \"type\": \"ADT\",\r\n      \"name\": {\r\n        \"first\": \"Maria\",\r\n        \"middle\": \"Silva\",\r\n        \"last\": \"Santos\",\r\n        \"title\": \"MR\",\r\n        \"suffix\": null\r\n      },\r\n      \"travelDocuments\": [\r\n        {\r\n          \"type\": \"CPF\",\r\n          \"number\": \"21121121121\",\r\n          \"birthCountry\": \"BR\",\r\n          \"issuingCountry\": \"BR\",\r\n          \"issuedDate\": null,\r\n          \"expirationDate\": null\r\n        }\r\n      ],\r\n      \"infant\": null,\r\n      \"iropContact\": {\r\n        \"refused\": false,\r\n         \"mobile\": \"(00) 91111-2222\",\r\n        \"email\": \"maria@email.com\"\r\n      }\r\n    }\r\n  ],\r\n  \"contact\": {\r\n    \"address\": {\r\n      \"lineOne\": \"Rua\",\r\n      \"lineTwo\": \"Sete de Setembro\",\r\n      \"lineThree\": \"No. 22\",\r\n      \"country\": \"BR\",\r\n      \"provinceState\": \"SP\",\r\n      \"city\": \"Sao Paulo\",\r\n      \"postalCode\": \"14800-000\"\r\n    },\r\n    \"email\": \"Viagem.Feliz@mail.com.br\",\r\n    \"companyName\": \"Viagem Feliz\",\r\n    \"name\": {\r\n      \"first\": \"Pedro\",\r\n      \"middle\": \"Souza\",\r\n      \"last\": \"Oliveira\",\r\n      \"title\": \"\",\r\n      \"suffix\": \"FO\"\r\n    },\r\n    \"phones\": [\r\n      {\r\n        \"number\": \"(11) 9999-9991\",\r\n        \"type\": \"Home\"\r\n      },\r\n      {\r\n        \"number\": \"(11) 9999-9992\",\r\n        \"type\": \"Fax\"\r\n      }\r\n    ]\r\n  },\r\n  \"promotionCode\":\"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrder}}/api/v1/order",
+									"host": [
+										"{{urlOrder}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5 - Order promotionCode v1",
 							"event": [
 								{
 									"listen": "test",
@@ -59068,65 +59400,6 @@
 										}
 									]
 								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "{{apiKey}}"
-									},
-									{
-										"key": "User-Agent",
-										"value": "{{userAgent}}"
-									}
-								],
-								"url": {
-									"raw": "{{urlOrderManagement}}/api/v3/order/:recordLocator",
-									"host": [
-										"{{urlOrderManagement}}"
-									],
-									"path": [
-										"api",
-										"v3",
-										"order",
-										":recordLocator"
-									],
-									"variable": [
-										{
-											"key": "recordLocator",
-											"value": "{{recordLocator}}"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "4 - Payments v1",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{bearerToken}}",
-											"type": "string"
-										}
-									]
-								},
 								"method": "POST",
 								"header": [
 									{
@@ -59140,7 +59413,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n   \"methodCode\": \"CF\",\r\n   \"amount\": {{orderTotalBalanceDue}},\r\n   \"installments\": 1,\r\n   \"account\": \"OPL5TE\"   \r\n }",
+									"raw": "{\r\n    \"promotionCode\": \"AZVL\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -59148,28 +59421,30 @@
 									}
 								},
 								"url": {
-									"raw": "{{urlOrderPayments}}/api/v1/order/payments",
+									"raw": "{{urlOrder}}/api/v1/order/promotionCode",
 									"host": [
-										"{{urlOrderPayments}}"
+										"{{urlOrder}}"
 									],
 									"path": [
 										"api",
 										"v1",
 										"order",
-										"payments"
+										"promotionCode"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "5 - Checkout v2",
+							"name": "6 - Checkout v1",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"recordLocator\", response.data.recordLocator);"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -59212,7 +59487,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"refundType\": \"Credit\",\r\n    \"notifyContacts\": \"None\"\r\n}",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -59220,29 +59495,21 @@
 									}
 								},
 								"url": {
-									"raw": "{{urlOrderManagement}}/api/v2/order/:recordLocator/checkout",
+									"raw": "{{urlOrder}}/api/v1/checkout",
 									"host": [
-										"{{urlOrderManagement}}"
+										"{{urlOrder}}"
 									],
 									"path": [
 										"api",
-										"v2",
-										"order",
-										":recordLocator",
+										"v1",
 										"checkout"
-									],
-									"variable": [
-										{
-											"key": "recordLocator",
-											"value": "{{recordLocator}}"
-										}
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "6 - Token v1",
+							"name": "7 - Token v1",
 							"event": [
 								{
 									"listen": "prerequest",
