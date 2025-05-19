@@ -482,9 +482,15 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | NotApplied.PromotionCode | Application of promotionCode is only permitted on hold reservations.|
 | 400 Bad Request | InvalidField.Promotion.Code | It is not possible to apply a promo code to reservations that contain the promo code. |
 | 400 Bad Request | Invalid.TravelDocument.Type | The document type Mercosur is invalid for this IssuingCountry. |
+| 400 Bad Request | Comments.NotAllowed | Comment will not be recorded as it does not meet the PS rule. | It is not possible to send comments when the user does not have the "LEMO" role, and does not meet the PS product class rule. |
+| 400 Bad Request | Comments.Maximum.Lenght | The 'Comments' must be a maximum of 1024 characters. | The comment exceeds the supported character limit. |
+| 400 Bad Request | Invalid.Authentication.Session | The Authentication Session is denied because the token is an Active Directory. | 
 | 400 Bad Request | RefundType.ExistingCredit | It is not possible to apply the 'ExistingCredit' refund, choose another type of refund. |
 | 400 Bad Request | RefundType.ExistingCredit | No credit available for refund. |
 | 400 Bad Request | RefundType.ExistingCredit | Does not have enough credit for refund as payment of the order. |
+Error authenticating using an AD type token. |
+| 400 Bad Request | Invalid.Authentication.Groups.Portal.Session | The Authentication Groups Portal is denied because the session must be an Active Directory. | Error authenticating to the groups portal using a token other than AD. |
+| 400 Bad Request | Order.NoComments | The informed order does not have any comments associated. | The order has no comments. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. |
@@ -518,7 +524,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 404 Not Found | Order.NoMatches | The requested order was not found or does not exist. |
 | 404 Not Found | OrderCache.NoMatches | An order must be attached. |
 | 404 Not Found | OrderSearch.NoMatches | No orders found for the informed search filters. |
-| 404 Not Found | Organization.NoMatches | The informed organization does not exist or was not found. |
+| 404 Not Found | Organization.NoMatches | The organization provided does not exist, was not found, or its status is not active." |
 | 404 Not Found | OrganizationCode.NoMatches | The informed 'OrganizationCode' doesn't exists or doesn't belong to the same organization as your current Point of Sale. |
 | 404 Not Found | OrganizationGroup.NoMatches | The informed organization group does not exist or was not found. |
 | 404 Not Found | OrganizationGroupCode.NoMatches | The 'OrganizationGroupCode does not exist or was not found. |

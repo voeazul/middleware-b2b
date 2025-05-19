@@ -482,6 +482,11 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | NotApplied.PromotionCode | Application of promotionCode is only permitted on hold reservations.| A aplicação do promoCode só é permitida em reservas em HOLD |
 | 400 Bad Request | InvalidField.Promotion.Code | It is not possible to apply a promo code to reservations that contain the promo code. | Não é possível aplicar um PromotionCode a reservas que contenham PromotinCode. |
 | 400 Bad Request | Invalid.TravelDocument.Type | The document type Mercosur is invalid for this IssuingCountry. | Não é possível utilizar o documento Mercosur quando o país emissor do documento não faz parte da organização. |
+| 400 Bad Request | Comments.NotAllowed | Comment will not be recorded as it does not meet the PS rule. | Não é possível enviar comentários quando o usuário não contém a role "LEMO", e não atende a regra da product class PS. |
+| 400 Bad Request | Comments.Maximum.Lenght | The 'Comments' must be a maximum of 1024 characters. | O comentário excede o limite de caracteres suportados. |
+| 400 Bad Request | Invalid.Authentication.Session | The Authentication Session is denied because the token is an Active Directory. | Erro ao autenticar utilizando um token do tipo AD. |
+| 400 Bad Request | Invalid.Authentication.Groups.Portal.Session | The Authentication Groups Portal is denied because the session must be an Active Directory. | Erro ao autenticar no portal de grupos utilizando um token diferente de AD. |
+| 400 Bad Request | Order.NoComments | The informed order does not have any comments associated. | A reserva não possui comentários. |
 | 400 Bad Request | RefundType.ExistingCredit | It is not possible to apply the 'ExistingCredit' refund, choose another type of refund. | O 'ExistingCredit' não é válido para esta reserva, escolha outro tipo de reembolso. |
 | 400 Bad Request | RefundType.ExistingCredit | No credit available for refund. | Não há crédito disponível para reembolso. |
 | 400 Bad Request | RefundType.ExistingCredit | Does not have enough credit for refund as payment of the order. | Não tem crédito suficiente para reembolso como pagamento da reserva. |
@@ -518,7 +523,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 404 Not Found | Order.NoMatches | The requested order was not found or does not exist. | A order solicitada não foi encontrado ou não existe. |
 | 404 Not Found | OrderCache.NoMatches | An order must be attached. | Uma order deve ser anexado. |
 | 404 Not Found | OrderSearch.NoMatches | No orders found for the informed search filters. | Não foram encontado orders para os filtros de busca informados. |
-| 404 Not Found | Organization.NoMatches | The informed organization does not exist or was not found. | A organização informada não existe ou não foi encontrada. |
+| 404 Not Found | Organization.NoMatches | The organization provided does not exist, was not found, or its status is not active. | A organização informada não existe ou não foi encontrada ou não está ativa. |
 | 404 Not Found | OrganizationCode.NoMatches | The informed 'OrganizationCode' doesn't exists or doesn't belong to the same organization as your current Point of Sale. | O 'OrganizationCode' informado não existe ou não pertence à mesma organização do seu Ponto de Venda atual. |
 | 404 Not Found | OrganizationGroup.NoMatches | The informed organization group does not exist or was not found. | O grupo organizacional informado não existe ou não foi encontrado. |
 | 404 Not Found | OrganizationGroupCode.NoMatches | The 'OrganizationGroupCode does not exist or was not found. | O 'OrganizationGroupCode' não existe ou não foi encontrada. |
