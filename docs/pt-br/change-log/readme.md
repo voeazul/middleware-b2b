@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.15.0] - 30/04/2025
+## [1.15.0] - 14/05/2025
 
 ### Adicionado
 - Criação de método para adição de promotionCode na reserva em criação.

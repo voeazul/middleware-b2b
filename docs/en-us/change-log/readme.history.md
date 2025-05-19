@@ -1,6 +1,6 @@
 # Complete Changelog
 
-## [1.15.0] - 30/04/2025
+## [1.15.0] - 14/05/2025
 
 ### Added
 - Creation of a method for adding a promotionCode to a reservation in progress.
