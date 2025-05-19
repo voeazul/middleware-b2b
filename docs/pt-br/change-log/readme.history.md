@@ -1,5 +1,27 @@
 # Changelog Completo
 
+## [1.15.0] - 14/05/2025
+
+### Adicionado
+- Criação de método para adição de promotionCode na reserva em criação.
+
+### Modificado
+- Adicionado RefundType para solicitação de reembolso de CreditShell na reserva.
+- Melhoria na resposta do método de listagem das organizações.
+- Adicionado nova organization e ajustado o zero a esqueda das configurações do calculo de hold.
+- Ajustado conversão do timespan maior que 24 horas.
+- Retrieve de reservas reacomodadas com a data de partida menor que a atual.
+
+## [1.14.0] - 28/02/2025
+
+### Adicionado
+- Autorização de pagamento do tipo Credit File (CF) utilizando um crédito de outra reserva.
+
+### Modificado
+- Atualização da versão do framework para .NET 8.
+- Atualização das tarifas de cancelamento, alteração e No-Show no método FARES.
+- Atualização de novos trechos com restrição de bagagem: CUR/MDZ/BRC.
+
 ## [1.13.0] - 21/01/2025
 
 ### Adicionado

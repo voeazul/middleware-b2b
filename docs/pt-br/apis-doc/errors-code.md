@@ -6,6 +6,19 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 
 | Código HTTP       | Código Interno | Mensagem de Erro                               | Descrição                                     |
 | ----------------- | -------------- | ---------------------------------------------- | ----------------------------------------------|
+| 400 Bad Request | InvalidField.TravelDocument.BirthCountry | The 'TravelDocuments.BirthCountry' has a maximum length 2 characters. | O 'TravelDocuments.BirthCountry' tem um comprimento máximo de 2 caracteres. | 
+| 400 Bad Request | InvalidField.TravelDocument.Type | The 'TravelDocuments.Type' must be a valid Enum. | O 'TravelDocuments.Type' deve ser um Enum válido. | 
+| 400 Bad Request | Passenger.InvalidAge | Passenger over 2 years of age on the date of departure cannot be considered an Infant (INF). | Passageiros com mais de 2 anos na data de partida não podem ser considerados bebês (INF). | 
+| 400 Bad Request | RequiredField.DateOfBirth | The 'DateOfBirth' is required. | A 'TravelDocuments.ExpirationDate' é obrigatória. | 
+| 400 Bad Request | RequiredField.TravelDocument.ExpirationDate | The 'TravelDocuments.ExpirationDate' is required. | A 'TravelDocuments.ExpirationDate' é obrigatória. | 
+| 400 Bad Request | RequiredField.TravelDocument.Type | The 'TravelDocuments.Type' CPF, RNE or PASSPORT is required. | O 'TravelDocuments.Type' CPF, RNE ou PASSAPORTE é obrigatório. | 
+| 400 Bad Request | RequiredField.TravelDocuments.Type | The 'TravelDocuments.Type' is required. | O 'TravelDocuments.Type' é obrigatório. | 
+| 400 Bad Request | Customer.AlreadyCategorized | This passenger has already been categorized, You are not allowed to change the passenger's name. | Este passageiro já foi categorizado, você não tem permissão para alterar o nome do passageiro. | 
+| 400 Bad Request | InvalidField.Contact.Phone | The 'phone' has a maximum length 20 characters. | O 'phone' tem um comprimento máximo de 20 caracteres. | 
+| 400 Bad Request | InvalidField.IropContact.Email | The 'Passengers.IropContact.Email' has a maximum length 128 characters. | O 'Passengers.IropContact.Email' tem um comprimento máximo de 128 caracteres. | 
+| 400 Bad Request | RequiredField.PhoneEmail | The 'Phone' or  'Email' is required. | O 'Phone' or 'Email' são obrigatórios.  | 
+| 400 Bad Request | RequiredField.IropContact.EmailMobile | The 'Passengers.IropContact.Email' or 'Passengers.IropContact.Mobile is required. | O 'Passengers.IropContact.Email' ou 'Passengers.IropContact.Mobile' é obrigatório. | 
+| 400 Bad Request  | RequiredField.IropContact.Refused | The 'Passengers.IropContact.Refused' is required. | O 'Passengers.IropContact.Refused' é obrigatório. | 
 | 400 Bad Request | Agent.NoOrganizationGroup | The Agent must be in a organization group when 'OrderCriteria.Type' is equal to 'OrganizationGroup'. | O Agente deve estar em um grupo de uma organização quando 'OrderCriteria.Type' for igual a 'OrganizationGroup'. |
 | 400 Bad Request | Agent.NotAuthorized | Agent is not allowed to assign seat. | O agente não tem permissão para atribuir assento. |
 | 400 Bad Request | AgentOrder.NotAuthorized | Agent is not authorized to commit order with invalid price status without requesting to override restrictions. | O agente não está autorizado a confirmar a reserva com status de preço inválido sem solicitar a substituição das restrições. |
@@ -474,6 +487,9 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | Invalid.Authentication.Session | The Authentication Session is denied because the token is an Active Directory. | Erro ao autenticar utilizando um token do tipo AD. |
 | 400 Bad Request | Invalid.Authentication.Groups.Portal.Session | The Authentication Groups Portal is denied because the session must be an Active Directory. | Erro ao autenticar no portal de grupos utilizando um token diferente de AD. |
 | 400 Bad Request | Order.NoComments | The informed order does not have any comments associated. | A reserva não possui comentários. |
+| 400 Bad Request | RefundType.ExistingCredit | It is not possible to apply the 'ExistingCredit' refund, choose another type of refund. | O 'ExistingCredit' não é válido para esta reserva, escolha outro tipo de reembolso. |
+| 400 Bad Request | RefundType.ExistingCredit | No credit available for refund. | Não há crédito disponível para reembolso. |
+| 400 Bad Request | RefundType.ExistingCredit | Does not have enough credit for refund as payment of the order. | Não tem crédito suficiente para reembolso como pagamento da reserva. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. | Ocorreu um erro ao executar a autenticação. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. | O Bearer Token fornecido é inválido ou expirou. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. | Ocorreu um erro ao validar a autenticação do usuário. |
