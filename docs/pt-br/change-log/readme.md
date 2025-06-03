@@ -1,15 +1,8 @@
 # Changelog
 
-## [1.15.0] - 14/05/2025
-
-### Adicionado
-- Criação de método para adição de promotionCode na reserva em criação.
+## [1.15.1] - 03/06/2025
 
 ### Modificado
-- Adicionado RefundType para solicitação de reembolso de CreditShell na reserva.
-- Melhoria na resposta do método de listagem das organizações.
-- Adicionado nova organization e ajustado o zero a esqueda das configurações do calculo de hold.
-- Ajustado conversão do timespan maior que 24 horas.
-- Retrieve de reservas reacomodadas com a data de partida menor que a atual.
+- Novo Codeshare HiFly (5K).
 
 [Link para as versões anteriores](/docs/pt-br/change-log/readme.history.md)

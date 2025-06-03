@@ -1,5 +1,10 @@
 # Complete Changelog
 
+## [1.15.1] - 03/06/2025
+
+### Updated
+- New Codeshare HiFly (5K).
+
 ## [1.15.0] - 14/05/2025
 
 ### Added
