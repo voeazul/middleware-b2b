@@ -1,11 +1,16 @@
 # Complete Changelog
 
+## [1.15.1] - 03/06/2025
+
+### Updated
+- New Codeshare HiFly (5K).
+
 ## [1.15.0] - 28/02/2025
 
-### Adicionado
+### Added
 - Creation of a method for adding a promotionCode to a reservation in progress.
 
-### Modificado
+### Updated
 
 ## [1.14.0] - 28/02/2025
 

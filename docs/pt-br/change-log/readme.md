@@ -1,11 +1,11 @@
 # Changelog
 
-## [1.15.0] - 28/02/2025
-
-### Adicionado
-- Criação de método para adição de promotionCode na reserva em criação.
+## [1.16.0] - 12/06/2025
 
 ### Modificado
-- Adicionado RefundType para solicitação de reembolso de CreditShell na reserva.
+- Adição de serviço de UMNR opcional voos internacionais.
+- Aplicação de Promocodes em voos Codeshare.
+- Alteração do prazo de Hold para pagamentos declinados.
+- Ajuste framework de sessão perfis de acesso.
 
 [Link para as versões anteriores](/docs/pt-br/change-log/readme.history.md)
