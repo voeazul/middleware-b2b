@@ -491,6 +491,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 401 Unauthorized | InvalidToken.NotInformed | Bearer Token not informed. The token must be informed in the request header. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | Not Authenticated. The Agent must be authenticated thru User API. |
 | 401 Unauthorized | InvalidToken.Expired | Provided JWT is invalid or expired. |
+| 403 Forbidden | AuthorizationFailedInvalidRole | The agent does not have the required roles to access this method. |
 | 403 Forbidden | Agent.MethodCode.NotAllowed | The logged agent is not allowed to make payments using this method code. |
 | 403 Forbidden | Agent.NoAccess | The agent does not have access to the informed user. |
 | 403 Forbidden | AssignSeat.UnitKey.Blocked | The request failed to assign the seat, because this seat is blocked by passengers rules (age, SSR or equipment). |
