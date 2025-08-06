@@ -473,6 +473,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | InvalidField.LastStatementDate | The 'LastStatementDate' must be a valid. |
 | 400 Bad Request | InvalidField.OverrideDuFee | The organizationFeeOverride cannot be informed when overrideDuFee was already informed. |
 | 400 Bad Request | InvalidField.StatementNote | The 'StatementNote' must be 128 characters in length. |
+| 400 Bad Request | InvalidField.Update | The promotion codes can't be updated for orders that don't contain a promo code. |
 | 400 Bad Request | InvalidField.NewName | Please check the 'NewName', it can't start with special characters and numbers. |
 | 400 Bad Request | RequiredField.Company.Cnpj | The 'Company Cnpj' is required. |
 | 400 Bad Request | RequiredField.CompanyPhones.Type | The 'Company.Phones.Type' is required. |

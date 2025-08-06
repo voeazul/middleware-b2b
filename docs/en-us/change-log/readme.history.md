@@ -1,5 +1,13 @@
 # Complete Changelog
 
+## [1.16.0] - 12/06/2025
+
+### Updated
+- Addition of optional UMNR service for international flights.
+- Application of Promocodes on Codeshare flights.
+- Change in Hold period for declined payments.
+- Adjustment of access profiles session framework.
+
 ## [1.15.1] - 03/06/2025
 
 ### Updated
