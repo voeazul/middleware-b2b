@@ -4,5 +4,7 @@
 
 ### Added
 - Added method to change the promotion code of a reservation in Hold.
+- Added field for sending booking itinerary (Agency, None and All).
+- Added field to send comments on booking.
 
 [Link to previous versions](/docs/en-us/change-log/readme.history.md)

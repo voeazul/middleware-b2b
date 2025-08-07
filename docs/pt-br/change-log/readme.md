@@ -4,6 +4,8 @@
 
 ### Adicionado
 - Adição do método para alteração do promotion code de uma reserva em Hold.
+- Adicionado campo para envio de itinerários da reserva (Agency, All e None).
+- Adicionado campo para envio de comentários na reserva.
 
 
 [Link para as versões anteriores](/docs/pt-br/change-log/readme.history.md)
