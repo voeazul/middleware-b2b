@@ -473,7 +473,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | InvalidField.LastStatementDate | The 'LastStatementDate' must be a valid. | O 'LastStatementDate' deve ser válido. | |
 | 400 Bad Request | InvalidField.OverrideDuFee | The organizationFeeOverride cannot be informed when overrideDuFee was already informed.| O 'LastStatementDate' deve ser válido. | A organizaçãoFeeOverride não pode ser informada quando overrideDuFee já foi informado. |
 | 400 Bad Request | InvalidField.StatementNote | The 'StatementNote' must be 128 characters in length. | O 'StatementNote' deve ter 128 caracteres. |
-| 400 Bad Request | InvalidField.Update | The promotion codes can't be updated for orders that don't contain a promo code. | Os códigos de promoção não podem ser atualizados para encomendas que não contenham um código promocional. |
+| 400 Bad Request | InvalidField.Update | It is only possible to update the promocode for hold order. | Os códigos de promoção não podem ser atualizados para encomendas que não contenham um código promocional. |
 | 400 Bad Request | InvalidField.NewName | Please check the 'NewName', it can't start with special characters and numbers. | Por favor verifique o 'NovoNome', ele não pode começar com caracteres especiais e números. |
 | 400 Bad Request | RequiredField.Company.Cnpj | The 'Company Cnpj' is required. | O 'Cnpj da Empresa' é obrigatório. |
 | 400 Bad Request | RequiredField.CompanyPhones.Type | The 'Company.Phones.Type' is required. | O 'Company.Phones.Type' é obrigatório. |
