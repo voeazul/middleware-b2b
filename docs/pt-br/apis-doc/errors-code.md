@@ -13,6 +13,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RequiredField.TravelDocument.ExpirationDate | The 'TravelDocuments.ExpirationDate' is required. | A 'TravelDocuments.ExpirationDate' é obrigatória. | 
 | 400 Bad Request | RequiredField.TravelDocument.Type | The 'TravelDocuments.Type' CPF, RNE or PASSPORT is required. | O 'TravelDocuments.Type' CPF, RNE ou PASSAPORTE é obrigatório. | 
 | 400 Bad Request | RequiredField.TravelDocuments.Type | The 'TravelDocuments.Type' is required. | O 'TravelDocuments.Type' é obrigatório. | 
+| 400 Bad Request | Codeshare.Passengers.Limit | Maximum limit of this codeshare '{0}' is {1}. | Limite máximo deste código compartilhado '{0}' é {1} |
 | 400 Bad Request | Customer.AlreadyCategorized | This passenger has already been categorized, You are not allowed to change the passenger's name. | Este passageiro já foi categorizado, você não tem permissão para alterar o nome do passageiro. | 
 | 400 Bad Request | InvalidField.Contact.Phone | The 'phone' has a maximum length 20 characters. | O 'phone' tem um comprimento máximo de 20 caracteres. | 
 | 400 Bad Request | InvalidField.IropContact.Email | The 'Passengers.IropContact.Email' has a maximum length 128 characters. | O 'Passengers.IropContact.Email' tem um comprimento máximo de 128 caracteres. | 

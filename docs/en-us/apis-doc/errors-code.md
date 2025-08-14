@@ -13,6 +13,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | RequiredField.TravelDocument.ExpirationDate | The 'TravelDocuments.ExpirationDate' is required. | 
 | 400 Bad Request | RequiredField.TravelDocument.Type | The 'TravelDocuments.Type' CPF, RNE or PASSPORT is required. |
 | 400 Bad Request | RequiredField.TravelDocuments.Type | The 'TravelDocuments.Type' is required. |
+| 400 Bad Request | Codeshare.Passengers.Limit | Maximum limit of this codeshare '{0}' is {1}. |
 | 400 Bad Request | Customer.AlreadyCategorized | This passenger has already been categorized, You are not allowed to change the passenger's name. |
 | 400 Bad Request | InvalidField.Contact.Phone | The 'phone' has a maximum length 20 characters. |
 | 400 Bad Request | InvalidField.IropContact.Email | The 'Passengers.IropContact.Email' has a maximum length 128 characters. |
