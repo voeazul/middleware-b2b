@@ -645,6 +645,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 502 Bad Gateway | RequestFailed.SSR.AddNotPossible | It was not possible to add an SSR to the order. |
 | 502 Bad Gateway | RequestFailed.StatusAccount | Organization account is Closed/Blocked, please contact Azul's commercial team. |
 | 502 Bad Gateway | RequestFailed.UnaccompaniedMinor.Information | There are unaccompanied minors in your order, please verify possible costs and required documentations. |
+| 502 Bad Gateway | RequestFailed.Installments | An error occurred while querying for installment availability. |
 | 502 Bad Gateway | RequestFailed.Unexpected | An unexpected error has occurred. |
 | 502 Bad Gateway | RequiredField.Amount | The 'Amount' is required. |
 | 502 Bad Gateway | RequiredField.CreditCard.MethodCode | The 'MethodCode' is required. |

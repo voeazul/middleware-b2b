@@ -645,6 +645,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 502 Bad Gateway | RequestFailed.SSR.AddNotPossible | It was not possible to add an SSR to the order. | Não foi possível adicionar um SSR a order. |
 | 502 Bad Gateway | RequestFailed.StatusAccount | Organization account is Closed/Blocked, please contact Azul's commercial team. | A conta da organização está Fechada/Bloqueada, entre em contato com a equipe comercial da Azul. |
 | 502 Bad Gateway | RequestFailed.UnaccompaniedMinor.Information | There are unaccompanied minors in your order, please verify possible costs and required documentations. | Há menores desacompanhados na order, verifique possíveis custos e documentações exigidas. |
+| 502 Bad Gateway | RequestFailed.Installments | An error occurred while querying for installment availability. | Ocorreu um erro ao consultar a disponibilidade de parcelamento. |
 | 502 Bad Gateway | RequestFailed.Unexpected | An unexpected error has occurred. | Ocorreu um erro inesperado. |
 | 502 Bad Gateway | RequiredField.Amount | The 'Amount' is required. | O 'Valor' é obrigatório. |
 | 502 Bad Gateway | RequiredField.CreditCard.MethodCode | The 'MethodCode' is required. | O 'MethodCode' é obrigatório. |
@@ -656,4 +657,4 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 502 Bad Gateway | Resources.RequestFailed | The Resources request failed. | A solicitação do recurso falhou. |
 | 502 Bad Gateway | FrequentFlyer.Inconsistent | The passenger's name in the frequent flyer registration is different from the reservation system, please contact frequent flyer support. | Se o nome do passageiro no registro de passageiro frequente for diferente do sistema de reservas, entre em contato com o suporte ao passageiro frequente. |
 | 502 Bad Gateway | UserOrganization.NotAllowed | The logged user organization does not have access to the requested order. | A organização do usuário logado não tem acesso ao pedido solicitado. |
-| 502 Bad Gateway | InternalSession.Failed | An internal error has occurred and the process is unrecoverable, please retrieve again to restart the process. | Ocorreu um erro interno e o processo é irrecuperável, recupere novamente para reiniciar o processo. |
+| 502 Bad Gateway | InternalSession.Failed | An internal error has occurred and the process is unrecoverable, please retrieve again to restart the process. | Ocorreu um erro interno e o processo é irrecuperável, recupere novamente para reiniciar o processo. | 

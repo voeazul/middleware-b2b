@@ -7,4 +7,7 @@
 - Added field for sending booking itinerary (Agency, None and All).
 - Added field to send comments on booking.
 
+### Modificado
+- Improvement in the error message if Installments API unavailability occurs.
+
 [Link to previous versions](/docs/en-us/change-log/readme.history.md)
