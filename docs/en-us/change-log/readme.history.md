@@ -11,6 +11,12 @@
 - Creation of a method for adding a promotionCode to a reservation in progress.
 
 ### Updated
+- Added RefundType for CreditShell refund request on Order.
+- Improved the response of the organization listing method.
+- Added a new organization and adjusted leading zeros in the hold calculation settings.
+- Fixed conversion of timespans greater than 24 hours.
+- Retrieval of rebooked reservations with a departure date earlier than the current date.
+
 
 ## [1.14.0] - 28/02/2025
 

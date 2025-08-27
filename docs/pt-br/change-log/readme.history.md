@@ -12,6 +12,11 @@
 
 ### Modificado
 
+- Adicionado RefundType para solicitação de reembolso de CreditShell na reserva.
+- Melhoria na resposta do método de listagem das organizações.
+- Adicionado nova organization e ajustado o zero a esqueda das configurações do calculo de hold.
+- Ajustado conversão do timespan maior que 24 horas.
+- Retrieve de reservas reacomodadas com a data de partida menor que a atual.
 
 ## [1.14.0] - 28/02/2025
 

@@ -8,4 +8,5 @@
 - Change in Hold period for declined payments.
 - Adjustment of access profiles session framework.
 
+
 [Link to previous versions](/docs/en-us/change-log/readme.history.md)
