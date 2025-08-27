@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.16.0] - 12/06/2025
+## [1.16.0] - 20/08/2025
 
 ### Updated
 - Addition of optional UMNR service for international flights.
