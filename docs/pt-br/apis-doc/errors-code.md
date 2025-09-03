@@ -487,6 +487,18 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | RefundType.ExistingCredit | It is not possible to apply the 'ExistingCredit' refund, choose another type of refund. | O 'ExistingCredit' não é válido para esta reserva, escolha outro tipo de reembolso. |
 | 400 Bad Request | RefundType.ExistingCredit | No credit available for refund. | Não há crédito disponível para reembolso. |
 | 400 Bad Request | RefundType.ExistingCredit | Does not have enough credit for refund as payment of the order. | Não tem crédito suficiente para reembolso como pagamento da reserva. |
+| 400 Bad Request | RequiredField.Type | The 'Type' field is required. | O campo 'Type' é obrigatório. |
+| 400 Bad Request | Contact.Info.Required | At least one data for update must be sent. | Pelo menos um dado para atualização deve ser enviado. |
+| 400 Bad Request | Contact.Phones.Null | The 'Phones' field cannot contain a null phone. | O campo 'Phones' não pode conter um telefone nulo. |
+| 400 Bad Request | Contact.Phones.Empty | The 'Phones' field cannot be empty. | O campo 'Phones' não pode estar vazio. |
+| 400 Bad Request | RequiredField.Phone.Type | The 'Phone.Type' field is required when 'Phone.Number' is informed. | O campo 'Phone.Type' é obrigatório quando 'Phone.Number' for informado. |
+| 400 Bad Request | RequiredField.Phone.Number | The 'Phone.Number' field is required when 'Phone.Type' is informed. | O campo 'Phone.Number' é obrigatório quando 'Phone.Type' for informado. |
+| 400 Bad Request | InvalidField.Phone.Number | The 'Phone.Number' has a maximum length 20 characters. | O 'Phone.Number' tem um limite máximo de 20 caracteres. |
+| 400 Bad Request | InvalidField.Contact.Email | The 'Passengers.Email' must be not empty. | O 'Contact.Email' não deve estar vazio. |
+| 400 Bad Request | InvalidField.Contact.Email | The 'Passengers.Email' is invalid. | O 'Contact.Email' é inválido. |
+| 400 Bad Request | InvalidField.Contact.Email | The 'Passengers.Email' has a maximum length 255 characters. | O 'Contact.Email' tem um limite máximo de 255 caracteres. |
+| 400 Bad Request | Order.Contact | It is only possible to update the contact for hold order. | Só é possível atualizar o contato para uma reserva em Hold. |
+| 400 Bad Request | Order.Contact.NotFound | The Order in state does not have the contact of the 'Type' informed. | A Ordem em estado não tem o contato do 'Type' informado. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. | Ocorreu um erro ao executar a autenticação. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. | O Bearer Token fornecido é inválido ou expirou. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. | Ocorreu um erro ao validar a autenticação do usuário. |

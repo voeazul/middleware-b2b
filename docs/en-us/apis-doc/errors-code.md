@@ -487,6 +487,18 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | RefundType.ExistingCredit | It is not possible to apply the 'ExistingCredit' refund, choose another type of refund. |
 | 400 Bad Request | RefundType.ExistingCredit | No credit available for refund. |
 | 400 Bad Request | RefundType.ExistingCredit | Does not have enough credit for refund as payment of the order. |
+| 400 Bad Request | RequiredField.Type | The 'Type' field is required. |
+| 400 Bad Request | Contact.Info.Required | At least one data for update must be sent. |
+| 400 Bad Request | Contact.Phones.Null | The 'Phones' field cannot contain a null phone. |
+| 400 Bad Request | Contact.Phones.Empty | The 'Phones' field cannot be empty. |
+| 400 Bad Request | RequiredField.Phone.Type | The 'Phone.Type' field is required when 'Phone.Number' is informed. |
+| 400 Bad Request | RequiredField.Phone.Number | The 'Phone.Number' field is required when 'Phone.Type' is informed. |
+| 400 Bad Request | InvalidField.Phone.Number | The 'Phone.Number' has a maximum length 20 characters. |
+| 400 Bad Request | InvalidField.Contact.Email | The 'Passengers.Email' must be not empty. |
+| 400 Bad Request | InvalidField.Contact.Email | The 'Passengers.Email' is invalid. |
+| 400 Bad Request | InvalidField.Contact.Email | The 'Passengers.Email' has a maximum length 255 characters. |
+| 400 Bad Request | Order.Contact | It is only possible to update the contact for hold order. |
+| 400 Bad Request | Order.Contact.NotFound | The Order in state does not have the contact of the 'Type' informed. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. |
