@@ -1,12 +1,11 @@
 # Changelog
 
-## [1.16.0] - 20/08/2025
+## [1.16.1] - 20/08/2025
 
 ### Updated
-- Addition of optional UMNR service for international flights.
-- Application of Promocodes on Codeshare flights.
-- Change in Hold period for declined payments.
-- Adjustment of access profiles session framework.
-
+- Passenger Restriction on Codeshare Booking Changes.
+- Passenger Restriction on Codeshare Flight Search.
+- Passenger Restriction on Codeshare Booking Issuance.
+- Improvement in error messages returned by the installment payment API.
 
 [Link to previous versions](/docs/en-us/change-log/readme.history.md)

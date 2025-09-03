@@ -1,13 +1,13 @@
 # Changelog
 
 
-## [1.16.0] - 20/08/2025
+## [1.16.1] - 20/08/2025
 
 ### Modificado
-- Adição de serviço de UMNR opcional voos internacionais.
-- Aplicação de Promocodes em voos Codeshare.
-- Alteração do prazo de Hold para pagamentos declinados.
-- Ajuste framework de sessão perfis de acesso.
+- Restrição de Passageiros na Alteração de Reservas Codeshare.
+- Restrição de Passageiros na Busca de Voos Codeshare.
+- Restrição de Passageiros na Emissão de Reservas Codeshare.
+- Melhoria nas mensagens de erro retornados na api de parcelamento.
 
 
 [Link para as versões anteriores](/docs/pt-br/change-log/readme.history.md)
