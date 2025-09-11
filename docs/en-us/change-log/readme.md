@@ -2,14 +2,14 @@
 
 ## [1.17.0] - 06/08/2025
 
-### Adicionado
-- Adição do método para alteração do promotion code de uma reserva em Hold.
-- Adicionado campo para envio de itinerários da reserva (Agency, All e None).
-- Adicionado campo para envio de comentários na reserva.
-- Adicionado método para atualizar dados dos contatos de Agency e Customer de uma reserva em Hold.
+### Added
+- Added method to change the promotion code of a reservation in Hold.
+- Added field for sending booking itinerary (Agency, None and All).
+- Added field to send comments on booking.
+- Added method to update data of the Agency and Customer contacts from a reservation in Hold.
 
-### Modificado
-- Melhoria na mensagem de erro caso ocorra indisponibilidade da API de Installments.
-- A 'OrganizationFeeOverride' está desabilitada, o valor enviado não irá sobrescrever a OrganizationFee durante a criação da reserva.
+### Updated
+- Improvement in the error message if Installments API unavailability occurs.
+- The 'OrganizationFeeOverride' is disabled, the value sent will not overwrite the OrganizationFee during the creation of the Order.
 
-[Link para as versões anteriores](/docs/pt-br/change-log/readme.history.md)
+[Link to previous versions](/docs/en-us/change-log/readme.history.md)
