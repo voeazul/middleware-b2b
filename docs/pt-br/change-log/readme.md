@@ -10,6 +10,6 @@
 
 ### Modificado
 - Melhoria na mensagem de erro caso ocorra indisponibilidade da API de Installments.
-
+- A 'OrganizationFeeOverride' está desabilitada, o valor enviado não irá sobrescrever a OrganizationFee durante a criação da reserva.
 
 [Link para as versões anteriores](/docs/pt-br/change-log/readme.history.md)
