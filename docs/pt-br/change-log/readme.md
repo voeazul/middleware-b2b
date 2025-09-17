@@ -16,5 +16,6 @@
 - Adicionado relatório de Reacomodação na ApI de Reportes.
 - Bloqueio na busca, criação e alteração de reservas codeshare(G3) com mais de 4 passageiros.
 - Melhorias nas validações e indisponibilidade da api de parcelamento.
+- Removido método de alteração de DU de reservas internacionais.
 
 [Link para as versões anteriores](/docs/pt-br/change-log/readme.history.md)
