@@ -7,9 +7,14 @@
 - Added field for sending booking itinerary (Agency, None and All).
 - Added field to send comments on booking.
 - Added method to update data of the Agency and Customer contacts from a reservation in Hold.
+- Added method to return valid routes.
 
 ### Updated
 - Improvement in the error message if Installments API unavailability occurs.
 - The 'OrganizationFeeOverride' is disabled, the value sent will not overwrite the OrganizationFee during the creation of the Order.
+- Released the option of requesting a refund via CreditShell for reservations in re-accommodation.
+- Added Reallocation report in the Reports ApI.
+- Block the search, creation and modification of codeshare (G3) reservations with more than 4 passengers.
+- Improvements in validations and unavailability of the installment api.
 
 [Link to previous versions](/docs/en-us/change-log/readme.history.md)
