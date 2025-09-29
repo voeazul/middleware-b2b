@@ -500,6 +500,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 400 Bad Request | InvalidField.Contact.Email | The 'Passengers.Email' has a maximum length 255 characters. | O 'Contact.Email' tem um limite máximo de 255 caracteres. |
 | 400 Bad Request | Order.Contact | It is only possible to update the contact for hold order. | Só é possível atualizar o contato para uma reserva em Hold. |
 | 400 Bad Request | Order.Contact.NotFound | The Order in state does not have the contact of the 'Type' informed. | A Ordem em estado não tem o contato do 'Type' informado. |
+| 400 Not Found | OrganizationCode.Blocks.Search | Emission not permitted for this Organization. | Emissão não permitida para esta Organização |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. | Ocorreu um erro ao executar a autenticação. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. | O Bearer Token fornecido é inválido ou expirou. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. | Ocorreu um erro ao validar a autenticação do usuário. |
