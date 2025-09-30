@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "5cb8fc6d-0e62-48cd-b553-5d5b7ec1f65a",
-		"name": "Middleware B2B - Release 1.16.0",
+		"_postman_id": "94685047-3b5b-45ad-b35f-0fe767f14952",
+		"name": "Middleware B2B - Release 1.17.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29122721",
-		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B---release-1.16.0~f5fdc49c-b676-429d-9cbf-5ee8713919c8/collection/29122721-5cb8fc6d-0e62-48cd-b553-5d5b7ec1f65a?action=share&source=collection_link&creator=29122721"
+		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B---release-1.17.0~ad184153-313b-4bee-ab62-1381303211cc/collection/29122721-94685047-3b5b-45ad-b35f-0fe767f14952?action=share&source=collection_link&creator=29122721"
 	},
 	"item": [
 		{
@@ -88,7 +88,20 @@
 									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
 									"}"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -1111,7 +1124,7 @@
 					"response": []
 				},
 				{
-					"name": "Station by Code v1",
+					"name": "Stations by Code v1",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -1163,17 +1176,79 @@
 					"response": []
 				},
 				{
-					"name": "Address",
+					"name": "Routes v1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
 								"key": "Ocp-Apim-Subscription-Key",
-								"value": "5a875b7f266c49f59636f120c86ff5a7"
+								"value": "{{apiKey}}"
 							},
 							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NDM3OTM3OTEsImV4cCI6MTc0Mzg4MDE5MSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiI4OGM4YmIwMi0zZTJlLTQ1MTUtODA5OS1mODU2Y2Y1NmEwM2UifQ.VQGwA-OybnTmmCJC-0SV9SjHZx2yUO2iEXeeAjH-cjk"
+								"key": "User-Agent",
+								"value": "{{userAgent}}"
+							}
+						],
+						"url": {
+							"raw": "{{urlResources}}/api/v1/routes",
+							"host": [
+								"{{urlResources}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"routes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}"
 							}
 						],
 						"url": {
@@ -2158,8 +2233,20 @@
 			"name": "Order.Management",
 			"item": [
 				{
-					"name": "Order Divide v1",
+					"name": "Order from State v3",
 					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);\r",
+									"\r",
+									"pm.environment.set(\"orderTotalBalanceDue\", response.data.order.totals.balanceDue);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
 						{
 							"listen": "prerequest",
 							"script": {
@@ -2168,7 +2255,8 @@
 									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
 									"}"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -2183,7 +2271,7 @@
 								}
 							]
 						},
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
 								"key": "Ocp-Apim-Subscription-Key",
@@ -2194,95 +2282,15 @@
 								"value": "{{userAgent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"passengerKeys\": [\r\n        \"MCFBRFQ-\"\r\n    ],\r\n    \"creditAmount\": null\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "{{urlOrderManagement}}/api/v1/order/{{recordLocatorForDivide}}/divide",
+							"raw": "{{urlOrderManagement}}/api/v3/order",
 							"host": [
 								"{{urlOrderManagement}}"
 							],
 							"path": [
 								"api",
-								"v1",
-								"order",
-								"{{recordLocatorForDivide}}",
-								"divide"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Fees Organization v1",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearerToken}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Ocp-Apim-Subscription-Key",
-								"value": "{{apiKey}}"
-							},
-							{
-								"key": "User-Agent",
-								"value": "{{userAgent}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"amount\": 0\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{urlOrderManagement}}/api/v1/order/:recordLocator/fees/organization",
-							"host": [
-								"{{urlOrderManagement}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"order",
-								":recordLocator",
-								"fees",
-								"organization"
-							],
-							"variable": [
-								{
-									"key": "recordLocator",
-									"value": "{{recordLocator}}"
-								}
+								"v3",
+								"order"
 							]
 						}
 					},
@@ -2909,6 +2917,69 @@
 					]
 				},
 				{
+					"name": "Order Divide v1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"passengerKeys\": [\r\n        \"MCFBRFQ-\"\r\n    ],\r\n    \"creditAmount\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlOrderManagement}}/api/v1/order/{{recordLocator}}/divide",
+							"host": [
+								"{{urlOrderManagement}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"{{recordLocator}}",
+								"divide"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "History v1",
 					"event": [
 						{
@@ -3022,70 +3093,6 @@
 									"key": "recordLocator",
 									"value": "{{recordLocator}}"
 								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Order from State v3",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var response = JSON.parse(responseBody);\r",
-									"\r",
-									"pm.environment.set(\"orderTotalBalanceDue\", response.data.order.totals.balanceDue);"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
-									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
-									"}"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearerToken}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ocp-Apim-Subscription-Key",
-								"value": "{{apiKey}}"
-							},
-							{
-								"key": "User-Agent",
-								"value": "{{userAgent}}"
-							}
-						],
-						"url": {
-							"raw": "{{urlOrderManagement}}/api/v3/order",
-							"host": [
-								"{{urlOrderManagement}}"
-							],
-							"path": [
-								"api",
-								"v3",
-								"order"
 							]
 						}
 					},
@@ -3527,8 +3534,29 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"amount\": {{orderTotalAmount}},\r\n            \"passengerKey\": \"{{passengerKey}}\"\r\n        } \r\n    ]\r\n}",
@@ -3556,17 +3584,91 @@
 					"response": []
 				},
 				{
+					"name": "PromotionCode v1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"promotionCode\": \"SUP10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlOrderManagement}}/api/v1/order/{{recordLocator}}/promotionCode",
+							"host": [
+								"{{urlOrderManagement}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"{{recordLocator}}",
+								"promotionCode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Credit History v1",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
-								"key": "Authorization",
-								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NDM3OTM3OTEsImV4cCI6MTc0Mzg4MDE5MSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiI4OGM4YmIwMi0zZTJlLTQ1MTUtODA5OS1mODU2Y2Y1NmEwM2UifQ.VQGwA-OybnTmmCJC-0SV9SjHZx2yUO2iEXeeAjH-cjk"
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}"
 							},
 							{
-								"key": "Ocp-Apim-Subscription-Key",
-								"value": "5a875b7f266c49f59636f120c86ff5a7"
+								"key": "User-Agent",
+								"value": "{{userAgent}}"
 							}
 						],
 						"url": {
@@ -3596,12 +3698,12 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "Authorization",
-								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NDM3OTM3OTEsImV4cCI6MTc0Mzg4MDE5MSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiI4OGM4YmIwMi0zZTJlLTQ1MTUtODA5OS1mODU2Y2Y1NmEwM2UifQ.VQGwA-OybnTmmCJC-0SV9SjHZx2yUO2iEXeeAjH-cjk"
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}"
 							},
 							{
-								"key": "Ocp-Apim-Subscription-Key",
-								"value": "5a875b7f266c49f59636f120c86ff5a7"
+								"key": "User-Agent",
+								"value": "{{userAgent}}"
 							}
 						],
 						"url": {
@@ -3621,6 +3723,57 @@
 							]
 						},
 						"description": "Generated from cURL: curl --location 'https://general-api-tst.azul.corp/api/v1/order/OJMNSW/comments' \\\r\n--header 'Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NDM3OTM3OTEsImV4cCI6MTc0Mzg4MDE5MSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiI4OGM4YmIwMi0zZTJlLTQ1MTUtODA5OS1mODU2Y2Y1NmEwM2UifQ.VQGwA-OybnTmmCJC-0SV9SjHZx2yUO2iEXeeAjH-cjk' \\\r\n--header 'Ocp-Apim-Subscription-Key: 5a875b7f266c49f59636f120c86ff5a7'"
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Contact v1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"Agency\",\r\n    \"email\": \"teste@teste.com\",\r\n    \"name\": {\r\n        \"first\": \"João\",\r\n        \"last\": \"Silva\"\r\n    },\r\n    \"phones\": [\r\n        {\r\n            \"type\": \"Fax\",\r\n            \"number\": \"111111111\"\r\n        }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlOrderManagement}}/api/v1/order/{{recordLocator}}/contact",
+							"host": [
+								"{{urlOrderManagement}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"{{recordLocator}}",
+								"contact"
+							]
+						}
 					},
 					"response": []
 				}
@@ -7182,6 +7335,256 @@
 								"reports",
 								":reportId",
 								"users"
+							],
+							"variable": [
+								{
+									"key": "reportId",
+									"value": "{{userReportId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Report v1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"userReportId\", jsonData.data.report.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"periodCriteria\": {\r\n        \"type\": \"Day\",\r\n        \"day\": 20,\r\n        \"week\": null,\r\n        \"month\": 9,\r\n        \"year\": 2025\r\n    },\r\n    \"orderCriteria\": {\r\n        \"type\": \"Organization\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlReports}}/api/v1/orders/reports/reaccommodation",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reports",
+								"reaccommodation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Report v1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}"
+							}
+						],
+						"url": {
+							"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/reaccommodation",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reports",
+								":reportId",
+								"reaccommodation"
+							],
+							"variable": [
+								{
+									"key": "reportId",
+									"value": "{{userReportId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Report v1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}"
+							}
+						],
+						"url": {
+							"raw": "{{urlReports}}/api/v1/orders/reports/reaccommodation",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reports",
+								"reaccommodation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Report by ID v1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+									"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{apiKey}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{userAgent}}"
+							}
+						],
+						"url": {
+							"raw": "{{urlReports}}/api/v1/orders/reports/:reportId/reaccommodation",
+							"host": [
+								"{{urlReports}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"reports",
+								":reportId",
+								"reaccommodation"
 							],
 							"variable": [
 								{
@@ -56637,18 +57040,64 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var response = JSON.parse(responseBody);\r",
+											"// let response = pm.response.json();\r",
+											"\r",
+											"// // Remover campos indesejados\r",
+											"// delete response.password;\r",
+											"// delete response.token;\r",
+											"\r",
+											"// // Salvar o resultado \"limpo\" em uma variável para visualizar\r",
+											"// pm.environment.set(\"cleanResponse\", JSON.stringify(response, null, 2));\r",
 											"\r",
 											"\r",
 											"\r",
-											"pm.environment.set(\"journeyKeyIda\", JSON.stringify(response.data.airResult.offers[0].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
-											"pm.environment.set(\"fareKeyIda\", JSON.stringify(response.data.airResult.offers[0].offersAvailableByMarket[0].value[0].fares[0].key).toString().replace(/['\"]+/g, ''));\r",
 											"\r",
-											"if (response.data.airResult.offers.length > 1) {\r",
-											"    pm.environment.set(\"journeyKeyVolta\", JSON.stringify(response.data.airResult.offers[1].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
-											"    pm.environment.set(\"fareKeyVolta\", JSON.stringify(response.data.airResult.offers[1].offersAvailableByMarket[0].value[0].fares[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"\r",
+											"return;\r",
+											"\r",
+											"\r",
+											"const ValidateCodeShareCarrierCode = (segments, carrierCode) => {\r",
+											"    return segments.find(segment => segment.operatingIdentifier != null && segment.operatingIdentifier.carrierCode == carrierCode)\r",
 											"}\r",
-											""
+											"\r",
+											"const ValidateExistFare = (offerFares, fareDetails) => {\r",
+											"    return offerFares.find(offerFare => fareDetails.find(fare => fare.key === offerFare.key));\r",
+											"}\r",
+											"\r",
+											"\r",
+											"const HandlerIdaFilters5KLessThan24HoursZE = () => {\r",
+											"    const responseJson = pm.response.json();\r",
+											"\r",
+											"    if (typeof responseJson === 'object' && responseJson !== null && !Array.isArray(responseJson)) {\r",
+											"        if (responseJson.data === null) {\r",
+											"            return;\r",
+											"        }\r",
+											"\r",
+											"        const fareDetails = responseJson.data.airResult.fareDetails;\r",
+											"\r",
+											"        const offersAvailableByMarketValuesIda = responseJson.data.airResult.offers[0].offersAvailableByMarket[0].value;\r",
+											"\r",
+											"        const filterOfferIda = offersAvailableByMarketValuesIda.find(offer =>\r",
+											"            ValidateExistFare(offer.fares, fareDetails) && ValidateCodeShareCarrierCode(offer.segments, \"G3\")\r",
+											"        );\r",
+											"\r",
+											"        if (filterOfferIda == null)\r",
+											"            throw new Error(\"Nenhum voo codeShare G3 encontrado para o dia informado.\");\r",
+											"\r",
+											"        if (typeof filterOfferIda === 'object' && filterOfferIda !== null && !Array.isArray(filterOfferIda)) {\r",
+											"            pm.environment.set(\"journeyKeyIda\", filterOfferIda.key.replace(/['\"]+/g, ''));\r",
+											"\r",
+											"            console.log(filterOfferIda.key.replace(/['\"]+/g, ''));\r",
+											"            console.log(ValidateExistFare(filterOfferIda.fares, fareDetails).key.replace(/['\"]+/g, ''));\r",
+											"\r",
+											"            pm.environment.set(\"fareKeyIda\", ValidateExistFare(filterOfferIda.fares, fareDetails).key.replace(/['\"]+/g, ''));\r",
+											"        }\r",
+											"\r",
+											"\r",
+											"    }\r",
+											"}\r",
+											"\r",
+											"HandlerIdaFilters5KLessThan24HoursZE();"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -56696,7 +57145,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"VCP\",\r\n            \"destination\": \"SDU\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        },\r\n                {\r\n            \"origin\": \"SDU\",\r\n            \"destination\": \"VCP\",\r\n            \"departure\": \"{{departure_2}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
+									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"BSB\",\r\n            \"destination\": \"FOR\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -58594,6 +59043,4626 @@
 						}
 					],
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
+				},
+				{
+					"name": "84 - Booking Flow | Reac trecho ida e cancela trecho volta",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - Reaccommodation v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"reaccommodationJourneyKeyIda\", JSON.stringify(response.data.journeys[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"pm.environment.set(\"reaccommodationJourneyDepartureIda\", response.data.journeys[0].from.designator.departure);\r",
+											"\r",
+											"if (response.data.journeys.length > 1)\r",
+											"{\r",
+											"    pm.environment.set(\"reaccommodationJourneyKeyVolta\", JSON.stringify(response.data.journeys[1].key).toString().replace(/['\"]+/g, '')); \r",
+											"    pm.environment.set(\"reaccommodationJourneyDepartureVolta\", response.data.journeys[1].from.designator.departure);\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"reaccommodation"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4 - Reaccommodation AirSearch",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "6e48da0aa0b744018d96a8ac562e907f"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NTYxNDAxNTUsImV4cCI6MTc1NjIyNjU1NSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiIyMDViOTkwYS00Mzg1LTQyYWQtYmVjZS1kZjY5NzllNGE0NmUifQ.2MyY6UYkrP83nntfrJQd0_m2A0cyKKY2Nwzqt-mKO1o"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"journeys\": [\r\n    {\r\n      \"key\": \"QUR_NDA0M34gfn5WQ1B_MDkvMjEvMjAyNSAwNjoxNX5TRFV_MDkvMjEvMjAyNSAwNzoxMH5_\",\r\n      \"departure\": \"2025-09-21\",\r\n      \"origin\": \"VCP\",\r\n      \"destination\": \"SDU\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/DFEFVS/reaccommodation/airSearch",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"DFEFVS",
+										"reaccommodation",
+										"airSearch"
+									]
+								},
+								"description": "Generated from cURL: curl --location 'http://192.168.1.8:31762/api/v1/order/DFEFVS/reaccommodation/airSearch' \\\r\n--header 'Ocp-Apim-Subscription-Key: 6e48da0aa0b744018d96a8ac562e907f' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NTYxNDAxNTUsImV4cCI6MTc1NjIyNjU1NSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiIyMDViOTkwYS00Mzg1LTQyYWQtYmVjZS1kZjY5NzllNGE0NmUifQ.2MyY6UYkrP83nntfrJQd0_m2A0cyKKY2Nwzqt-mKO1o' \\\r\n--data '{\r\n  \"journeys\": [\r\n    {\r\n      \"key\": \"QUR_NDA0M34gfn5WQ1B_MDkvMjEvMjAyNSAwNjoxNX5TRFV_MDkvMjEvMjAyNSAwNzoxMH5_\",\r\n      \"departure\": \"2025-09-21\",\r\n      \"origin\": \"VCP\",\r\n      \"destination\": \"SDU\"\r\n    }\r\n  ]\r\n}'"
+							},
+							"response": []
+						},
+						{
+							"name": "5 - Token",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								},
+								"description": "<p>\r\n  <b>Description: </b>\r\n  <br />\r\n            This method abandons the active token.<br /></p>\r\n<br />\r\n<p>\r\n  <b>Requirements: </b>\r\n  <br />\r\n            Authenticated JWT token as bearer token in request header.<br /></p>\r\n<br />"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "85 - Booking Flow | Add Journey diferente de G3 mais 4 passageiros",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - Order by Record Locator v3",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderManagement}}/api/v2/order/UP3D2E",
+									"host": [
+										"{{urlOrderManagement}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"order",
+										"UP3D2E"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4 - AirSearch v3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"const ValidateCodeShareCarrierCode = (segments, carrierCode) => {\r",
+											"    return segments.find(segment => segment.operatingIdentifier != null && segment.operatingIdentifier.carrierCode == carrierCode)\r",
+											"}\r",
+											"\r",
+											"const ValidateExistFare = (offerFares, fareDetails) => {\r",
+											"    return offerFares.find(offerFare => fareDetails.find(fare => fare.key === offerFare.key));\r",
+											"}\r",
+											"\r",
+											"const Handler = () => {\r",
+											"    const responseJson = pm.response.json();\r",
+											"\r",
+											"    if (typeof responseJson === 'object' && responseJson !== null && !Array.isArray(responseJson)) {\r",
+											"        if (responseJson.data === null) {\r",
+											"            return;\r",
+											"        }\r",
+											"\r",
+											"        const fareDetails = responseJson.data.airResult.fareDetails;\r",
+											"\r",
+											"        const offersAvailableByMarketValuesIda = responseJson.data.airResult.offers[0].offersAvailableByMarket[0].value;\r",
+											"\r",
+											"        const filterOfferIda = offersAvailableByMarketValuesIda.find(offer =>\r",
+											"            ValidateExistFare(offer.fares, fareDetails) && ValidateCodeShareCarrierCode(offer.segments, \"G3\")\r",
+											"        );\r",
+											"\r",
+											"        if (filterOfferIda == null) {\r",
+											"            pm.environment.set(\"fareKeyIda\", \"null\");\r",
+											"        }\r",
+											"\r",
+											"        if (typeof filterOfferIda === 'object' && filterOfferIda !== null && !Array.isArray(filterOfferIda)) {\r",
+											"            pm.environment.set(\"journeyKeyIda\", filterOfferIda.key.replace(/['\"]+/g, ''));\r",
+											"            pm.environment.set(\"fareKeyIda\", ValidateExistFare(filterOfferIda.fares, fareDetails).key.replace(/['\"]+/g, ''));\r",
+											"        }\r",
+											"    }\r",
+											"}\r",
+											"\r",
+											"Handler();"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											"\r",
+											"var moment = require('moment');\r",
+											"\r",
+											"pm.environment.set(\"departure_1\", moment().add(3, 'days').format('YYYY-MM-DDT00:00:00'));"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"POA\",\r\n            \"destination\": \"FLL\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShopping}}/api/v3/airSearch",
+									"host": [
+										"{{urlShopping}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"airSearch"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5 - Add Journeys v2",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"journeys\": [\r\n        {\r\n            \"journeyKey\": \"{{journeyKey1}}\",\r\n            \"fareKey\": \"{{fareKey1}}\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderManagement}}/api/v2/order/:recordLocator/journeys",
+									"host": [
+										"{{urlOrderManagement}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"order",
+										":recordLocator",
+										"journeys"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "6 - Order Calculate v2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"orderTotalBalanceDue\", response.data.order.totals.afterChanges.balanceDue.balanceDue.toPayAmount);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderManagement}}/api/v2/order/:recordLocator/calculate",
+									"host": [
+										"{{urlOrderManagement}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"order",
+										":recordLocator",
+										"calculate"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "7 - Payments v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"methodCode\": \"\",\r\n    \"amount\": {{orderTotalBalanceDue}},\r\n    \"installments\": 1,\r\n    \"account\": \"\",\r\n    \"expirationMonth\": 1,\r\n    \"expirationYear\": 2099,\r\n    \"holderName\": \"\",\r\n    \"verificationCode\": \"\"\r\n  }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderPayments}}/api/v1/order/payments",
+									"host": [
+										"{{urlOrderPayments}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "8 - Checkout v2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"refundType\": \"Credit\",\r\n    \"notifyContacts\": \"None\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderManagement}}/api/v2/order/:recordLocator/checkout",
+									"host": [
+										"{{urlOrderManagement}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"order",
+										":recordLocator",
+										"checkout"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "9 - Token v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								},
+								"description": "<p>\r\n  <b>Description: </b>\r\n  <br />\r\n            This method abandons the active token.<br /></p>\r\n<br />\r\n<p>\r\n  <b>Requirements: </b>\r\n  <br />\r\n            Authenticated JWT token as bearer token in request header.<br /></p>\r\n<br />"
+							},
+							"response": []
+						}
+					],
+					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
+				},
+				{
+					"name": "86 - Booking Flow | Busca voo G3 com 4 passageiros",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - AirSearch v3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"const ValidateCodeShareCarrierCode = (segments, carrierCode) => {\r",
+											"    return segments.find(segment => segment.operatingIdentifier != null && segment.operatingIdentifier.carrierCode == carrierCode)\r",
+											"}\r",
+											"\r",
+											"const ValidateExistFare = (offerFares, fareDetails) => {\r",
+											"    return offerFares.find(offerFare => fareDetails.find(fare => fare.key === offerFare.key));\r",
+											"}\r",
+											"\r",
+											"const Handler = () => {\r",
+											"    const responseJson = pm.response.json();\r",
+											"\r",
+											"    if (typeof responseJson === 'object' && responseJson !== null && !Array.isArray(responseJson)) {\r",
+											"        if (responseJson.data === null) {\r",
+											"            return;\r",
+											"        }\r",
+											"\r",
+											"        const fareDetails = responseJson.data.airResult.fareDetails;\r",
+											"\r",
+											"        const offersAvailableByMarketValuesIda = responseJson.data.airResult.offers[0].offersAvailableByMarket[0].value;\r",
+											"\r",
+											"        const filterOfferIda = offersAvailableByMarketValuesIda.find(offer =>\r",
+											"            ValidateExistFare(offer.fares, fareDetails) && ValidateCodeShareCarrierCode(offer.segments, \"G3\")\r",
+											"        );\r",
+											"\r",
+											"        if (filterOfferIda == null) {\r",
+											"            pm.environment.set(\"fareKeyIda\", \"null\");\r",
+											"        }\r",
+											"\r",
+											"        if (typeof filterOfferIda === 'object' && filterOfferIda !== null && !Array.isArray(filterOfferIda)) {\r",
+											"            pm.environment.set(\"journeyKeyIda\", filterOfferIda.key.replace(/['\"]+/g, ''));\r",
+											"            pm.environment.set(\"fareKeyIda\", ValidateExistFare(filterOfferIda.fares, fareDetails).key.replace(/['\"]+/g, ''));\r",
+											"        }\r",
+											"    }\r",
+											"}\r",
+											"\r",
+											"Handler();"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											"\r",
+											"var moment = require('moment');\r",
+											"\r",
+											"pm.environment.set(\"departure_1\", moment().add(3, 'days').format('YYYY-MM-DDT00:00:00'));"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 4\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"AJU\",\r\n            \"destination\": \"GIG\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShopping}}/api/v3/airSearch",
+									"host": [
+										"{{urlShopping}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"airSearch"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "87 - Booking Flow | Busca voo G3 com 5 passageiros",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - AirSearch v3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"const ValidateCodeShareCarrierCode = (segments, carrierCode) => {\r",
+											"    return segments.find(segment => segment.operatingIdentifier != null && segment.operatingIdentifier.carrierCode == carrierCode)\r",
+											"}\r",
+											"\r",
+											"const ValidateExistFare = (offerFares, fareDetails) => {\r",
+											"    return offerFares.find(offerFare => fareDetails.find(fare => fare.key === offerFare.key));\r",
+											"}\r",
+											"\r",
+											"const Handler = () => {\r",
+											"    const responseJson = pm.response.json();\r",
+											"\r",
+											"    if (typeof responseJson === 'object' && responseJson !== null && !Array.isArray(responseJson)) {\r",
+											"        if (responseJson.data === null) {\r",
+											"            return;\r",
+											"        }\r",
+											"\r",
+											"        const fareDetails = responseJson.data.airResult.fareDetails;\r",
+											"\r",
+											"        const offersAvailableByMarketValuesIda = responseJson.data.airResult.offers[0].offersAvailableByMarket[0].value;\r",
+											"\r",
+											"        const filterOfferIda = offersAvailableByMarketValuesIda.find(offer =>\r",
+											"            ValidateExistFare(offer.fares, fareDetails) && ValidateCodeShareCarrierCode(offer.segments, \"G3\")\r",
+											"        );\r",
+											"\r",
+											"        if (filterOfferIda == null) {\r",
+											"            pm.environment.set(\"fareKeyIda\", \"null\");\r",
+											"        }\r",
+											"\r",
+											"        if (typeof filterOfferIda === 'object' && filterOfferIda !== null && !Array.isArray(filterOfferIda)) {\r",
+											"            pm.environment.set(\"journeyKeyIda\", filterOfferIda.key.replace(/['\"]+/g, ''));\r",
+											"            pm.environment.set(\"fareKeyIda\", ValidateExistFare(filterOfferIda.fares, fareDetails).key.replace(/['\"]+/g, ''));\r",
+											"        }\r",
+											"    }\r",
+											"}\r",
+											"\r",
+											"Handler();"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											"\r",
+											"var moment = require('moment');\r",
+											"\r",
+											"pm.environment.set(\"departure_1\", moment().add(3, 'days').format('YYYY-MM-DDT00:00:00'));"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 4\r\n        },\r\n        {\r\n            \"type\": \"CHD\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"AJU\",\r\n            \"destination\": \"GIG\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShopping}}/api/v3/airSearch",
+									"host": [
+										"{{urlShopping}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"airSearch"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "88 - Booking Flow | Criar reserva code share G3 mais 4 passageiros",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);\r",
+											"\r",
+											"let response = pm.response.json();\r",
+											"\r",
+											"// Monta uma visualização simples com uma \"notificação\"\r",
+											"pm.visualizer.set(`\r",
+											"    <html>\r",
+											"      <body style=\"font-family: sans-serif; padding: 20px;\">\r",
+											"        <div style=\"background: #4CAF50; color: white; padding: 15px; border-radius: 8px;\">\r",
+											"          ✅ Notificação: A requisição foi processada com sucesso!\r",
+											"        </div>\r",
+											"        <pre>{{json}}</pre>\r",
+											"      </body>\r",
+											"    </html>\r",
+											"`, {\r",
+											"  json: JSON.stringify(response, null, 2)\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - AirSearch v3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"const ValidateCodeShareCarrierCode = (segments, carrierCode) => {\r",
+											"    return segments.find(segment => segment.operatingIdentifier != null && segment.operatingIdentifier.carrierCode == carrierCode)\r",
+											"}\r",
+											"\r",
+											"const ValidateExistFare = (offerFares, fareDetails) => {\r",
+											"    return offerFares.find(offerFare => fareDetails.find(fare => fare.key === offerFare.key));\r",
+											"}\r",
+											"\r",
+											"const Handler = () => {\r",
+											"    const responseJson = pm.response.json();\r",
+											"\r",
+											"    if (typeof responseJson === 'object' && responseJson !== null && !Array.isArray(responseJson)) {\r",
+											"        if (responseJson.data === null) {\r",
+											"            return;\r",
+											"        }\r",
+											"\r",
+											"        const fareDetails = responseJson.data.airResult.fareDetails;\r",
+											"\r",
+											"        const offersAvailableByMarketValuesIda = responseJson.data.airResult.offers[0].offersAvailableByMarket[0].value;\r",
+											"\r",
+											"        const filterOfferIda = offersAvailableByMarketValuesIda.find(offer =>\r",
+											"            ValidateExistFare(offer.fares, fareDetails) && ValidateCodeShareCarrierCode(offer.segments, \"G3\")\r",
+											"        );\r",
+											"\r",
+											"        if (filterOfferIda == null) {\r",
+											"            pm.environment.set(\"fareKeyIda\", \"null\");\r",
+											"        }\r",
+											"\r",
+											"        if (typeof filterOfferIda === 'object' && filterOfferIda !== null && !Array.isArray(filterOfferIda)) {\r",
+											"            pm.environment.set(\"journeyKeyIda\", filterOfferIda.key.replace(/['\"]+/g, ''));\r",
+											"            pm.environment.set(\"fareKeyIda\", ValidateExistFare(filterOfferIda.fares, fareDetails).key.replace(/['\"]+/g, ''));\r",
+											"        }\r",
+											"    }\r",
+											"}\r",
+											"\r",
+											"Handler();"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											"\r",
+											"var moment = require('moment');\r",
+											"\r",
+											"pm.environment.set(\"departure_1\", moment().add(3, 'days').format('YYYY-MM-DDT00:00:00'));"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"BSB\",\r\n            \"destination\": \"FOR\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShopping}}/api/v3/airSearch",
+									"host": [
+										"{{urlShopping}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"airSearch"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4 - Order v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"orderTotalBalanceDue\", response.data.order.totals.balanceDue);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											"\r",
+											"\r",
+											"let response = pm.response.json();\r",
+											"\r",
+											"pm.visualizer.set(`\r",
+											"  <html>\r",
+											"    <body style=\"font-family: Arial, sans-serif; padding: 20px;\">\r",
+											"      <div style=\"background: #2196F3; color: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);\">\r",
+											"        🔔 Notificação: A requisição foi processada com sucesso!\r",
+											"      </div>\r",
+											"      <pre style=\"margin-top: 15px; background: #f4f4f4; padding: 10px; border-radius: 5px;\">\r",
+											"        {{json}}\r",
+											"      </pre>\r",
+											"    </body>\r",
+											"  </html>\r",
+											"`, {\r",
+											"  json: JSON.stringify(response, null, 2)\r",
+											"});\r",
+											"\r",
+											"\r",
+											"console.log(pm.variables.get(\"fareKeyIda\"));\r",
+											"\r",
+											"if (pm.variables.get(\"fareKeyIda\") == \"null\") {\r",
+											"    throw new Error(\"Nenhum voo codeShare G3 encontrado para o dia informado.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"journeyKey\": \"{{journeyKeyIda}}\",\r\n            \"fareKey\": \"{{fareKeyIda}}\"\r\n        }\r\n    ],\r\n    \"passengers\": [\r\n        {\r\n            \"customerProgram\": {\r\n                \"number\": \"\"\r\n            },\r\n            \"nationality\": \"BR\",\r\n            \"gender\": \"Female\",\r\n            \"dateOfBirth\": \"1990-01-01T09:35:00\",\r\n            \"phone\": \"(00) 91111-2222\",\r\n            \"email\": \"maria@email.com\",\r\n            \"type\": \"ADT\",\r\n            \"name\": {\r\n                \"first\": \"Maria\",\r\n                \"middle\": \"Silva\",\r\n                \"last\": \"Santos\",\r\n                \"title\": \"MR\",\r\n                \"suffix\": null\r\n            },\r\n            \"travelDocuments\": [\r\n                {\r\n                    \"type\": \"Mercosur\",\r\n                    \"number\": \"21121121121\",\r\n                    \"issuingCountry\": \"BR\"\r\n                }\r\n            ],\r\n            \"infant\": null,\r\n            \"iropContact\": {\r\n                \"refused\": false,\r\n                \"mobile\": \"(00) 91111-2222\",\r\n                \"email\": \"maria@email.com\"\r\n            }\r\n        }\r\n    ],\r\n    \"contact\": {\r\n        \"address\": {\r\n            \"lineOne\": \"Rua\",\r\n            \"lineTwo\": \"Sete de Setembro\",\r\n            \"lineThree\": \"No. 22\",\r\n            \"country\": \"BR\",\r\n            \"provinceState\": \"SP\",\r\n            \"city\": \"Sao Paulo\",\r\n            \"postalCode\": \"14800-000\"\r\n        },\r\n        \"email\": \"Viagem.Feliz@mail.com.br\",\r\n        \"companyName\": \"Viagem Feliz\",\r\n        \"name\": {\r\n            \"first\": \"Pedro\",\r\n            \"middle\": \"Souza\",\r\n            \"last\": \"Oliveira\",\r\n            \"title\": \"\",\r\n            \"suffix\": \"FO\"\r\n        },\r\n        \"phones\": [\r\n            {\r\n                \"number\": \"(11) 9999-9991\",\r\n                \"type\": \"Home\"\r\n            },\r\n            {\r\n                \"number\": \"(11) 9999-9992\",\r\n                \"type\": \"Fax\"\r\n            }\r\n        ]\r\n    },\r\n    \"promotionCode\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrder}}/api/v1/order",
+									"host": [
+										"{{urlOrder}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
+				},
+				{
+					"name": "89 - Booking Flow | Get Installments parametros nulos",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - Installments v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderPayments}}/api/v1/order/payments/installments",
+									"host": [
+										"{{urlOrderPayments}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"payments",
+										"installments"
+									],
+									"query": [
+										{
+											"key": "bin",
+											"value": "000000",
+											"disabled": true
+										},
+										{
+											"key": "methodCode",
+											"value": "XX",
+											"disabled": true
+										},
+										{
+											"key": "taxAmount",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "amount",
+											"value": "0",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "90 - Booking Flow | Alteração de promotion code",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - AirSearch v3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"\r",
+											"pm.environment.set(\"journeyKeyIda\", JSON.stringify(response.data.airResult.offers[0].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"pm.environment.set(\"fareKeyIda\", JSON.stringify(response.data.airResult.offers[0].offersAvailableByMarket[0].value[0].fares[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"\r",
+											"if (response.data.airResult.offers.length > 1)\r",
+											"{\r",
+											"    pm.environment.set(\"journeyKeyVolta\", JSON.stringify(response.data.airResult.offers[1].offersAvailableByMarket[0].value[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"    pm.environment.set(\"fareKeyVolta\", JSON.stringify(response.data.airResult.offers[1].offersAvailableByMarket[0].value[0].fares[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											"\r",
+											"var moment = require('moment');\r",
+											"\r",
+											"pm.environment.set(\"departure_1\", moment().add(7, 'days').format('YYYY-MM-DDT00:00:00'));\r",
+											"pm.environment.set(\"departure_2\", moment().add(14, 'days').format('YYYY-MM-DDT00:00:00'));"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"GRU\",\r\n            \"destination\": \"SDU\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        },\r\n        {\r\n            \"origin\": \"SDU\",\r\n            \"destination\": \"GRU\",\r\n            \"departure\": \"{{departure_2}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": \"AZVL\",\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShopping}}/api/v3/airSearch",
+									"host": [
+										"{{urlShopping}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"airSearch"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4 - Order v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"orderTotalBalanceDue\", response.data.order.totals.balanceDue);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"journeyKey\": \"{{journeyKeyIda}}\",\r\n            \"fareKey\": \"{{fareKeyIda}}\"\r\n        },\r\n        {\r\n            \"journeyKey\": \"{{journeyKeyVolta}}\",\r\n            \"fareKey\": \"{{fareKeyVolta}}\"\r\n        }\r\n    ],\r\n    \"passengers\": [\r\n        {\r\n            \"nationality\": \"BR\",\r\n            \"gender\": \"Female\",\r\n            \"dateOfBirth\": \"1990-01-01T09:35:00\",\r\n            \"phone\": \"(00) 91111-2222\",\r\n            \"email\": \"maria@email.com\",\r\n            \"type\": \"ADT\",\r\n            \"name\": {\r\n                \"first\": \"Maria\",\r\n                \"middle\": \"Silva\",\r\n                \"last\": \"Santos\",\r\n                \"title\": \"MR\",\r\n                \"suffix\": null\r\n            },\r\n            \"travelDocuments\": [\r\n                {\r\n                    \"type\": \"CPF\",\r\n                    \"number\": \"21121121121\",\r\n                    \"birthCountry\": \"BR\",\r\n                    \"issuingCountry\": \"BR\",\r\n                    \"issuedDate\": null,\r\n                    \"expirationDate\": null\r\n                }\r\n            ],\r\n            \"infant\": null,\r\n            \"iropContact\": {\r\n                \"refused\": false,\r\n                \"mobile\": \"(00) 91111-2222\",\r\n                \"email\": \"maria@email.com\"\r\n            }\r\n        }\r\n    ],\r\n    \"contact\": {\r\n        \"address\": {\r\n            \"lineOne\": \"Rua\",\r\n            \"lineTwo\": \"Sete de Setembro\",\r\n            \"lineThree\": \"No. 22\",\r\n            \"country\": \"BR\",\r\n            \"provinceState\": \"SP\",\r\n            \"city\": \"Sao Paulo\",\r\n            \"postalCode\": \"14800-000\"\r\n        },\r\n        \"email\": \"Viagem.Feliz@mail.com.br\",\r\n        \"companyName\": \"Viagem Feliz\",\r\n        \"name\": {\r\n            \"first\": \"Pedro\",\r\n            \"middle\": \"Souza\",\r\n            \"last\": \"Oliveira\",\r\n            \"title\": \"\",\r\n            \"suffix\": \"FO\"\r\n        },\r\n        \"phones\": [\r\n            {\r\n                \"number\": \"(11) 9999-9991\",\r\n                \"type\": \"Home\"\r\n            },\r\n            {\r\n                \"number\": \"(11) 9999-9992\",\r\n                \"type\": \"Fax\"\r\n            }\r\n        ]\r\n    },\r\n    \"promotionCode\": \"AZVL\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrder}}/api/v1/order",
+									"host": [
+										"{{urlOrder}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5  - Checkout v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"notifyContacts\": \"None\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrder}}/api/v1/checkout",
+									"host": [
+										"{{urlOrder}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"checkout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "6 - Order by Record Locator v3",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderManagement}}/api/v3/order/UP3D2E",
+									"host": [
+										"{{urlOrderManagement}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"order",
+										"UP3D2E"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "7 - PromotionCode v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"promotionCode\": \"SUP10\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderManagement}}/api/v1/order/{{recordLocator}}/promotionCode",
+									"host": [
+										"{{urlOrderManagement}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"{{recordLocator}}",
+										"promotionCode"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "8 - Order by Record Locator v3",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderManagement}}/api/v3/order",
+									"host": [
+										"{{urlOrderManagement}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"order"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "9 - Token v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								},
+								"description": "<p>\r\n  <b>Description: </b>\r\n  <br />\r\n            This method abandons the active token.<br /></p>\r\n<br />\r\n<p>\r\n  <b>Requirements: </b>\r\n  <br />\r\n            Authenticated JWT token as bearer token in request header.<br /></p>\r\n<br />"
+							},
+							"response": []
+						}
+					],
+					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
+				}
+			]
+		},
+		{
+			"name": "Flows release 1.17.0",
+			"item": [
+				{
+					"name": "84 - Booking Flow | Reac trecho ida e cancela trecho volta",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - Reaccommodation v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"reaccommodationJourneyKeyIda\", JSON.stringify(response.data.journeys[0].key).toString().replace(/['\"]+/g, ''));\r",
+											"pm.environment.set(\"reaccommodationJourneyDepartureIda\", response.data.journeys[0].from.designator.departure);\r",
+											"\r",
+											"if (response.data.journeys.length > 1)\r",
+											"{\r",
+											"    pm.environment.set(\"reaccommodationJourneyKeyVolta\", JSON.stringify(response.data.journeys[1].key).toString().replace(/['\"]+/g, '')); \r",
+											"    pm.environment.set(\"reaccommodationJourneyDepartureVolta\", response.data.journeys[1].from.designator.departure);\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/:recordLocator/reaccommodation",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										":recordLocator",
+										"reaccommodation"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4 - Reaccommodation AirSearch",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "6e48da0aa0b744018d96a8ac562e907f"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NTYxNDAxNTUsImV4cCI6MTc1NjIyNjU1NSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiIyMDViOTkwYS00Mzg1LTQyYWQtYmVjZS1kZjY5NzllNGE0NmUifQ.2MyY6UYkrP83nntfrJQd0_m2A0cyKKY2Nwzqt-mKO1o"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"journeys\": [\r\n    {\r\n      \"key\": \"QUR_NDA0M34gfn5WQ1B_MDkvMjEvMjAyNSAwNjoxNX5TRFV_MDkvMjEvMjAyNSAwNzoxMH5_\",\r\n      \"departure\": \"2025-09-21\",\r\n      \"origin\": \"VCP\",\r\n      \"destination\": \"SDU\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderReaccommodations}}/api/v1/order/DFEFVS/reaccommodation/airSearch",
+									"host": [
+										"{{urlOrderReaccommodations}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"DFEFVS",
+										"reaccommodation",
+										"airSearch"
+									]
+								},
+								"description": "Generated from cURL: curl --location 'http://192.168.1.8:31762/api/v1/order/DFEFVS/reaccommodation/airSearch' \\\r\n--header 'Ocp-Apim-Subscription-Key: 6e48da0aa0b744018d96a8ac562e907f' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NTYxNDAxNTUsImV4cCI6MTc1NjIyNjU1NSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiIyMDViOTkwYS00Mzg1LTQyYWQtYmVjZS1kZjY5NzllNGE0NmUifQ.2MyY6UYkrP83nntfrJQd0_m2A0cyKKY2Nwzqt-mKO1o' \\\r\n--data '{\r\n  \"journeys\": [\r\n    {\r\n      \"key\": \"QUR_NDA0M34gfn5WQ1B_MDkvMjEvMjAyNSAwNjoxNX5TRFV_MDkvMjEvMjAyNSAwNzoxMH5_\",\r\n      \"departure\": \"2025-09-21\",\r\n      \"origin\": \"VCP\",\r\n      \"destination\": \"SDU\"\r\n    }\r\n  ]\r\n}'"
+							},
+							"response": []
+						},
+						{
+							"name": "5 - Token",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								},
+								"description": "<p>\r\n  <b>Description: </b>\r\n  <br />\r\n            This method abandons the active token.<br /></p>\r\n<br />\r\n<p>\r\n  <b>Requirements: </b>\r\n  <br />\r\n            Authenticated JWT token as bearer token in request header.<br /></p>\r\n<br />"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "85 - Booking Flow | Add Journey diferente de G3 mais 4 passageiros",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - Order by Record Locator v3",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderManagement}}/api/v2/order/UP3D2E",
+									"host": [
+										"{{urlOrderManagement}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"order",
+										"UP3D2E"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4 - AirSearch v3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"const ValidateCodeShareCarrierCode = (segments, carrierCode) => {\r",
+											"    return segments.find(segment => segment.operatingIdentifier != null && segment.operatingIdentifier.carrierCode == carrierCode)\r",
+											"}\r",
+											"\r",
+											"const ValidateExistFare = (offerFares, fareDetails) => {\r",
+											"    return offerFares.find(offerFare => fareDetails.find(fare => fare.key === offerFare.key));\r",
+											"}\r",
+											"\r",
+											"const Handler = () => {\r",
+											"    const responseJson = pm.response.json();\r",
+											"\r",
+											"    if (typeof responseJson === 'object' && responseJson !== null && !Array.isArray(responseJson)) {\r",
+											"        if (responseJson.data === null) {\r",
+											"            return;\r",
+											"        }\r",
+											"\r",
+											"        const fareDetails = responseJson.data.airResult.fareDetails;\r",
+											"\r",
+											"        const offersAvailableByMarketValuesIda = responseJson.data.airResult.offers[0].offersAvailableByMarket[0].value;\r",
+											"\r",
+											"        const filterOfferIda = offersAvailableByMarketValuesIda.find(offer =>\r",
+											"            ValidateExistFare(offer.fares, fareDetails) && ValidateCodeShareCarrierCode(offer.segments, \"G3\")\r",
+											"        );\r",
+											"\r",
+											"        if (filterOfferIda == null) {\r",
+											"            pm.environment.set(\"fareKeyIda\", \"null\");\r",
+											"        }\r",
+											"\r",
+											"        if (typeof filterOfferIda === 'object' && filterOfferIda !== null && !Array.isArray(filterOfferIda)) {\r",
+											"            pm.environment.set(\"journeyKeyIda\", filterOfferIda.key.replace(/['\"]+/g, ''));\r",
+											"            pm.environment.set(\"fareKeyIda\", ValidateExistFare(filterOfferIda.fares, fareDetails).key.replace(/['\"]+/g, ''));\r",
+											"        }\r",
+											"    }\r",
+											"}\r",
+											"\r",
+											"Handler();"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											"\r",
+											"var moment = require('moment');\r",
+											"\r",
+											"pm.environment.set(\"departure_1\", moment().add(3, 'days').format('YYYY-MM-DDT00:00:00'));"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"POA\",\r\n            \"destination\": \"FLL\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShopping}}/api/v3/airSearch",
+									"host": [
+										"{{urlShopping}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"airSearch"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5 - Add Journeys v2",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"journeys\": [\r\n        {\r\n            \"journeyKey\": \"{{journeyKey1}}\",\r\n            \"fareKey\": \"{{fareKey1}}\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderManagement}}/api/v2/order/:recordLocator/journeys",
+									"host": [
+										"{{urlOrderManagement}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"order",
+										":recordLocator",
+										"journeys"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "6 - Order Calculate v2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"orderTotalBalanceDue\", response.data.order.totals.afterChanges.balanceDue.balanceDue.toPayAmount);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderManagement}}/api/v2/order/:recordLocator/calculate",
+									"host": [
+										"{{urlOrderManagement}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"order",
+										":recordLocator",
+										"calculate"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "7 - Payments v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"methodCode\": \"\",\r\n    \"amount\": {{orderTotalBalanceDue}},\r\n    \"installments\": 1,\r\n    \"account\": \"\",\r\n    \"expirationMonth\": 1,\r\n    \"expirationYear\": 2099,\r\n    \"holderName\": \"\",\r\n    \"verificationCode\": \"\"\r\n  }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderPayments}}/api/v1/order/payments",
+									"host": [
+										"{{urlOrderPayments}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "8 - Checkout v2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"refundType\": \"Credit\",\r\n    \"notifyContacts\": \"None\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrderManagement}}/api/v2/order/:recordLocator/checkout",
+									"host": [
+										"{{urlOrderManagement}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"order",
+										":recordLocator",
+										"checkout"
+									],
+									"variable": [
+										{
+											"key": "recordLocator",
+											"value": "{{recordLocator}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "9 - Token v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								},
+								"description": "<p>\r\n  <b>Description: </b>\r\n  <br />\r\n            This method abandons the active token.<br /></p>\r\n<br />\r\n<p>\r\n  <b>Requirements: </b>\r\n  <br />\r\n            Authenticated JWT token as bearer token in request header.<br /></p>\r\n<br />"
+							},
+							"response": []
+						}
+					],
+					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
+				},
+				{
+					"name": "86 - Booking Flow | Busca voo G3 com 4 passageiros",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - AirSearch v3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"const ValidateCodeShareCarrierCode = (segments, carrierCode) => {\r",
+											"    return segments.find(segment => segment.operatingIdentifier != null && segment.operatingIdentifier.carrierCode == carrierCode)\r",
+											"}\r",
+											"\r",
+											"const ValidateExistFare = (offerFares, fareDetails) => {\r",
+											"    return offerFares.find(offerFare => fareDetails.find(fare => fare.key === offerFare.key));\r",
+											"}\r",
+											"\r",
+											"const Handler = () => {\r",
+											"    const responseJson = pm.response.json();\r",
+											"\r",
+											"    if (typeof responseJson === 'object' && responseJson !== null && !Array.isArray(responseJson)) {\r",
+											"        if (responseJson.data === null) {\r",
+											"            return;\r",
+											"        }\r",
+											"\r",
+											"        const fareDetails = responseJson.data.airResult.fareDetails;\r",
+											"\r",
+											"        const offersAvailableByMarketValuesIda = responseJson.data.airResult.offers[0].offersAvailableByMarket[0].value;\r",
+											"\r",
+											"        const filterOfferIda = offersAvailableByMarketValuesIda.find(offer =>\r",
+											"            ValidateExistFare(offer.fares, fareDetails) && ValidateCodeShareCarrierCode(offer.segments, \"G3\")\r",
+											"        );\r",
+											"\r",
+											"        if (filterOfferIda == null) {\r",
+											"            pm.environment.set(\"fareKeyIda\", \"null\");\r",
+											"        }\r",
+											"\r",
+											"        if (typeof filterOfferIda === 'object' && filterOfferIda !== null && !Array.isArray(filterOfferIda)) {\r",
+											"            pm.environment.set(\"journeyKeyIda\", filterOfferIda.key.replace(/['\"]+/g, ''));\r",
+											"            pm.environment.set(\"fareKeyIda\", ValidateExistFare(filterOfferIda.fares, fareDetails).key.replace(/['\"]+/g, ''));\r",
+											"        }\r",
+											"    }\r",
+											"}\r",
+											"\r",
+											"Handler();"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											"\r",
+											"var moment = require('moment');\r",
+											"\r",
+											"pm.environment.set(\"departure_1\", moment().add(3, 'days').format('YYYY-MM-DDT00:00:00'));"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 4\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"AJU\",\r\n            \"destination\": \"GIG\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShopping}}/api/v3/airSearch",
+									"host": [
+										"{{urlShopping}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"airSearch"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "87 - Booking Flow | Busca voo G3 com 5 passageiros",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - AirSearch v3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"const ValidateCodeShareCarrierCode = (segments, carrierCode) => {\r",
+											"    return segments.find(segment => segment.operatingIdentifier != null && segment.operatingIdentifier.carrierCode == carrierCode)\r",
+											"}\r",
+											"\r",
+											"const ValidateExistFare = (offerFares, fareDetails) => {\r",
+											"    return offerFares.find(offerFare => fareDetails.find(fare => fare.key === offerFare.key));\r",
+											"}\r",
+											"\r",
+											"const Handler = () => {\r",
+											"    const responseJson = pm.response.json();\r",
+											"\r",
+											"    if (typeof responseJson === 'object' && responseJson !== null && !Array.isArray(responseJson)) {\r",
+											"        if (responseJson.data === null) {\r",
+											"            return;\r",
+											"        }\r",
+											"\r",
+											"        const fareDetails = responseJson.data.airResult.fareDetails;\r",
+											"\r",
+											"        const offersAvailableByMarketValuesIda = responseJson.data.airResult.offers[0].offersAvailableByMarket[0].value;\r",
+											"\r",
+											"        const filterOfferIda = offersAvailableByMarketValuesIda.find(offer =>\r",
+											"            ValidateExistFare(offer.fares, fareDetails) && ValidateCodeShareCarrierCode(offer.segments, \"G3\")\r",
+											"        );\r",
+											"\r",
+											"        if (filterOfferIda == null) {\r",
+											"            pm.environment.set(\"fareKeyIda\", \"null\");\r",
+											"        }\r",
+											"\r",
+											"        if (typeof filterOfferIda === 'object' && filterOfferIda !== null && !Array.isArray(filterOfferIda)) {\r",
+											"            pm.environment.set(\"journeyKeyIda\", filterOfferIda.key.replace(/['\"]+/g, ''));\r",
+											"            pm.environment.set(\"fareKeyIda\", ValidateExistFare(filterOfferIda.fares, fareDetails).key.replace(/['\"]+/g, ''));\r",
+											"        }\r",
+											"    }\r",
+											"}\r",
+											"\r",
+											"Handler();"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											"\r",
+											"var moment = require('moment');\r",
+											"\r",
+											"pm.environment.set(\"departure_1\", moment().add(3, 'days').format('YYYY-MM-DDT00:00:00'));"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 4\r\n        },\r\n        {\r\n            \"type\": \"CHD\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"AJU\",\r\n            \"destination\": \"GIG\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShopping}}/api/v3/airSearch",
+									"host": [
+										"{{urlShopping}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"airSearch"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "88 - Booking Flow | Criar reserva code share G3 mais 4 passageiros",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);\r",
+											"\r",
+											"let response = pm.response.json();\r",
+											"\r",
+											"// Monta uma visualização simples com uma \"notificação\"\r",
+											"pm.visualizer.set(`\r",
+											"    <html>\r",
+											"      <body style=\"font-family: sans-serif; padding: 20px;\">\r",
+											"        <div style=\"background: #4CAF50; color: white; padding: 15px; border-radius: 8px;\">\r",
+											"          ✅ Notificação: A requisição foi processada com sucesso!\r",
+											"        </div>\r",
+											"        <pre>{{json}}</pre>\r",
+											"      </body>\r",
+											"    </html>\r",
+											"`, {\r",
+											"  json: JSON.stringify(response, null, 2)\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - AirSearch v3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"const ValidateCodeShareCarrierCode = (segments, carrierCode) => {\r",
+											"    return segments.find(segment => segment.operatingIdentifier != null && segment.operatingIdentifier.carrierCode == carrierCode)\r",
+											"}\r",
+											"\r",
+											"const ValidateExistFare = (offerFares, fareDetails) => {\r",
+											"    return offerFares.find(offerFare => fareDetails.find(fare => fare.key === offerFare.key));\r",
+											"}\r",
+											"\r",
+											"const Handler = () => {\r",
+											"    const responseJson = pm.response.json();\r",
+											"\r",
+											"    if (typeof responseJson === 'object' && responseJson !== null && !Array.isArray(responseJson)) {\r",
+											"        if (responseJson.data === null) {\r",
+											"            return;\r",
+											"        }\r",
+											"\r",
+											"        const fareDetails = responseJson.data.airResult.fareDetails;\r",
+											"\r",
+											"        const offersAvailableByMarketValuesIda = responseJson.data.airResult.offers[0].offersAvailableByMarket[0].value;\r",
+											"\r",
+											"        const filterOfferIda = offersAvailableByMarketValuesIda.find(offer =>\r",
+											"            ValidateExistFare(offer.fares, fareDetails) && ValidateCodeShareCarrierCode(offer.segments, \"G3\")\r",
+											"        );\r",
+											"\r",
+											"        if (filterOfferIda == null) {\r",
+											"            pm.environment.set(\"fareKeyIda\", \"null\");\r",
+											"        }\r",
+											"\r",
+											"        if (typeof filterOfferIda === 'object' && filterOfferIda !== null && !Array.isArray(filterOfferIda)) {\r",
+											"            pm.environment.set(\"journeyKeyIda\", filterOfferIda.key.replace(/['\"]+/g, ''));\r",
+											"            pm.environment.set(\"fareKeyIda\", ValidateExistFare(filterOfferIda.fares, fareDetails).key.replace(/['\"]+/g, ''));\r",
+											"        }\r",
+											"    }\r",
+											"}\r",
+											"\r",
+											"Handler();"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											"\r",
+											"var moment = require('moment');\r",
+											"\r",
+											"pm.environment.set(\"departure_1\", moment().add(3, 'days').format('YYYY-MM-DDT00:00:00'));"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"passengers\": [\r\n        {\r\n            \"type\": \"ADT\",\r\n            \"count\": 1\r\n        }\r\n    ],\r\n    \"journeys\": [\r\n        {\r\n            \"origin\": \"BSB\",\r\n            \"destination\": \"FOR\",\r\n            \"departure\": \"{{departure_1}}\"\r\n        }\r\n    ],\r\n    \"criteria\": {\r\n        \"promotionCode\": null,\r\n        \"baggageAllowance\": \"All\",\r\n        \"directFlightsOnly\": false\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShopping}}/api/v3/airSearch",
+									"host": [
+										"{{urlShopping}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"airSearch"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4 - Order v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var response = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"orderTotalBalanceDue\", response.data.order.totals.balanceDue);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}\r",
+											"\r",
+											"\r",
+											"let response = pm.response.json();\r",
+											"\r",
+											"pm.visualizer.set(`\r",
+											"  <html>\r",
+											"    <body style=\"font-family: Arial, sans-serif; padding: 20px;\">\r",
+											"      <div style=\"background: #2196F3; color: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);\">\r",
+											"        🔔 Notificação: A requisição foi processada com sucesso!\r",
+											"      </div>\r",
+											"      <pre style=\"margin-top: 15px; background: #f4f4f4; padding: 10px; border-radius: 5px;\">\r",
+											"        {{json}}\r",
+											"      </pre>\r",
+											"    </body>\r",
+											"  </html>\r",
+											"`, {\r",
+											"  json: JSON.stringify(response, null, 2)\r",
+											"});\r",
+											"\r",
+											"\r",
+											"console.log(pm.variables.get(\"fareKeyIda\"));\r",
+											"\r",
+											"if (pm.variables.get(\"fareKeyIda\") == \"null\") {\r",
+											"    throw new Error(\"Nenhum voo codeShare G3 encontrado para o dia informado.\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"offers\": [\r\n        {\r\n            \"journeyKey\": \"{{journeyKeyIda}}\",\r\n            \"fareKey\": \"{{fareKeyIda}}\"\r\n        }\r\n    ],\r\n    \"passengers\": [\r\n        {\r\n            \"customerProgram\": {\r\n                \"number\": \"\"\r\n            },\r\n            \"nationality\": \"BR\",\r\n            \"gender\": \"Female\",\r\n            \"dateOfBirth\": \"1990-01-01T09:35:00\",\r\n            \"phone\": \"(00) 91111-2222\",\r\n            \"email\": \"maria@email.com\",\r\n            \"type\": \"ADT\",\r\n            \"name\": {\r\n                \"first\": \"Maria\",\r\n                \"middle\": \"Silva\",\r\n                \"last\": \"Santos\",\r\n                \"title\": \"MR\",\r\n                \"suffix\": null\r\n            },\r\n            \"travelDocuments\": [\r\n                {\r\n                    \"type\": \"Mercosur\",\r\n                    \"number\": \"21121121121\",\r\n                    \"issuingCountry\": \"BR\"\r\n                }\r\n            ],\r\n            \"infant\": null,\r\n            \"iropContact\": {\r\n                \"refused\": false,\r\n                \"mobile\": \"(00) 91111-2222\",\r\n                \"email\": \"maria@email.com\"\r\n            }\r\n        }\r\n    ],\r\n    \"contact\": {\r\n        \"address\": {\r\n            \"lineOne\": \"Rua\",\r\n            \"lineTwo\": \"Sete de Setembro\",\r\n            \"lineThree\": \"No. 22\",\r\n            \"country\": \"BR\",\r\n            \"provinceState\": \"SP\",\r\n            \"city\": \"Sao Paulo\",\r\n            \"postalCode\": \"14800-000\"\r\n        },\r\n        \"email\": \"Viagem.Feliz@mail.com.br\",\r\n        \"companyName\": \"Viagem Feliz\",\r\n        \"name\": {\r\n            \"first\": \"Pedro\",\r\n            \"middle\": \"Souza\",\r\n            \"last\": \"Oliveira\",\r\n            \"title\": \"\",\r\n            \"suffix\": \"FO\"\r\n        },\r\n        \"phones\": [\r\n            {\r\n                \"number\": \"(11) 9999-9991\",\r\n                \"type\": \"Home\"\r\n            },\r\n            {\r\n                \"number\": \"(11) 9999-9992\",\r\n                \"type\": \"Fax\"\r\n            }\r\n        ]\r\n    },\r\n    \"promotionCode\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlOrder}}/api/v1/order",
+									"host": [
+										"{{urlOrder}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
+				},
+				{
+					"name": "89 - Booking Flow | Get Installments parametros nulos",
+					"item": [
+						{
+							"name": "1 - Token v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"pm.environment.set(\"bearerToken\", jsonData.data.token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlAuthorization}}/api/v1/token",
+									"host": [
+										"{{urlAuthorization}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 - Authenticate v1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlUser}}/api/v1/authenticate",
+									"host": [
+										"{{urlUser}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 - Installments v1",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"if (!pm.variables.get(\"userAgent\").match(/(salesb2b\\/)\\w+/)) {\r",
+											"    throw new Error(\"The 'User-Agent' variable must be filled in according to the github documentation.\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{apiKey}}"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}"
+									}
+								],
+								"url": {
+									"raw": "{{urlOrderPayments}}/api/v1/order/payments/installments",
+									"host": [
+										"{{urlOrderPayments}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"payments",
+										"installments"
+									],
+									"query": [
+										{
+											"key": "bin",
+											"value": "000000",
+											"disabled": true
+										},
+										{
+											"key": "methodCode",
+											"value": "XX",
+											"disabled": true
+										},
+										{
+											"key": "taxAmount",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "amount",
+											"value": "0",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		}

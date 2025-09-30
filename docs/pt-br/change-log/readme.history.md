@@ -1,5 +1,13 @@
 # Changelog Completo
 
+## [1.16.1] -20/8/2025
+
+### Modificado
+- Restrição de Passageiros na Alteração de Reservas Codeshare.
+- Restrição de Passageiros na Busca de Voos Codeshare.
+- Restrição de Passageiros na Emissão de Reservas Codeshare.
+- Melhoria nas mensagens de erro retornados na api de parcelamento.
+
 ## [1.16.0] - 12/06/2025
 
 ### Modificado
