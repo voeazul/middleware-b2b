@@ -17,5 +17,6 @@
 - Block the search, creation and modification of codeshare (G3) reservations with more than 4 passengers.
 - Improvements in validations and unavailability of the installment api.
 - Removed DU change method of international reservations.
+- Added the option to generate reports per month for Payments and Segments reports.
 
 [Link to previous versions](/docs/en-us/change-log/readme.history.md)

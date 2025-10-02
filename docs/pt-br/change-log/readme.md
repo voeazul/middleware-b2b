@@ -17,5 +17,6 @@
 - Bloqueio na busca, criação e alteração de reservas codeshare(G3) com mais de 4 passageiros.
 - Melhorias nas validações e indisponibilidade da api de parcelamento.
 - Removido método de alteração de DU de reservas internacionais.
+- Adicionado a opção de geração de relatórios por mês para relatórios de Pagamentos e Segmentos.
 
 [Link para as versões anteriores](/docs/pt-br/change-log/readme.history.md)
