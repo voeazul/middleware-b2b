@@ -7347,7 +7347,7 @@
 					"response": []
 				},
 				{
-					"name": "User Report v1",
+					"name": "Reaccommodation Report v1",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -7421,7 +7421,7 @@
 					"response": []
 				},
 				{
-					"name": "User Report v1",
+					"name": "Reaccommodation Report v1",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -7482,7 +7482,7 @@
 					"response": []
 				},
 				{
-					"name": "User Report v1",
+					"name": "Reaccommodation Report v1",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -7536,7 +7536,7 @@
 					"response": []
 				},
 				{
-					"name": "User Report by ID v1",
+					"name": "Reaccommodation Report by ID v1",
 					"event": [
 						{
 							"listen": "prerequest",
