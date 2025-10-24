@@ -542,6 +542,7 @@ Nosso barramento tem diversas regras e tratativas para garantir a integridade do
 | 404 Not Found | PassengerKey.NoMatches | The informed 'PassengerKey' does not match within those on the order in state. | A 'PassengerKey' informada não corresponde a reserva no state. |
 | 404 Not Found | PassengerName.NoMatches | The Passenger name does not match within informed Customer Program. | O nome do Passageiro não corresponde ao Programa do Cliente informado. |
 | 404 Not Found | Payments.NoMatches | No payments were found for the order in state. | Nenhum pagamento foi encontrado para order no state. |
+| 404 Not Found | PromotionCode.Delete.NotFound | There isn't Promotion Code to be deleted | Não há Promotion Code para ser deletado |
 | 404 Not Found | RecordLocator.NoMatches | Your order must be created to use its credits. | Uma order deve ser criada para utilizar seus créditos. |
 | 404 Not Found | RefundOrder.NoMatches | Order not found. Retrieve the order. | Order não encontrada.  |
 | 404 Not Found | ReportId.NoMatches | The informed 'ReportId' does not exists or was not found. | O 'ReportId' informado não existe ou não foi encontrado. |

@@ -542,6 +542,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 404 Not Found | PassengerKey.NoMatches | The informed 'PassengerKey' does not match within those on the order in state. |
 | 404 Not Found | PassengerName.NoMatches | The Passenger name does not match within informed Customer Program. |
 | 404 Not Found | Payments.NoMatches | No payments were found for the order in state. |
+| 404 Not Found | PromotionCode.Delete.NotFound | There isn't Promotion Code to be deleted |
 | 404 Not Found | RecordLocator.NoMatches | Your order must be created to use its credits. |
 | 404 Not Found | RefundOrder.NoMatches | Order not found. Retrieve the order. |
 | 404 Not Found | ReportId.NoMatches | The informed 'ReportId' does not exists or was not found. |
