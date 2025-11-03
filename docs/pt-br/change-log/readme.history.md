@@ -1,6 +1,25 @@
 # Changelog Completo
 
-## [1.16.1] -20/8/2025
+## [1.17.0] - 29/09/2025
+
+### Adicionado
+- Adição do método para alteração do promotion code de uma reserva em Hold.
+- Adicionado campo para envio de itinerários da reserva (Agency, All e None).
+- Adicionado campo para envio de comentários na reserva.
+- Adicionado método para atualizar dados dos contatos de Agency e Customer de uma reserva em Hold.
+- Adicionado método para retornar as rotas válidas.
+
+### Modificado
+- Melhoria na mensagem de erro caso ocorra indisponibilidade da API de Installments.
+- A 'OrganizationFeeOverride' está desabilitada, o valor enviado não irá sobrescrever a OrganizationFee durante a criação da reserva.
+- Liberado a opção de solicitação de reembolso via CreditShell de reservas em reacomodação.
+- Adicionado relatório de Reacomodação na ApI de Reportes.
+- Bloqueio na busca, criação e alteração de reservas codeshare(G3) com mais de 4 passageiros.
+- Melhorias nas validações e indisponibilidade da api de parcelamento.
+- Removido método de alteração de DU de reservas internacionais.
+- Adicionado a opção de geração de relatórios por mês para relatórios de Pagamentos e Segmentos.
+
+## [1.16.1] -20/08/2025
 
 ### Modificado
 - Restrição de Passageiros na Alteração de Reservas Codeshare.
