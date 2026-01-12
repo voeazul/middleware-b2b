@@ -1,16 +1,32 @@
 # Complete Changelog
 
-## [1.15.0] - 14/05/2025
+## [1.16.1] -20/8/2025
+
+### Updated
+- Passenger Restriction on Codeshare Booking Changes.
+- Passenger Restriction on Codeshare Flight Search.
+- Passenger Restriction on Codeshare Booking Issuance.
+- Improvement in error messages returned by the installment payment API.
+
+## [1.16.0] - 12/06/2025
+
+### Updated
+- Addition of optional UMNR service for international flights.
+- Application of Promocodes on Codeshare flights.
+- Change in Hold period for declined payments.
+- Adjustment of access profiles session framework.
+
+## [1.15.1] - 03/06/2025
+
+### Updated
+- New Codeshare HiFly (5K).
+
+## [1.15.0] - 28/02/2025
 
 ### Added
 - Creation of a method for adding a promotionCode to a reservation in progress.
 
 ### Updated
-- Added RefundType for CreditShell refund request on Order.
-- Improved the response of the organization listing method.
-- Added a new organization and adjusted leading zeros in the hold calculation settings.
-- Fixed conversion of timespans greater than 24 hours.
-- Retrieval of rebooked reservations with a departure date earlier than the current date.
 
 ## [1.14.0] - 28/02/2025
 

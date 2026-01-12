@@ -1,15 +1,22 @@
 # Changelog
 
-## [1.15.0] - 14/05/2025
+## [1.17.0] - 29/09/2025
 
 ### Added
-- Creation of a method for adding a promotionCode to a reservation in progress.
+- Added method to change the promotion code of a reservation in Hold.
+- Added field for sending booking itinerary (Agency, None and All).
+- Added field to send comments on booking.
+- Added method to update data of the Agency and Customer contacts from a reservation in Hold.
+- Added method to return valid routes.
 
 ### Updated
-- Added RefundType for CreditShell refund request on Order.
-- Improved the response of the organization listing method.
-- Added a new organization and adjusted leading zeros in the hold calculation settings.
-- Fixed conversion of timespans greater than 24 hours.
-- Retrieval of rebooked reservations with a departure date earlier than the current date.
+- Improvement in the error message if Installments API unavailability occurs.
+- The 'OrganizationFeeOverride' is disabled, the value sent will not overwrite the OrganizationFee during the creation of the Order.
+- Released the option of requesting a refund via CreditShell for reservations in re-accommodation.
+- Added Reallocation report in the Reports ApI.
+- Block the search, creation and modification of codeshare (G3) reservations with more than 4 passengers.
+- Improvements in validations and unavailability of the installment api.
+- Removed DU change method of international reservations.
+- Added the option to generate reports per month for Payments and Segments reports.
 
 [Link to previous versions](/docs/en-us/change-log/readme.history.md)

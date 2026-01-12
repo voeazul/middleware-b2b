@@ -1,18 +1,10 @@
 {
 	"info": {
-<<<<<<<< HEAD:postman/MiddlewareB2B_Release_1.17.0.postman_collection.json
 		"_postman_id": "94685047-3b5b-45ad-b35f-0fe767f14952",
 		"name": "Middleware B2B - Release 1.17.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29122721",
 		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B---release-1.17.0~ad184153-313b-4bee-ab62-1381303211cc/collection/29122721-94685047-3b5b-45ad-b35f-0fe767f14952?action=share&source=collection_link&creator=29122721"
-========
-		"_postman_id": "30095327-fe5d-4117-8d7b-e84b73abe0b0",
-		"name": "Middleware B2B - Release 1.15.0",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "29122721",
-		"_collection_link": "https://cloudy-moon-642885.postman.co/workspace/Barramento-B2B---release-1.15.0~35a47f25-9e65-4631-8107-2e875c3ff90b/collection/23627244-30095327-fe5d-4117-8d7b-e84b73abe0b0?action=share&source=collection_link&creator=29122721"
->>>>>>>> main:postman/MiddlewareB2B_Release_1.15.0.postman_collection.json
 	},
 	"item": [
 		{
@@ -1184,7 +1176,6 @@
 					"response": []
 				},
 				{
-<<<<<<<< HEAD:postman/MiddlewareB2B_Release_1.17.0.postman_collection.json
 					"name": "Routes v1",
 					"event": [
 						{
@@ -1249,27 +1240,15 @@
 								}
 							]
 						},
-========
-					"name": "Address",
-					"request": {
->>>>>>>> main:postman/MiddlewareB2B_Release_1.15.0.postman_collection.json
 						"method": "GET",
 						"header": [
 							{
 								"key": "Ocp-Apim-Subscription-Key",
-<<<<<<<< HEAD:postman/MiddlewareB2B_Release_1.17.0.postman_collection.json
 								"value": "{{apiKey}}"
 							},
 							{
 								"key": "User-Agent",
 								"value": "{{userAgent}}"
-========
-								"value": "5a875b7f266c49f59636f120c86ff5a7"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NDM3OTM3OTEsImV4cCI6MTc0Mzg4MDE5MSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiI4OGM4YmIwMi0zZTJlLTQ1MTUtODA5OS1mODU2Y2Y1NmEwM2UifQ.VQGwA-OybnTmmCJC-0SV9SjHZx2yUO2iEXeeAjH-cjk"
->>>>>>>> main:postman/MiddlewareB2B_Release_1.15.0.postman_collection.json
 							}
 						],
 						"url": {
@@ -3605,7 +3584,6 @@
 					"response": []
 				},
 				{
-<<<<<<<< HEAD:postman/MiddlewareB2B_Release_1.17.0.postman_collection.json
 					"name": "PromotionCode v1",
 					"event": [
 						{
@@ -3691,19 +3669,6 @@
 							{
 								"key": "User-Agent",
 								"value": "{{userAgent}}"
-========
-					"name": "Credit History v1",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NDM3OTM3OTEsImV4cCI6MTc0Mzg4MDE5MSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiI4OGM4YmIwMi0zZTJlLTQ1MTUtODA5OS1mODU2Y2Y1NmEwM2UifQ.VQGwA-OybnTmmCJC-0SV9SjHZx2yUO2iEXeeAjH-cjk"
-							},
-							{
-								"key": "Ocp-Apim-Subscription-Key",
-								"value": "5a875b7f266c49f59636f120c86ff5a7"
->>>>>>>> main:postman/MiddlewareB2B_Release_1.15.0.postman_collection.json
 							}
 						],
 						"url": {
@@ -3733,21 +3698,12 @@
 						"method": "GET",
 						"header": [
 							{
-<<<<<<<< HEAD:postman/MiddlewareB2B_Release_1.17.0.postman_collection.json
 								"key": "Ocp-Apim-Subscription-Key",
 								"value": "{{apiKey}}"
 							},
 							{
 								"key": "User-Agent",
 								"value": "{{userAgent}}"
-========
-								"key": "Authorization",
-								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NDM3OTM3OTEsImV4cCI6MTc0Mzg4MDE5MSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiI4OGM4YmIwMi0zZTJlLTQ1MTUtODA5OS1mODU2Y2Y1NmEwM2UifQ.VQGwA-OybnTmmCJC-0SV9SjHZx2yUO2iEXeeAjH-cjk"
-							},
-							{
-								"key": "Ocp-Apim-Subscription-Key",
-								"value": "5a875b7f266c49f59636f120c86ff5a7"
->>>>>>>> main:postman/MiddlewareB2B_Release_1.15.0.postman_collection.json
 							}
 						],
 						"url": {
@@ -3769,7 +3725,6 @@
 						"description": "Generated from cURL: curl --location 'https://general-api-tst.azul.corp/api/v1/order/OJMNSW/comments' \\\r\n--header 'Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NDM3OTM3OTEsImV4cCI6MTc0Mzg4MDE5MSwiaXNzIjoiQXp1bCBMaW5oYXMgQWVyZWFzIiwiYXVkIjoiVHJhdmVsIEFnZW5jeSIsInVuaXF1ZUlkZW50aWZpZXIiOiI4OGM4YmIwMi0zZTJlLTQ1MTUtODA5OS1mODU2Y2Y1NmEwM2UifQ.VQGwA-OybnTmmCJC-0SV9SjHZx2yUO2iEXeeAjH-cjk' \\\r\n--header 'Ocp-Apim-Subscription-Key: 5a875b7f266c49f59636f120c86ff5a7'"
 					},
 					"response": []
-<<<<<<<< HEAD:postman/MiddlewareB2B_Release_1.17.0.postman_collection.json
 				},
 				{
 					"name": "Patch Contact v1",
@@ -3821,8 +3776,6 @@
 						}
 					},
 					"response": []
-========
->>>>>>>> main:postman/MiddlewareB2B_Release_1.15.0.postman_collection.json
 				}
 			]
 		},
@@ -58595,11 +58548,7 @@
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
 				},
 				{
-<<<<<<<< HEAD:postman/MiddlewareB2B_Release_1.17.0.postman_collection.json
 					"name": "83 - Booking Flow | Add PromoCode",
-========
-					"name": "84 - Booking Flow | Add PromoCode",
->>>>>>>> main:postman/MiddlewareB2B_Release_1.15.0.postman_collection.json
 					"item": [
 						{
 							"name": "1 - Token v1",
@@ -58807,21 +58756,13 @@
 									}
 								},
 								"url": {
-<<<<<<<< HEAD:postman/MiddlewareB2B_Release_1.17.0.postman_collection.json
 									"raw": "{{urlShopping}}/api/v3/airSearch",
-========
-									"raw": "{{urlShopping}}/api/v2/airSearch",
->>>>>>>> main:postman/MiddlewareB2B_Release_1.15.0.postman_collection.json
 									"host": [
 										"{{urlShopping}}"
 									],
 									"path": [
 										"api",
-<<<<<<<< HEAD:postman/MiddlewareB2B_Release_1.17.0.postman_collection.json
 										"v3",
-========
-										"v2",
->>>>>>>> main:postman/MiddlewareB2B_Release_1.15.0.postman_collection.json
 										"airSearch"
 									]
 								}
@@ -59102,7 +59043,6 @@
 						}
 					],
 					"description": "Booking Flow com exemplo de reserva para apenas um trecho de ida."
-<<<<<<<< HEAD:postman/MiddlewareB2B_Release_1.17.0.postman_collection.json
 				},
 				{
 					"name": "84 - Booking Flow | Reac trecho ida e cancela trecho volta",
@@ -63723,8 +63663,6 @@
 							"response": []
 						}
 					]
-========
->>>>>>>> main:postman/MiddlewareB2B_Release_1.15.0.postman_collection.json
 				}
 			]
 		}

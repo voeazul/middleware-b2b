@@ -13,6 +13,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | RequiredField.TravelDocument.ExpirationDate | The 'TravelDocuments.ExpirationDate' is required. | 
 | 400 Bad Request | RequiredField.TravelDocument.Type | The 'TravelDocuments.Type' CPF, RNE or PASSPORT is required. |
 | 400 Bad Request | RequiredField.TravelDocuments.Type | The 'TravelDocuments.Type' is required. |
+| 400 Bad Request | Codeshare.Passengers.Limit | Maximum limit of this codeshare '{0}' is {1}. |
 | 400 Bad Request | Customer.AlreadyCategorized | This passenger has already been categorized, You are not allowed to change the passenger's name. |
 | 400 Bad Request | InvalidField.Contact.Phone | The 'phone' has a maximum length 20 characters. |
 | 400 Bad Request | InvalidField.IropContact.Email | The 'Passengers.IropContact.Email' has a maximum length 128 characters. |
@@ -268,6 +269,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | OrderDivide.Pending.Service | It is not possible to perform order divide after a service addition/change. Please confirm changes to your order before splitting it, or split it first before making changes. |
 | 400 Bad Request | OrderDivide.Unaccompanied.NotAllowed | It's not allowed to divide an order when it will result in orders where there are only unaccompanied minors (under {0} years old). Both involved orders must contain at least one adult passenger (ADT) over {0} years of age at the end of the division. |
 | 400 Bad Request | Orders.Fares.Error | You are not allowed to see others fares in this method. |
+| 400 Bad Request | Organization.Account.Invalid | Credit unavailable for the specified organization |
 | 400 Bad Request | Organization.AlreadyIntoGroup | The informed OrganizationCode is already inserted in this organization group. |
 | 400 Bad Request | Organization.AuthorizationFailed | The agent does not have access to the finder organization, either on its own or by a group. |
 | 400 Bad Request | Organization.CNPJ.Invalid | The point of sale organization does not have a valid CNPJ. |
@@ -473,6 +475,7 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | InvalidField.LastStatementDate | The 'LastStatementDate' must be a valid. |
 | 400 Bad Request | InvalidField.OverrideDuFee | The organizationFeeOverride cannot be informed when overrideDuFee was already informed. |
 | 400 Bad Request | InvalidField.StatementNote | The 'StatementNote' must be 128 characters in length. |
+| 400 Bad Request | InvalidField.Update | It is only possible to update the promocode for hold order. |
 | 400 Bad Request | InvalidField.NewName | Please check the 'NewName', it can't start with special characters and numbers. |
 | 400 Bad Request | RequiredField.Company.Cnpj | The 'Company Cnpj' is required. |
 | 400 Bad Request | RequiredField.CompanyPhones.Type | The 'Company.Phones.Type' is required. |
@@ -482,21 +485,29 @@ Our Middleware has several rules and procedures to guarantee the integrity of th
 | 400 Bad Request | NotApplied.PromotionCode | Application of promotionCode is only permitted on hold reservations.|
 | 400 Bad Request | InvalidField.Promotion.Code | It is not possible to apply a promo code to reservations that contain the promo code. |
 | 400 Bad Request | Invalid.TravelDocument.Type | The document type Mercosur is invalid for this IssuingCountry. |
-| 400 Bad Request | Comments.NotAllowed | Comment will not be recorded as it does not meet the PS rule. | It is not possible to send comments when the user does not have the "LEMO" role, and does not meet the PS product class rule. |
-| 400 Bad Request | Comments.Maximum.Lenght | The 'Comments' must be a maximum of 1024 characters. | The comment exceeds the supported character limit. |
-| 400 Bad Request | Invalid.Authentication.Session | The Authentication Session is denied because the token is an Active Directory. | 
 | 400 Bad Request | RefundType.ExistingCredit | It is not possible to apply the 'ExistingCredit' refund, choose another type of refund. |
 | 400 Bad Request | RefundType.ExistingCredit | No credit available for refund. |
 | 400 Bad Request | RefundType.ExistingCredit | Does not have enough credit for refund as payment of the order. |
-Error authenticating using an AD type token. |
-| 400 Bad Request | Invalid.Authentication.Groups.Portal.Session | The Authentication Groups Portal is denied because the session must be an Active Directory. | Error authenticating to the groups portal using a token other than AD. |
-| 400 Bad Request | Order.NoComments | The informed order does not have any comments associated. | The order has no comments. |
+| 400 Bad Request | RequiredField.Type | The 'Type' field is required. |
+| 400 Bad Request | Contact.Info.Required | At least one data for update must be sent. |
+| 400 Bad Request | Contact.Phones.Null | The 'Phones' field cannot contain a null phone. |
+| 400 Bad Request | Contact.Phones.Empty | The 'Phones' field cannot be empty. |
+| 400 Bad Request | RequiredField.Phone.Type | The 'Phone.Type' field is required when 'Phone.Number' is informed. |
+| 400 Bad Request | RequiredField.Phone.Number | The 'Phone.Number' field is required when 'Phone.Type' is informed. |
+| 400 Bad Request | InvalidField.Phone.Number | The 'Phone.Number' has a maximum length 20 characters. |
+| 400 Bad Request | InvalidField.Contact.Email | The 'Passengers.Email' must be not empty. |
+| 400 Bad Request | InvalidField.Contact.Email | The 'Passengers.Email' is invalid. |
+| 400 Bad Request | InvalidField.Contact.Email | The 'Passengers.Email' has a maximum length 255 characters. |
+| 400 Bad Request | Order.Contact | It is only possible to update the contact for hold order. |
+| 400 Bad Request | Order.Contact.NotFound | The Order in state does not have the contact of the 'Type' informed. |
+| 400 Not Found | OrganizationCode.Blocks.Search | Emission not permitted for this Organization. |
 | 401 Unauthorized | InvalidToken.Expired | An error occurred while performing authentication. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | The Bearer Token provided is invalid or expired. |
 | 401 Unauthorized | RequestFailed.Authentication | An error occurred while validating the user authentication. |
 | 401 Unauthorized | InvalidToken.NotInformed | Bearer Token not informed. The token must be informed in the request header. |
 | 401 Unauthorized | InvalidToken.NotAuthenticated | Not Authenticated. The Agent must be authenticated thru User API. |
 | 401 Unauthorized | InvalidToken.Expired | Provided JWT is invalid or expired. |
+| 403 Forbidden | AuthorizationFailedInvalidRole | The agent does not have the required roles to access this method. |
 | 403 Forbidden | Agent.MethodCode.NotAllowed | The logged agent is not allowed to make payments using this method code. |
 | 403 Forbidden | Agent.NoAccess | The agent does not have access to the informed user. |
 | 403 Forbidden | AssignSeat.UnitKey.Blocked | The request failed to assign the seat, because this seat is blocked by passengers rules (age, SSR or equipment). |
@@ -531,6 +542,7 @@ Error authenticating using an AD type token. |
 | 404 Not Found | PassengerKey.NoMatches | The informed 'PassengerKey' does not match within those on the order in state. |
 | 404 Not Found | PassengerName.NoMatches | The Passenger name does not match within informed Customer Program. |
 | 404 Not Found | Payments.NoMatches | No payments were found for the order in state. |
+| 404 Not Found | PromotionCode.Delete.NotFound | There isn't Promotion Code to be deleted |
 | 404 Not Found | RecordLocator.NoMatches | Your order must be created to use its credits. |
 | 404 Not Found | RefundOrder.NoMatches | Order not found. Retrieve the order. |
 | 404 Not Found | ReportId.NoMatches | The informed 'ReportId' does not exists or was not found. |
@@ -549,6 +561,7 @@ Error authenticating using an AD type token. |
 | 404 Not Found | UserKey.NoMatches | The informed 'UserKey' does not exist or was not found. |
 | 404 Not Found | Username.NoMatches | The 'Username' user does not exist or was not found. |
 | 406 Not Acceptable | Retrieve.Order.InvalidProductClass | It is not possible retrieve orders in v2 with the product class contained in the requested order. |
+| 409 Conflict | AddJourneys.UnaccompaniedMinor.NotAllowed| Additional journeys for unaccompanied minors are not permitted. |
 | 409 Conflict | AssignSeat.PassengerKey.Conflict | The PassengerKey does not exists in the order state. |
 | 409 Conflict | AssignSeat.Seat.Conflict | Seat Already Assigned. |
 | 409 Conflict | InvalidField.AssistanceCode | The assistance '{0}' is invalid for the Journey '{1}-{2} - {3}'. |
@@ -575,6 +588,7 @@ Error authenticating using an AD type token. |
 | 409 Conflict | RequiredField.LiableRecordLocator | A passenger over 18 years old is required in the liable order. |
 | 409 Conflict | Organizations.CNPJ.error | You are not allowed to create Organizations to this CNPJ. |
 | 409 Conflict | Retrieve.V2.NotExecuted | Get Order V2 has not been executed. |
+| 409 Conflict | ServiceUmnr.Required | UMNR service is mandatory for the passenger and journey informed. |
 | 422 Unprocessable Content | Assistance.SearchRequired | Retrieve a 'assistances/search' with journeyKey before execute this method. |
 | 422 Unprocessable Content | Baggage.SearchRequired | Retrieve a 'baggage/search' with journeyKey before execute this method. |
 | 422 Unprocessable Content | NotMatch.Name | The names sent do not match those on the attached order. |
@@ -646,6 +660,7 @@ Error authenticating using an AD type token. |
 | 502 Bad Gateway | RequestFailed.SSR.AddNotPossible | It was not possible to add an SSR to the order. |
 | 502 Bad Gateway | RequestFailed.StatusAccount | Organization account is Closed/Blocked, please contact Azul's commercial team. |
 | 502 Bad Gateway | RequestFailed.UnaccompaniedMinor.Information | There are unaccompanied minors in your order, please verify possible costs and required documentations. |
+| 502 Bad Gateway | RequestFailed.Installments | An error occurred while querying for installment availability. |
 | 502 Bad Gateway | RequestFailed.Unexpected | An unexpected error has occurred. |
 | 502 Bad Gateway | RequiredField.Amount | The 'Amount' is required. |
 | 502 Bad Gateway | RequiredField.CreditCard.MethodCode | The 'MethodCode' is required. |
