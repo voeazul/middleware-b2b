@@ -19,6 +19,7 @@
 - Removed DU change method of international reservations.
 - Added the option to generate reports per month for Payments and Segments reports.
 
+
 ## [1.16.1] -20/8/2025
 
 ### Updated
