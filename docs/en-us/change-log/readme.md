@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.19.0] - 26/02/2026
+## [1.20.0] - 26/02/2026
 
 ### Updated
 - Implemented handling of special characters in the holderName field of the payments API.
