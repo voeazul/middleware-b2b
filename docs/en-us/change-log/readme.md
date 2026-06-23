@@ -1,12 +1,12 @@
 # Changelog
 
-## [1.20.0] - 26/02/2026
+## [1.22.0] - 15/07/2026
 
 ### Updated
-- Implemented handling of special characters in the holderName field of the payments API.
-- Added the Customer property to the reservation checkout, ensuring that the itinerary email is sent exclusively to the passenger.
-- Implemented CPF validation.
-- Adjusted the business rule to prevent the application of DU on international reservations for groups belonging to the DUI group.
-- Implemented validation to block changes from one promocode to another when a promocode has already been applied to the reservation.
+- Change in reservation status validation.
+- Change in the attach flow for automatic pre-filling of traveler data in **Order.Api**.
+- Change in the blocked login information response in the **Organizations.Api**.
+- Change in the comment return of a reservation in the **Order.Management.Api**.
+- Update in the search for _installments_.
 
 [Link to previous versions](/docs/en-us/change-log/readme.history.md)

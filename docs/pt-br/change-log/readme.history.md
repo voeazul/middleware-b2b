@@ -1,5 +1,16 @@
 # Changelog Completo
 
+## [1.21.0] - 31/05/2026
+
+### Modificado
+- Atualização para integrar com a versão _4.8_ da Navitaire.
+
+## [1.20.0] - 26/03/2026
+ 
+### Adicionado
+- Adicionados métodos para troca de pagamento total e parcial na **Payments.API**.
+- Adicionado um objeto **remarks** ao endpoint Retrieve _V3_, retornando comentários relevantes.
+
 ## [1.19.0] - 26/02/2026
 
 ### Modificado
