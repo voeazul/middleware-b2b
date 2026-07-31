@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.22.0] - 15/07/2026
+## [1.22.0] - 31/07/2026
  
 ### Modificado
 - Alteração na validação de status de reserva.
