@@ -1,17 +1,12 @@
 # Changelog
 
-## [1.18.0] - 03/11/2025
-
-### Adicionado
-- Adição de método para remoção de Promotion Code durante a criação.
-- Adição de método para remoção de Promotion Code para reservas em Hold.
-- Adição de documento de viagem RE para uso exclusivo da Azul na emissão de reservas.
-- Adição de documento de viagem RE para uso exclusivo da Azul na alteração de dados de passageiro.
-
+## [1.22.0] - 31/07/2026
+ 
 ### Modificado
-- Retorno de total de bagagens para os novos tiers Diamante Unique e Azul One.
-- Restrição de emissão de reservas CodeShare (G3) por IATA.
-- Restrição de adição de trecho CodeShare (G3) por IATA bloqueado.
-- Restrição de busca de voos CodeShare (G3) por IATA bloqueado.
-
+- Alteração na validação de status de reserva.
+- Alteração no fluxo de attach para pré-preenchimento automático dos dados do viajante na **Order.Api**.
+- Alteração no retorno de informação de login bloqueado na **Organizations.Api**.
+- Alteração no retorno do comentário de uma reserva na **Order.Management.Api**.
+- Atualização na busca de _installments_.
+ 
 [Link para as versões anteriores](/docs/pt-br/change-log/readme.history.md)
