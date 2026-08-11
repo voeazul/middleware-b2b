@@ -1,5 +1,14 @@
 # Changelog Completo
 
+## [1.22.0] - 29/07/2026
+ 
+### Modificado
+- Alteração na validação de status de reserva.
+- Alteração no fluxo de attach para pré-preenchimento automático dos dados do viajante na **Order.Api**.
+- Alteração no retorno de informação de login bloqueado na **Organizations.Api**.
+- Alteração no retorno do comentário de uma reserva na **Order.Management.Api**.
+- Atualização na busca de _installments_.
+
 ## [1.21.0] - 31/05/2026
 
 ### Modificado

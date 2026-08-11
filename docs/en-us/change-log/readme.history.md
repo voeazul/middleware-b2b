@@ -1,11 +1,20 @@
 # Complete Changelog
 
-## [1.21.0] - 31/05/2026
+## [1.22.0] - 07/29/2026
+
+### Updated
+- Change in reservation status validation.
+- Change in the attach flow for automatic pre-filling of traveler data in **Order.Api**.
+- Change in the blocked login information response in the **Organizations.Api**.
+- Change in the comment return of a reservation in the **Order.Management.Api**.
+- Update in the search for _installments_.
+
+## [1.21.0] - 05/31/2026
 
 ### Updated
 - Update for integration with Navitaire version _4.8_.
 
-## [1.20.0] - 26/03/2026
+## [1.20.0] - 03/26/2026
  
 ### Added
 - Added methods for full and partial payment exchange in the **Payments.API**.
@@ -20,7 +29,7 @@
 - Adjusted the business rule to prevent the application of DU on international reservations for groups belonging to the DUI group.
 - Implemented validation to block changes from one promocode to another when a promocode has already been applied to the reservation.
 
-## [1.18.0] - 13/11/2025
+## [1.18.0] - 11/13/2025
 
 ### Added
 - Added method to change the promotion code of a reservation in Hold.
@@ -47,7 +56,7 @@
 - Restriction of addition of segment CodeShare (G3) by IATA blocked.
 - Flight search restriction CodeShare (G3) by IATA blocked.
 
-## [1.17.0] - 29/09/2025
+## [1.17.0] - 09/29/2025
 
 ### Added
 - Added method to change the promotion code of a reservation in Hold.
