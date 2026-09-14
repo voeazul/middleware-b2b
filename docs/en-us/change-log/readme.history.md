@@ -1,5 +1,16 @@
 # Complete Changelog
 
+## [1.23.0] - 11/08/2026
+### Added
+- Added the PATCH Passenger method to allow adjustment of passenger data, providing the mechanism for updating traveler documents in Sales.B2B.Order.Passengers.Api.
+- Added the POST Contact method to allow registration and regularization of mandatory contact information when the booking does not have a Customer-type contact in Order.Management.Api.
+
+### Updated
+- Changed and blocked payment for bookings without travelDocuments based on the traveler's nationality.
+- Changed the booking creation flow, including a new "GOVID" field and nationality validation in Order.Api.
+If govId is not provided, a warning will be returned without impacting booking creation. The notification will remain active until the definitive block is applied, after the deadline established by Azul's business area.
+- Changed the contact update flow for a booking, including a new "GOVID" field and nationality validation in Order.Management.Api.
+
 ## [1.22.0] - 07/29/2026
 
 ### Updated
