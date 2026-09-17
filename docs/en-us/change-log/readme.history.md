@@ -1,5 +1,11 @@
 # Complete Changelog
 
+## [1.24.0] - 10/09/2026
+ 
+### Modificado
+- Updated services to REST architecture.
+- Updated the response of the POST Authenticate method to bring more information about the agent.
+
 ## [1.23.0] - 11/08/2026
 ### Added
 - Added the PATCH Passenger method to allow adjustment of passenger data, providing the mechanism for updating traveler documents in Sales.B2B.Order.Passengers.Api.
