@@ -1,5 +1,11 @@
 # Changelog Completo
 
+## [1.24.0] - 10/09/2026
+ 
+### Modificado
+- Atualização dos serviços para arquitetura REST.
+- Atualização na resposta do método ***POST Authenticate*** trazendo mais informações do agente.
+
 ## [1.23.0] - 11/08/2026
  
 ### Adicionado
