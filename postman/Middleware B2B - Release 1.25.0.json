@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "e4e29374-785b-4b7e-973d-45ec5d95cdae",
-    "name": "Middleware B2B - Release 1.24.0",
+    "name": "Middleware B2B - Release 1.25.0",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -1796,58 +1796,174 @@
                 }
               },
               "response": []
-            }
-          ]
-        },
-        {
-          "name": "v3",
-          "item": [
+            },
             {
-              "name": "Order v3",
-              "event": [
+              "name": "v2",
+              "item": [
                 {
-                  "listen": "test",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "var response = pm.response.json();\r",
-                      "\r",
-                      "pm.environment.set(\"journeyKeyGetOrderIda\", JSON.stringify(response.data.order.journeys[0].key).toString().replace(/['\"]+/g, ''));"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "bearer {{bearerToken}}",
-                    "type": "text",
-                    "disabled": false
+                  "name": "Order v2",
+                  "event": [],
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{ bearerToken }}",
+                        "type": "text",
+                        "disabled": false
+                      },
+                      {
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "{{apiKey}}",
+                        "type": "text",
+                        "disabled": false
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{urlOrder}}/api/v2/order",
+                      "host": [
+                        "{{urlOrder}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v2",
+                        "order"
+                      ],
+                      "query": [],
+                      "variable": []
+                    },
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{ bearerToken }}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"offers\": [\r\n    {\r\n      \"journeyKey\": \"{{journeyKeyIda}}\",\r\n      \"fareKey\": \"{{fareKeyIda}}\"\r\n    }\r\n  ],\r\n  \"passengers\": [\r\n    {\r\n      \"nationality\": \"BR\",\r\n      \"customerProgram\": null,\r\n      \"gender\": \"Male\",\r\n      \"dateOfBirth\": \"1988-04-15\",\r\n      \"phone\": \"(11) 99111-1111\",\r\n      \"email\": \"carlos.silva@example.com\",\r\n      \"type\": \"ADT\",\r\n      \"name\": {\r\n        \"first\": \"Carlos\",\r\n        \"last\": \"Silva\",\r\n        \"title\": \"MR\",\r\n        \"suffix\": \"\"\r\n      },\r\n      \"travelDocuments\": [\r\n        {\r\n          \"type\": \"CPF\",\r\n          \"number\": \"41412767407\",\r\n          \"birthCountry\": \"BR\",\r\n          \"issuingCountry\": \"BR\",\r\n          \"issuedDate\": null,\r\n          \"expirationDate\": \"2030-08-19\"\r\n        }\r\n      ],\r\n      \"iropContact\": {\r\n        \"mobile\": {\r\n          \"countryCode\": \"55\",\r\n          \"regionCode\": \"16\",\r\n          \"number\": \"999999999\"\r\n        },\r\n        \"email\": \"carlos.silva@example.com\"\r\n      }\r\n    }\r\n  ],\r\n  \"contact\": {\r\n    \"govId\": \"21.681.127/0001-93\",\r\n    \"address\": {\r\n      \"lineOne\": \"Rua\",\r\n      \"lineTwo\": \"Linha 2\",\r\n      \"country\": \"BR\",\r\n      \"provinceState\": \"SP\",\r\n      \"city\": \"Sao Paulo\",\r\n      \"postalCode\": \"14800-000\"\r\n    },\r\n    \"email\": \"test.contact@mail.com.br\",\r\n    \"companyName\": \"teste Barramento B2B\",\r\n    \"name\": {\r\n      \"first\": \"Regina\",\r\n      \"middle\": \"Solsa\",\r\n      \"last\": \"Goncalves\",\r\n      \"title\": \"\",\r\n      \"suffix\": \"FO\"\r\n    },\r\n    \"phones\": [\r\n      {\r\n        \"number\": \"(11) 9999-9991\",\r\n        \"type\": \"Home\"\r\n      }\r\n    ]\r\n  },\r\n  \"promotionCode\": \"\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    }
                   },
-                  {
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "{{apiKey}}",
-                    "type": "text",
-                    "disabled": false
-                  }
-                ],
-                "url": {
-                  "raw": "{{urlOrder}}/api/v3/order",
-                  "host": [
-                    "{{urlOrder}}"
+                  "response": []
+                },
+                {
+                  "name": "Order v2",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                          "var response = pm.response.json();\r",
+                          "\r",
+                          "pm.environment.set(\"journeyKeyGetOrderIda\", JSON.stringify(response.data.order.journeys[0].key).toString().replace(/['\"]+/g, ''));"
+                        ]
+                      }
+                    }
                   ],
-                  "path": [
-                    "api",
-                    "v3",
-                    "order"
-                  ],
-                  "query": [],
-                  "variable": []
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{ bearerToken }}",
+                        "type": "text",
+                        "disabled": false
+                      },
+                      {
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "{{apiKey}}",
+                        "type": "text",
+                        "disabled": false
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{urlOrder}}/api/v2/order",
+                      "host": [
+                        "{{urlOrder}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v2",
+                        "order"
+                      ],
+                      "query": [],
+                      "variable": []
+                    },
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{ bearerToken }}",
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
                 }
-              },
-              "response": []
+              ]
+            },
+            {
+              "name": "v3",
+              "item": [
+                {
+                  "name": "Order v3",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                          "var response = pm.response.json();\r",
+                          "\r",
+                          "pm.environment.set(\"journeyKeyGetOrderIda\", JSON.stringify(response.data.order.journeys[0].key).toString().replace(/['\"]+/g, ''));"
+                        ]
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "bearer {{bearerToken}}",
+                        "type": "text",
+                        "disabled": false
+                      },
+                      {
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "{{apiKey}}",
+                        "type": "text",
+                        "disabled": false
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{urlOrder}}/api/v3/order",
+                      "host": [
+                        "{{urlOrder}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v3",
+                        "order"
+                      ],
+                      "query": [],
+                      "variable": []
+                    }
+                  },
+                  "response": []
+                }
+              ]
             }
           ]
         }
@@ -2251,7 +2367,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n    \"type\": \"Customer\",\r\n    \"email\": \"agencias.sao@abreutur.com.br\",\r\n    \"govId\": \"193.396.727-71\",\r\n    \"name\": {\r\n        \"first\": \"Gustavo\",\r\n        \"last\": \"Silva\"\r\n    },\r\n    \"phones\": [\r\n        {\r\n            \"type\": \"Fax\",\r\n            \"number\": \"111111111\"\r\n        }\r\n    ],\r\n    \"address\": {\r\n         \"countryCode\": \"BR\"\r\n    }\r\n}\r\n\r\n// {\r\n//     \"type\": \"Customer\",\r\n//     \"email\": \"teste@teste.com\",\r\n//     \"name\": {\r\n//         \"first\": \"João\",\r\n//         \"last\": \"Silva\"\r\n//     },\r\n//     \"phones\": [\r\n//         {\r\n//             \"type\": \"Fax\",\r\n//             \"number\": \"111111111\"\r\n//         }\r\n//     ]\r\n// }",
+                  "raw": "{    \r\n    \"email\": \"agencias.sao@abreutur.com.br\",\r\n    \"govId\": \"193.396.727-71\",\r\n    \"name\": {\r\n        \"first\": \"Gustavo\",\r\n        \"last\": \"Silva\"\r\n    },\r\n    \"phones\": [\r\n        {\r\n            \"type\": \"Fax\",\r\n            \"number\": \"111111111\"\r\n        }\r\n    ],\r\n    \"address\": {\r\n         \"countryCode\": \"BR\",\r\n         \"lineOne\":\"\",\r\n         \"lineTwo\":\"\",\r\n         \"provinceState\":\"\",\r\n         \"city\": \"\",\r\n         \"postalCode\":\"\"\r\n    },\r\n    \"companyName\":\"\"\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
