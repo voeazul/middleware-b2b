@@ -1,88 +1,49 @@
 # Changelog
 
-## [1.25.0] - 2026/09/30
+## [1.26.0] - YYYY/MM/DD
 
 ### Added
-- Added a new custom period type (date range) for extracting the Payment Report on the **Sales.B2B.Reports.Api**, allowing queries beyond the existing day, week, and month options.
-- Released a new version (V2) of the IROP contact registration and update methods on the **Sales.B2B.Order.Api**, **Order.Management.Api**, and **Organizations.Api**.
+- Added the _GET InstallmentsCalculate_ method (V1) on the **Sales.B2B.Order.Payments.Api**, allowing installment conditions to be simulated without a previously created booking (Order in State), using only the data provided in the request (amount, taxes and, optionally, the card BIN and domestic/international market). When the BIN is provided, the installment plan matching the card is returned; when neither BIN nor market is provided, all four installment options are returned (Azul and Regular, domestic and international). The returned values are a preliminary estimate and may change after the booking is created and validated; for final values, the _GET Installments_ method must be used, which remains available without changes. No installment options are returned for currencies other than BRL.
 
   **Affected artifacts:**
-  - API: `Sales.B2B.Reports.Api`
-    - Método: `POST /api/v1/orders/reports/payments`
+  - API: `Sales.B2B.Order.Payments.Api`
+    - Method: `GET /api/v1/order/payments/installmentscalculate`
+
+- Added a method to change the data of Infant passengers on the **Sales.B2B.Order.Passengers.Api**, extending to Infants the changes already allowed for adult and child passengers. The change covers the Infant's nationality, gender, date of birth, and travel documents.
+
+  **Affected artifacts:**
+  - API: `Sales.B2B.Order.Passengers.Api`
+    - Method: `PATCH /api/v1/order/{recordLocator}/passengers/{Key}/infant`
+
+- Added the _OrganizationGroup_ search criterion to the booking search on the **Sales.B2B.Order.Management.Api**, allowing bookings to be searched by organizational group. Also fixed the organization and agent information sent in Navitaire queries, ensuring the search runs in the context of the queried organization, and removed the requirement for the _FirstName_ field. Existing search criteria remain unchanged.
+
+  **Affected artifacts:**
+  - API: `Sales.B2B.Order.Management.Api`
+    - Method: `GET /api/v1/orders/searchBy/:type`
 
 ### Updated
-- Updated the Reaccommodation Report on the **Sales.B2B.Reports.Api** to no longer include GDS or Group bookings, returning only reservations within the B2B context.
+- Fixed the organizational credits lookup on the **Sales.B2B.Order.Payments.Api**, which was interrupted when the booking had a document type not mapped by the B2B middleware. These bookings are now processed normally, following the same behavior already adopted on the **Sales.B2B.Order.Management.Api**; already mapped documents continue to be processed without changes.
 
   **Affected artifacts:**
-  - API: `Sales.B2B.Reports.Api`
+  - API: `Sales.B2B.Order.Payments.Api`
+    - Method: `GET /api/v1/order/payments/credits/:type`
 
-- Fixed the monetary values returned in the Sales Report on the **Sales.B2B.Reports.Api**, which were being displayed without the correct decimal places; added the organization code and organization name fields and reorganized the field display order.
-
-  **Affected artifacts:**
-  - API: `Sales.B2B.Reports.Api`
-
-- Fixed the Segment Report search on the **Sales.B2B.Reports.Api** to consider all agents within the requesting agency, rather than only the agent who generated the request; added the booking creation date field and reorganized the field display order.
+- Fixed the discrepancy in the reaccommodation information returned by the _Get Summary_ and _Get Summary Details_ methods on the **Sales.B2B.Order.Reaccommodation.Api**, ensuring that totals are consistent with the details and that segments actually changed are returned as reaccommodated.
 
   **Affected artifacts:**
-  - API: `Sales.B2B.Reports.Api`
+  - API: `Sales.B2B.Order.Reaccommodation.Api`
+    - Method: `GET /api/v1/orders/reaccommodations/summary`
+    - Method: `GET /api/v1/orders/reaccommodations/summary/Details`
 
-- Changed the organization lookup permission on the **Sales.B2B.Organizations.Api**, allowing internal integrations to retrieve organization data without requiring a link to a commercial group.
-
-  **Affected artifacts:**
-  - API: `Sales.B2B.Organizations.Api`
-    - Method: `GET api/private/v1/organizations/{organizationCode}`
-
-- Fixed the passenger name change verification response on the **Sales.B2B.Order.Passengers.Api**, so it now correctly indicates which passengers have already had their name changed on bookings with multiple travelers.
-
-  **Affected artifacts:**
-  - API: `Sales.B2B.Order.Passengers.Api`
-    - Method: `PATCH api/v1/order/{recordLocator}/passengers/{passengerKey}/name`
-    - Method: `PATCH api/v1/order/{recordLocator}/passengers/name/confirm`
-
-- Excluded bookings created by Portal Grupos from the booking search (SearchBy) on the **Sales.B2B.Order.Management.Api**, keeping only bookings within the B2B context in the results.
-
-  **Affected artifacts:**
-  - API: `Sales.B2B.Order.Management.Api`
-    - Method: `SearchBy`
-
-- Made the IROP contact (IropContact) mandatory on the **Sales.B2B.Order.Api**, with the phone number now provided as three separate fields (country code, area code, and number).
-
-  **Affected artifacts:**
-  - API: `Sales.B2B.Order.Passengers.Api`
-    - Method: `PUT api/v1/order/{recordLocator}/passengers/{passengerKey}`
-  - API: `Sales.B2B.Order.Management.Api`
-    - Method: `PATCH api/v1/order/{recordLocator}/contact`
-  - API: `Sales.B2B.Organizations.Api`
-    - Method: `POST api/v1/organizations/{organizationCode}/users`
-    - Method: `POST api/v1/organizations/parent/{organizationCode}`
-
-- Added unruly passenger validation to the **Sales.B2B.Order.Api** and **Sales.B2B.Order.Management.Api**, preventing reservations containing this type of passenger from being confirmed through checkout. For passengers with **BR** nationality, providing a **CPF** document will be mandatory. This validation is independent of the existing BPE blocking rules and will apply exclusively to 100% domestic flights. International flights or itineraries involving an international connection will not be subject to this validation.
-- Adjusted document validations when creating a reservation: removed the mandatory block tied to BPe, keeping only the travel document validation required by Resolution 800, based on the passenger's nationality. Also changed the contact's GovId validation, which now only checks whether the field was filled in, regardless of country or nationality, automatically validating the format as a CPF (11 characters) or CNPJ (14 characters) when applicable.
+- Included the request's UserAgent in the comment automatically recorded when a booking is created through the **Sales.B2B.Order.Api**, making it possible to identify the channel, application, or integration responsible for creating the booking. When the UserAgent is not sent, the comment records "Não informado" (not provided), without impacting booking creation.
 
   **Affected artifacts:**
   - API: `Sales.B2B.Order.Api`
-    - Method: `POST /sales/b2b/order/api/v1/order`
 
-- Changed the passenger travel document nationality validation, replacing the `issuingCountry` field with `birthCountry`, correctly reflecting that the information represents the passenger's country of birth.
-
-  **Affected artifacts:**
-  - API: `Sales.B2B.Order.Passengers.Api`
-    - Method: `PUT /api/v1/order/{recordLocator}/passengers/{passengerKey}`
-    - Method: `PATCH /api/v1/order/{recordLocator}/passengers/:passengerKey`
-  - API: `Sales.B2B.Order.Payments.Api`
-    - Method: `POST /api/v1/order/payments`
-
-- Removed the nationality validation based on the `country` field of the Customer contact's address when creating a reservation, keeping only the requirement to fill in the GovId.
+- Updated the documentation of the _MethodCode_ field on the **Sales.B2B.Order.Payments.Api** and the _methodCode_ attribute on the **Sales.B2B.Order.Management.Api**, detailing the meaning of each payment method code: AG (Agency Account), CF (Credit File), AX (American Express), VI (Visa), MC (MasterCard), DI (Diners Club), HP (Hipercard), and EL (Elo). Documentation-only change, with no functional impact.
 
   **Affected artifacts:**
   - API: `Sales.B2B.Order.Payments.Api`
-    - Method: `POST /api/v1/order/payments`
-
-- Removed the CPF requirement for foreign passengers residing in Brazil, allowing the Customer contact to be registered with valid documents from their country of origin; Brazilian passengers continue to follow the current rules. Also expanded the fields accepted when updating the Customer contact, including company name and full address (line 1, line 2, state, city, and postal code).
-
-  **Affected artifacts:**
   - API: `Sales.B2B.Order.Management.Api`
-    - Method: `POST /api/v1/order/{recordLocator}/contact/customer`
-    - Method: `PATCH /api/v1/order/{recordLocator}/contact`
 
 [Link to previous versions](/docs/en-us/change-log/readme.history.md)
