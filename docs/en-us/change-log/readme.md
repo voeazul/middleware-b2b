@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.26.0] - YYYY/MM/DD
+## [1.26.0] - 2026/11/11
 
 ### Added
 - Added the _GET InstallmentsCalculate_ method (V1) on the **Sales.B2B.Order.Payments.Api**, allowing installment conditions to be simulated without a previously created booking (Order in State), using only the data provided in the request (amount, taxes and, optionally, the card BIN and domestic/international market). When the BIN is provided, the installment plan matching the card is returned; when neither BIN nor market is provided, all four installment options are returned (Azul and Regular, domestic and international). The returned values are a preliminary estimate and may change after the booking is created and validated; for final values, the _GET Installments_ method must be used, which remains available without changes. No installment options are returned for currencies other than BRL.
