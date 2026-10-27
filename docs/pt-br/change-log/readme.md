@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.26.0] - DD/MM/2026
+## [1.26.0] - 11/11/2026
 
 ### Adicionado
 - Adicionado o método _GET InstallmentsCalculate_ (V1) na **Sales.B2B.Order.Payments.Api**, permitindo simular as condições de parcelamento sem a necessidade de uma reserva previamente criada (Order em State), utilizando apenas os dados informados na requisição (valor, taxas e, opcionalmente, BIN do cartão e mercado doméstico/internacional). Quando o BIN é informado, é retornado o parcelamento correspondente ao cartão; quando BIN e mercado não são informados, são retornadas as quatro opções de parcelamento (Azul e Regular, doméstico e internacional). Os valores retornados representam uma estimativa prévia e podem sofrer alterações após a criação e validação da reserva; para os valores definitivos, deve ser utilizado o método _GET Installments_, que permanece disponível sem alterações. Para moedas diferentes de BRL, não são apresentadas opções de parcelamento.
